@@ -6,4 +6,4 @@
 
 [Image BBS 3.0 Programmer's Reference Guide](https://pinacolada64.github.io/ImageBBS3-docs.github.io/Image-BBS-3-PRG.html)
 
-Pull requests can be made over at https://github.com/Pinacolada64/ImageBBS3-docs.github.io
+These are a work in progress. Pull requests can be made over at https://github.com/Pinacolada64/ImageBBS3-docs.github.io
