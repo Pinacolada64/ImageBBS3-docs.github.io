@@ -517,6 +517,17 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#trueprogramming-features">Programming Features</a></li>
 </ul>
 </li>
+<li><a href="#trueboot-up">Boot Up</a>
+<ul class="sectlevel2">
+<li><a href="#truestartup-files">Startup Files</a></li>
+<li><a href="#trueidle-screen-display">Idle Screen Display</a></li>
+<li><a href="#truestatus-line">Status Line</a>
+<ul class="sectlevel3">
+<li><a href="#truestatus-indicators">Status Indicators</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="#truethe-lightbar">The Lightbar</a>
 <ul class="sectlevel2">
 <li><a href="#truelightbar-defaults">Lightbar Defaults</a></li>
@@ -947,13 +958,13 @@ If you intend to use a SwiftLink, Turbo232, or a clone of these on the cartridge
 <p><kbd>4</kbd> Lt. Kernal Port 2</p>
 </div>
 <div class="paragraph">
-<p>If you select <kbd>1</kbd> you will have to set the date and time after every reboot.</p>
+<p>If you select <kbd>1</kbd>, you need to set the date and time after every reboot.</p>
 </div>
 <div class="paragraph">
-<p>If you select (2) the program will ask which device has the Creative Micro Designs Real-Time Clock option. Enter the device number of your CMD device.</p>
+<p>If you select <kbd>2</kbd>, you are asked which device has the Creative Micro Designs Real-Time Clock option. Enter the device number of your CMD device.</p>
 </div>
 <div class="paragraph">
-<p>Options (3) and (4) are for use with Lloyd Sponenbirgh’s Real Time Clock module attached.</p>
+<p>Options <kbd>3</kbd> and <kbd>4</kbd> are for use with Lloyd Sponenburgh’s Real-Time Clock module attached.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="6">
@@ -2117,6 +2128,91 @@ The developers felt they had done almost all they wanted to do with that version
 </div>
 </div>
 <div class="sect1">
+<h2 id="trueboot-up"><a class="anchor" href="#trueboot-up"></a>Boot Up</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="truestartup-files"><a class="anchor" href="#truestartup-files"></a>Startup Files</h3>
+
+</div>
+<div class="sect2">
+<h3 id="trueidle-screen-display"><a class="anchor" href="#trueidle-screen-display"></a>Idle Screen Display</h3>
+
+</div>
+<div class="sect2">
+<h3 id="truestatus-line"><a class="anchor" href="#truestatus-line"></a>Status Line</h3>
+<div class="sect3">
+<h4 id="truestatus-indicators"><a class="anchor" href="#truestatus-indicators"></a>Status Indicators</h4>
+<table class="tableblock frame-all grid-all fit-content">
+<caption class="title">Table 2. Function Indicators</caption>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Character</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>A</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Text output aborted</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>G</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Garbage collection occurring</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>L</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lt. Kernal port lock</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>P</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Text output paused</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>S</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Swapping data</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all fit-content">
+<caption class="title">Table 3. File transfer indicators</caption>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Character</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>F</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RS232 flow control asserted</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>I</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interrupts disabled</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>L</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Loading data?</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>O</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Overrun</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="truethe-lightbar"><a class="anchor" href="#truethe-lightbar"></a>The Lightbar</h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -2134,7 +2230,7 @@ The developers felt they had done almost all they wanted to do with that version
 <p>The function keys <kbd>f1</kbd>-<kbd>f8</kbd> are used to switch pages, move the &#8220;lit&#8221; portion of the lightbar, and enable/disable individual lightbar positions, shown in the table below:</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 2. Lightbar Function Keys</caption>
+<caption class="title">Table 4. Lightbar Function Keys</caption>
 <colgroup>
 <col>
 <col>
@@ -2217,7 +2313,7 @@ The decimal/hexadecimal values of each lightbar position (used for <a href="#lig
 </table>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 3. Lightbar, page 1</caption>
+<caption class="title">Table 5. Lightbar, page 1</caption>
 <colgroup>
 <col style="width: 12.5%;">
 <col style="width: 12.5%;">
@@ -2546,7 +2642,7 @@ They are told the area is closed temporarily.</p>
 They are told that they do not have access to that area at this time.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 4. Lightbar, page 2</caption>
+<caption class="title">Table 6. Lightbar, page 2</caption>
 <colgroup>
 <col style="width: 12.5%;">
 <col style="width: 12.5%;">
@@ -2700,7 +2796,7 @@ This is only meant as a debugging tool, and is normally left disabled.</p>
 <p>Disables the use of the Message Command Interpreter in the BBS text editor.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 5. Lightbar, page 3</caption>
+<caption class="title">Table 7. Lightbar, page 3</caption>
 <colgroup>
 <col style="width: 12.5%;">
 <col style="width: 12.5%;">
@@ -2856,7 +2952,7 @@ If a call connects during this time, they are told to call back when network tra
 <p>If enabled, the user will see a file called <code>s.detect</code> at login instead of a specific message about their graphics mode.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 6. Lightbar, page 4</caption>
+<caption class="title">Table 8. Lightbar, page 4</caption>
 <colgroup>
 <col style="width: 12.5%;">
 <col style="width: 12.5%;">
@@ -2967,7 +3063,7 @@ For more information, see  <a href="#emulation-mode">Image 1.x Emulation Mode</a
 <p><code>$3e</code> right: <em>Undefined</em></p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 7. Lightbar, page 5</caption>
+<caption class="title">Table 9. Lightbar, page 5</caption>
 <colgroup>
 <col style="width: 12.5%;">
 <col style="width: 12.5%;">
@@ -2992,7 +3088,7 @@ For more information, see  <a href="#emulation-mode">Image 1.x Emulation Mode</a
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 8. Lightbar, page 6</caption>
+<caption class="title">Table 10. Lightbar, page 6</caption>
 <colgroup>
 <col style="width: 12.5%;">
 <col style="width: 12.5%;">
@@ -3017,7 +3113,7 @@ For more information, see  <a href="#emulation-mode">Image 1.x Emulation Mode</a
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 9. Lightbar, page 7</caption>
+<caption class="title">Table 11. Lightbar, page 7</caption>
 <colgroup>
 <col style="width: 12.5%;">
 <col style="width: 12.5%;">
@@ -3045,7 +3141,7 @@ For more information, see  <a href="#emulation-mode">Image 1.x Emulation Mode</a
 <p>Pages 5-7 are undefined and are available for your own use.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 10. Lightbar, page 8</caption>
+<caption class="title">Table 12. Lightbar, page 8</caption>
 <colgroup>
 <col style="width: 12.5%;">
 <col style="width: 12.5%;">
@@ -3205,7 +3301,7 @@ If this is enabled, an &#8220;emulation layer&#8221; loads, which uses Image 1.<
 <p>First, you are prompted for the <em>command class</em>. A number, 3-5, is required here. The command class specifies which module type will be loaded, and which line number it starts executing at.</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 11. Module Command Classes</caption>
+<caption class="title">Table 13. Module Command Classes</caption>
 <colgroup>
 <col>
 <col>
@@ -3272,7 +3368,7 @@ In Xetec&#8217;s Lt.Kernal hard drive DOS terminology, the drive number refers t
 <p>Each type of module uses a different variable within the BASIC code to control which subroutine in the module executes. You are prompted for the value of the variable here.</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 12. Module Variables</caption>
+<caption class="title">Table 14. Module Variables</caption>
 <colgroup>
 <col>
 <col>
@@ -3317,7 +3413,7 @@ A <code>file not found</code> DOS error is written to the system error log (<cod
 </table>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 13. Module Types</caption>
+<caption class="title">Table 15. Module Types</caption>
 <colgroup>
 <col>
 <col>
@@ -3459,7 +3555,7 @@ A <code>file not found</code> DOS error is written to the system error log (<cod
 <p>TODO: Quick summaries of lightbar flags in 3-column tables. Find out how to balance <code>Left</code> and <code>Right</code> column widths.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 14. Lightbar, page 1</caption>
+<caption class="title">Table 16. Lightbar, page 1</caption>
 <colgroup>
 <col style="width: 12.5%;">
 <col style="width: 12.5%;">
@@ -3626,7 +3722,7 @@ Disable U/D Section       14 U/D 15   300 Baud U/D Lockout</pre>
 </div>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 15. Lightbar, page 2</caption>
+<caption class="title">Table 17. Lightbar, page 2</caption>
 <colgroup>
 <col style="width: 12.5%;">
 <col style="width: 12.5%;">
@@ -3721,7 +3817,7 @@ Macros On/Off             30 Mac 31   MCI Disable in Editor</pre>
 </div>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 16. Lightbar, page 3</caption>
+<caption class="title">Table 18. Lightbar, page 3</caption>
 <colgroup>
 <col style="width: 12.5%;">
 <col style="width: 12.5%;">
@@ -3815,7 +3911,7 @@ Enable Express Logon          46 Xpr 47   Use s.detect Files</pre>
 </div>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 17. Lightbar, page 4</caption>
+<caption class="title">Table 19. Lightbar, page 4</caption>
 <colgroup>
 <col style="width: 12.5%;">
 <col style="width: 12.5%;">
@@ -3907,7 +4003,7 @@ TODO                          60 DSR 61   TODO</pre>
 </div>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 18. Lightbar, page 5</caption>
+<caption class="title">Table 20. Lightbar, page 5</caption>
 <colgroup>
 <col style="width: 12.5%;">
 <col style="width: 12.5%;">
@@ -3932,7 +4028,7 @@ TODO                          60 DSR 61   TODO</pre>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 19. Lightbar, page 6</caption>
+<caption class="title">Table 21. Lightbar, page 6</caption>
 <colgroup>
 <col style="width: 12.5%;">
 <col style="width: 12.5%;">
@@ -3957,7 +4053,7 @@ TODO                          60 DSR 61   TODO</pre>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 20. Lightbar, page 7</caption>
+<caption class="title">Table 22. Lightbar, page 7</caption>
 <colgroup>
 <col style="width: 12.5%;">
 <col style="width: 12.5%;">
@@ -3985,7 +4081,7 @@ TODO                          60 DSR 61   TODO</pre>
 <p>Pages 5-7 are undefined and are available for your own use.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 21. Lightbar, page 8</caption>
+<caption class="title">Table 23. Lightbar, page 8</caption>
 <colgroup>
 <col style="width: 12.5%;">
 <col style="width: 12.5%;">
@@ -4071,7 +4167,7 @@ TODO                          60 DSR 61   TODO</pre>
 <div id="footer">
 <div id="footer-text">
 Version 0.1<br>
-Last updated 2020-10-23 00:34:23 -0700
+Last updated 2020-10-28 00:28:33 -0700
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">
