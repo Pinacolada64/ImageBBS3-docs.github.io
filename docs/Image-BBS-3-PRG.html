@@ -5,8 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.8.dev">
-<meta name="author" content="Ryan Sherwood, Larry Hedman, Al DeRosa">
-<title>Image BBS 3.0 Programmer&#8217;s Reference Guide</title>
+<title>Lightbar Reference</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -437,51 +436,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body class="article toc2 toc-left">
+<body class="article">
 <div id="header">
-<h1>Image BBS 3.0 Programmer&#8217;s Reference Guide</h1>
-<div class="details">
-<span id="author" class="author">Ryan Sherwood</span><br>
-<span id="email" class="email"><a href="mailto:sym.rsherwood@gmail.com">sym.rsherwood@gmail.com</a></span><br>
-<span id="author2" class="author">Larry Hedman</span><br>
-<span id="email2" class="email"><a href="mailto:larryhedman@gmail.com">larryhedman@gmail.com</a></span><br>
-<span id="author3" class="author">Al DeRosa</span><br>
-<span id="email3" class="email"><a href="mailto:bucko219@gmail.com">bucko219@gmail.com</a></span><br>
-<span id="revnumber">version 0.1,</span>
-<span id="revdate">2020-09-26</span>
-</div>
-<div id="toc" class="toc2">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#truelightbar-reference">Lightbar Reference</a>
-<ul class="sectlevel2">
-<li><a href="#truelightbar-numbering">Lightbar Numbering</a></li>
-<li><a href="#truelightbar-interface-52">Lightbar Interface: <code>&amp;,52</code></a></li>
-</ul>
-</li>
-</ul>
-</div>
 </div>
 <div id="content">
-<div id="preamble">
-<div class="sectionbody">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Preliminary start on documentation. Feedback welcome!
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Welcome to the Image BBS 3.0&#8217;s Programmer&#8217;s Reference Guide.</p>
-</div>
-</div>
-</div>
 <div class="sect1">
 <h2 id="truelightbar-reference"><a class="anchor" href="#truelightbar-reference"></a>Lightbar Reference</h2>
 <div class="sectionbody">
@@ -654,9 +612,9 @@ Preliminary start on documentation. Feedback welcome!
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>Sc2</code></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>Scp</code></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>Alt</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>$38</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>$3a</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>$3c</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Trb</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>DCD</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>DSR</code></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>$3e</code></p></td>
 </tr>
 <tr>
@@ -888,7 +846,7 @@ Preliminary start on documentation. Feedback welcome!
 <p><code>&amp;,52,<em>position</em>,<em>mode</em></code></p>
 </div>
 <div class="paragraph">
-<p><code>position</code> ranges from 0-119 decimal ($00-$78 hexadecimal--<code>&amp;,52,$30,0</code>, for example, is allowed).</p>
+<p><code>position</code> ranges from 0-127 decimal ($00-$7f hexadecimal--<code>&amp;,52,$30,0</code>, for example, is allowed).</p>
 </div>
 <div class="paragraph">
 <p><code>mode</code> is 0-4 as used by BASIC.</p>
@@ -917,7 +875,7 @@ Preliminary start on documentation. Feedback welcome!
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>4</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">move &#8220;lit&#8221; portion of lightbar to position 0-55 [FIXME: or 1-56?]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">move &#8220;lit&#8221; portion of lightbar to position 0-55 [<mark>FIXME</mark>: or 1-56?]</p></td>
 </tr>
 </tbody>
 </table>
@@ -925,7 +883,7 @@ Preliminary start on documentation. Feedback welcome!
 <div class="sect3">
 <h4 id="trueassembly-example"><a class="anchor" href="#trueassembly-example"></a>Assembly Example</h4>
 <div class="paragraph">
-<p>FIXME</p>
+<p><mark>FIXME</mark></p>
 </div>
 <div class="paragraph">
 <p>Mode 5 is reserved for use by ML routines, and is the equivalent of <code>&amp;,52,<em>x</em>,3</code> in BASIC. <code>ldx</code> with the flag to check, <code>jsr chkflags</code>, and the result (0 or 1) is returned in <code>.a</code>.</p>
@@ -947,8 +905,7 @@ beq flag_off</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 0.1<br>
-Last updated 2020-10-02 17:41:18 -0700
+Last updated 2020-10-28 20:16:15 -0700
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">

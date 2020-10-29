@@ -2969,9 +2969,9 @@ If a call connects during this time, they are told to call back when network tra
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>Sc2</code></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>Scp</code></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>Alt</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>$38</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>$3a</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>$3c</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Trb</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>DCD</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>DSR</code></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>$3e</code></p></td>
 </tr>
 </tbody>
@@ -2989,7 +2989,7 @@ If a call connects during this time, they are told to call back when network tra
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-The main prompt <kbd>R</kbd>un command will check this lightbar flag and prompt for the appropriate module type.
+The main prompt <kbd>R</kbd>un command checks this lightbar flag and prompts for the appropriate module type.
 For more information, see  <a href="#emulation-mode">Image 1.x Emulation Mode</a>.
 </td>
 </tr>
@@ -3036,24 +3036,58 @@ For more information, see  <a href="#emulation-mode">Image 1.x Emulation Mode</a
 <p><code>Trb</code> left: <em>Disable Troubleshooting Mode</em></p>
 </div>
 <div class="paragraph">
-<p>If enabled, the programmable window will not display variable values for debugging.</p>
+<p>If enabled, the programmable window will not display variable values for debugging purposes.</p>
 </div>
 <div class="paragraph">
 <p><code>Trb</code> right: <em>Undefined</em></p>
 </div>
 <hr>
 <div class="paragraph">
-<p><code>DCD</code> left: <mark>TODO</mark></p>
+<p><code>DCD</code> left: <em>Invert DCD Signal</em></p>
 </div>
 <div class="paragraph">
-<p><code>DCD</code> right: <mark>TODO</mark></p>
+<p><strong>Enabled:</strong> The modem hangs up when an inverted (asserted when high) Data Carrier Detect signal is received from the modem.</p>
+</div>
+<div class="paragraph">
+<p><strong>Disabled:</strong> The modem hangs up when a normal (asserted when low) Data Carrier Detect signal is received from the modem.</p>
+</div>
+<div class="paragraph">
+<p><code>DCD</code> right: <em>Carrier Present</em></p>
+</div>
+<div class="paragraph">
+<p>When enabled, there is either a DCD or DSR carrier signal present.
+This can be checked for in BASIC using <code>&amp;,52,$3c,3:if a% then &#8230;&#8203;</code>.</p>
 </div>
 <hr>
 <div class="paragraph">
-<p><code>DSR</code> left: <mark>TODO</mark></p>
+<p><code>DSR</code> left: <em>DCD/DSR select</em></p>
 </div>
 <div class="paragraph">
-<p><code>DSR</code> right: <mark>TODO</mark></p>
+<p>You can choose whether loss of Data Carrier Detect or Data Set Ready signals indicates there is no user connected, therefore the BBS should hang up.</p>
+</div>
+<div class="paragraph">
+<p><strong>Enabled</strong>: If there is no Data Set Ready signal present, then hang up.</p>
+</div>
+<div class="paragraph">
+<p><strong>Disabled</strong>: If there is no Data Carrier Detect signal, then hang up.</p>
+</div>
+<div class="paragraph">
+<p><code>DSR</code> right: <em>Show Rx/Tx Windows</em></p>
+</div>
+<div class="paragraph">
+<p>If enabled, show data being received/transmitted in receive/transmit windows.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+At higher bits per second rates, the data is not shown to achieve maximum throughput.
+</td>
+</tr>
+</table>
 </div>
 <hr>
 <div class="paragraph">
@@ -4167,7 +4201,7 @@ TODO                          60 DSR 61   TODO</pre>
 <div id="footer">
 <div id="footer-text">
 Version 0.1<br>
-Last updated 2020-10-28 00:28:33 -0700
+Last updated 2020-10-28 20:07:29 -0700
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">
