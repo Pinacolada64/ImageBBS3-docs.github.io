@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.8.dev">
-<title>Lightbar Reference</title>
+<meta name="author" content="Ryan Sherwood, Larry Hedman, Al DeRosa">
+<title>Image BBS 3.0 Programmer&#8217;s Reference Guide</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -436,10 +437,99 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body class="article">
+<body class="article toc2 toc-left">
 <div id="header">
+<h1>Image BBS 3.0 Programmer&#8217;s Reference Guide</h1>
+<div class="details">
+<span id="author" class="author">Ryan Sherwood</span><br>
+<span id="email" class="email"><a href="mailto:sym.rsherwood@gmail.com">sym.rsherwood@gmail.com</a></span><br>
+<span id="author2" class="author">Larry Hedman</span><br>
+<span id="email2" class="email"><a href="mailto:larryhedman@gmail.com">larryhedman@gmail.com</a></span><br>
+<span id="author3" class="author">Al DeRosa</span><br>
+<span id="email3" class="email"><a href="mailto:bucko219@gmail.com">bucko219@gmail.com</a></span><br>
+<span id="revnumber">version 0.1,</span>
+<span id="revdate">2020-09-26</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#trueprogramming-image-bbs-3-0">Programming Image BBS 3.0</a>
+<ul class="sectlevel2">
+<li><a href="#trueoverall-description">Overall Description</a></li>
+<li><a href="#trueim-subroutines"><code>im</code> Subroutines</a></li>
+<li><a href="#true-calls"><code>&amp;</code> Calls</a></li>
+<li><a href="#truemodules">Modules</a></li>
+<li><a href="#truevariable-handling">Variable Handling</a></li>
+<li><a href="#trueimage-bbs-output-routine">Image BBS Output Routine</a></li>
+<li><a href="#truepokes-and-machine-language-routines">POKEs and Machine Language Routines</a></li>
+</ul>
+</li>
+<li><a href="#truelightbar-reference">Lightbar Reference</a>
+<ul class="sectlevel2">
+<li><a href="#truelightbar-numbering">Lightbar Numbering</a></li>
+<li><a href="#truelightbar-interface-52">Lightbar Interface: <code>&amp;,52</code></a></li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 <div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Preliminary start on documentation. Feedback welcome!
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Welcome to the <em>Image BBS 3.0 Programmer&#8217;s Reference Guide</em>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="trueprogramming-image-bbs-3-0"><a class="anchor" href="#trueprogramming-image-bbs-3-0"></a>Programming Image BBS 3.0</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="trueoverall-description"><a class="anchor" href="#trueoverall-description"></a>Overall Description</h3>
+
+</div>
+<div class="sect2">
+<h3 id="trueim-subroutines"><a class="anchor" href="#trueim-subroutines"></a><code>im</code> Subroutines</h3>
+
+</div>
+<div class="sect2">
+<h3 id="true-calls"><a class="anchor" href="#true-calls"></a><code>&amp;</code> Calls</h3>
+
+</div>
+<div class="sect2">
+<h3 id="truemodules"><a class="anchor" href="#truemodules"></a>Modules</h3>
+
+</div>
+<div class="sect2">
+<h3 id="truevariable-handling"><a class="anchor" href="#truevariable-handling"></a>Variable Handling</h3>
+
+</div>
+<div class="sect2">
+<h3 id="trueimage-bbs-output-routine"><a class="anchor" href="#trueimage-bbs-output-routine"></a>Image BBS Output Routine</h3>
+<div class="paragraph">
+<p><code>&amp;"bla","bla"</code> and <code>&amp;"bla &pound;!x"</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="truepokes-and-machine-language-routines"><a class="anchor" href="#truepokes-and-machine-language-routines"></a>POKEs and Machine Language Routines</h3>
+<div class="paragraph">
+<p><mark>TODO</mark>: POKEs are going away in favor of <code>&amp;,20</code> and <code>&amp;,21</code> interface read/write commands.</p>
+</div>
+</div>
+</div>
+</div>
 <div class="sect1">
 <h2 id="truelightbar-reference"><a class="anchor" href="#truelightbar-reference"></a>Lightbar Reference</h2>
 <div class="sectionbody">
@@ -905,7 +995,8 @@ beq flag_off</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-10-28 20:16:15 -0700
+Version 0.1<br>
+Last updated 2020-10-29 20:17:30 -0700
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">

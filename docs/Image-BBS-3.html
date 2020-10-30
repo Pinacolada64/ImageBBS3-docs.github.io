@@ -915,14 +915,6 @@ If you are using a virtual modem such as <code>tcpser</code> and need to use esc
 </tr>
 </table>
 </div>
-<div class="olist arabic">
-<ol class="arabic" start="7">
-<li>
-<p>Line 3082 in <code>im</code> is preconfigured for running Image 3.0 from the user port.
-If you intend to use a SwiftLink, Turbo232, or a clone of these on the cartridge port, change <code>&amp;,16,.</code> (which initializes user port RS232) at the end of that line to <code>&amp;,16,1</code> (this initializes cartridge port RS232 instead).</p>
-</li>
-</ol>
-</div>
 </div>
 <div class="sect2">
 <h3 id="trueinstallation"><a class="anchor" href="#trueinstallation"></a>Installation</h3>
@@ -979,7 +971,7 @@ If you intend to use a SwiftLink, Turbo232, or a clone of these on the cartridge
 <div class="olist arabic">
 <ol class="arabic" start="7">
 <li>
-<p>Part IV:  BBS Information</p>
+<p>Part IV: BBS Information</p>
 </li>
 </ol>
 </div>
@@ -988,8 +980,19 @@ If you intend to use a SwiftLink, Turbo232, or a clone of these on the cartridge
 </div>
 <div class="paragraph">
 <p>At this point, Image creates several files needed for its own operation.
-When finished, Image displays a message for you to read and asks you to <code>Hit any key</code>.
-Hit a key, and you are taken to the System Idle  screen.</p>
+When finished, Image displays a message for you to read and asks you to <code>Hit any key</code>.</p>
+</div>
+<div class="paragraph">
+<p>You are then prompted for the RS232 interface type you have connected to the C64.</p>
+</div>
+<div class="paragraph">
+<p>If you have an OmniTronix or similar user port interface, type <kbd>0</kbd>.</p>
+</div>
+<div class="paragraph">
+<p>If you have a SwiftLink, Turbo232, or a clone of these on the cartridge port, type <kbd>1</kbd>.</p>
+</div>
+<div class="paragraph">
+<p>Hit a key, and you are taken to the System Idle  screen.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1000,8 +1003,8 @@ Hit a key, and you are taken to the System Idle  screen.</p>
 <p>If the time has been set using a real-time clock, Image performs AutoMaintenance.</p>
 </li>
 <li>
-<p>If not already set by a real-time clock, the Bottom Status Line continues to flash until the time is set.
-Hit <kbd>1</kbd> to set the time. You are taken through several prompts to set the time and date.</p>
+<p>If not already set by a real-time clock, the bottom Status Line continues to flash until the time is set.
+Hit <kbd>1</kbd> to set the time. You are taken through several prompts to set the time and date:</p>
 </li>
 </ul>
 </div>
@@ -1062,6 +1065,9 @@ Hit <kbd>1</kbd> to set the time. You are taken through several prompts to set t
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>Enter only the last two digits of the year here.</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic" start="3">
 <li>
@@ -1091,7 +1097,7 @@ Hit <kbd>1</kbd> to set the time. You are taken through several prompts to set t
 </ol>
 </div>
 <div class="paragraph">
-<p>You are prompted <code>Select No &#8230;&#8203; or Yes to start clock</code>. <mark>FIXME</mark></p>
+<p>The current date and time is displayed, and you are prompted <code>Select Yes to Start Clock, or Select No to Change</code>.</p>
 </div>
 <div class="paragraph">
 <p><kbd>Y</kbd>es logs the time and date to <code>e.data</code> and sets the system clock.</p>
@@ -1535,9 +1541,6 @@ Transfer previous copy here?
 <ol class="loweralpha" type="a">
 <li>
 <p>The file <code>sub.modem</code> is customized for use with BBS Server using DTR as carrier detect.  Line 60080 contains print#131,chr$(27) for <mark>lowering DTR FIXME</mark>. If you are using a virtual modem such as tcpser and need to use escape codes for disconnecting the caller from the BBS, you may need to change the (27) to (43).</p>
-</li>
-<li>
-<p>The file <code>im</code> line 3082 is preconfigured for running Image 3.0 from the User port. If you intend to run from the cartridge port using a Swiftlink clone change &amp;,16,. at the end of that line to &amp;,16,1</p>
 </li>
 <li>
 <p>The file <code>im</code> line 3074 is preconfigured to run from drive 0. This is the default partition on most drives but if running on a Lt. Kernal and your boot LU is not LU0, change the <code>0</code> in line 3074 to the number of your boot LU.</p>
@@ -3314,7 +3317,7 @@ Mode 5 reads checkmarks in ML routines, and is discussed in the accompanying <em
 <h2 id="truerunning-modules"><a class="anchor" href="#truerunning-modules"></a>Running Modules</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Like Image 1.<em>x</em> (1.<em>x</em> stands for 1.0, 1.1, and 1.2) BBS before it, Image 3.0 can run modules from the main prompt by typing <kbd>R</kbd>.
+<p>Like Image 1.<em>x</em> (1.<em>x</em> stands for 1.0&#8212;&#8203;1.3) BBS before it, Image 3.0 can run modules from the main prompt by typing <kbd>R</kbd>.
 However, there are more types of modules available in this version of Image.</p>
 </div>
 <div class="sect2">
@@ -3379,7 +3382,7 @@ If this is enabled, an &#8220;emulation layer&#8221; loads, which uses Image 1.<
 Depending on the Image 1.<em>x</em> emulation status, system disk 5 is either your <code>i</code> module (Image 3.0) or <code>+</code> file (using Image 1.<em>x</em> emulation) disk.</p>
 </li>
 <li>
-<p>You can also type the device number, a comma, and the drive number to run a module from a specific device and drive. Devices 8-29 and drives 0-254 [TODO: check this] are supported.</p>
+<p>You can also type the device number, a comma, and the drive number to run a module from a specific device and drive. Devices 8-29 and drives 0-254 [<mark>TODO</mark>: check this] are supported.</p>
 </li>
 </ul>
 </div>
@@ -3429,7 +3432,7 @@ In Xetec&#8217;s Lt.Kernal hard drive DOS terminology, the drive number refers t
 </tbody>
 </table>
 <div class="paragraph">
-<p>TODO: There is a module jump table in the <em>Image 3.0 Programmer&#8217;s Reference Guide</em>.</p>
+<p><mark>TODO</mark>: There is a module jump table in the <em>Image 3.0 Programmer&#8217;s Reference Guide</em>.</p>
 </div>
 <div class="paragraph">
 <p>If there is no DOS error, the module should execute.</p>
@@ -3509,10 +3512,10 @@ A <code>file not found</code> DOS error is written to the system error log (<cod
 </tbody>
 </table>
 <div class="paragraph">
-<p>TODO: mention module stack?</p>
+<p><mark>TODO</mark>: mention module stack?</p>
 </div>
 <div class="paragraph">
-<p>TODO: finish this</p>
+<p><mark>TODO</mark>: finish this</p>
 </div>
 </div>
 <div class="sect2">
@@ -3521,7 +3524,7 @@ A <code>file not found</code> DOS error is written to the system error log (<cod
 <p>Here is a list of all the BBS module types.</p>
 </div>
 <div class="paragraph">
-<p>FIXME: ensure this is correct</p>
+<p><mark>FIXME</mark>: ensure this is correct</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
 <colgroup>
@@ -4201,7 +4204,7 @@ TODO                          60 DSR 61   TODO</pre>
 <div id="footer">
 <div id="footer-text">
 Version 0.1<br>
-Last updated 2020-10-28 20:07:29 -0700
+Last updated 2020-10-29 20:17:56 -0700
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">
