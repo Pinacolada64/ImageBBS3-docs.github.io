@@ -8,4 +8,4 @@
 
 [Image BBS 3.0 Message Command Interpreter Guide](https://pinacolada64.github.io/ImageBBS3-docs.github.io/mci.html)
 
-These are a work in progress. Pull requests can be made over at https://github.com/Pinacolada64/ImageBBS3-docs.github.io
+These are a work in progress. You can make a [pull request](https://github.com/Pinacolada64/ImageBBS3-docs.github.io/blob/main/docs).
