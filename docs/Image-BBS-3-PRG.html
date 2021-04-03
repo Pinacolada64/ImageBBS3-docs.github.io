@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.8.dev">
-<meta name="author" content="Ryan Sherwood, Larry Hedman, Al DeRosa">
+<meta name="author" content="Jack Followay, Jr., Ryan Sherwood, Larry Hedman, Al DeRosa">
 <title>Image BBS 3.0 Programmer&#8217;s Reference Guide</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -441,45 +441,66 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="header">
 <h1>Image BBS 3.0 Programmer&#8217;s Reference Guide</h1>
 <div class="details">
-<span id="author" class="author">Ryan Sherwood</span><br>
-<span id="email" class="email"><a href="mailto:sym.rsherwood@gmail.com">sym.rsherwood@gmail.com</a></span><br>
-<span id="author2" class="author">Larry Hedman</span><br>
-<span id="email2" class="email"><a href="mailto:larryhedman@gmail.com">larryhedman@gmail.com</a></span><br>
-<span id="author3" class="author">Al DeRosa</span><br>
-<span id="email3" class="email"><a href="mailto:bucko219@gmail.com">bucko219@gmail.com</a></span><br>
+<span id="author" class="author">Jack Followay, Jr.</span><br>
+<span id="author2" class="author">Ryan Sherwood</span><br>
+<span id="email2" class="email"><a href="mailto:sym.rsherwood@gmail.com">sym.rsherwood@gmail.com</a></span><br>
+<span id="author3" class="author">Larry Hedman</span><br>
+<span id="email3" class="email"><a href="mailto:larryhedman@gmail.com">larryhedman@gmail.com</a></span><br>
+<span id="author4" class="author">Al DeRosa</span><br>
+<span id="email4" class="email"><a href="mailto:bucko219@gmail.com">bucko219@gmail.com</a></span><br>
 <span id="revnumber">version 0.1,</span>
-<span id="revdate">2020-09-26</span>
+<span id="revdate">2021-04-01</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#trueprogramming-image-bbs-3-0">Programming Image BBS 3.0</a>
+<li><a href="#truepreface">Preface</a></li>
+<li><a href="#trueintroduction">Introduction</a>
 <ul class="sectlevel2">
-<li><a href="#trueoverall-description">Overall Description</a></li>
-<li><a href="#trueim-subroutines"><code>im</code> Subroutines</a></li>
-<li><a href="#true-calls"><code>&amp;</code> Calls</a></li>
-<li><a href="#truemodules">Modules</a></li>
-<li><a href="#truevariable-handling">Variable Handling</a></li>
-<li><a href="#trueimage-bbs-output-routine">Image BBS Output Routine</a></li>
-<li><a href="#truepokes-and-machine-language-routines">POKEs and Machine Language Routines</a></li>
+<li><a href="#truehow-to-use-this-guide">How to Use This Guide</a></li>
+<li><a href="#truehow-to-get-help">How to Get Help</a></li>
 </ul>
 </li>
+<li><a href="#trueprogramming-image-bbs-3-0">Programming Image BBS 3.0</a>
+<ul class="sectlevel2">
+<li><a href="#trueprogramming-etiquette">Programming Etiquette</a></li>
+</ul>
+</li>
+<li><a href="#truestatic-arrays-structures">Static Arrays (Structures)</a>
+<ul class="sectlevel2">
+<li><a href="#trueim-subroutines"><code>im</code> Subroutines</a></li>
+<li><a href="#truesub-module-jump-table"><code>sub.*</code> Module Jump Table</a></li>
+<li><a href="#true-calls"><code>&amp;</code> Calls</a></li>
+<li><a href="#trueimage-bbs-output-routine">Image BBS Output Routine</a></li>
+</ul>
+</li>
+<li><a href="#truevariables">Variables</a>
+<ul class="sectlevel2">
+<li><a href="#trueinteger">Integer</a></li>
+<li><a href="#truefloating-point">Floating Point</a></li>
+<li><a href="#truestring">String</a></li>
+<li><a href="#truearrays">Arrays</a></li>
+</ul>
+</li>
+<li><a href="#truepokes-and-machine-language-routines">POKEs and Machine Language Routines</a></li>
 <li><a href="#truelightbar-reference">Lightbar Reference</a>
 <ul class="sectlevel2">
 <li><a href="#truelightbar-numbering">Lightbar Numbering</a></li>
 <li><a href="#truelightbar-interface-52">Lightbar Interface: <code>&amp;,52</code></a></li>
 </ul>
 </li>
+<li><a href="#truememory-map">Memory Map</a></li>
 <li><a href="#truefile-formats">File Formats</a>
 <ul class="sectlevel2">
-<li><a href="#truee-data"><code>e.data</code></a></li>
+<li><a href="#trueintroduction-2">Introduction</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 <div id="content">
-<div id="preamble">
+<div class="sect1">
+<h2 id="truepreface"><a class="anchor" href="#truepreface"></a>Preface</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
 <table>
@@ -496,41 +517,415 @@ Preliminary start on documentation. Feedback welcome!
 <div class="paragraph">
 <p>Welcome to the <em>Image BBS 3.0 Programmer&#8217;s Reference Guide</em>.</p>
 </div>
+<div class="paragraph">
+<p>Image BBS has always been a versatile system, allowing a balance between the simplicity of operation and the power of customization with BASIC and ML programming.
+With the advent of Image BBS v3.0, the power of the system has increased greatly.</p>
+</div>
+<div class="paragraph">
+<p>Nearly the entire BBS can be customized completely online without the need for programming knowledge.  However, Image BBS v3.0 also provides for many powerful new programming tools not before available to the SysOp who desires complete customization of the BBS by changing the BASIC code.</p>
+</div>
+<div class="paragraph">
+<p>This guide is designed to help such programmers deal with the Image Application Programming Interface (API) more productively.
+A lot of hard work has gone into this manual as it was created while the BBS was still being developed.
+Care was taken to document as much of the BBS as possible for just this purpose.
+We hope you find this useful in creating the next generation of Image BBS applications.</p>
+</div>
+<div class="paragraph">
+<p>Happy programming!</p>
+</div>
+<div class="paragraph text-right">
+<p>&#8212;Jack Followay, Jr., Larry Hedman, Al DeRosa, and Ryan Sherwood</p>
+</div>
+<div class="paragraph text-right">
+<p>&#8212;thanks to jam for editing help</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="trueintroduction"><a class="anchor" href="#trueintroduction"></a>Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Welcome to the first official New Image BBS Programmer’s Reference Guide.
+While there was an unofficial guide released for Image v1.2, we hoped to give SysOps something they could trust when questions arose about v3.0.
+Nearly everyone who helped write Image v3.0 helped contribute to this guide.
+I would like to personally thank everyone who was involved, but if I’ve forgotten anyone please forgive me!</p>
+</div>
+<div class="paragraph">
+<p>Al DeRosa (Bucko)</p>
+</div>
+<div class="paragraph">
+<p>Larry Gartin (Wheelman)</p>
+</div>
+<div class="paragraph">
+<p>Ray Kelm (Professor)</p>
+</div>
+<div class="paragraph">
+<p>John Moore (Little John)</p>
+</div>
+<div class="paragraph">
+<p>Ryan Powers (MonOp)</p>
+</div>
+<div class="paragraph">
+<p>Bob Sisko (Iron Axe)</p>
+</div>
+<div class="paragraph">
+<p>Ed Wilson (Fred Krueger)</p>
+</div>
+<div class="paragraph">
+<p>And most of all, I’d like to thank our dear friend, Fred Dart, to who we owe the very existence of Image v2.0.
+Without Fred, the project would have been lost forever.
+It is in his memory that we dedicate Image BBS v3.0.</p>
+</div>
+<div class="sect2">
+<h3 id="truehow-to-use-this-guide"><a class="anchor" href="#truehow-to-use-this-guide"></a>How to Use This Guide</h3>
+
+</div>
+<div class="sect2">
+<h3 id="truehow-to-get-help"><a class="anchor" href="#truehow-to-get-help"></a>How to Get Help</h3>
+
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="trueprogramming-image-bbs-3-0"><a class="anchor" href="#trueprogramming-image-bbs-3-0"></a>Programming Image BBS 3.0</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="trueoverall-description"><a class="anchor" href="#trueoverall-description"></a>Overall Description</h3>
+<h3 id="trueprogramming-etiquette"><a class="anchor" href="#trueprogramming-etiquette"></a>Programming Etiquette</h3>
 
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="truestatic-arrays-structures"><a class="anchor" href="#truestatic-arrays-structures"></a>Static Arrays (Structures)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>Structures</em> allow you to store multiple types of data into memory reserved for arrays.
+There are functions to put and get strings, 11-digit dates, <mark>FIXME: more functions</mark> from this block of memory.
+For example, string data can be stored in a floating point or integer array.</p>
+</div>
+<div class="paragraph">
+<p><em>Elements</em> are <mark>FIXME: definition</mark></p>
+</div>
+<div class="paragraph">
+<p>It is suggested that you use numeric type arrays, since this will allow you to access the elements as numeric data, as well as put end get strings.</p>
+</div>
+<div class="paragraph">
+<p>Floating point arrays (like <code>a()</code> or <code>b()</code>) use 5 bytes per element.
+Integer arrays (like <code>a%()</code> or <code>b%()</code>) use 2 bytes per element.
+When deciding to use structures, you should determine what types of data you will need to store, and how much memory that data will require.</p>
+</div>
+<div class="paragraph">
+<p>As an example, let&#8217;s design a structure to hold a user’s handle, ID#, and password.
+The handle requires 20 characters.
+The ID is an integer type (never &gt; 32767) requiring 2 bytes.
+The password is 15 characters.</p>
+</div>
+<div class="paragraph">
+<p>Since the integers store in 2 bytes, the total number of bytes needed is 37.
+Thirty-seven bytes would require 190 integer elements (38 bytes), <em>or</em> 8 floating point elements (40 bytes).
+Since the ID# is an integer anyway, it would be best to use the integer array.
+The definition would look like this:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>dim u%(18)</pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Remember that arrays start at element 0!
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Of course, you may want to store more than one of these structures in memory.
+To do so, you would need a 2-dimensional array.  This would change the <code>dim</code> statement to:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>dim u%(18,x-1)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>(Suppose that <em>x</em> is the number of structures you want.)</p>
+</div>
+<div class="paragraph">
+<p>Now that you have the basic concept of the structure, let’s look in a little more detail.
+Here is a byte-by-byte map of the structure we designed.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Because the unused byte is <em>not</em> on an even element boundary, it cannot be used.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Sample structure layout</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Element Position</th>
+<th class="tableblock halign-left valign-top">Byte Position</th>
+<th class="tableblock halign-left valign-top">Data</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Bytes Used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element 0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bytes 00-01</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ID#</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 bytes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bytes 02-21</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Handle</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20 bytes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element 11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bytes 22-36</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Password</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15 bytes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element 18½</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Byte 37</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unused</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N/A</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 byte</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>To refer to bytes in the structure:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the first number in the array notation is the <em>element number</em> (like a field in a RELative file)</p>
+</li>
+<li>
+<p>the second number is the <em>record number</em></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For example, to access the third user’s password, you would get a string from element <code>u%(11,2)</code> and ask for 20 bytes.</p>
+</div>
+<div class="paragraph">
+<p>Now down to the important part: how to use all of this!
+There are currently 12 sub-functions supported by the structure routines.
+They are documented below.</p>
+</div>
+<div class="paragraph">
+<p>0: PutStr - Put a string into a structure</p>
+</div>
+<div class="paragraph">
+<div class="title">Usage</div>
+<p><code>&amp;,60,0,<em>bytes</em>,<em>array()</em>,<em>string$</em></code></p>
+</div>
+<div class="literalblock">
+<div class="title">Example</div>
+<div class="content">
+<pre>&amp;,60,0,20,u%(1,1),na$</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This sub-function will copy from a string variable into a structure.
+In the example, it is 20 bytes (parameter 4) from <code>na$</code> into <code>u%(1,1)</code>.</p>
+</div>
+<div class="paragraph">
+<p>1: GetStr - Get a string from a structure</p>
+</div>
+<div class="paragraph">
+<div class="title">Usage</div>
+<p><code>&amp;,60,1,<em>bytes</em>,<em>array()</em>,<em>string$</em></code></p>
+</div>
+<div class="literalblock">
+<div class="title">Example</div>
+<div class="content">
+<pre>&amp;,60,1,15,u%(11,3),a$</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This sub-function will copy a string from a structure into a string variable.  In the example, it is 15 bytes from U%,11,3) into A$.</p>
+</div>
+<div class="paragraph">
+<p>2: Load - Load a structure from disk</p>
+</div>
+<div class="paragraph">
+<div class="title">Usage</div>
+<p><code>&amp;,60,2,0,<em>array()</em>,<em>filename$</em>,<em>device</em></code></p>
+</div>
+<div class="literalblock">
+<div class="title">Example</div>
+<div class="content">
+<pre>&amp;,60,2,0,u%(0,0),dr$+"u.handles",dv%</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This sub-function will load the specified file into an array.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You do not have to load the file at the start of the array.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The starting element is specified in the command.  The example loads the file <code>u.handles</code> into the <code>u%()</code> array, starting at the beginning of the array.</p>
+</div>
+<div class="paragraph">
+<p>3: Save - Save a structure to disk</p>
+</div>
+<div class="paragraph">
+<div class="title">Usage</div>
+<p><code>&amp;,60,3,0,<em>array()</em>,<em>bytes</em>,<em>filename$</em>,<em>device</em></code></p>
+</div>
+<div class="literalblock">
+<div class="title">Example</div>
+<div class="content">
+<pre>&amp;,60,3,0,U%(0,0),3*38,dr$+”u.handles”,dv%</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This sub-function will save a structure to a specified file.
+The starting element is specified with the array, and the number of bytes should be calculated by the number of bytes per structure, multiplied by the number of structures (38 bytes * 3 structures in the example).</p>
 </div>
 <div class="sect2">
 <h3 id="trueim-subroutines"><a class="anchor" href="#trueim-subroutines"></a><code>im</code> Subroutines</h3>
 
 </div>
 <div class="sect2">
+<h3 id="truesub-module-jump-table"><a class="anchor" href="#truesub-module-jump-table"></a><code>sub.*</code> Module Jump Table</h3>
+
+</div>
+<div class="sect2">
 <h3 id="true-calls"><a class="anchor" href="#true-calls"></a><code>&amp;</code> Calls</h3>
-
+<div class="paragraph">
+<p><code>&amp;</code> is the command character <mark>FIXME</mark></p>
 </div>
-<div class="sect2">
-<h3 id="truemodules"><a class="anchor" href="#truemodules"></a>Modules</h3>
-
-</div>
-<div class="sect2">
-<h3 id="truevariable-handling"><a class="anchor" href="#truevariable-handling"></a>Variable Handling</h3>
-
 </div>
 <div class="sect2">
 <h3 id="trueimage-bbs-output-routine"><a class="anchor" href="#trueimage-bbs-output-routine"></a>Image BBS Output Routine</h3>
 <div class="paragraph">
 <p><code>&amp;"bla","bla"</code> and <code>&amp;"bla &pound;!x"</code></p>
 </div>
+<div class="sect3">
+<h4 id="true-by-itself"><a class="anchor" href="#true-by-itself"></a><code>&amp;</code> By Itself</h4>
+<div class="paragraph">
+<p>This is a quick way to output the contents of <code>a$</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>a$="Hello there<kbd>f6</kbd>":&amp;</code></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Outputting a string containing an MCI string variable does not work as expected. <em>i.e.</em>:
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><code>z$="&pound;$c":&amp;"&pound;$z"</code></p>
+</div>
+<div class="paragraph">
+<p>does not output the contents of <code>z$</code> (which is actually <code>c$</code>).
+Instead, do this:</p>
+</div>
+<div class="paragraph">
+<p><code>z$="&pound;$c":&amp;z$</code></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="trueword-wrap"><a class="anchor" href="#trueword-wrap"></a>Word-Wrap</h4>
+<div class="paragraph">
+<p>Setting the variable <code>lp=1</code> and outputting text with <code>&amp;"&#8230;&#8203;"</code> word-wraps to 40 columns on the console, and whatever the remote side&#8217;s screen width is.</p>
+</div>
+<div class="paragraph">
+<p>Setting <code>lp=0</code> disables word-wrap, and words do not break at margins.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="truevariables"><a class="anchor" href="#truevariables"></a>Variables</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="trueinteger"><a class="anchor" href="#trueinteger"></a>Integer</h3>
+
 </div>
 <div class="sect2">
-<h3 id="truepokes-and-machine-language-routines"><a class="anchor" href="#truepokes-and-machine-language-routines"></a>POKEs and Machine Language Routines</h3>
-<div class="paragraph">
-<p><mark>TODO</mark>: POKEs are going away in favor of <code>&amp;,20</code> and <code>&amp;,21</code> interface read/write commands.</p>
+<h3 id="truefloating-point"><a class="anchor" href="#truefloating-point"></a>Floating Point</h3>
+
+</div>
+<div class="sect2">
+<h3 id="truestring"><a class="anchor" href="#truestring"></a>String</h3>
+
+</div>
+<div class="sect2">
+<h3 id="truearrays"><a class="anchor" href="#truearrays"></a>Arrays</h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="truepokes-and-machine-language-routines"><a class="anchor" href="#truepokes-and-machine-language-routines"></a>POKEs and Machine Language Routines</h2>
+<div class="sectionbody">
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<code>POKE</code>s could go away in favor of <code>&amp;,20</code> (interface read) and <code>&amp;,21</code> (interface write) commands.
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -541,7 +936,7 @@ Preliminary start on documentation. Feedback welcome!
 <div class="sect2">
 <h3 id="truelightbar-numbering"><a class="anchor" href="#truelightbar-numbering"></a>Lightbar Numbering</h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 1. Lightbar, page 1</caption>
+<caption class="title">Table 2. Lightbar, page 1</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -590,7 +985,7 @@ Preliminary start on documentation. Feedback welcome!
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 2. Lightbar, page 2</caption>
+<caption class="title">Table 3. Lightbar, page 2</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -639,7 +1034,7 @@ Preliminary start on documentation. Feedback welcome!
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 3. Lightbar, page 3</caption>
+<caption class="title">Table 4. Lightbar, page 3</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -688,7 +1083,7 @@ Preliminary start on documentation. Feedback welcome!
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 4. Lightbar, page 4</caption>
+<caption class="title">Table 5. Lightbar, page 4</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -737,7 +1132,7 @@ Preliminary start on documentation. Feedback welcome!
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 5. Lightbar, page 5</caption>
+<caption class="title">Table 6. Lightbar, page 5</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -786,7 +1181,7 @@ Preliminary start on documentation. Feedback welcome!
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 6. Lightbar, page 6</caption>
+<caption class="title">Table 7. Lightbar, page 6</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -835,7 +1230,7 @@ Preliminary start on documentation. Feedback welcome!
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 7. Lightbar, page 7</caption>
+<caption class="title">Table 8. Lightbar, page 7</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -884,7 +1279,7 @@ Preliminary start on documentation. Feedback welcome!
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 8. Lightbar, page 8</caption>
+<caption class="title">Table 9. Lightbar, page 8</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -998,15 +1393,263 @@ beq flag_off</code></pre>
 </div>
 </div>
 <div class="sect1">
+<h2 id="truememory-map"><a class="anchor" href="#truememory-map"></a>Memory Map</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>During boot (contents of the ML file):</p>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Memory range</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$6C00</code> - <code>$6FFF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wedge code</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$7000</code> - <code>$7FFF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">editor code</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$8000</code> - <code>$83FF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Garbage collector</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$8400</code> - <code>$8DFF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ECS code</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$8E00</code> - <code>$93FF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Struct code</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$9400</code> - <code>$97FF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Swap1 code</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$9800</code> - <code>$9BFF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Swap2 code</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$9C00</code> - <code>$9FFF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Swap3 code</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Everything after this point is the same as the next section.</p>
+</div>
+<div class="paragraph">
+<p>While running:</p>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Memory range</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$0800</code>-<code>$0AFF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rs232 driver</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$0B00</code>-<code>$0B7F</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rs232 input buffer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$0B80</code>-<code>$0BFF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rs232 output buffer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$0C00</code>-<code>$0FFF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">basic wedge</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1000</code>-<code>$12FF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">temporary screen data</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1300</code>-<code>$130F</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">chktbl</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1310</code>-<code>$13CF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bartbl</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$13D0</code>-<code>$13DF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">array pointers</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$13E0</code>-<code>$13EC</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">days per month</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$13ED</code>-<code>$13EF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unused</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$13F0</code>-<code>$144F</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sounds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1450</code>-<code>$147F</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">net alarms</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1480</code>-<code>$14FF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ASCII to CBM translation table</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1500</code>-<code>$15FF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CBM to ASCII translation table</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1600</code>-<code>$161F</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tblcta1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1620</code>-<code>$163F</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tblcta2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1640</code>-<code>$165F</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tblcta3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1660</code>-<code>$16E0</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">alarm table</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$16E0</code>-<code>$16FF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">date buffer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1700</code>-<code>$1718</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lobytes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1719</code>-<code>$1731</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hibytes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1732</code>-<code>$174A</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lobytec</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$174B</code>-<code>$1763</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hibytec</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1764</code>-<code>$177F</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unused</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1780</code>-<code>$17FF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pmodetbl</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1800</code>-<code>$27FF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">editor execution location (swapped in when needed)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1800</code>-<code>$9FFF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BASIC program area</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$A000</code>-<code>$BFFF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BASIC ROM / Image ML routines in RAM</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$C000</code>-<code>$CAFF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Protocol" block for loadable ML code</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$CB00</code>-<code>$CCFF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">swapper area</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$CD00</code>-<code>$CDFF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">interface page</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$CE00</code>-<code>$CDFF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">buffer page</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$CF00</code>-<code>$CFFF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">???</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$D000</code>-<code>$DFFF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I/O memory</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$D000</code>-<code>$DFFF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Character ROM</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$D000</code>-<code>$DFFF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">editor swap location (code is here when waiting to run)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$E000</code>-<code>$FFFF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">KERNAL ROM / Image ML "swap" code in ROM</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$E000</code>-<code>$E3FF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">garbage collector swap module</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$E400</code>-<code>$EDFF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ECS swap module</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$EE00</code>-<code>$F3FF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Struct swap module</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$F400</code>-<code>$F7FF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Swap1 swap module</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$F800</code>-<code>$FBFF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Swap2 swap module</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$FC00</code>-<code>$FFFF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Swap3 swap module</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
 <h2 id="truefile-formats"><a class="anchor" href="#truefile-formats"></a>File Formats</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="truee-data"><a class="anchor" href="#truee-data"></a><code>e.data</code></h3>
+<h3 id="trueintroduction-2"><a class="anchor" href="#trueintroduction-2"></a>Introduction</h3>
+<div class="sect3">
+<h4 id="truee-data"><a class="anchor" href="#truee-data"></a><code>e.data</code></h4>
 <div class="paragraph">
 <p><code>e.data</code> is a RELative file containing BBS configuration information, as well as BBS statistics.</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 9. e.data File Format</caption>
+<caption class="title">Table 10. e.data File Format</caption>
 <colgroup>
 <col>
 <col>
@@ -1042,7 +1685,7 @@ beq flag_off</code></pre>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Highest user account # -1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Highest user account # +1</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
@@ -1057,7 +1700,7 @@ beq flag_off</code></pre>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">18</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Password of some kind</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default null password</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
@@ -1102,13 +1745,13 @@ beq flag_off</code></pre>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">36</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Macro count</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>unused</em></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">37</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Clock set device</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1</code>=Boot Drive, <code>2</code>=Lt.Kernal Port 1, <code>3</code>=Lt.Kernal Port 2, <code>4</code>=Last System Timestamp, <code>8-29</code>=External CMD Device No.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1</code>=Manual, <code>3</code>=Lt.Kernal Port 1, <code>4</code>=Lt.Kernal Port 2, <code>8-29</code>=CMD Device #</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">38</p></td>
@@ -1152,7 +1795,7 @@ beq flag_off</code></pre>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">46</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Main prompt text</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>unused</em></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
@@ -1183,32 +1826,27 @@ beq flag_off</code></pre>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">52</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">System device, drive</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top" rowspan="6"><p class="tableblock">For each of these records, devices and drives are in separate fields of each record (stored as two lines separated by a carriage return).</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">53</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">E-Mail device, drive</p></td>
-<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">54</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Etcetera device, drive</p></td>
-<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">55</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Directory device, drive</p></td>
-<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">56</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Plus-File device, drive</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Module device, drive</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">57</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User device, drive</p></td>
-<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">58</p></td>
@@ -1221,10 +1859,11 @@ beq flag_off</code></pre>
 </div>
 </div>
 </div>
+</div>
 <div id="footer">
 <div id="footer-text">
 Version 0.1<br>
-Last updated 2021-03-31 21:05:20 -0700
+Last updated 2021-04-02 20:41:46 -0700
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">
