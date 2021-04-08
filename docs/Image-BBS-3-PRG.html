@@ -449,7 +449,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <span id="author4" class="author">Al DeRosa</span><br>
 <span id="email4" class="email"><a href="mailto:bucko219@gmail.com">bucko219@gmail.com</a></span><br>
 <span id="revnumber">version 0.1,</span>
-<span id="revdate">2021-04-01</span>
+<span id="revdate">2021-04-07</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -464,14 +464,29 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#trueprogramming-image-bbs-3-0">Programming Image BBS 3.0</a>
 <ul class="sectlevel2">
 <li><a href="#trueprogramming-etiquette">Programming Etiquette</a></li>
-</ul>
-</li>
-<li><a href="#truestatic-arrays-structures">Static Arrays (Structures)</a>
-<ul class="sectlevel2">
 <li><a href="#trueim-subroutines"><code>im</code> Subroutines</a></li>
 <li><a href="#truesub-module-jump-table"><code>sub.*</code> Module Jump Table</a></li>
 <li><a href="#true-calls"><code>&amp;</code> Calls</a></li>
 <li><a href="#trueimage-bbs-output-routine">Image BBS Output Routine</a></li>
+</ul>
+</li>
+<li><a href="#truestatic-arrays-structures">Static Arrays (Structures)</a>
+<ul class="sectlevel2">
+<li><a href="#truenumeric-values-and-structures">Numeric Values and Structures</a></li>
+<li><a href="#trueput-string">Put String</a></li>
+<li><a href="#trueget-string">Get String</a></li>
+<li><a href="#trueload-structure-from-disk">Load structure from disk</a></li>
+<li><a href="#truesave-a-structure-to-disk">Save a structure to disk</a></li>
+<li><a href="#trueput-date">Put Date</a></li>
+<li><a href="#trueget-date">Get Date</a></li>
+<li><a href="#truescan-structures">Scan Structures</a></li>
+<li><a href="#truesort">Sort</a></li>
+<li><a href="#truescan-numbers">Scan Numbers</a></li>
+<li><a href="#truescan-sum">Scan Sum</a></li>
+<li><a href="#truecopy-structure">Copy Structure</a></li>
+<li><a href="#truescan-for-string">Scan for String</a></li>
+<li><a href="#truegame-scan">Game Scan</a></li>
+<li><a href="#truetext-read">Text Read</a></li>
 </ul>
 </li>
 <li><a href="#truevariables">Variables</a>
@@ -525,7 +540,7 @@ With the advent of Image BBS v3.0, the power of the system has increased greatly
 <p>Nearly the entire BBS can be customized completely online without the need for programming knowledge.  However, Image BBS v3.0 also provides for many powerful new programming tools not before available to the SysOp who desires complete customization of the BBS by changing the BASIC code.</p>
 </div>
 <div class="paragraph">
-<p>This guide is designed to help such programmers deal with the Image Application Programming Interface (API) more productively.
+<p>This guide is designed to help such programmers use the Image Application Programming Interface (API) more productively.
 A lot of hard work has gone into this manual as it was created while the BBS was still being developed.
 Care was taken to document as much of the BBS as possible for just this purpose.
 We hope you find this useful in creating the next generation of Image BBS applications.</p>
@@ -572,7 +587,7 @@ I would like to personally thank everyone who was involved, but if I’ve forgot
 <p>Ed Wilson (Fred Krueger)</p>
 </div>
 <div class="paragraph">
-<p>And most of all, I’d like to thank our dear friend, Fred Dart, to who we owe the very existence of Image v2.0.
+<p>And most of all, I’d like to thank our dear friend, Fred Dart, to whom we owe the very existence of Image v2.0.
 Without Fred, the project would have been lost forever.
 It is in his memory that we dedicate Image BBS v3.0.</p>
 </div>
@@ -593,19 +608,149 @@ It is in his memory that we dedicate Image BBS v3.0.</p>
 <h3 id="trueprogramming-etiquette"><a class="anchor" href="#trueprogramming-etiquette"></a>Programming Etiquette</h3>
 
 </div>
+<div class="sect2">
+<h3 id="trueim-subroutines"><a class="anchor" href="#trueim-subroutines"></a><code>im</code> Subroutines</h3>
+
+</div>
+<div class="sect2">
+<h3 id="truesub-module-jump-table"><a class="anchor" href="#truesub-module-jump-table"></a><code>sub.*</code> Module Jump Table</h3>
+
+</div>
+<div class="sect2">
+<h3 id="true-calls"><a class="anchor" href="#true-calls"></a><code>&amp;</code> Calls</h3>
+<div class="paragraph">
+<p><code>&amp;</code> is the command character <mark>FIXME</mark></p>
+</div>
+<div class="paragraph">
+<p><code>&amp;,23:if peek(780)&lt;&gt;32 then&#8230;&#8203;</code></p>
+</div>
+<div class="paragraph">
+<p>Test whether caller is hitting <kbd>Space</kbd>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trueimage-bbs-output-routine"><a class="anchor" href="#trueimage-bbs-output-routine"></a>Image BBS Output Routine</h3>
+<div class="paragraph">
+<p><code>&amp;"bla","bla"</code> and <code>&amp;"bla &pound;!x"</code></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Outputting a string containing an MCI command or string variable does not work as expected. <em>i.e.</em>:
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><code>z$="&pound;$c &pound;#3&pound;# &pound;%c":&amp;"&pound;$z"</code></p>
+</div>
+<div class="paragraph">
+<p>does not output the contents of <code>z$</code> (which is actually <code>c$</code>, and setting 3 leading spaces for <code>c%</code>).
+Instead, do this:</p>
+</div>
+<div class="paragraph">
+<p><code>z$="&pound;$c &pound;#3&pound;# &pound;%c":&amp;z$</code></p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="true-by-itself"><a class="anchor" href="#true-by-itself"></a><code>&amp;</code> By Itself</h4>
+<div class="paragraph">
+<p>This is a quick way to output the contents of <code>a$</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>a$="Hello there<kbd>f6</kbd>":&amp;</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="trueword-wrap"><a class="anchor" href="#trueword-wrap"></a>Word-Wrap</h4>
+<div class="paragraph">
+<p>Setting the variable <code>lp=1</code> and outputting text with <code>&amp;"&#8230;&#8203;"</code> word-wraps to 40 columns on the console, and whatever the remote side&#8217;s screen width is.</p>
+</div>
+<div class="paragraph">
+<p>Setting <code>lp=0</code> disables word-wrap, and words do not break at margins.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="truestatic-arrays-structures"><a class="anchor" href="#truestatic-arrays-structures"></a>Static Arrays (Structures)</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><em>Structures</em> allow you to store multiple types of data into memory reserved for arrays.
-There are functions to put and get strings, 11-digit dates, <mark>FIXME: more functions</mark> from this block of memory.
-For example, string data can be stored in a floating point or integer array.</p>
+<p><em>Structures</em> allow you to store multiple types of data into memory reserved for arrays, and perform operations on these blocks of memory.
+There are functions to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>put and get strings</p>
+</li>
+<li>
+<p>manipulate Image-formatted 11-digit dates</p>
+</li>
+<li>
+<p>sort and filter structures</p>
+</li>
+<li>
+<p>collect information from structures and put it in another array</p>
+</li>
+<li>
+<p>load and save structures</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p><em>Elements</em> are <mark>FIXME: definition</mark></p>
+<p><mark>FIXME: more functions</mark></p>
 </div>
+<div class="paragraph">
+<p>String data can be stored in a floating point or integer array.</p>
+</div>
+<div class="paragraph">
+<p><em>Elements</em> are the individual &#8220;boxes&#8221; in the array that data is held in.
+Let&#8217;s write a BASIC program to fill and display the elements of an integer array, and then we&#8217;ll show how to refer to the elements:</p>
+</div>
+<div class="paragraph">
+<div class="title">Sample Array</div>
+<p><mark>TODO: finish this</mark></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">10 print
+20 end</code></pre>
+</div>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<caption class="title">Table 1. Representation of Sample Array</caption>
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>x%(0,0)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>x%(0,1)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>x%(0,2)</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>x%(1,0)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>x%(1,1)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>x%(1,2)</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>x%(2,0)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>x%(2,1)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>x%(2,2)</code></p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>It is suggested that you use numeric type arrays, since this will allow you to access the elements as numeric data, as well as put end get strings.</p>
 </div>
@@ -659,20 +804,8 @@ To do so, you would need a 2-dimensional array.  This would change the <code>dim
 <p>Now that you have the basic concept of the structure, let’s look in a little more detail.
 Here is a byte-by-byte map of the structure we designed.</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Because the unused byte is <em>not</em> on an even element boundary, it cannot be used.
-</td>
-</tr>
-</table>
-</div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 1. Sample structure layout</caption>
+<caption class="title">Table 2. Sample structure layout</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -720,33 +853,99 @@ Because the unused byte is <em>not</em> on an even element boundary, it cannot b
 </tr>
 </tbody>
 </table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Because the unused byte is <em>not</em> on an even element boundary, it cannot be used.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>To refer to bytes in the structure:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>the first number in the array notation is the <em>element number</em> (like a field in a RELative file)</p>
+<p>the first number in the array notation is the <em>element number</em> (like a field of a record in a RELative file)</p>
 </li>
 <li>
-<p>the second number is the <em>record number</em></p>
+<p>the second number is the <em>byte number</em>.
+Byte number <code>(0,0)</code> is often used to hold the number of elements in the structure.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>For example, to access the third user’s password, you would get a string from element <code>u%(11,2)</code> and ask for 20 bytes.</p>
+<p>Now down to the important part: how to use all of this!
+The structure system is called with either <code>&amp;,60,<em>x</em>,&#8230;&#8203;</code> or <code>&amp;,68,<em>x</em>,&#8230;&#8203;</code>.</p>
 </div>
 <div class="paragraph">
-<p>Now down to the important part: how to use all of this!
-There are currently 12 sub-functions supported by the structure routines.
+<p>There are currently 14 sub-functions supported by the structure routines.
 They are documented below.</p>
 </div>
+<div class="sect2">
+<h3 id="truenumeric-values-and-structures"><a class="anchor" href="#truenumeric-values-and-structures"></a>Numeric Values and Structures</h3>
 <div class="paragraph">
-<p>0: PutStr - Put a string into a structure</p>
+<p>The array used with structures is either an integer or floating point type.
+To put numeric values into&#8212;&#8203;or get numeric values from&#8212;&#8203;a structure requires no special structure calls.</p>
 </div>
 <div class="paragraph">
-<div class="title">Usage</div>
+<p>You may use code similar to the following examples:</p>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<caption class="title">Table 3. Get number from and put number into structure</caption>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Get value</th>
+<th class="tableblock halign-left valign-top">Put value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>f=a%(3,3)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a%(3,3)=20</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Integer arrays can store values from <code>-32767</code> to <code>32768</code>.
+</td>
+</tr>
+</table>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="trueput-string"><a class="anchor" href="#trueput-string"></a>Put String</h3>
+<div class="paragraph">
+<p>Sub-function <code>0</code> copies a string variable into a structure.</p>
+</div>
+<div class="paragraph">
+<div class="title">Syntax</div>
 <p><code>&amp;,60,0,<em>bytes</em>,<em>array()</em>,<em>string$</em></code></p>
+</div>
+<div class="paragraph">
+<p><em>bytes</em> is how many bytes to request from the structure.</p>
+</div>
+<div class="paragraph">
+<p><em>array()</em> is the array name assigned to the structure you&#8217;re reading the string from.</p>
+</div>
+<div class="paragraph">
+<p><em>string$</em> is the string name to read the structure data into.</p>
 </div>
 <div class="literalblock">
 <div class="title">Example</div>
@@ -754,31 +953,160 @@ They are documented below.</p>
 <pre>&amp;,60,0,20,u%(1,1),na$</pre>
 </div>
 </div>
-<div class="paragraph">
-<p>This sub-function will copy from a string variable into a structure.
-In the example, it is 20 bytes (parameter 4) from <code>na$</code> into <code>u%(1,1)</code>.</p>
+<div class="olist arabic">
+<ol class="arabic" start="1">
+<li>
+<p>Put a string:</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p>1: GetStr - Get a string from a structure</p>
+<p><code><strong>&amp;,60,0</strong>,20,u%(1,1),na$</code></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>of 20 bytes:</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<div class="title">Usage</div>
+<p><code>&amp;,60,0,<strong>20</strong>,u%(1,1),na$</code></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="3">
+<li>
+<p>from the <code>u%()</code> array (element 1, record 1):</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><code>&amp;,60,0,20,<strong>u%(1,1)</strong>,na$</code></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="4">
+<li>
+<p>into the string variable <code>na$</code>:</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><code>&amp;,60,0,20,u%(11,2),<strong>na$</strong></code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trueget-string"><a class="anchor" href="#trueget-string"></a>Get String</h3>
+<div class="paragraph">
+<p>Sub-function 1 copies a string from a structure into a string variable.</p>
+</div>
+<div class="paragraph">
+<div class="title">Syntax</div>
 <p><code>&amp;,60,1,<em>bytes</em>,<em>array()</em>,<em>string$</em></code></p>
+</div>
+<div class="paragraph">
+<p>The parameters <em>bytes</em>, <em>array()</em>, and <em>string$</em> are the same as <code>Put String</code> above.</p>
 </div>
 <div class="literalblock">
 <div class="title">Example</div>
 <div class="content">
-<pre>&amp;,60,1,15,u%(11,3),a$</pre>
+<pre>&amp;,60,1,20,u%(11,2),a$</pre>
 </div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="1">
+<li>
+<p>Get a string</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p>This sub-function will copy a string from a structure into a string variable.  In the example, it is 15 bytes from U%,11,3) into A$.</p>
+<p><code><strong>&amp;,60,1</strong>,20,u%(11,2),a$</code></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>of 20 bytes</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p>2: Load - Load a structure from disk</p>
+<p><code>&amp;,60,1,<strong>20</strong>,u%(11,2),a$</code></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="3">
+<li>
+<p>from array <code>u%</code> (element 11, byte 2)</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<div class="title">Usage</div>
+<p><code>&amp;,60,1,20,<strong>u%(11,2)</strong>,a$</code></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="4">
+<li>
+<p>into <code>a$</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><code>&amp;,60,1,20,u%(11,2),<strong>a$</strong></code></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>In our earlier example user data structure, to access the third user’s password, you would:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="1">
+<li>
+<p>get a string:</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><code><strong>&amp;,60,1</strong>,20,u%(11,2),a$</code></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>of 20 bytes:</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><code>&amp;,60,1,<strong>20</strong>,u%(11,2),a$</code></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="3">
+<li>
+<p>from the <code>u%</code> array (element 11, byte 2):</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><code>&amp;,60,1,20,<strong>u%(11,2)</strong>,a$</code></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="4">
+<li>
+<p>into the string variable <code>a$</code>:</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><code>&amp;,60,1,20,u%(11,2),<strong>a$</strong></code></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trueload-structure-from-disk"><a class="anchor" href="#trueload-structure-from-disk"></a>Load structure from disk</h3>
+<div class="paragraph">
+<p>Sub-function 2 loads the specified structure on disk into an array.</p>
+</div>
+<div class="paragraph">
+<div class="title">Syntax</div>
 <p><code>&amp;,60,2,0,<em>array()</em>,<em>filename$</em>,<em>device</em></code></p>
 </div>
 <div class="literalblock">
@@ -786,9 +1114,6 @@ In the example, it is 20 bytes (parameter 4) from <code>na$</code> into <code>u%
 <div class="content">
 <pre>&amp;,60,2,0,u%(0,0),dr$+"u.handles",dv%</pre>
 </div>
-</div>
-<div class="paragraph">
-<p>This sub-function will load the specified file into an array.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -803,54 +1128,18 @@ You do not have to load the file at the start of the array.
 </table>
 </div>
 <div class="paragraph">
-<p>The starting element is specified in the command.  The example loads the file <code>u.handles</code> into the <code>u%()</code> array, starting at the beginning of the array.</p>
+<p><code><strong>&amp;,60,2,0,</strong>u%(0,0),dr$+"u.handles",dv%</code></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="1">
+<li>
+<p>Load a structure:</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p>3: Save - Save a structure to disk</p>
+<p><code><strong>&amp;,60,2,0</strong>,u%(0,0),dr$+"u.handles",dv%</code></p>
 </div>
-<div class="paragraph">
-<div class="title">Usage</div>
-<p><code>&amp;,60,3,0,<em>array()</em>,<em>bytes</em>,<em>filename$</em>,<em>device</em></code></p>
-</div>
-<div class="literalblock">
-<div class="title">Example</div>
-<div class="content">
-<pre>&amp;,60,3,0,U%(0,0),3*38,dr$+”u.handles”,dv%</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>This sub-function will save a structure to a specified file.
-The starting element is specified with the array, and the number of bytes should be calculated by the number of bytes per structure, multiplied by the number of structures (38 bytes * 3 structures in the example).</p>
-</div>
-<div class="sect2">
-<h3 id="trueim-subroutines"><a class="anchor" href="#trueim-subroutines"></a><code>im</code> Subroutines</h3>
-
-</div>
-<div class="sect2">
-<h3 id="truesub-module-jump-table"><a class="anchor" href="#truesub-module-jump-table"></a><code>sub.*</code> Module Jump Table</h3>
-
-</div>
-<div class="sect2">
-<h3 id="true-calls"><a class="anchor" href="#true-calls"></a><code>&amp;</code> Calls</h3>
-<div class="paragraph">
-<p><code>&amp;</code> is the command character <mark>FIXME</mark></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="trueimage-bbs-output-routine"><a class="anchor" href="#trueimage-bbs-output-routine"></a>Image BBS Output Routine</h3>
-<div class="paragraph">
-<p><code>&amp;"bla","bla"</code> and <code>&amp;"bla &pound;!x"</code></p>
-</div>
-<div class="sect3">
-<h4 id="true-by-itself"><a class="anchor" href="#true-by-itself"></a><code>&amp;</code> By Itself</h4>
-<div class="paragraph">
-<p>This is a quick way to output the contents of <code>a$</code>.</p>
-</div>
-<div class="paragraph">
-<p><code>a$="Hello there<kbd>f6</kbd>":&amp;</code></p>
-</div>
-<div class="exampleblock">
-<div class="content">
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -858,32 +1147,445 @@ The starting element is specified with the array, and the number of bytes should
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Outputting a string containing an MCI string variable does not work as expected. <em>i.e.</em>:
+The <code>0</code> is believed to be a necessary but ignored parameter.
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p><code>z$="&pound;$c":&amp;"&pound;$z"</code></p>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Use the <code>u%()</code> array, starting at element 0, byte 0:</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p>does not output the contents of <code>z$</code> (which is actually <code>c$</code>).
-Instead, do this:</p>
+<p><code>&amp;,60,2,0,<strong>u%(0,0)</strong>,dr$+"u.handles",dv%</code></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="3">
+<li>
+<p>Use the drive prefix <code>dr$</code>, plus the fictitious <code>"u.handles"</code> filename:</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p><code>z$="&pound;$c":&amp;z$</code></p>
+<p><code>&amp;,60,2,0,u%(0,0),<strong>dr$+"u.handles"</strong>,dv%</code></p>
 </div>
+<div class="olist arabic">
+<ol class="arabic" start="4">
+<li>
+<p><code>dv%</code> is the device number to load the structure from:</p>
+</li>
+</ol>
 </div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="trueword-wrap"><a class="anchor" href="#trueword-wrap"></a>Word-Wrap</h4>
 <div class="paragraph">
-<p>Setting the variable <code>lp=1</code> and outputting text with <code>&amp;"&#8230;&#8203;"</code> word-wraps to 40 columns on the console, and whatever the remote side&#8217;s screen width is.</p>
+<p><code>&amp;,60,2,0,u%(0,0),dr$+"u.handles",<strong>dv%</strong></code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="truesave-a-structure-to-disk"><a class="anchor" href="#truesave-a-structure-to-disk"></a>Save a structure to disk</h3>
+<div class="paragraph">
+<p>Sub-function 3 saves a structure to a specified disk file.</p>
 </div>
 <div class="paragraph">
-<p>Setting <code>lp=0</code> disables word-wrap, and words do not break at margins.</p>
+<div class="title">Syntax</div>
+<p><code>&amp;,60,3,0,<em>array()</em>,<em>bytes</em>,<em>filename$</em>,<em>device</em></code></p>
 </div>
+<div class="paragraph">
+<p>The parameters <em>array()</em>, <em>bytes</em>, and <em>filename$</em> are the same as usual.</p>
+</div>
+<div class="paragraph">
+<p><em>device</em> should be gotten with:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>dr=6:gosub 3</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="title">Example</div>
+<div class="content">
+<pre>&amp;,60,3,0,u%(0,0),3*38,dr$+"u.handles",dv%</pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="1">
+<li>
+<p>Save a structure:</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><code><strong>&amp;,60,3,0</strong>,u%(0,0),3*38,dr$+"u.handles",dv%</code></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>The starting element is specified with <em>array()</em>:</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><code>&amp;,60,3,0,<strong>u%(0,0)</strong>,3*38,dr$+"u.handles",dv%</code></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="3">
+<li>
+<p><em>bytes</em> is the number of bytes per structure, multiplied by the number of structures (3 structures  &times; 38 bytes in the example):</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><code>&amp;,60,3,0,u%(0,0),<strong>3*38</strong>,dr$+"u.handles",dv%</code></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="4">
+<li>
+<p>drive prefix <code>dr$</code> + filename (the theoretical <code>u.handles</code>):</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><code>&amp;,60,3,0,u%(0,0),3*38,<strong>dr$+"u.handles"</strong>,dv%</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trueput-date"><a class="anchor" href="#trueput-date"></a>Put Date</h3>
+<div class="paragraph">
+<p>Put an 11-digit date into a structure.</p>
+</div>
+<div class="paragraph">
+<div class="title">Syntax</div>
+<p><code>&amp;,60,4,0,array(a,b),string$</code></p>
+</div>
+<div class="paragraph">
+<p><em>array(a,b)</em>: array name(<code>a</code>=starting structure, <code>b</code>=starting byte)</p>
+</div>
+<div class="paragraph">
+<p><em>string$</em>: the 11-digit date string</p>
+</div>
+<div class="literalblock">
+<div class="title">Example</div>
+<div class="content">
+<pre>an$="xxxxxxxxxxx":&amp;,60,4,0,u%(3,0),an$</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trueget-date"><a class="anchor" href="#trueget-date"></a>Get Date</h3>
+<div class="paragraph">
+<p>Get date from structure.</p>
+</div>
+<div class="paragraph">
+<div class="title">Syntax</div>
+<p><code>&amp;,60,5,0,<em>array(a,b)</em>,<em>string$</em></code></p>
+</div>
+<div class="paragraph">
+<p><em>array(a,b)</em>: array name(<code>a</code>=starting structure, <code>b</code>=starting byte)</p>
+</div>
+<div class="paragraph">
+<p><em>string$</em>: string name</p>
+</div>
+<div class="literalblock">
+<div class="title">Example</div>
+<div class="content">
+<pre>xxx</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="truescan-structures"><a class="anchor" href="#truescan-structures"></a>Scan Structures</h3>
+<div class="paragraph">
+<div class="title">Syntax</div>
+<p><code>&amp;,60,6,<em>num</em>,<em>bits</em>,<em>a(a,b)</em>,<em>b(a,b)</em>,<em>size</em>,<em>command</em>,<em>test</em></code></p>
+</div>
+<div class="paragraph">
+<p><code>num</code> # of structures to scan</p>
+</div>
+<div class="paragraph">
+<p><code>bits</code> the bits to set if true</p>
+</div>
+<div class="paragraph">
+<p><code>a(a,b)</code> starting flags element,byte</p>
+</div>
+<div class="paragraph">
+<p><code>b(a,b)</code> starting object element,byte</p>
+</div>
+<div class="paragraph">
+<p><code>size</code> size of struct</p>
+</div>
+<div class="paragraph">
+<p><code>com</code> command number:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>0: 2 byte and, &lt;&gt;0
+1: 2 byte and, ==0
+2: 2 byte cmp, &lt;
+3: 2 byte cmp, &gt;=
+4: date cmp, &lt;
+5: date cmp, &gt;=</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>test</code> the object to test for
+(apparently can be either a variable or a number, maybe the array number?)</p>
+</div>
+<div class="literalblock">
+<div class="title">Example: <code>i.UD</code> from Image 2.0</div>
+<div class="content">
+<pre>3950 &amp;,60,6,rn,$4f,ud%(0,1),ud%(3,1),60,4,ld$:b%=a%</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&amp;,60,6,rn,$80,ud%(0,1),ud%(0,1),60,2,2:c%=a%</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>rn</code>: record number, how many structures to scan in the directory</p>
+</div>
+<div class="paragraph">
+<p><code>$4f</code>: <code>%1001111</code> in binary, still researching the purpose of this</p>
+</div>
+<div class="paragraph">
+<p><code>ud%(0,1)</code> SubOp ID?</p>
+</div>
+<div class="paragraph">
+<p><code>ud%(3,1)</code> Upload date</p>
+</div>
+<div class="paragraph">
+<p><code>60</code> structure width</p>
+</div>
+<div class="paragraph">
+<p><code>4</code> date comparison, &lt;</p>
+</div>
+<div class="paragraph">
+<p><code>ld$</code> last call date (the comparison object).
+Can apparently be a string name, or number of an array?</p>
+</div>
+<div class="paragraph">
+<div class="title">Returns</div>
+<p><code>a%</code>, count of structures that the comparison returns as matching <code>test</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>b(a,b)</code>, the structure containing the comparisons matching <code>test</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="truesort"><a class="anchor" href="#truesort"></a>Sort</h3>
+<div class="paragraph">
+<div class="title">Syntax</div>
+<p><code>&amp;,60,7,0,<em>a(a,b)</em>,<em>start?</em></code></p>
+</div>
+<div class="literalblock">
+<div class="title">Example</div>
+<div class="content">
+<pre>&amp;,60,7,0,a$(p+1,i),n-p</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="truescan-numbers"><a class="anchor" href="#truescan-numbers"></a>Scan Numbers</h3>
+<div class="paragraph">
+<div class="title">Syntax</div>
+<p><code>&amp;,60,8,<em>num</em>,<em>size</em>,<em>acs</em>,<em>a(a,b)</em>,<em>a%(a)</em>,<em>start</em></code></p>
+</div>
+<div class="paragraph">
+<p><code>num</code> number of structures to scan</p>
+</div>
+<div class="paragraph">
+<p><code>size</code> size of the structure</p>
+</div>
+<div class="paragraph">
+<p><code>acs</code> access level to filter results by</p>
+</div>
+<div class="paragraph">
+<p><code>a(a,b)</code> the structure to scan</p>
+</div>
+<div class="paragraph">
+<p><code>a%(a)</code> <mark>FIXME</mark></p>
+</div>
+<div class="paragraph">
+<p><code>start</code> element to start scanning at</p>
+</div>
+<div class="literalblock">
+<div class="title">Example</div>
+<div class="content">
+<pre>&amp;,60,8,rn,60,a,ud%(0,1),f%(1),1:f%(0)=a%</pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Returns</div>
+<p><code>a%</code> <mark>FIXME</mark></p>
+</div>
+<div class="paragraph">
+<p><code>a%(a)</code> <mark>FIXME</mark></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="truescan-sum"><a class="anchor" href="#truescan-sum"></a>Scan Sum</h3>
+<div class="paragraph">
+<div class="title">Syntax</div>
+<p><code>&amp;,60,9,<em>num</em>,<em>size</em>,<em>a(a,b)</em></code></p>
+</div>
+<div class="paragraph">
+<p><code>num</code> number of structures to scan</p>
+</div>
+<div class="paragraph">
+<p><code>size</code> size of structure</p>
+</div>
+<div class="paragraph">
+<p><code>a(a,b)</code> structure(<em>element</em>,<em>byte</em>) to scan</p>
+</div>
+<div class="paragraph">
+<div class="title">Returns</div>
+<p><code>a%</code> <mark>FIXME</mark></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="truecopy-structure"><a class="anchor" href="#truecopy-structure"></a>Copy Structure</h3>
+<div class="paragraph">
+<div class="title">Syntax</div>
+<p><code>&amp;,60,10,<em>size</em>,<em>a1(a,b)</em>,<em>a2(a,b)</em></code></p>
+</div>
+<div class="paragraph">
+<p><code>size</code> size of structure</p>
+</div>
+<div class="paragraph">
+<p><code>a1(a,b)</code> source structure</p>
+</div>
+<div class="paragraph">
+<p><code>a2(a,b)</code> destination structure</p>
+</div>
+<div class="literalblock">
+<div class="title">Example</div>
+<div class="content">
+<pre>4326 if x&lt;&gt;fb%(.,.) then for a=x to fb%(.,.)-1:&amp;,60,10,60,fb%(.,a+1),fb%(.,a):next</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Copy structure <code>a+1</code> to structure <code>a</code> in a loop.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="truescan-for-string"><a class="anchor" href="#truescan-for-string"></a>Scan for String</h3>
+<div class="paragraph">
+<div class="title">Syntax</div>
+<p><code>&amp;,60,11,<em>num</em>,<em>size</em>,<em>op</em>,<em>str</em>,<em>a1(a,b)</em>,<em>a2(b)</em>,<em>start</em></code></p>
+</div>
+<div class="paragraph">
+<p><code>num</code></p>
+</div>
+<div class="paragraph">
+<p><code>size</code> size of structure</p>
+</div>
+<div class="paragraph">
+<p><code>op</code></p>
+</div>
+<div class="paragraph">
+<p><code>str</code></p>
+</div>
+<div class="paragraph">
+<p><code>a1(a,b)</code> source structure to scan</p>
+</div>
+<div class="paragraph">
+<p><code>a2(b)</code> target structure to put results into</p>
+</div>
+<div class="paragraph">
+<p><code>start</code></p>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<caption class="title">Table 4. Arrays used by <code>Scan String</code></caption>
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Number</th>
+<th class="tableblock halign-left valign-top">Array</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tt$()</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">editor text array</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>bb$()</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dt$()</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ed$()</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>nn$()</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a%()</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>c%()</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>d%()</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>e%()</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>f%()</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ac%()</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">access info</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>so%()</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">subops</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="truegame-scan"><a class="anchor" href="#truegame-scan"></a>Game Scan</h3>
+<div class="paragraph">
+<div class="title">Syntax</div>
+<p><code>&amp;,60,12,count,size,a$,a%(a,b),b$</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="truetext-read"><a class="anchor" href="#truetext-read"></a>Text Read</h3>
+<div class="paragraph">
+<div class="title">Syntax</div>
+<p><code>&amp;,60,13,number,reclen,scan(),bits,text(),strlen</code></p>
 </div>
 </div>
 </div>
@@ -936,7 +1638,7 @@ Instead, do this:</p>
 <div class="sect2">
 <h3 id="truelightbar-numbering"><a class="anchor" href="#truelightbar-numbering"></a>Lightbar Numbering</h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 2. Lightbar, page 1</caption>
+<caption class="title">Table 5. Lightbar, page 1</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -985,7 +1687,7 @@ Instead, do this:</p>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 3. Lightbar, page 2</caption>
+<caption class="title">Table 6. Lightbar, page 2</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -1034,7 +1736,7 @@ Instead, do this:</p>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 4. Lightbar, page 3</caption>
+<caption class="title">Table 7. Lightbar, page 3</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -1083,7 +1785,7 @@ Instead, do this:</p>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 5. Lightbar, page 4</caption>
+<caption class="title">Table 8. Lightbar, page 4</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -1132,7 +1834,7 @@ Instead, do this:</p>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 6. Lightbar, page 5</caption>
+<caption class="title">Table 9. Lightbar, page 5</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -1181,7 +1883,7 @@ Instead, do this:</p>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 7. Lightbar, page 6</caption>
+<caption class="title">Table 10. Lightbar, page 6</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -1230,7 +1932,7 @@ Instead, do this:</p>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 8. Lightbar, page 7</caption>
+<caption class="title">Table 11. Lightbar, page 7</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -1279,7 +1981,7 @@ Instead, do this:</p>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 9. Lightbar, page 8</caption>
+<caption class="title">Table 12. Lightbar, page 8</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -1381,8 +2083,7 @@ Instead, do this:</p>
 <div class="listingblock">
 <div class="title">checkflag.asm</div>
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="6502" class="language-6502 hljs">; FIXME: can it do 6502 highlighting?
-ldx #$04	; lightbar flag number
+<pre class="highlightjs highlight"><code data-lang="6502" class="language-6502 hljs">ldx #$04	; lightbar flag number
 jsr chkflag	; returns flag status (0=off, 1=on) in .a
 bne flag_on
 beq flag_off</code></pre>
@@ -1412,7 +2113,7 @@ beq flag_off</code></pre>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>$6C00</code> - <code>$6FFF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wedge code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wedge code</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>$7000</code> - <code>$7FFF</code></p></td>
@@ -1420,7 +2121,7 @@ beq flag_off</code></pre>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>$8000</code> - <code>$83FF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Garbage collector</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">garbage collector</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>$8400</code> - <code>$8DFF</code></p></td>
@@ -1428,19 +2129,19 @@ beq flag_off</code></pre>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>$8E00</code> - <code>$93FF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Struct code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">struct code</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>$9400</code> - <code>$97FF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Swap1 code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>swap1</code> code</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>$9800</code> - <code>$9BFF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Swap2 code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>swap2</code> code</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>$9C00</code> - <code>$9FFF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Swap3 code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>swap3</code> code</p></td>
 </tr>
 </tbody>
 </table>
@@ -1464,19 +2165,19 @@ beq flag_off</code></pre>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>$0800</code>-<code>$0AFF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">rs232 driver</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RS232 driver</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>$0B00</code>-<code>$0B7F</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">rs232 input buffer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RS232 input buffer</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>$0B80</code>-<code>$0BFF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">rs232 output buffer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RS232 output buffer</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>$0C00</code>-<code>$0FFF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">basic wedge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BASIC wedge</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1000</code>-<code>$12FF</code></p></td>
@@ -1484,11 +2185,11 @@ beq flag_off</code></pre>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1300</code>-<code>$130F</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">chktbl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>chktbl</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1310</code>-<code>$13CF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">bartbl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>bartbl</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>$13D0</code>-<code>$13DF</code></p></td>
@@ -1520,15 +2221,15 @@ beq flag_off</code></pre>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1600</code>-<code>$161F</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">tblcta1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tblcta1</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1620</code>-<code>$163F</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">tblcta2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tblcta2</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1640</code>-<code>$165F</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">tblcta3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tblcta3</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1660</code>-<code>$16E0</code></p></td>
@@ -1540,19 +2241,19 @@ beq flag_off</code></pre>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1700</code>-<code>$1718</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">lobytes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lobytes</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1719</code>-<code>$1731</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">hibytes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hibytes</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1732</code>-<code>$174A</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">lobytec</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lobytec</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>$174B</code>-<code>$1763</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">hibytec</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hibytec</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1764</code>-<code>$177F</code></p></td>
@@ -1560,14 +2261,14 @@ beq flag_off</code></pre>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1780</code>-<code>$17FF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">pmodetbl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pmodetbl</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1800</code>-<code>$27FF</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">editor execution location (swapped in when needed)</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1800</code>-<code>$9FFF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$2800</code>-<code>$9FFF</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">BASIC program area</p></td>
 </tr>
 <tr>
@@ -1576,7 +2277,7 @@ beq flag_off</code></pre>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>$C000</code>-<code>$CAFF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">"Protocol" block for loadable ML code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8220;Protocol&#8221; block for loadable ML code</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>$CB00</code>-<code>$CCFF</code></p></td>
@@ -1608,7 +2309,7 @@ beq flag_off</code></pre>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>$E000</code>-<code>$FFFF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">KERNAL ROM / Image ML "swap" code in ROM</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">KERNAL ROM / Image ML &#8220;swap&#8221; code in ROM</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>$E000</code>-<code>$E3FF</code></p></td>
@@ -1648,8 +2349,11 @@ beq flag_off</code></pre>
 <div class="paragraph">
 <p><code>e.data</code> is a RELative file containing BBS configuration information, as well as BBS statistics.</p>
 </div>
+<div class="paragraph">
+<p>The record size is 31 bytes.</p>
+</div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 10. e.data File Format</caption>
+<caption class="title">Table 13. e.data File Format</caption>
 <colgroup>
 <col>
 <col>
@@ -1863,7 +2567,7 @@ beq flag_off</code></pre>
 <div id="footer">
 <div id="footer-text">
 Version 0.1<br>
-Last updated 2021-04-02 20:41:46 -0700
+Last updated 2021-04-07 22:07:32 -0700
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">
