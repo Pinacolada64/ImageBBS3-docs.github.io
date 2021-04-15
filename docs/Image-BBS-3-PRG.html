@@ -449,7 +449,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <span id="author4" class="author">Al DeRosa</span><br>
 <span id="email4" class="email"><a href="mailto:bucko219@gmail.com">bucko219@gmail.com</a></span><br>
 <span id="revnumber">version 0.1,</span>
-<span id="revdate">2021-04-07</span>
+<span id="revdate">2021-04-14</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -622,7 +622,10 @@ It is in his memory that we dedicate Image BBS v3.0.</p>
 <p><code>&amp;</code> is the command character <mark>FIXME</mark></p>
 </div>
 <div class="paragraph">
-<p><code>&amp;,23:if peek(780)&lt;&gt;32 then&#8230;&#8203;</code></p>
+<p><code>&amp;,22,200</code> Wait 20 seconds (20 10/10ths of a second)</p>
+</div>
+<div class="paragraph">
+<p><code>&amp;,23:if peek(780)=32 then&#8230;&#8203;</code></p>
 </div>
 <div class="paragraph">
 <p>Test whether caller is hitting <kbd>Space</kbd>.</p>
@@ -752,7 +755,7 @@ Let&#8217;s write a BASIC program to fill and display the elements of an integer
 </tbody>
 </table>
 <div class="paragraph">
-<p>It is suggested that you use numeric type arrays, since this will allow you to access the elements as numeric data, as well as put end get strings.</p>
+<p>It is suggested that you use numeric type arrays, since this will allow you to access the elements as numeric data, as well as put and get strings.</p>
 </div>
 <div class="paragraph">
 <p>Floating point arrays (like <code>a()</code> or <code>b()</code>) use 5 bytes per element.
@@ -804,14 +807,14 @@ To do so, you would need a 2-dimensional array.  This would change the <code>dim
 <p>Now that you have the basic concept of the structure, let’s look in a little more detail.
 Here is a byte-by-byte map of the structure we designed.</p>
 </div>
-<table class="tableblock frame-all grid-all stretch">
+<table class="tableblock frame-all grid-all fit-content">
 <caption class="title">Table 2. Sample structure layout</caption>
 <colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
+<col>
+<col>
+<col>
+<col>
+<col>
 </colgroup>
 <thead>
 <tr>
@@ -874,10 +877,21 @@ Because the unused byte is <em>not</em> on an even element boundary, it cannot b
 <p>the first number in the array notation is the <em>element number</em> (like a field of a record in a RELative file)</p>
 </li>
 <li>
-<p>the second number is the <em>byte number</em>.
-Byte number <code>(0,0)</code> is often used to hold the number of elements in the structure.</p>
+<p>the second number is the <em>byte number</em>.</p>
 </li>
 </ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Element number <code>0</code> and byte number <code>0</code> (<em>e.g.</em>, <code>u%(0,0)</code> is often used to hold the number of elements in the structure.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Now down to the important part: how to use all of this!
@@ -939,13 +953,13 @@ Integer arrays can store values from <code>-32767</code> to <code>32768</code>.
 <p><code>&amp;,60,0,<em>bytes</em>,<em>array()</em>,<em>string$</em></code></p>
 </div>
 <div class="paragraph">
-<p><em>bytes</em> is how many bytes to request from the structure.</p>
+<p><em>bytes</em>: how many bytes to request from the structure.</p>
 </div>
 <div class="paragraph">
-<p><em>array()</em> is the array name assigned to the structure you&#8217;re reading the string from.</p>
+<p><em>array()</em>: the array name assigned to the structure you&#8217;re reading the string from.</p>
 </div>
 <div class="paragraph">
-<p><em>string$</em> is the string name to read the structure data into.</p>
+<p><em>string$</em>: the string name to read the structure data into.</p>
 </div>
 <div class="literalblock">
 <div class="title">Example</div>
@@ -1155,7 +1169,7 @@ The <code>0</code> is believed to be a necessary but ignored parameter.
 <div class="olist arabic">
 <ol class="arabic" start="2">
 <li>
-<p>Use the <code>u%()</code> array, starting at element 0, byte 0:</p>
+<p>Use the <code>u%()</code> array(element 0, byte 0):</p>
 </li>
 </ol>
 </div>
@@ -1232,7 +1246,7 @@ The <code>0</code> is believed to be a necessary but ignored parameter.
 <div class="olist arabic">
 <ol class="arabic" start="3">
 <li>
-<p><em>bytes</em> is the number of bytes per structure, multiplied by the number of structures (3 structures  &times; 38 bytes in the example):</p>
+<p><em>bytes</em>: the number of bytes per structure, multiplied by the number of structures (3 structures &times; 38 bytes in the example):</p>
 </li>
 </ol>
 </div>
@@ -1253,11 +1267,11 @@ The <code>0</code> is believed to be a necessary but ignored parameter.
 <div class="sect2">
 <h3 id="trueput-date"><a class="anchor" href="#trueput-date"></a>Put Date</h3>
 <div class="paragraph">
-<p>Put an 11-digit date into a structure.</p>
+<p>Put an 11-digit date into a structure (stored in Binary Coded Decimal).</p>
 </div>
 <div class="paragraph">
 <div class="title">Syntax</div>
-<p><code>&amp;,60,4,0,array(a,b),string$</code></p>
+<p><code>&amp;,60,4,0,<em>array(a,b)</em>,<em>string$</em></code></p>
 </div>
 <div class="paragraph">
 <p><em>array(a,b)</em>: array name(<code>a</code>=starting structure, <code>b</code>=starting byte)</p>
@@ -1268,14 +1282,70 @@ The <code>0</code> is believed to be a necessary but ignored parameter.
 <div class="literalblock">
 <div class="title">Example</div>
 <div class="content">
-<pre>an$="xxxxxxxxxxx":&amp;,60,4,0,u%(3,0),an$</pre>
+<pre>an$="10412208234":&amp;,60,4,0,u%(3,0),an$</pre>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">Details: Binary Coded Decimal</div>
+<p>Structs store an 11-digit date in 3 bytes using Binary Coded Decimal (BCD) format.
+Two decimal digits are stored per byte, using the high and low <em>nybbles</em> (i.e., two 4-bit halves of an 8-bit number).</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>an$="10412208234":&amp;,60,4,0,u%(0,1),an$</pre>
+</div>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">Element</p></td>
+<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><code>u%(0,1)</code></p></td>
+<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><code>u%(0,2)</code></p></td>
+<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><code>u%(0,3)</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><em>unused</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">Binary</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>%0001&nbsp;%0000</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>%0100&nbsp;%0001</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>%0010&nbsp;%0010</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>%0000&nbsp;%1000</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>%0010&nbsp;%0011</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>%0100</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>%xxxx</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">Decimal</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>&nbsp;&nbsp;&nbsp;&nbsp;x</code></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="trueget-date"><a class="anchor" href="#trueget-date"></a>Get Date</h3>
 <div class="paragraph">
-<p>Get date from structure.</p>
+<p>Get an 11-digit date from structure.
+The date is stored in Binary Coded Decimal (BCD) format as shown above.</p>
 </div>
 <div class="paragraph">
 <div class="title">Syntax</div>
@@ -1290,8 +1360,21 @@ The <code>0</code> is believed to be a necessary but ignored parameter.
 <div class="literalblock">
 <div class="title">Example</div>
 <div class="content">
-<pre>xxx</pre>
+<pre>&amp;,60,5,0,u%(0,1),an$:&amp;,15:&amp;an$</pre>
 </div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>&amp;,60,5,0,u%(0,1),an$</code>: Get a date from the struct into <code>an$</code>.</p>
+</li>
+<li>
+<p><code>&amp;,15</code>: convert <code>an$</code> into a long date string.</p>
+</li>
+<li>
+<p><code>&amp;an$</code>: display the long date string.</p>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect2">
@@ -1301,22 +1384,22 @@ The <code>0</code> is believed to be a necessary but ignored parameter.
 <p><code>&amp;,60,6,<em>num</em>,<em>bits</em>,<em>a(a,b)</em>,<em>b(a,b)</em>,<em>size</em>,<em>command</em>,<em>test</em></code></p>
 </div>
 <div class="paragraph">
-<p><code>num</code> # of structures to scan</p>
+<p><em>num</em>: # of structures to scan</p>
 </div>
 <div class="paragraph">
-<p><code>bits</code> the bits to set if true</p>
+<p><em>bits</em>: the bits to set if true</p>
 </div>
 <div class="paragraph">
-<p><code>a(a,b)</code> starting flags element,byte</p>
+<p><em>a(a,b)</em>: starting flags(<em>element</em>,<em>byte</em>)</p>
 </div>
 <div class="paragraph">
-<p><code>b(a,b)</code> starting object element,byte</p>
+<p><em>b(a,b)</em>: starting object(<em>element</em>,<em>byte</em>)</p>
 </div>
 <div class="paragraph">
-<p><code>size</code> size of struct</p>
+<p><em>size</em>: size in bytes of struct</p>
 </div>
 <div class="paragraph">
-<p><code>com</code> command number:</p>
+<p><em>command</em>: command number:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1329,48 +1412,49 @@ The <code>0</code> is believed to be a necessary but ignored parameter.
 </div>
 </div>
 <div class="paragraph">
-<p><code>test</code> the object to test for
+<p><em>test</em>: the object to test for
 (apparently can be either a variable or a number, maybe the array number?)</p>
 </div>
-<div class="literalblock">
+<div class="paragraph">
 <div class="title">Example: <code>i.UD</code> from Image 2.0</div>
+<p>The following code scans the U/D directory for entries which have an upload date older than <code>ld$</code>, (setting <code>$4f</code> on ud%(0,1) if the entry matches):</p>
+</div>
+<div class="literalblock">
 <div class="content">
 <pre>3950 &amp;,60,6,rn,$4f,ud%(0,1),ud%(3,1),60,4,ld$:b%=a%</pre>
 </div>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>&amp;,60,6,rn,$80,ud%(0,1),ud%(0,1),60,2,2:c%=a%</pre>
-</div>
+<div class="paragraph">
+<p><em>&amp;,60,6</em>: scan struct</p>
 </div>
 <div class="paragraph">
-<p><code>rn</code>: record number, how many structures to scan in the directory</p>
+<p><em>rn</em>: record number, how many structures to scan in the directory</p>
 </div>
 <div class="paragraph">
-<p><code>$4f</code>: <code>%1001111</code> in binary, still researching the purpose of this</p>
+<p><em>$4f</em>: <code>%01001111</code> in binary, <mark>FIXME</mark> still researching the purpose of this</p>
 </div>
 <div class="paragraph">
-<p><code>ud%(0,1)</code> SubOp ID?</p>
+<p><em>ud%(0,1)</em>: <mark>FIXME</mark></p>
 </div>
 <div class="paragraph">
-<p><code>ud%(3,1)</code> Upload date</p>
+<p><em>ud%(3,1)</em>: Upload date</p>
 </div>
 <div class="paragraph">
-<p><code>60</code> structure width</p>
+<p><em>60</em>: structure size, in bytes</p>
 </div>
 <div class="paragraph">
-<p><code>4</code> date comparison, &lt;</p>
+<p><em>4</em>: date comparison, <code>&lt;</code> (less than)</p>
 </div>
 <div class="paragraph">
-<p><code>ld$</code> last call date (the comparison object).
+<p><em>ld$</em>: last call date (the comparison object).
 Can apparently be a string name, or number of an array?</p>
 </div>
 <div class="paragraph">
 <div class="title">Returns</div>
-<p><code>a%</code>, count of structures that the comparison returns as matching <code>test</code>.</p>
+<p><code>a%</code>: count of structures that the comparison returns as matching <code>test</code>.</p>
 </div>
 <div class="paragraph">
-<p><code>b(a,b)</code>, the structure containing the comparisons matching <code>test</code>.</p>
+<p><code>b(a,b)</code>: the structure containing the comparisons matching <code>test</code>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1393,22 +1477,22 @@ Can apparently be a string name, or number of an array?</p>
 <p><code>&amp;,60,8,<em>num</em>,<em>size</em>,<em>acs</em>,<em>a(a,b)</em>,<em>a%(a)</em>,<em>start</em></code></p>
 </div>
 <div class="paragraph">
-<p><code>num</code> number of structures to scan</p>
+<p><em>num</em>: number of structures to scan</p>
 </div>
 <div class="paragraph">
-<p><code>size</code> size of the structure</p>
+<p><em>size</em>: size of the structure, in bytes</p>
 </div>
 <div class="paragraph">
-<p><code>acs</code> access level to filter results by</p>
+<p><em>acs</em>: access level to filter results by</p>
 </div>
 <div class="paragraph">
-<p><code>a(a,b)</code> the structure to scan</p>
+<p><em>a(a,b)</em>: the structure to scan</p>
 </div>
 <div class="paragraph">
-<p><code>a%(a)</code> <mark>FIXME</mark></p>
+<p><em>a%(a)</em>: the structure to put the results in? <mark>FIXME</mark></p>
 </div>
 <div class="paragraph">
-<p><code>start</code> element to start scanning at</p>
+<p><em>start</em>: element to start scanning at</p>
 </div>
 <div class="literalblock">
 <div class="title">Example</div>
@@ -1418,10 +1502,10 @@ Can apparently be a string name, or number of an array?</p>
 </div>
 <div class="paragraph">
 <div class="title">Returns</div>
-<p><code>a%</code> <mark>FIXME</mark></p>
+<p><code>a%</code>: <mark>FIXME</mark></p>
 </div>
 <div class="paragraph">
-<p><code>a%(a)</code> <mark>FIXME</mark></p>
+<p><code>a%(a)</code>: <mark>FIXME</mark></p>
 </div>
 </div>
 <div class="sect2">
@@ -1431,10 +1515,10 @@ Can apparently be a string name, or number of an array?</p>
 <p><code>&amp;,60,9,<em>num</em>,<em>size</em>,<em>a(a,b)</em></code></p>
 </div>
 <div class="paragraph">
-<p><code>num</code> number of structures to scan</p>
+<p><em>num</em> number of structures to scan</p>
 </div>
 <div class="paragraph">
-<p><code>size</code> size of structure</p>
+<p><em>size</em> size of structure</p>
 </div>
 <div class="paragraph">
 <p><code>a(a,b)</code> structure(<em>element</em>,<em>byte</em>) to scan</p>
@@ -1476,7 +1560,7 @@ Can apparently be a string name, or number of an array?</p>
 <p><code>&amp;,60,11,<em>num</em>,<em>size</em>,<em>op</em>,<em>str</em>,<em>a1(a,b)</em>,<em>a2(b)</em>,<em>start</em></code></p>
 </div>
 <div class="paragraph">
-<p><code>num</code></p>
+<p><em>num</em></p>
 </div>
 <div class="paragraph">
 <p><code>size</code> size of structure</p>
@@ -2567,7 +2651,7 @@ beq flag_off</code></pre>
 <div id="footer">
 <div id="footer-text">
 Version 0.1<br>
-Last updated 2021-04-07 22:07:32 -0700
+Last updated 2021-04-14 21:24:12 -0700
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">
