@@ -449,7 +449,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <span id="author4" class="author">Al DeRosa</span><br>
 <span id="email4" class="email"><a href="mailto:bucko219@gmail.com">bucko219@gmail.com</a></span><br>
 <span id="revnumber">version 0.1,</span>
-<span id="revdate">2021-04-14</span>
+<span id="revdate">2021-04-25</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -463,11 +463,28 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#trueprogramming-image-bbs-3-0">Programming Image BBS 3.0</a>
 <ul class="sectlevel2">
-<li><a href="#trueprogramming-etiquette">Programming Etiquette</a></li>
+<li><a href="#truenew-features">New Features</a></li>
+<li><a href="#trueprogramming-etiquette">Programming Etiquette</a>
+<ul class="sectlevel3">
+<li><a href="#truecreating-new-arrays">Creating New Arrays</a></li>
+</ul>
+</li>
+<li><a href="#trueconversion-and-backward-compatibility">Conversion and Backward Compatibility</a></li>
 <li><a href="#trueim-subroutines"><code>im</code> Subroutines</a></li>
 <li><a href="#truesub-module-jump-table"><code>sub.*</code> Module Jump Table</a></li>
-<li><a href="#true-calls"><code>&amp;</code> Calls</a></li>
+<li><a href="#true-calls"><code>&amp;</code> Calls</a>
+<ul class="sectlevel3">
 <li><a href="#trueimage-bbs-output-routine">Image BBS Output Routine</a></li>
+<li><a href="#trueencoded-function-keys">Encoded Function Keys</a></li>
+<li><a href="#true-by-itself"><code>&amp;</code> By Itself</a></li>
+<li><a href="#trueword-wrap">Word-Wrap</a></li>
+</ul>
+</li>
+<li><a href="#true-routines">&amp; Routines</a>
+<ul class="sectlevel3">
+<li><a href="#truevariable-pointer-management">Variable Pointer Management</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#truestatic-arrays-structures">Static Arrays (Structures)</a>
@@ -501,13 +518,22 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#truelightbar-reference">Lightbar Reference</a>
 <ul class="sectlevel2">
 <li><a href="#truelightbar-numbering">Lightbar Numbering</a></li>
-<li><a href="#truelightbar-interface-52">Lightbar Interface: <code>&amp;,52</code></a></li>
+<li><a href="#truelightbar-interface-52">Lightbar Interface: <code>&amp;,52</code></a>
+<ul class="sectlevel3">
+<li><a href="#ampersand-lightbar">BASIC <code>&amp;,52</code> Commands</a></li>
+<li><a href="#trueassembly-example">Assembly Example</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#truememory-map">Memory Map</a></li>
 <li><a href="#truefile-formats">File Formats</a>
 <ul class="sectlevel2">
-<li><a href="#trueintroduction-2">Introduction</a></li>
+<li><a href="#trueintroduction-2">Introduction</a>
+<ul class="sectlevel3">
+<li><a href="#truee-data"><code>e.data</code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -605,36 +631,334 @@ It is in his memory that we dedicate Image BBS v3.0.</p>
 <h2 id="trueprogramming-image-bbs-3-0"><a class="anchor" href="#trueprogramming-image-bbs-3-0"></a>Programming Image BBS 3.0</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="trueprogramming-etiquette"><a class="anchor" href="#trueprogramming-etiquette"></a>Programming Etiquette</h3>
+<h3 id="truenew-features"><a class="anchor" href="#truenew-features"></a>New Features</h3>
 
+</div>
+<div class="sect2">
+<h3 id="trueprogramming-etiquette"><a class="anchor" href="#trueprogramming-etiquette"></a>Programming Etiquette<a id="programming-etiquette"></a></h3>
+<div class="paragraph">
+<p>Be nice.
+Write clean code.</p>
+</div>
+<div class="sect3">
+<h4 id="truecreating-new-arrays"><a class="anchor" href="#truecreating-new-arrays"></a>Creating New Arrays</h4>
+<div class="paragraph">
+<p>If you define any new arrays in a module, be sure not to consume unnecessary memory after you end the module.
+You can do this by using the <code>&amp;,27</code> (variable pointer save) and <code>&amp;,28</code> (variable pointer restore) calls.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Image 1.2 had just one level of variable pointer save and restore.
+Image 1.3 and above adds multiple levels of save and restore with an additional parameter.</p>
+</div>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">3000 &amp;,27,2 <i class="conum" data-value="1"></i><b>(1)</b>
+3002 dim u%(10,20) <i class="conum" data-value="2"></i><b>(2)</b>
+...
+3010 &amp;,28,2:goto 300 <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>save current variable pointers, and create variable pointer level 2</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>create new array</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>restore level 2 array pointers (this frees up memory used by the array but preserves variables still needed by level 1), and go to main prompt</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The main prompt restores level 1 array pointers and already does a <code>&amp;,28,1</code> there.
+If you substitute <code>&amp;,27,1</code> for <code>&amp;,27,2</code> and <code>&amp;,28,1</code> for <code>&amp;,28,2</code> in the above code, line 300 will redo <code>&amp;,28,1</code>.
+This causes a <code>?redim&#8217;d array  error' on 306</code> (redimensioned array error).
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trueconversion-and-backward-compatibility"><a class="anchor" href="#trueconversion-and-backward-compatibility"></a>Conversion and Backward Compatibility</h3>
+<div class="paragraph">
+<p>Image v3.0 is a major change in design and programming style from previous versions.
+The first reaction might be to assume that you can no longer use legacy modules created under Image v1.2a and below.
+However, nearly everything written under previous versions of Image can be made to run under v3.0.
+The easiest method for this is to run under &#8220;1.3 emulation.&#8221;
+This mode greatly reduces available memory, but allows a program to make the same calls to <code>im</code> that were available under Image 1.2a.
+The best method for using legacy modules is to convert them to v3.0 compliant modules.</p>
+</div>
+<div class="paragraph">
+<p>This section is provided to help you as you attempt to convert such modules.
+The v1.2a &#8592;&#8594; v2.0 cross-reference will be your best tool, but please take time to read the notes regarding making the modules truly Image v3.0 compliant rather than just &#8220;compatible.&#8221;
+You will want to take careful note of the theory and structure of a v3.0 compliant program, found in the <a href="#programming-etiquette">Programming Etiquette</a> section of this guide.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="trueim-subroutines"><a class="anchor" href="#trueim-subroutines"></a><code>im</code> Subroutines</h3>
-
+<div class="paragraph">
+<p>Some routines are simply needed too often by too many modules to justify placing them in every single module.
+Subroutines are a programmer&#8217;s greatest friend.
+The core <code>im</code> file contains many subroutines which you will find basic to your application or module&#8217;s needs.
+Be sure to read the <a href="#programming-etiquette">Programming Etiquette</a> section for help when deciding where to place a new routine you create.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="truesub-module-jump-table"><a class="anchor" href="#truesub-module-jump-table"></a><code>sub.*</code> Module Jump Table</h3>
-
+<div class="paragraph">
+<p>Files with a <code>sub.</code> prefix contain routines which are used often, but to save memory and avoid code repetition, are separated from the main <code>im</code> module.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="true-calls"><a class="anchor" href="#true-calls"></a><code>&amp;</code> Calls</h3>
 <div class="paragraph">
-<p><code>&amp;</code> is the command character <mark>FIXME</mark></p>
+<p><code>&amp;</code> is the command character which is BASIC&#8217;s interface to over 50 machine language routines of Image BBS.</p>
+</div>
+<div class="sect3">
+<h4 id="trueimage-bbs-output-routine"><a class="anchor" href="#trueimage-bbs-output-routine"></a>Image BBS Output Routine</h4>
+<div class="paragraph">
+<p>In BASIC, the <code>print</code> keyword (or its abbreviation <code>?</code>) displays text on the screen, as in:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>print"Hello there!"</pre>
+</div>
 </div>
 <div class="paragraph">
-<p><code>&amp;,22,200</code> Wait 20 seconds (20 10/10ths of a second)</p>
+<p>You can substitute <code>&amp;</code> in Image BBS to do the same thing:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&amp;"Hello there!"</pre>
+</div>
 </div>
 <div class="paragraph">
-<p><code>&amp;,23:if peek(780)=32 then&#8230;&#8203;</code></p>
+<p>But unlike BASIC, after outputting this text, the cursor remains on the same line&#8212;&#8203;there is no automatic carriage return printed.</p>
 </div>
 <div class="paragraph">
-<p>Test whether caller is hitting <kbd>Space</kbd>.</p>
+<p>It&#8217;s as if a semicolon (<code>;</code>) was used after the <code>print</code> statement above&#8212;&#8203;this keeps the text all on one line:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>print"Hello ";"there!";</pre>
 </div>
 </div>
-<div class="sect2">
-<h3 id="trueimage-bbs-output-routine"><a class="anchor" href="#trueimage-bbs-output-routine"></a>Image BBS Output Routine</h3>
 <div class="paragraph">
-<p><code>&amp;"bla","bla"</code> and <code>&amp;"bla &pound;!x"</code></p>
+<p>vs. printing on two lines:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>print"Hello"
+print"there!"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To work around this, you can output a <em>carriage return</em>, which moves the cursor to the next line.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 1. Boring Background: CR/LF, CR, LF?</div>
+<div class="content">
+<div class="paragraph">
+<p>On other terminals or operating systems, a carriage return moves the cursor down a row, staying in the current column, but an additional <em>linefeed</em> character is needed to move the cursor to the beginning of the current row.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Hello
+      there!</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This stairstep-looking result is what printing looks like with only a linefeed when the terminal needed both a carriage reeturn and a linefeed.
+Probably not the desired result.
+However, <code>print</code>ing in Commodore BASIC&#8212;&#8203;and our BBS in this example&#8212;&#8203;doesn&#8217;t need them.</p>
+</div>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&amp;"Hello there!"+chr$(13)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>chr$()</code> (read it as &#8220;character string&#8221;) is a function that outputs a character supplied in parentheses.
+A carriage return is <code>chr$(13)</code>.
+So this snippet of code will move the cursor to the next line after outputting <code>Hello there!</code>.</p>
+</div>
+<div class="paragraph">
+<p>There is also a string variable defined in <code>im</code>: <code>r$=chr$(13)</code> (short for &#8220;return&#8221;).
+This is a handy shortcut.
+You can now code:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&amp;"Hello there!"+r$</pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+This is actually an easy way to write data containing carriage returns to a SEQ file, as you&#8217;ll see later.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>But there&#8217;s something even handier available.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="trueencoded-function-keys"><a class="anchor" href="#trueencoded-function-keys"></a>Encoded Function Keys</h4>
+<div class="paragraph">
+<p>Some special characters are difficult (or impossible) to type in BASIC.
+Or, they might cause problems while reading disk files.
+Therefore, they have been encoded using the reverse video letters seen while typing function keys when in Commodore&#8217;s &#8220;quote mode.&#8221;</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 2. Quote Mode</div>
+<div class="content">
+<div class="paragraph">
+<p>bla</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Image BBS translates specific PETSCII characters into the reverse video letters seen when typing function keys inside quotation marks.</p>
+</div>
+<div class="paragraph">
+<p>This eliminates a few difficulties:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Entering special characters is made easier</p>
+</li>
+<li>
+<p>Some more simply written code (and BASIC itself) can truncate data when a <code>,</code> is encountered in a SEQ file</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="title">Example 3. BASIC Pitfall</div>
+<div class="content">
+<div class="paragraph">
+<p>Using <code>input#2,a$</code> when the disk file contains a string <code>hello,there</code> returns only <code>hello</code> in <code>a$</code>.</p>
+</div>
+<div class="paragraph">
+<p>You can prefix the string with <code>"</code> on disk to get around that.
+But most likely, you want to read <code>hello</code> and <code>there</code> into two separate variables. <code>input#2,a$,b$</code> does that, resulting in <code>a$="hello"</code> and <code>b$="there"</code>.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Image BBS converts these special characters from their encoded form to readable characters when you:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>use <kbd>RD</kbd> to read a SEQ file</p>
+</li>
+<li>
+<p>use <kbd>SB</kbd> to read a post</p>
+</li>
+<li>
+<p>Use <kbd>WF</kbd> to <kbd>.G</kbd>et, <kbd>.E</kbd>dit, and <kbd>.P</kbd>ut a file back.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>image seq reader</code> utility also does this.</p>
+</div>
+<div class="paragraph">
+<p>As it relates to carriage returns, though, we can see in the following table:</p>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<caption class="title">Table 1. Image BBS Encoded Function Keys</caption>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Key</th>
+<th class="tableblock halign-left valign-top">Quoted</th>
+<th class="tableblock halign-left valign-top">Character</th>
+<th class="tableblock halign-left valign-top">Key</th>
+<th class="tableblock halign-left valign-top">Quoted</th>
+<th class="tableblock halign-left valign-top">Character</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>f1</kbd></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><kbd>E</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>,</kbd> comma</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><kbd>f5</kbd></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><kbd>I</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>"</kbd> quotation mark</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>f2</kbd></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><kbd>F</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>?</kbd> question mark</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><kbd>f6</kbd></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><kbd>J</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>Return</kbd> <code>chr$(13)</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>f3</kbd></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><kbd>G</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>:</kbd> colon</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><kbd>f7</kbd></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><kbd>K</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>*</kbd> asterisk</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>f4</kbd></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><kbd>H</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>=</kbd> equal sign</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><kbd>f8</kbd></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><kbd>L</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>^</kbd> up arrow</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>We can take the previous example of:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&amp;"Hello there!"+r$</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and simplify it further with:</p>
+</div>
+<div class="paragraph">
+<p><code>print"Hello there!<kbd>f6</kbd>"</code></p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -662,6 +986,7 @@ Instead, do this:</p>
 </div>
 </div>
 </div>
+</div>
 <div class="sect3">
 <h4 id="true-by-itself"><a class="anchor" href="#true-by-itself"></a><code>&amp;</code> By Itself</h4>
 <div class="paragraph">
@@ -678,6 +1003,72 @@ Instead, do this:</p>
 </div>
 <div class="paragraph">
 <p>Setting <code>lp=0</code> disables word-wrap, and words do not break at margins.</p>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="true-routines"><a class="anchor" href="#true-routines"></a>&amp; Routines</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">&amp;,22,200 <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Wait 20 seconds (20 10/10ths of a second)</td>
+</tr>
+</table>
+</div>
+<hr>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">3000 &amp;,23:c=peek(780):if c&lt;&gt;32 then 3000 <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Get character from RS232 routine.
+Save in <code>c</code>.
+Loop until the caller hits <kbd>Space</kbd> [<code>chr$(32)</code>].</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<code>&amp;,23</code> doesn&#8217;t stop and wait for input, unlike the <code>&pound;g1</code> MCI command.
+If no character is received from the connected user, <code>peek(780)=0</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="truevariable-pointer-management"><a class="anchor" href="#truevariable-pointer-management"></a>Variable Pointer Management</h4>
+<div class="paragraph">
+<p>When modules use arrays not already defined in <code>im</code>,</p>
+</div>
+<div class="paragraph">
+<p><code>&amp;,27,<em>x</em></code> bla</p>
+</div>
+<div class="paragraph">
+<p><code>&amp;,28,<em>x</em></code> bla</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Image 1.2 had just one level of variable pointer save and restore.
+Image 1.3 and above adds multiple levels of save and restore with an additional parameter.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -730,7 +1121,7 @@ Let&#8217;s write a BASIC program to fill and display the elements of an integer
 </div>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 1. Representation of Sample Array</caption>
+<caption class="title">Table 2. Representation of Sample Array</caption>
 <colgroup>
 <col>
 <col>
@@ -808,7 +1199,7 @@ To do so, you would need a 2-dimensional array.  This would change the <code>dim
 Here is a byte-by-byte map of the structure we designed.</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 2. Sample structure layout</caption>
+<caption class="title">Table 3. Sample structure layout</caption>
 <colgroup>
 <col>
 <col>
@@ -911,7 +1302,7 @@ To put numeric values into&#8212;&#8203;or get numeric values from&#8212;&#8203;
 <p>You may use code similar to the following examples:</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 3. Get number from and put number into structure</caption>
+<caption class="title">Table 4. Get number from and put number into structure</caption>
 <colgroup>
 <col>
 <col>
@@ -1581,7 +1972,7 @@ Can apparently be a string name, or number of an array?</p>
 <p><code>start</code></p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 4. Arrays used by <code>Scan String</code></caption>
+<caption class="title">Table 5. Arrays used by <code>Scan String</code></caption>
 <colgroup>
 <col>
 <col>
@@ -1722,7 +2113,7 @@ Can apparently be a string name, or number of an array?</p>
 <div class="sect2">
 <h3 id="truelightbar-numbering"><a class="anchor" href="#truelightbar-numbering"></a>Lightbar Numbering</h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 5. Lightbar, page 1</caption>
+<caption class="title">Table 6. Lightbar, page 1</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -1771,7 +2162,7 @@ Can apparently be a string name, or number of an array?</p>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 6. Lightbar, page 2</caption>
+<caption class="title">Table 7. Lightbar, page 2</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -1820,7 +2211,7 @@ Can apparently be a string name, or number of an array?</p>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 7. Lightbar, page 3</caption>
+<caption class="title">Table 8. Lightbar, page 3</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -1869,7 +2260,7 @@ Can apparently be a string name, or number of an array?</p>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 8. Lightbar, page 4</caption>
+<caption class="title">Table 9. Lightbar, page 4</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -1918,7 +2309,7 @@ Can apparently be a string name, or number of an array?</p>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 9. Lightbar, page 5</caption>
+<caption class="title">Table 10. Lightbar, page 5</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -1967,7 +2358,7 @@ Can apparently be a string name, or number of an array?</p>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 10. Lightbar, page 6</caption>
+<caption class="title">Table 11. Lightbar, page 6</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -2016,7 +2407,7 @@ Can apparently be a string name, or number of an array?</p>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 11. Lightbar, page 7</caption>
+<caption class="title">Table 12. Lightbar, page 7</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -2065,7 +2456,7 @@ Can apparently be a string name, or number of an array?</p>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 12. Lightbar, page 8</caption>
+<caption class="title">Table 13. Lightbar, page 8</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -2180,6 +2571,9 @@ beq flag_off</code></pre>
 <div class="sect1">
 <h2 id="truememory-map"><a class="anchor" href="#truememory-map"></a>Memory Map</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Author: Ray Kelm</p>
+</div>
 <div class="paragraph">
 <p>During boot (contents of the ML file):</p>
 </div>
@@ -2437,7 +2831,7 @@ beq flag_off</code></pre>
 <p>The record size is 31 bytes.</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 13. e.data File Format</caption>
+<caption class="title">Table 14. e.data File Format</caption>
 <colgroup>
 <col>
 <col>
@@ -2651,7 +3045,7 @@ beq flag_off</code></pre>
 <div id="footer">
 <div id="footer-text">
 Version 0.1<br>
-Last updated 2021-04-14 21:24:12 -0700
+Last updated 2021-04-25 22:22:05 -0700
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">
