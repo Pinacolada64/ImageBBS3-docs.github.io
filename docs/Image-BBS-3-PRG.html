@@ -449,7 +449,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <span id="author4" class="author">Al DeRosa</span><br>
 <span id="email4" class="email"><a href="mailto:bucko219@gmail.com">bucko219@gmail.com</a></span><br>
 <span id="revnumber">version 0.1,</span>
-<span id="revdate">2021-05-08</span>
+<span id="revdate">2021-05-20</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -467,8 +467,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel3">
 <li><a href="#truebasic-keyword-extensions">BASIC Keyword Extensions</a>
 <ul class="sectlevel4">
-<li><a href="#trueload-relocate-flag"><code>LOAD</code> Relocate Flag</a></li>
-<li><a href="#truenew-line-range"><code>NEW</code> line range</a></li>
+<li><a href="#trueload-relocate-flag"><code>load</code> Relocate Flag</a></li>
+<li><a href="#truenew-line-range"><code>new</code> Line Range</a></li>
 <li><a href="#truehexadecimal-values">Hexadecimal Values</a></li>
 <li><a href="#truebinary-values">Binary Values</a></li>
 </ul>
@@ -477,7 +477,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#trueprogramming-etiquette">Programming Etiquette</a>
 <ul class="sectlevel3">
-<li><a href="#truecreating-new-arrays">Creating New Arrays</a></li>
+<li><a href="#trueprogramming-theory">Programming Theory</a></li>
+<li><a href="#truemodule-structure">Module Structure</a></li>
 </ul>
 </li>
 <li><a href="#trueconversion-and-backward-compatibility">Conversion and Backward Compatibility</a></li>
@@ -491,42 +492,76 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#truebasic-editing-modes">BASIC Editing Modes</a>
 <ul class="sectlevel3">
+<li><a href="#truequote-mode">Quote Mode</a></li>
+<li><a href="#trueinsert-mode">Insert Mode</a></li>
 <li><a href="#true-by-itself"><code>&amp;</code> By Itself</a></li>
+</ul>
+</li>
+<li><a href="#trueoutputting-strings">Outputting Strings</a>
+<ul class="sectlevel3">
+<li><a href="#truestring-literals">String Literals</a></li>
+<li><a href="#truestring-variables">String Variables</a></li>
+<li><a href="#trueconcatenation">Concatenation</a></li>
 <li><a href="#trueword-wrap">Word-Wrap</a></li>
+<li><a href="#trueset-margins">Set Margins</a></li>
+<li><a href="#truemci-commands">MCI Commands</a></li>
+</ul>
+</li>
+<li><a href="#trueoutputting-numbers">Outputting Numbers</a>
+<ul class="sectlevel3">
+<li><a href="#trueintegers">Integers</a></li>
+<li><a href="#truefloating-point">Floating Point</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a href="#true-parameters-explained"><code>&amp;</code> Parameters Explained</a>
 <ul class="sectlevel2">
-<li><a href="#true1-input"><code>&amp;,1</code> Input</a></li>
+<li><a href="#true1-input-line"><code>&amp;,1</code> Input Line</a></li>
 <li><a href="#true2-disk-file-input"><code>&amp;,2</code> Disk File Input</a></li>
 <li><a href="#true3-read-file-from-disk"><code>&amp;,3</code> Read File from Disk</a></li>
 <li><a href="#true4-get-byte-from-modem"><code>&amp;,4</code> Get Byte from Modem</a></li>
 <li><a href="#true5-get-version"><code>&amp;,5</code> Get Version</a></li>
 <li><a href="#true6-password-input"><code>&amp;,6</code> Password Input</a></li>
-<li><a href="#true7-load-file"><code>&amp;,7</code> Load File</a></li>
+<li><a href="#load-file"><code>&amp;,7</code> Load File</a></li>
 <li><a href="#true8-disk-directory"><code>&amp;,8</code> Disk Directory</a></li>
 <li><a href="#true9-bottom-variable"><code>&amp;,9</code> Bottom Variable</a></li>
 <li><a href="#true10-terminal-mode"><code>&amp;,10</code> Terminal Mode</a></li>
 <li><a href="#true11-clear-array"><code>&amp;,11</code> Clear Array</a></li>
 <li><a href="#true12-new-user"><code>&amp;,12</code> New User</a></li>
-<li><a href="#true13-inchr"><code>&amp;,13</code> inchr</a></li>
+<li><a href="#true13-arbit"><code>&amp;,13</code> arbit</a></li>
 <li><a href="#true14-dump-array"><code>&amp;,14</code> Dump Array</a></li>
-<li><a href="#true15-convert-an"><code>&amp;,15</code> Convert <code>an$</code></a></li>
-<li><a href="#true16sys-49152"><code>&amp;,16</code>	sys 49152</a></li>
-<li><a href="#true17sys-49155"><code>&amp;,17</code>	sys 49155</a></li>
-<li><a href="#true18set-screen-mode"><code>&amp;,18</code>	Set Screen Mode</a></li>
-<li><a href="#true19get-version"><code>&amp;,19</code>	Get Version</a></li>
-<li><a href="#true20-read-from-interface-table"><code>&amp;,20</code> Read from Interface Table</a></li>
-<li><a href="#true21-write-to-interface-table"><code>&amp;,21</code> Write to Interface Table</a></li>
-<li><a href="#true22-x-tenths-of-a-second-delay"><code>&amp;,22</code> <em>x</em> Tenths of a Second Delay</a></li>
+<li><a href="#true15-convert-an"><code>&amp;,15</code> Convert <code>an$</code></a>
+<ul class="sectlevel3">
+<li><a href="#true15-convert-date"><code>&amp;,15</code> Convert Date</a>
+<ul class="sectlevel4">
+<li><a href="#date-format">Image BBS Date Format</a></li>
+</ul>
+</li>
+<li><a href="#true151-title-case"><code>&amp;,15,1</code> Title Case</a></li>
+<li><a href="#true152-decode-function-keys"><code>&amp;,15,2</code> Decode Function Keys</a></li>
+<li><a href="#true153-and-154"><code>&amp;,15,3</code> and <code>&amp;,15,4</code></a></li>
+<li><a href="#true155-newdate"><code>&amp;,15,5</code> newdate</a></li>
+<li><a href="#true156-scan-string"><code>&amp;,15,6</code> Scan String</a></li>
+</ul>
+</li>
+<li><a href="#true16-sys49152"><code>&amp;,16</code> sys49152</a></li>
+<li><a href="#true17-sys49155"><code>&amp;,17</code> sys49155</a></li>
+<li><a href="#true18-set-screen-mode"><code>&amp;,18</code> Set Screen Mode</a></li>
+<li><a href="#true19-get-version"><code>&amp;,19</code> Get Version</a></li>
+<li><a href="#amp-20-read-from-interface-table"><code>&amp;,20</code> Read from Interface Table</a></li>
+<li><a href="#amp-21-write-to-interface-table"><code>&amp;,21</code> Write to Interface Table</a></li>
+<li><a href="#true22-wait-x-tenths-of-a-second"><code>&amp;,22</code> Wait <em>x</em> Tenths of a Second</a></li>
 <li><a href="#true23-get-character-from-modem"><code>&amp;,23</code> Get Character from Modem</a></li>
 <li><a href="#true24-xchrout1"><code>&amp;,24</code> xchrout1</a></li>
 <li><a href="#true25-sound"><code>&amp;,25</code> Sound</a></li>
-<li><a href="#true26-callmod"><code>&amp;,26</code> callmod</a></li>
-<li><a href="#true27-save-variable-pointers"><code>&amp;,27</code> Save Variable Pointers</a></li>
-<li><a href="#true28-restore-variable-pointers"><code>&amp;,28</code> Restore Variable Pointers</a></li>
+<li><a href="#true26-ecschk"><code>&amp;,26</code> ecschk</a></li>
+<li><a href="#save-variable-pointers"><code>&amp;,27</code> Save Variable Pointers</a>
+<ul class="sectlevel3">
+<li><a href="#truecreating-new-arrays">Creating New Arrays</a></li>
+</ul>
+</li>
+<li><a href="#restore-variable-pointers"><code>&amp;,28</code> Restore Variable Pointers</a></li>
 <li><a href="#true29-usevar"><code>&amp;,29</code> usevar</a></li>
 <li><a href="#true30-putvar"><code>&amp;,30</code> putvar</a></li>
 <li><a href="#true31-zero"><code>&amp;,31</code> zero</a></li>
@@ -540,7 +575,25 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#true39-prtln"><code>&amp;,39</code> prtln</a></li>
 <li><a href="#true40-forcegc"><code>&amp;,40</code> forcegc</a></li>
 <li><a href="#true41-setbaud"><code>&amp;,41</code> setbaud</a></li>
-<li><a href="#true42-ecs-commands"><code>&amp;,42</code> ECS Commands</a></li>
+<li><a href="#true42-ecs-commands"><code>&amp;,42</code> ECS Commands</a>
+<ul class="sectlevel3">
+<li><a href="#true42-check-for-ecs-command"><code>&amp;,42</code> Check for ECS Command</a></li>
+<li><a href="#true421-goto-line-in-ecs-command"><code>&amp;,42,1</code> Goto Line in ECS Command</a></li>
+<li><a href="#true422-get-ecs-definitions-from-ram"><code>&amp;,42,2</code> Get ECS Definitions From RAM</a></li>
+<li><a href="#true423-put-ecs-definition-into-ram"><code>&amp;,42,3</code> Put ECS Definition Into RAM</a></li>
+<li><a href="#true424-load-ecs-definitions-from-disk"><code>&amp;,42,4</code> Load ECS Definitions from Disk</a></li>
+<li><a href="#true425-save-ecs-definitions-to-disk"><code>&amp;,42,5</code> Save ECS Definitions to Disk</a></li>
+</ul>
+</li>
+<li><a href="#true43-chatchk"><code>&amp;,43</code> chatchk</a></li>
+<li><a href="#true44-trace"><code>&amp;,44</code> trace</a></li>
+<li><a href="#true45-prtvar"><code>&amp;,45</code> prtvar</a></li>
+<li><a href="#true46-prtvar0"><code>&amp;,46</code> prtvar0</a></li>
+<li><a href="#true47-carchk"><code>&amp;,47</code> carchk</a></li>
+<li><a href="#true48-getkbd"><code>&amp;,48</code> getkbd</a></li>
+<li><a href="#true49-getmod"><code>&amp;,49</code> getmod</a></li>
+<li><a href="#true50-outscn"><code>&amp;,50</code> outscn</a></li>
+<li><a href="#true51-outmod"><code>&amp;,51</code> outmod</a></li>
 <li><a href="#true52-lightbar-interface"><code>&amp;,52</code> Lightbar Interface</a></li>
 <li><a href="#true53-logoff"><code>&amp;,53</code> Logoff</a></li>
 <li><a href="#true54-text-editor-interface"><code>&amp;,54</code> Text editor interface</a></li>
@@ -555,46 +608,50 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#true63-inline1"><code>&amp;,63</code> inline1</a></li>
 <li><a href="#true64-convstr"><code>&amp;,64</code> convstr</a></li>
 <li><a href="#true65-convert"><code>&amp;,65</code> convert</a></li>
-<li><a href="#true66-calculated-goto"><code>&amp;,66</code> Calculated GOTO</a></li>
-<li><a href="#true661-mlgosub"><code>&amp;,66,1</code> mlgosub</a></li>
+<li><a href="#true66-calculated-goto"><code>&amp;,66</code> Calculated <code>goto</code></a></li>
+<li><a href="#true661-calculated-gosub"><code>&amp;,66,1</code> Calculated <code>gosub</code></a></li>
 <li><a href="#true67-copyrite"><code>&amp;,67</code> copyrite</a></li>
 <li><a href="#true68-struct"><code>&amp;,68</code> struct</a></li>
 <li><a href="#true69-display-string-on-console"><code>&amp;,69</code> Display String on Console</a></li>
-<li><a href="#position-cursor"><code>&amp;,70</code> Position terminal cursor</a></li>
+<li><a href="#position-cursor"><code>&amp;,70</code> Position Terminal Cursor</a></li>
 </ul>
 </li>
 <li><a href="#structures">Static Arrays (Structures)</a>
 <ul class="sectlevel2">
 <li><a href="#truenumeric-values-and-structures">Numeric Values and Structures</a></li>
-<li><a href="#trueput-string">Put String</a></li>
-<li><a href="#trueget-string">Get String</a></li>
-<li><a href="#trueload-structure-from-disk">Load structure from disk</a></li>
-<li><a href="#truesave-a-structure-to-disk">Save a structure to disk</a></li>
-<li><a href="#trueput-date">Put Date</a></li>
-<li><a href="#trueget-date">Get Date</a></li>
-<li><a href="#truescan-structures">Scan Structures</a></li>
-<li><a href="#truesort">Sort</a></li>
-<li><a href="#truescan-numbers">Scan Numbers</a></li>
-<li><a href="#truescan-sum">Scan Sum</a></li>
-<li><a href="#truecopy-structure">Copy Structure</a></li>
-<li><a href="#truescan-for-string">Scan for String</a></li>
-<li><a href="#truegame-scan">Game Scan</a></li>
-<li><a href="#truetext-read">Text Read</a></li>
+<li><a href="#true600-put-string"><code>&amp;,60,0</code> Put String</a></li>
+<li><a href="#true601-get-string"><code>&amp;,60,1</code> Get String</a></li>
+<li><a href="#true602-load-structure-from-disk"><code>&amp;,60,2</code> Load structure from disk</a></li>
+<li><a href="#true603-save-a-structure-to-disk"><code>&amp;,60,3</code> Save a structure to disk</a></li>
+<li><a href="#true604-put-date"><code>&amp;,60,4</code> Put Date</a></li>
+<li><a href="#true605-get-date"><code>&amp;,60,5</code> Get Date</a></li>
+<li><a href="#true606-scan-structures"><code>&amp;,60,6</code> Scan Structures</a></li>
+<li><a href="#true607-sort-structure"><code>&amp;,60,7</code> Sort Structure</a></li>
+<li><a href="#true608-scan-numbers"><code>&amp;,60,8</code> Scan Numbers</a></li>
+<li><a href="#true609-scan-sum"><code>&amp;,60,9</code> Scan Sum</a></li>
+<li><a href="#true6010-copy-structure"><code>&amp;,60,10</code> Copy Structure</a></li>
+<li><a href="#true6011-scan-for-string"><code>&amp;,60,11</code> Scan for String</a></li>
+<li><a href="#true6012-game-scan"><code>&amp;,60,12</code> Game Scan</a></li>
+<li><a href="#true6013-text-read"><code>&amp;,60,13</code> Text Read</a></li>
+<li><a href="#true6014-unknown"><code>&amp;,60,14</code> Unknown</a></li>
 </ul>
 </li>
 <li><a href="#truevariables">Variables</a>
 <ul class="sectlevel2">
 <li><a href="#trueinteger">Integer</a></li>
-<li><a href="#truefloating-point">Floating Point</a></li>
+<li><a href="#truefloating-point-2">Floating Point</a></li>
 <li><a href="#truestring">String</a></li>
 <li><a href="#truearrays">Arrays</a></li>
 </ul>
 </li>
-<li><a href="#truepokes">POKEs</a></li>
-<li><a href="#truemachine-language-routines">Machine Language Routines</a>
+<li><a href="#pokes">POKEs and Memory Locations</a></li>
+<li><a href="#truemachine-language-entry-points">Machine Language Entry Points</a>
 <ul class="sectlevel2">
-<li><a href="#trueprotocols">Protocols</a>
+<li><a href="#protocols">Protocols</a>
 <ul class="sectlevel3">
+<li><a href="#true-index"><code>++ index</code></a></li>
+<li><a href="#true-punter"><code>++ punter</code></a></li>
+<li><a href="#true-reader"><code>++ reader</code></a></li>
 <li><a href="#truegraphic-menu">Graphic Menu</a></li>
 </ul>
 </li>
@@ -722,8 +779,11 @@ It is in his memory that we dedicate Image BBS v3.0.</p>
 </div>
 <div class="sect3">
 <h4 id="truebasic-keyword-extensions"><a class="anchor" href="#truebasic-keyword-extensions"></a>BASIC Keyword Extensions</h4>
+<div class="paragraph">
+<p>A few BASIC keywords have had additional parameters added to them.</p>
+</div>
 <div class="sect4">
-<h5 id="trueload-relocate-flag"><a class="anchor" href="#trueload-relocate-flag"></a><code>LOAD</code> Relocate Flag</h5>
+<h5 id="trueload-relocate-flag"><a class="anchor" href="#trueload-relocate-flag"></a><code>load</code> Relocate Flag</h5>
 <div class="paragraph">
 <p>Regular Commodore DOS uses the <code>,1</code> in <code>load"filename",8,1</code> to mean &#8220;load this file to the load address stored in the file.&#8221;</p>
 </div>
@@ -807,7 +867,7 @@ Currently, some segments are undefined.
 <div class="title">Example 1. Loading a Protocol</div>
 <div class="content">
 <div class="paragraph">
-<p>Here are two different methods of accomplishing the same thing, loading the Punter file transfer protocol.</p>
+<p>Here are three different methods of accomplishing the same thing, loading the Punter file transfer protocol.</p>
 </div>
 <div class="paragraph">
 <p>The first uses the enhanced <code>load</code> function:</p>
@@ -854,16 +914,32 @@ Here, it returns the device and drive which your modules are stored on.</p>
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>The third (preferred) method calls a routine in <code>im</code>:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>3000 a$="punter":gosub 28</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This method saves time in loading <code>++</code> files.
+If the file specified in <code>a$</code> is already in memory, the load process in line 29 is skipped.
+It also is a shorter syntax for loading a protocol, saving memory in the BASIC program.</p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="truenew-line-range"><a class="anchor" href="#truenew-line-range"></a><code>NEW</code> line range</h5>
+<h5 id="truenew-line-range"><a class="anchor" href="#truenew-line-range"></a><code>new</code> Line Range</h5>
 <div class="paragraph">
-<p><code>new <em>line_number</em></code> prepares to <code>load</code> a new module by erasing lines from <code>line_number</code> to the beginning of the next module.</p>
+<p><code>new <em>line_number</em></code> prepares to <code>load</code> a new module by erasing lines from <code>line_number</code> to the end of the program.</p>
 </div>
 <div class="paragraph">
-<p><code>new 3000</code> erases lines 3000-4000.</p>
+<p><em>Example:</em></p>
+</div>
+<div class="paragraph">
+<p><code>new 3000</code> erases lines 3000 to the end of all loaded modules.</p>
 </div>
 </div>
 <div class="sect4">
@@ -929,75 +1005,36 @@ Since only the lowest 4 bits are being set, the example can be shortened to:</p>
 <h3 id="trueprogramming-etiquette"><a class="anchor" href="#trueprogramming-etiquette"></a>Programming Etiquette<a id="programming-etiquette"></a></h3>
 <div class="paragraph">
 <p>Be nice.
-Write clean code.</p>
+Write clean code.
+<mark>FIXME</mark></p>
 </div>
 <div class="sect3">
-<h4 id="truecreating-new-arrays"><a class="anchor" href="#truecreating-new-arrays"></a>Creating New Arrays</h4>
-<div class="paragraph">
-<p>If you define any new arrays in a module, be sure not to consume unnecessary memory after you end the module.
-You can do this by using the <code>&amp;,27</code> (variable pointer save) and <code>&amp;,28</code> (variable pointer restore) calls.</p>
+<h4 id="trueprogramming-theory"><a class="anchor" href="#trueprogramming-theory"></a>Programming Theory</h4>
+
 </div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>Image 1.2 had just one level of variable pointer save and restore.
-Image 1.3 and above adds multiple levels of save and restore with an additional parameter.</p>
-</div>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">3000 &amp;,27,2 <i class="conum" data-value="1"></i><b>(1)</b>
-3002 dim u%(10,20) <i class="conum" data-value="2"></i><b>(2)</b>
-...
-3010 &amp;,28,2:goto 300 <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>save current variable pointers, and create variable pointer level 2</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>create new array</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>restore level 2 array pointers (this frees up memory used by the array but preserves variables still needed by level 1), and go to main prompt</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-The main prompt restores level 1 array pointers and already does a <code>&amp;,28,1</code> there.
-If you substitute <code>&amp;,27,1</code> for <code>&amp;,27,2</code> and <code>&amp;,28,1</code> for <code>&amp;,28,2</code> in the above code, line 300 will redo <code>&amp;,28,1</code>.
-This causes a <code>?redim&#8217;d array  error' on 306</code> (redimensioned array error).
-</td>
-</tr>
-</table>
-</div>
+<div class="sect3">
+<h4 id="truemodule-structure"><a class="anchor" href="#truemodule-structure"></a>Module Structure</h4>
+
 </div>
 </div>
 <div class="sect2">
 <h3 id="trueconversion-and-backward-compatibility"><a class="anchor" href="#trueconversion-and-backward-compatibility"></a>Conversion and Backward Compatibility</h3>
 <div class="paragraph">
 <p>Image v3.0 is a major change in design and programming style from previous versions.
-The first reaction might be to assume that you can no longer use legacy modules created under Image v1.2a and below.
+Your first reaction might be to assume that you can no longer use legacy modules created under Image v1.2a and below.
 However, nearly everything written under previous versions of Image can be made to run under v3.0.
-The easiest method for this is to run under &#8220;1.3 emulation.&#8221;
-This mode greatly reduces available memory, but allows a program to make the same calls to <code>im</code> that were available under Image 1.2a.
+The easiest method for this is to run under &#8220;1.3 emulation.&#8221;</p>
+</div>
+<div class="paragraph">
+<p>If modules are renumbered to start at line 3000, they can run under Image 3.0.</p>
+</div>
+<div class="paragraph">
+<p>This mode greatly reduces available memory, but allows a program to make the same calls to <code>im</code> that were available under Image 1.2a.
 The best method for using legacy modules is to convert them to v3.0 compliant modules.</p>
 </div>
 <div class="paragraph">
 <p>This section is provided to help you as you attempt to convert such modules.
-The v1.2a &#8592;&#8594; v2.0 cross-reference will be your best tool, but please take time to read the notes regarding making the modules truly Image v3.0 compliant rather than just &#8220;compatible.&#8221;
+The v1.2a &#8592;&#8594; v3.0 cross-reference will be your best tool, but please take time to read the notes regarding making the modules truly Image v3.0 compliant rather than just &#8220;compatible.&#8221;
 You will want to take careful note of the theory and structure of a v3.0 compliant program, found in the <a href="#programming-etiquette">Programming Etiquette</a> section of this guide.</p>
 </div>
 </div>
@@ -1076,13 +1113,16 @@ print"there!"</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>To work around this, you can output a <em>carriage return</em>, which moves the cursor to the next line.</p>
+<p>To work around this, you can output a <em>carriage return</em>, which moves the cursor to the beginning of the next line.</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
 <div class="title">Boring Background: CR/LF, CR, LF?</div>
-<p>On other terminals or operating systems, a carriage return moves the cursor down a row, staying in the current column, but an additional <em>linefeed</em> character is needed to move the cursor to the beginning of the current row.</p>
+<p>On other terminals or operating systems, a carriage return moves the cursor to the beginning of the current line.</p>
+</div>
+<div class="paragraph">
+<p>Sometimes an additional <em>linefeed</em> character is needed, which keeps the cursor in the current column, but moves the cursor down a row.</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1091,9 +1131,12 @@ print"there!"</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This stairstep-looking result is what printing looks like with only a linefeed when the terminal needed both a carriage reeturn and a linefeed.
-Probably not the desired result.
-However, <code>print</code>ing in Commodore BASIC&#8212;&#8203;and our BBS in this example&#8212;&#8203;doesn&#8217;t need them.</p>
+<p>This stairstep-looking result is what printing looks like with only a linefeed, when the terminal needed both a carriage return and a linefeed.
+Probably not the desired result.</p>
+</div>
+<div class="paragraph">
+<p>However, <code>print</code>ing in Commodore BASIC&#8212;&#8203;and our BBS in this example&#8212;&#8203;doesn&#8217;t need a linefeed.
+A carriage return is the equivalent of a carriage return plus linefeed.</p>
 </div>
 </div>
 </div>
@@ -1105,7 +1148,7 @@ However, <code>print</code>ing in Commodore BASIC&#8212;&#8203;and our BBS in th
 <div class="paragraph">
 <p><code>chr$()</code> (read it as &#8220;character string&#8221;) is a function that outputs a character supplied in parentheses.
 A carriage return is <code>chr$(13)</code>.
-So this snippet of code will move the cursor to the next line after outputting <code>Hello there!</code>.</p>
+So this snippet of code will output <code>Hello there!</code>, then move the cursor to the beginning of the next line.</p>
 </div>
 <div class="paragraph">
 <p>There is also a string variable defined in <code>im</code>: <code>r$=chr$(13)</code> (short for &#8220;return&#8221;).
@@ -1140,82 +1183,18 @@ Using the <code>r$</code> variable is actually an easy way to write data contain
 Or, they might cause problems while reading disk files.
 Therefore, they have been encoded using the reverse video letters seen while typing function keys when in Commodore&#8217;s &#8220;quote mode.&#8221;</p>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="truebasic-editing-modes"><a class="anchor" href="#truebasic-editing-modes"></a>BASIC Editing Modes</h3>
-<div class="paragraph">
-<div class="title">Quote Mode</div>
-<p>In the BASIC editor, once the quote mark (<span class="keyseq"><kbd>Shift</kbd>+<kbd>2</kbd></span>, <kbd>"</kbd>) is typed, the cursor controls stop operating and start displaying reversed characters which stand for the cursor control or symbol you are hitting.
-This allows your program to perform these cursor controls, because once the text inside the quotes is <code>PRINT</code>ed they perform their functions as if typed manually.
-The <kbd>Inst/Del</kbd> key is the only cursor control not affected by &#8220;quote mode.&#8221;</p>
-</div>
-<div class="paragraph">
-<p>Typing a second <kbd>"</kbd> exits quote mode, and allows you to use the cursor keys to edit the program line again.</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-See <a href="#position-cursor"><code>&amp;,70</code> Position terminal cursor</a> for how to position the terminal cursor easily in Image BBS.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<div class="title">Insert Mode</div>
-<p>Insert mode is similar to quote mode, only for the number of spaces you insert with the <span class="keyseq"><kbd>Shift</kbd>+<kbd>Inst/Del</kbd></span> key, the BASIC editor is in quote mode.
-Once that number of characters is typed, insert mode is exited.</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<kbd>Return</kbd> gets out of quote and insert mode, and adds the current line into the BASIC program.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><span class="keyseq"><kbd>Shift</kbd>+<kbd>Return</kbd></span> gets out of quote and insert mode, but does <em>not</em> add the current line into the BASIC program.</p>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Image BBS translates specific PETSCII characters into the reverse video letters seen when typing function keys inside quotation marks.</p>
-</div>
 <div class="paragraph">
 <p>This eliminates a few difficulties:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Entering special characters is made easier</p>
+<p>Entering special characters is made easier&#8212;&#8203;instead of <code>chr$()</code> codes, you can just tap a function key in quote mode</p>
 </li>
 <li>
-<p>Some more simply written code (and BASIC itself) can truncate data when a <code>,</code> is encountered in a SEQ file</p>
+<p>Some more simply written code (and BASIC itself) can truncate data when a <code>,</code> is encountered in a SEQ file&#8212;&#8203;this character encoding eliminates that problem</p>
 </li>
 </ul>
-</div>
-<div class="exampleblock">
-<div class="title">Example 2. BASIC Pitfall</div>
-<div class="content">
-<div class="paragraph">
-<p>Using <code>input#2,a$</code> when the disk file contains a string <code>hello,there</code> returns only <code>hello</code> in <code>a$</code>.</p>
-</div>
-<div class="paragraph">
-<p>You can prefix the string with <code>"</code> on disk to get around that.
-But most likely, you want to read <code>hello</code> and <code>there</code> into two separate variables. <code>input#2,a$,b$</code> does that, resulting in <code>a$="hello"</code> and <code>b$="there"</code>.</p>
-</div>
-</div>
 </div>
 <div class="paragraph">
 <p>Image BBS converts these special characters from their encoded form to readable characters when you:</p>
@@ -1235,6 +1214,9 @@ But most likely, you want to read <code>hello</code> and <code>there</code> into
 </div>
 <div class="paragraph">
 <p>The <code>image seq reader</code> utility used in BASIC also does this.</p>
+</div>
+<div class="paragraph">
+<p>A new <code>&amp;</code> command, <code>&amp;,15,2</code>, does the same thing when passed the string to translate in <code>an$</code>.</p>
 </div>
 <div class="paragraph">
 <p>As it relates to carriage returns, though, we can see in the following table:</p>
@@ -1294,6 +1276,75 @@ But most likely, you want to read <code>hello</code> and <code>there</code> into
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="truebasic-editing-modes"><a class="anchor" href="#truebasic-editing-modes"></a>BASIC Editing Modes</h3>
+<div class="sect3">
+<h4 id="truequote-mode"><a class="anchor" href="#truequote-mode"></a>Quote Mode</h4>
+<div class="paragraph">
+<p>In the BASIC editor, once the quote mark (<span class="keyseq"><kbd>Shift</kbd>+<kbd>2</kbd></span>, <kbd>"</kbd>) is typed, color or cursor controls stop changing the cursor color or moving the cursor.
+Instead, they start displaying reversed characters which stand for the color control, cursor control or symbol you are typing.
+Once the text inside the quotes is <code>print</code>ed, they perform their functions as if typed manually.
+The <kbd>Inst/Del</kbd> key is the only cursor control not affected by &#8220;quote mode.&#8221;</p>
+</div>
+<div class="paragraph">
+<p>Typing a second <kbd>"</kbd> exits quote mode, and allows you to use the cursor keys to edit the program line again.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+See <a href="#position-cursor"><code>&amp;,70</code> Position Terminal Cursor</a> for how to easily do that within Image BBS.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="trueinsert-mode"><a class="anchor" href="#trueinsert-mode"></a>Insert Mode</h4>
+<div class="paragraph">
+<p>Insert mode is similar to quote mode, only for the number of spaces you insert with the <span class="keyseq"><kbd>Shift</kbd>+<kbd>Inst/Del</kbd></span> key, the BASIC editor is in quote mode.
+Once that number of characters is typed, insert mode is exited.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<kbd>Return</kbd> gets out of quote and insert mode, and adds the current line into the BASIC program.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><span class="keyseq"><kbd>Shift</kbd>+<kbd>Return</kbd></span> gets out of quote and insert mode, but does <em>not</em> add the current line into the BASIC program.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="true-by-itself"><a class="anchor" href="#true-by-itself"></a><code>&amp;</code> By Itself</h4>
+<div class="paragraph">
+<p>This is a quick way to output the contents of <code>a$</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>a$="Hello there<kbd>f6</kbd>":&amp;</code></p>
+</div>
+<div class="paragraph">
+<p>This outputs <code>Hello there</code> and a carriage return.</p>
+</div>
 <div class="paragraph">
 <p>We can take the previous example of:</p>
 </div>
@@ -1307,6 +1358,66 @@ But most likely, you want to read <code>hello</code> and <code>there</code> into
 </div>
 <div class="paragraph">
 <p><code>print"Hello there!<kbd>f6</kbd>"</code></p>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trueoutputting-strings"><a class="anchor" href="#trueoutputting-strings"></a>Outputting Strings</h3>
+<div class="sect3">
+<h4 id="truestring-literals"><a class="anchor" href="#truestring-literals"></a>String Literals</h4>
+
+</div>
+<div class="sect3">
+<h4 id="truestring-variables"><a class="anchor" href="#truestring-variables"></a>String Variables</h4>
+
+</div>
+<div class="sect3">
+<h4 id="trueconcatenation"><a class="anchor" href="#trueconcatenation"></a>Concatenation</h4>
+
+</div>
+<div class="sect3">
+<h4 id="trueword-wrap"><a class="anchor" href="#trueword-wrap"></a>Word-Wrap</h4>
+<div class="paragraph">
+<p>A new feature of the text output routine is <em>word-wrap</em>.
+This is where a word which would extend past the right hand margin is moved to the following line instead.</p>
+</div>
+<div class="paragraph">
+<p>The position to wrap words is usually 40 columns on the console, whatever the remote user&#8217;s screen width is, and 80 columns on the printer, if one is attached.</p>
+</div>
+<div class="paragraph">
+<p>Setting the variable <code>lp=1</code> and outputting text with <code>&amp;"&#8230;&#8203;"</code> will enable word-wrap.</p>
+</div>
+<div class="paragraph">
+<p>Setting <code>lp=0</code> disables word-wrap, so words continue past the right margin.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="trueset-margins"><a class="anchor" href="#trueset-margins"></a>Set Margins</h4>
+<div class="paragraph">
+<p>The left and right margins can now be indented by up to 15 characters using two new MCI commands:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>&pound;m&lt;<em>x</em></code> (left margin) This MCI command causes every carriage return issued by Image BBS to be followed by <em>x</em> spaces, which indents text <em>x</em> spaces.
+The values for <em>x</em> are <code>0</code> (to disable word-wrap), or <code>1-9</code>, and <code>j-o</code> (10-15).</p>
+</li>
+<li>
+<p><code>&pound;m&gt;<em>x</em></code> (right margin).
+This command causes the system to word wrap as if the user&#8217;s screen width was <em>x</em> characters less than it really is.
+It indents the text from the right side.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The use of <code>&pound;m&lt;<em>x</em></code> and <code>&pound;m&gt;<em>x</em></code> together allows you to make &#8220;block indents&#8221; of text that appear correct regardless of the user&#8217;s screen width.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="truemci-commands"><a class="anchor" href="#truemci-commands"></a>MCI Commands</h4>
+<div class="paragraph">
+<p>bla</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -1350,27 +1461,60 @@ It will output a literal</p>
 </div>
 </div>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trueoutputting-numbers"><a class="anchor" href="#trueoutputting-numbers"></a>Outputting Numbers</h3>
 <div class="sect3">
-<h4 id="true-by-itself"><a class="anchor" href="#true-by-itself"></a><code>&amp;</code> By Itself</h4>
-<div class="paragraph">
-<p>This is a quick way to output the contents of <code>a$</code>.</p>
-</div>
-<div class="paragraph">
-<p><code>a$="Hello there<kbd>f6</kbd>":&amp;</code></p>
-</div>
-<div class="paragraph">
-<p>This outputs <code>Hello there</code> and a carriage return.</p>
-</div>
+<h4 id="trueintegers"><a class="anchor" href="#trueintegers"></a>Integers</h4>
+
 </div>
 <div class="sect3">
-<h4 id="trueword-wrap"><a class="anchor" href="#trueword-wrap"></a>Word-Wrap</h4>
+<h4 id="truefloating-point"><a class="anchor" href="#truefloating-point"></a>Floating Point</h4>
 <div class="paragraph">
-<p>Setting the variable <code>lp=1</code> and outputting text with <code>&amp;"&#8230;&#8203;"</code> word-wraps to 40 columns on the console, and whatever the remote user&#8217;s screen width is.</p>
+<p><em>Floating point</em> values are not integers&#8212;&#8203;the value could be fractional, and the decimal point could be in any position, hence the term &#8220;floating point.&#8221;</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>&amp;str$(h)</code></dt>
+<dd>
+<p>Since <code>&amp;h</code> isn&#8217;t supported to output the value of <code>h</code>, it must be converted to a string with the <code>str$()</code> function.
+This worked under Image 1.2; it works here too, but there is a new MCI command in Image 3.0 to output single-letter floating point variables:</p>
+</dd>
+<dt class="hdlist1"><code>&amp;"&pound;!h"</code></dt>
+<dd>
+<p>Output the value of <code>h</code> using an MCI command.</p>
+</dd>
+</dl>
 </div>
 <div class="paragraph">
-<p>Setting <code>lp=0</code> disables word-wrap, and words do not break at margins.</p>
+<p>To output a two-character variable name (<em>e.g.</em>, <code>xx</code>, <code>c1</code>), you have some choices:</p>
 </div>
-<hr>
+<div class="ulist">
+<ul>
+<li>
+<p>assign the two-character variable name to a single letter variable name, <em>e.g.</em>:</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>x=xx:&amp;"Blocks free: &pound;!x"</code>, <code>z=</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>output the two-character variable using the <code>str$()</code> function:</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>&amp;"Number of days:"+str$(xx)</code></dt>
+<dd>
+<p>Output the value of <code>xx</code>.</p>
+</dd>
+</dl>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -1379,38 +1523,91 @@ It will output a literal</p>
 <h2 id="true-parameters-explained"><a class="anchor" href="#true-parameters-explained"></a><code>&amp;</code> Parameters Explained</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>&amp;,<em>call</em></p>
+<p><code>&amp;</code> commands from this point on have additional parameter(s) called by at least one number, followed by optional parameter(s).
+These variables are denoted in <em>italics</em>.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>&amp;,<em>call</em></code></dt>
+<dd>
+<p>This means that <code>&amp;,</code> is required, but the value of <em>call</em> varies.
+Substitute the appropriate number in its place.</p>
+</dd>
+<dt class="hdlist1"><code>&amp;,<em>call[,optional]</em></code></dt>
+<dd>
+<p>This means that again, <code>&amp;,<em>call</em></code> is required.
+The value of <em>call</em> varies.
+However, the parameter <em>[,optional]</em> is optional, and if supplied, needs <code>,</code> and to substitute the appropriate parameter in its place.</p>
+</dd>
+</dl>
 </div>
 <div class="paragraph">
-<p>This
-&amp;,<em>call</em>[,<em>optional</em>]</p>
+<p>There are various sections which most commands use.
+They outline BASIC setup (variables or <code>poke</code>s) which need to be done before the <code>&amp;</code> call can be used.</p>
 </div>
 <div class="paragraph">
-<p>&amp;,<em>call</em>[,<em>optional</em>[,<em>parameter</em>]]</p>
+<p><em>BASIC Setup:</em></p>
 </div>
+<div class="paragraph">
+<p>Any <code>poke</code>s or BASIC variables which are used by the <code>&amp;</code> command are listed here.</p>
+</div>
+<div class="paragraph">
+<p><em>Parameters:</em></p>
+</div>
+<div class="paragraph">
+<p>Any extra information given after <code>&amp;,<em>x</em></code>, like strings or numbers, are listed here.</p>
+</div>
+<div class="paragraph">
+<p><em>Returns:</em></p>
+</div>
+<div class="paragraph">
+<p>Strings, numbers or arrays returned when the <code>&amp;</code> command is finished are listed here.</p>
+</div>
+<div class="paragraph">
+<p><em>Examples:</em></p>
+</div>
+<div class="paragraph">
+<p>Examples of setup, the <code>&amp;</code> call being used, and some typical results are listed here.</p>
+</div>
+<hr>
 <div class="sect2">
-<h3 id="true1-input"><a class="anchor" href="#true1-input"></a><code>&amp;,1</code> Input</h3>
+<h3 id="true1-input-line"><a class="anchor" href="#true1-input-line"></a><code>&amp;,1</code> Input Line</h3>
 <div class="paragraph">
-<p><code>&amp;,1</code> accepts input from the user.</p>
+<p><code>&amp;,1</code> accepts input from the user at a prompt.
+It handles features including word wrap, MCI access, line length, and the ability to type graphics characters.</p>
 </div>
 <div class="paragraph">
-<p><em>Parameters</em>:</p>
+<p><em>BASIC Setup:</em></p>
+</div>
+<div class="paragraph">
+<p><code>poke 53252,<em>line_length</em></code> limits the length of the input to <em>line_length</em> characters, 1-79.</p>
+</div>
+<div class="paragraph">
+<p><code>p$</code>: text of the prompt shown before <code>:&nbsp;</code> and input is accepted.</p>
+</div>
+<div class="paragraph">
+<p><code>w$</code>: the default response to a prompt.
+When using edit mode, if only <kbd>Return</kbd> is typed at a prompt, <code>an$</code> is set to a null string (<code>an$=""</code>).
+The module can check for this and not update the original string.
+An example is given below.</p>
+</div>
+<div class="paragraph">
+<p><mark>TODO</mark> double check this:</p>
+</div>
+<div class="paragraph">
+<p><code>pl=0</code>: convert lowercase input to uppercase.</p>
+</div>
+<div class="paragraph">
+<p><code>pl=1</code>: allow both lowercase and uppercase.</p>
+</div>
+<div class="paragraph">
+<p><em>Parameters:</em></p>
 </div>
 <div class="paragraph">
 <p><code>&amp;,1,<em>editor</em>[,<em>password</em>]</code></p>
 </div>
-<div class="paragraph">
-<p><code>p$</code>: text of prompt shown before <code>:</code> and input accepted</p>
-</div>
-<div class="paragraph">
-<p><code>w$</code>: text to use as default when using edit mode</p>
-</div>
-<div class="paragraph">
-<p><code>pl=0</code>: convert lowercase input to uppercase</p>
-</div>
-<div class="paragraph">
-<p><code>pl=1</code>: allow both lowercase and uppercase</p>
-</div>
+<div class="exampleblock">
+<div class="content">
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1423,11 +1620,13 @@ Not all of these parameters are currently understood.
 </tr>
 </table>
 </div>
+</div>
+</div>
 <div class="paragraph">
 <p><code>editor</code>: editor flags:</p>
 </div>
 <div class="paragraph">
-<p>These are shown in binary, each bit controls a separate function of the input routine.
+<p>Each bit controls a separate function of the input routine.
 Bits may be combined together to perform multiple functions.</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
@@ -1440,14 +1639,14 @@ Bits may be combined together to perform multiple functions.</p>
 <tr>
 <th class="tableblock halign-left valign-top">Bits</th>
 <th class="tableblock halign-left valign-top">Decimal</th>
-<th class="tableblock halign-left valign-top">Purpose</th>
+<th class="tableblock halign-left valign-top">Purpose (if set)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>%00000001</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">disallow some characters (need to decode which)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">disable typing graphics characters</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>%00000010</code></p></td>
@@ -1457,22 +1656,22 @@ Bits may be combined together to perform multiple functions.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>%00000100</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">show prompt (<code>p$</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">disable prompt (<code>p$</code>)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>%00001000</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">allow <kbd>£</kbd> (the MCI command character) input</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">disable typing <kbd>£</kbd> (the MCI command character)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>%00010000</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">16</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">word wrap enabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enable word wrap</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>%00100000</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">32</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">edit mode (shows first <code>p$</code>, <code>w$</code>, then another <code>p$</code> and allows <kbd>Ctrl</kbd> key editing combinations)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enable edit mode</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>%01000000</code></p></td>
@@ -1482,12 +1681,52 @@ Bits may be combined together to perform multiple functions.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>%10000000</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">128</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>Delete</kbd> on column one exits input</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">disable typing <kbd>Delete</kbd> on column one to exit input</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
+<p><em>Explanations:</em></p>
+</div>
+<div class="paragraph">
+<p><mark>TODO</mark>: demonstrations of each mode in <code>i.test calls</code></p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Edit mode</dt>
+<dd>
+<p>The prompt (<code>p$</code>) is displayed, and the default response (<code>w$</code>) is displayed.
+Then, the prompt (<code>p$</code>) is displayed again, and one of three choices can be made:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><kbd>Return</kbd> accepts the default (<code>w$</code>)</p>
+</li>
+<li>
+<p>a new string can be typed</p>
+</li>
+<li>
+<p>the current string can be edited using <kbd>Ctrl</kbd> key shortcuts)</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
 <p><code>password</code>: password flags:</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+These haven&#8217;t been tested, just going by what Ray said
+</td>
+</tr>
+</table>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
 <colgroup>
@@ -1516,21 +1755,102 @@ Bits may be combined together to perform multiple functions.</p>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p><em>Returns:</em></p>
+</div>
+<div class="paragraph">
+<p><code>an$</code>: text typed at the prompt.</p>
+</div>
+<div class="paragraph">
+<p><em>Examples:</em></p>
+</div>
+<div class="paragraph">
+<p><mark>TODO</mark>: write examples for each option.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">poke 53252,10:p$="Name":&amp;,1 <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>poke 53252,10</code>: Set the input length to 10 characters. <code>p$="Name"</code>: Set the prompt to <code>Name:</code>. <code>&amp;,1</code>: Allow user input, and return string in <code>an$</code>.</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">poke 53252,20:w$=na$:p$="Handle":&amp;,1,32:if an$&lt;&gt;"" then na$=an$ <i class="conum" data-value="1"></i><b>(1)</b>
+
+Handle: PINACOLADA
+Handle: _</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>poke 53252,20</code>: Set the input length to 20 characters. <code>w$=na$</code>: Assign the user&#8217;s handle (<code>na$</code>) to <code>w$</code> (the prompt&#8217;s default). <code>p$="Handle"</code>: Set the prompt to <code>Handle:</code>. <code>&amp;,1,32</code>: Setting bit 5 (a value of 32) enables edit mode. The string typed in response to a prompt is returned in <code>an$</code>. <code>if an$&lt;&gt;"" then na$=an$</code>: Just typing <kbd>Return</kbd> (to accept the default, <code>w$</code>) sets <code>an$</code> to a null string. If something else was typed (<code>an$&lt;&gt;""</code>), assign <code>na$</code> to what was typed (<code>an$</code>).</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">poke 53252,30:p$="New Prompt":&amp;,1,9:if an$&lt;&gt;"" then po$=an$ <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>poke 53252,30</code>: Set the input length to 30 characters. <code>p$="New Prompt"</code>: Set the prompt to <code>New Prompt:</code>. <code>&amp;,1,9</code>: Setting bits 3 and 0 (a value of 8 + 1) allow MCI and graphics characters to be entered.</td>
+</tr>
+</table>
+</div>
 <hr>
 </div>
 <div class="sect2">
 <h3 id="true2-disk-file-input"><a class="anchor" href="#true2-disk-file-input"></a><code>&amp;,2</code> Disk File Input</h3>
 <div class="paragraph">
-<p><code>&amp;,2,<em>lfn</em>[,<em>bytes</em>]</code></p>
+<p>Input data from an open disk file.
+This routine inputs a maximum of 80 characters into <code>a$</code>.</p>
 </div>
 <div class="paragraph">
-<p>Disk file input.</p>
+<p><em>Parameters:</em></p>
 </div>
 <div class="paragraph">
-<p><code>lfn</code>: logical file number</p>
+<p><code>&amp;,2,<em>lfn[,bytes]</em></code></p>
 </div>
 <div class="paragraph">
-<p><code>bytes</code>: number of bytes to get from file, 1-80</p>
+<p><code>lfn</code>: logical file number.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">Logical File Numbers</div>
+<p>A logical file number (LFN) relates the <code>open</code>, <code>close</code>, <code>cmd</code>, <code>get#</code>, <code>input#</code> and <code>print#</code> statements to each other.</p>
+</div>
+<div class="paragraph">
+<p>LFNs help distinguish multiple files from each other.
+They associate the commands being used with the filename opened which uses the same LFN.</p>
+</div>
+<div class="paragraph">
+<p>The LFN is the first number in an <code>open</code> statement, <em>e.g.</em> <code>open <strong>2</strong>,10,2</code>.</p>
+</div>
+<div class="paragraph">
+<p>The LFN value ranges from 1 to 255.
+LFN 15 is usually reserved for the DOS command channel.</p>
+</div>
+<div class="paragraph">
+<p>The only restriction is that you can&#8217;t re-<code>open</code> a LFN that is already <code>open</code>, or you get the error <code>?file open&nbsp;&nbsp;error</code>.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><code>bytes</code>: number of bytes to get from file (1-80).
+Carriage returns are ignored.</p>
 </div>
 <div class="paragraph">
 <p><em>Returns:</em></p>
@@ -1538,33 +1858,130 @@ Bits may be combined together to perform multiple functions.</p>
 <div class="paragraph">
 <p><code>a$</code>: bytes from file</p>
 </div>
+<div class="paragraph">
+<p><em>Example:</em></p>
+</div>
+<div class="listingblock">
+<div class="title">s.test file</div>
+<div class="content">
+<pre>data <i class="conum" data-value="1"></i><b>(1)</b>
+----+----+----+----+----+----+ <i class="conum" data-value="2"></i><b>(2)</b></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>a regular string</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>a 30-character string, used to demonstrate <code>&amp;,2,2,25</code></td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">i.read test file</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">3000 dr=1:a$="s.test file,s,r":gosub 4 <i class="conum" data-value="1"></i><b>(1)</b>
+3002 if e% then:&amp;:goto 3100 <i class="conum" data-value="2"></i><b>(2)</b>
+3004 &amp;,2,2:&amp; <i class="conum" data-value="3"></i><b>(3)</b>
+3006 &amp;,2,2,25:&amp; <i class="conum" data-value="4"></i><b>(4)</b>
+3100 close 2:goto 300 <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>dr=1</code>: set the Image drive to <code>1</code> (the System drive).
+<code>a$="s.test file,s,r"</code>: set the System disk filename prefix to <code>s.</code>, the main filename to <code>test file</code>, specifies <code>s</code> for a SEQuential file, and <code>r</code> for reading the file.
+<code>gosub 4</code>: open <code>a$</code> for the device and drive assigned to the System drive.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>If there is a DOS error (<em>e.g.</em> <code>file not found</code>), this line intercepts it.
+<code>e%</code>: the DOS error number.
+<code>if e%</code> implies <code>if e%&lt;&gt;0</code> (if <code>e%</code> does not equal zero; <em>i.e</em>., a non-zero result means an error occurred).
+<code>a$</code>: the DOS error string.
+<code>&amp;</code>: display the DOS error string in <code>a$</code>.
+<code>goto 3100</code>: close the disk channel instead of getting data from a non-existant file.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td><code>&amp;,2,<strong>2</strong></code>: using logical file #<strong>2</strong>, get a line of data from the disk.
+The data is returned in <code>a$</code>.
+<code>&amp;</code>: output <code>a$</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td><code>&amp;,2,2,<strong>25</strong></code>: using logical file #2, get a line of data from the disk&#8212;&#8203;but stop at <strong>25</strong> characters, ignoring a carriage return.
+The data is returned in <code>a$</code>.
+<code>&amp;</code>: output <code>a$</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td><code>close 2</code>: close disk file.
+<code>goto 300</code>: go to main prompt.</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
+<div class="title">Example 2. BASIC Pitfall</div>
+<div class="content">
+<div class="paragraph">
+<p>Using <code>input#2,a$</code> when the disk file contains a string <code>hello,there</code> returns only <code>hello</code> in <code>a$</code>.
+When used with <code>input#</code>, <code>,</code> is a delimiter which truncates (cuts off) the data after the <code>,</code>.</p>
+</div>
+<div class="paragraph">
+<p>You can prefix the string with <code>"</code> on disk to get around that.
+But most likely, you want to read <code>hello</code> and <code>there</code> into two separate variables.
+<code>input#2,a$,b$</code> does that, resulting in <code>a$="hello"</code> and <code>b$="there"</code>.</p>
+</div>
+</div>
+</div>
 <hr>
 </div>
 <div class="sect2">
 <h3 id="true3-read-file-from-disk"><a class="anchor" href="#true3-read-file-from-disk"></a><code>&amp;,3</code> Read File from Disk</h3>
 <div class="paragraph">
-<p><code>&amp;,3,<em>lfn</em>[,<em>speed</em>]</code>	read file from disk</p>
+<p>Read a file from disk.
+An optional <em>speed</em> parameter can be specified for reading movie files, which adds an appropriate slowdown based on the value.</p>
 </div>
 <div class="paragraph">
 <p><em>Parameters:</em></p>
 </div>
 <div class="paragraph">
+<p><code>&amp;,3,<em>lfn</em>[,<em>speed</em>]</code></p>
+</div>
+<div class="paragraph">
 <p><code>lfn</code>: logical file number</p>
 </div>
 <div class="paragraph">
-<p><code>speed</code>: speed (1-20, for movie file read)</p>
+<p><code>speed</code>: speed (<code>1</code>-<code>20</code> for movie file read. <code>1</code>=faster, <code>20</code>=slower)</p>
 </div>
 <hr>
 </div>
 <div class="sect2">
 <h3 id="true4-get-byte-from-modem"><a class="anchor" href="#true4-get-byte-from-modem"></a><code>&amp;,4</code> Get Byte from Modem</h3>
 <div class="paragraph">
-<p><code>&amp;,4</code>	get byte from modem, <code>x=peek(780)</code> reads it</p>
+<p>This returns the character received from the modem in <code>peek(780)</code>.
+This routine does no ASCII translation, and no high bit stripping; it gets the character directly from the RS232 routines.</p>
+</div>
+<div class="paragraph">
+<p><em>Returns:</em></p>
+</div>
+<div class="paragraph">
+<p><code>x=peek(780)</code> reads the character from the RS232 routines.
+If no character is received from the modem, <code>peek(780)=0</code>.</p>
 </div>
 <hr>
 </div>
 <div class="sect2">
 <h3 id="true5-get-version"><a class="anchor" href="#true5-get-version"></a><code>&amp;,5</code> Get Version</h3>
+<div class="paragraph">
+<p>Get the version information embedded in the BBS ML.</p>
+</div>
 <div class="paragraph">
 <p><em>Returns</em>:</p>
 </div>
@@ -1582,58 +1999,88 @@ Bits may be combined together to perform multiple functions.</p>
 <div class="sect2">
 <h3 id="true6-password-input"><a class="anchor" href="#true6-password-input"></a><code>&amp;,6</code> Password Input</h3>
 <div class="paragraph">
-<p>Sets input length to 14, uses the input mask character defined in memory location <code>17138</code> to display instead of the user&#8217;s input.</p>
+<p>Sets input length to 14, and uses an input mask.
+The mask character is displayed, rather than the real character typed.</p>
 </div>
 <div class="paragraph">
 <p><em>Parameters:</em></p>
 </div>
 <div class="paragraph">
+<p><code>poke 17138,<em>mask</em></code>: display this character instead of the user&#8217;s input</p>
+</div>
+<div class="paragraph">
+<p><em>Example:</em></p>
+</div>
+<div class="paragraph">
+<p><code>&amp;,6</code>: Allow password entry, displaying the mask character set by the <code>poke</code> above.</p>
+</div>
+<div class="paragraph">
 <p><em>Returns:</em></p>
 </div>
 <div class="paragraph">
-<p><code>an$</code>: password</p>
+<p><code>an$</code>: password in plain text</p>
 </div>
 <hr>
 </div>
 <div class="sect2">
-<h3 id="true7-load-file"><a class="anchor" href="#true7-load-file"></a><code>&amp;,7</code> Load File</h3>
+<h3 id="load-file"><a class="anchor" href="#load-file"></a><code>&amp;,7</code> Load File</h3>
 <div class="paragraph">
-<p><em>Syntax:</em> <code>&amp;,7,<em>device</em>[,<em>segment</em>]</code></p>
+<p>Loads a module into memory.</p>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>13: wedgemem</pre>
+<div class="paragraph">
+<p><em>Parameters:</em></p>
 </div>
+<div class="paragraph">
+<p><code>a$</code>: the drive number and filename (<em>e.g.</em>, <code>"0:i.module"</code>)</p>
+</div>
+<div class="paragraph">
+<p><em>Syntax:</em></p>
+</div>
+<div class="paragraph">
+<p><code>&amp;,7,<em>device</em>[,<em>segment</em>]</code></p>
 </div>
 <hr>
 </div>
 <div class="sect2">
 <h3 id="true8-disk-directory"><a class="anchor" href="#true8-disk-directory"></a><code>&amp;,8</code> Disk Directory</h3>
 <div class="paragraph">
+<p>Display either:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>an entire disk directory at once, from the directory header  to the <code>blocks free.</code> message</p>
+</li>
+<li>
+<p>a line of information at a time (calling it multiple times  will get the directory header, each file&#8217;s block count, filename, filetype, splat and lock status, and the <code>blocks free.</code> count)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
 <p><em>Parameters:</em></p>
 </div>
 <div class="paragraph">
-<p><code>&amp;,8,<em>lfn</em>,<em>y</em></code></p>
+<p><code>&amp;,8,<em>lfn</em>,<em>flag</em></code></p>
 </div>
 <div class="paragraph">
-<p><em>lfn</em>: logical file #</p>
+<p><code>lfn</code>: logical file #</p>
 </div>
 <div class="paragraph">
-<p><em>y</em>: [<code>0</code>=entire directory | <code>1</code>=single line]</p>
+<p><code>flag</code>: [<code>0</code>=entire directory | <code>1</code>=single line]</p>
 </div>
 <div class="paragraph">
 <p><em>Returns:</em></p>
 </div>
 <div class="paragraph">
-<p><em>y</em>=<code>0</code>: Displays directory</p>
+<p><code>flag=0</code>: Displays entire directory</p>
 </div>
 <div class="paragraph">
-<p><em>y</em>=<code>1</code>, <code>a$</code>: single line of disk directory information</p>
+<p><code>flag=1</code>, <code>a$</code>: single line of disk directory information</p>
 </div>
 <div class="literalblock">
-<div class="title">Reading Disk Directory</div>
+<div class="title">Display Entire s. Disk Directory</div>
 <div class="content">
-<pre>3000 dr=1:gosub 3:open 2,dv%,0,dr$+"$":get#2,a$,a$ <i class="conum" data-value="1"></i><b>(1)</b>
+<pre>3000 dr=1:gosub 3:open 2,dv%,0,"$"+dr$+"*":get#2,a$,a$ <i class="conum" data-value="1"></i><b>(1)</b>
 3002 &amp;,8,2,0:close 2:goto 300 <i class="conum" data-value="2"></i><b>(2)</b></pre>
 </div>
 </div>
@@ -1642,12 +2089,11 @@ Bits may be combined together to perform multiple functions.</p>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
 <td><code>dr=1:gosub 3</code>: get device of <code>s.</code> disk.
-<code>open 2,dv%,0,dr$+"$"</code>: open the directory (the secondary address must be <code>0</code> to instruct the drive to return the disk directory as a BASIC-formatted series of lines.)
-<code>get#2,a$,a$</code>: discard the load address information.</td>
+<code>open 2,dv%,<strong>0</strong>,"$"+dr$+"*"</code>: open the directory as a file. The secondary address must be <strong><code>0</code></strong> to instruct the drive to return the disk directory as a BASIC-formatted series of lines, displayable by this routine. <code>$0:*</code>: Use the wildcard pattern <code>*</code> (all files). <code>get#2,a$,a$</code>: discard the load address information.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td><code>&amp;,8,2,0</code>: Get entire disk directory. <code>close 2</code>: close lfn#2. <code>goto 300</code>: go to main prompt.</td>
+<td><code>&amp;,8,<strong>2</strong>,0</code>: Use lfn#2 (<code>2</code>) to get entire disk directory. <code>close 2</code>: close lfn#2. <code>goto 300</code>: go to main prompt.</td>
 </tr>
 </table>
 </div>
@@ -1656,25 +2102,121 @@ Bits may be combined together to perform multiple functions.</p>
 <div class="sect2">
 <h3 id="true9-bottom-variable"><a class="anchor" href="#true9-bottom-variable"></a><code>&amp;,9</code> Bottom Variable</h3>
 <div class="paragraph">
-<p>Print variables to 16 character status window.</p>
+<p>Output variables to 16-character status window.</p>
 </div>
 <div class="paragraph">
-<p><code>&amp;,9[,x]</code></p>
+<p><em>Parameters:</em></p>
 </div>
 <div class="paragraph">
-<p><code>&amp;,9[,0]</code> print <code>an$</code> to status window</p>
+<p><code>&amp;,9[<em>,x</em>]</code>: <em>x</em>=variable number to display, 0-49:</p>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Variable</th>
+<th class="tableblock halign-left valign-top">Variable</th>
+<th class="tableblock halign-left valign-top">Variable</th>
+<th class="tableblock halign-left valign-top">Variable</th>
+<th class="tableblock halign-left valign-top">Variable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0 an$</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>10 tt$</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>20 nl </code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>30 a% </code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>40 f1$</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1 a$ </code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>11 na$</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>21 ul </code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>31 b$ </code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>41 f2$</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2 b$ </code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>12 rn$</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>22 qe </code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>32 dv%</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 f3$</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>3 tr$</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>13 ph$</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>23 rq </code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>33 dr$</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>43 f4$</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>4 d1$</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>14 ak$</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>24 ac%</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>34 c1$</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>44 f5$</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5 d2$</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>15 lp </code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>25 ef </code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>35 c2$</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>45 f6$</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6 d3$</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>16 pl </code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>26 lf </code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>36 co$</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>46 f7$</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>7 d4$</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>17 rc </code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>27 w$ </code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>37 ch$</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>47 f8$</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>8 d5$</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>18 sh </code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>28 p$ </code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>38 kp%</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>48 mp$</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>9 ld$</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>19 mw </code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>29 tr%</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>39 c3$</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>49 mn%</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><em>Examples:</em></p>
 </div>
 <div class="paragraph">
-<p><code>&amp;,9,1</code>	print <code>a$</code> to status window</p>
+<p><code>&amp;,9[,0]</code>: output <code>an$</code> to status window</p>
 </div>
 <div class="paragraph">
-<p><code>&amp;,9,2</code> print <code>b$</code> to status window</p>
+<p><code>&amp;,9,1</code>: print <code>a$</code> to status window</p>
 </div>
 <div class="paragraph">
-<p><code>&amp;,9,4</code> looks like <code>d1$</code></p>
+<p><code>&amp;,9,2</code>: print <code>b$</code> to status window</p>
 </div>
 <div class="paragraph">
-<p>(x seems to follow the variable table definitions of Image 1.2)</p>
+<p><code>&amp;,9,3</code>: output <code>tr$</code> to status window</p>
+</div>
+<div class="paragraph">
+<p><code>&amp;,9,4</code>: output <code>d1$</code> to status window</p>
 </div>
 <hr>
 </div>
@@ -1690,6 +2232,17 @@ Bits may be combined together to perform multiple functions.</p>
 <div class="paragraph">
 <p>Clear array #<em>x</em>.</p>
 </div>
+<div class="paragraph">
+<p><em>Example:</em></p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>&amp;,11</code></dt>
+<dd>
+<p>Clear <code>tt$()</code> array.</p>
+</dd>
+</dl>
+</div>
 <hr>
 </div>
 <div class="sect2">
@@ -1700,7 +2253,12 @@ Bits may be combined together to perform multiple functions.</p>
 <hr>
 </div>
 <div class="sect2">
-<h3 id="true13-inchr"><a class="anchor" href="#true13-inchr"></a><code>&amp;,13</code> inchr</h3>
+<h3 id="true13-arbit"><a class="anchor" href="#true13-arbit"></a><code>&amp;,13</code> arbit</h3>
+<div class="paragraph">
+<p>A function reserved to arbitrate port use in multi-port Lt.Kernal hard drive setups.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1708,10 +2266,12 @@ Bits may be combined together to perform multiple functions.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Researching this.
+This is currently being researched.
 </td>
 </tr>
 </table>
+</div>
+</div>
 </div>
 <hr>
 </div>
@@ -1720,12 +2280,20 @@ Researching this.
 <div class="paragraph">
 <p>Write array elements to an already-open file, using logical file #2.</p>
 </div>
-<div class="paragraph">
-<p><code>&amp;,14,<em>array</em></code> Output however many elements were `DIM`ensioned for the array</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>&amp;,14,<em>array</em></code></dt>
+<dd>
+<p>Output from 1 to however many elements were <code>dim</code>ensioned for <em>array</em>.</p>
+</dd>
+<dt class="hdlist1"><code>&amp;,14,<em>array</em>,<em>end</em></code></dt>
+<dd>
+<p>Output elements of <em>array</em> from 1-<em>end</em>.</p>
+</dd>
+</dl>
 </div>
-<div class="paragraph">
-<p><code>&amp;,14,<em>array</em>,<em>end</em></code> Output elements 1-<em>end</em></p>
-</div>
+<div class="exampleblock">
+<div class="content">
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1738,6 +2306,8 @@ See <a href="#array-table">[array-table]</a> for the arrays which correspond to 
 </tr>
 </table>
 </div>
+</div>
+</div>
 <hr>
 </div>
 <div class="sect2">
@@ -1745,65 +2315,169 @@ See <a href="#array-table">[array-table]</a> for the arrays which correspond to 
 <div class="paragraph">
 <p>This group of functions perform various conversions on the string contained in <code>an$</code>.</p>
 </div>
+<div class="sect3">
+<h4 id="true15-convert-date"><a class="anchor" href="#true15-convert-date"></a><code>&amp;,15</code> Convert Date</h4>
 <div class="paragraph">
-<div class="title">Example 1:</div>
-<p><code>&amp;,15[,0]</code>
-<code>an$=d1$:&amp;,15:&amp;an$</code> &#8594; displays verbose date</p>
+<p><code>an$=d1$:&amp;,15:&amp;an$</code> &#8594; displays verbose date</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
 <p><code>an$=d1$</code>:
-Put current 11-digit date (<code>d1$</code>) into <code>an$</code>, <em>e.g.</em> <code>60429218427</code></p>
+Put current 11-digit date (<code>d1$</code>, <em>e.g.</em> <code>60429218427</code>) into <code>an$</code></p>
 </li>
 <li>
 <p><code>&amp;,15</code>:
-Convert 11-digit date to a long date string, <em>e.g.</em> <code>Thu Apr 29, 2021&nbsp;&nbsp;4:29 PM PST</code></p>
+Convert 11-digit date to a long date string, <em>e.g.</em> <code>Thu Apr 29, 2021&nbsp;&nbsp;4:29 P</code> and assign that to <code>an$</code></p>
 </li>
 <li>
 <p><code>&amp;an$</code>:
-Output it</p>
+Output <code>an$</code></p>
 </li>
 </ol>
 </div>
+<div class="sect4">
+<h5 id="date-format"><a class="anchor" href="#date-format"></a>Image BBS Date Format</h5>
+<div class="paragraph">
+<p>Image BBS uses an 11-digit string to represent a time and date.
+The current time and date is stored in the string <code>d1$</code>, which is continually updated by the ML.
+Here is a sample definition of <code>d1$</code>:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>d1$="20517218944"</pre>
+</div>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<caption class="title">Table 2. Image BBS Date Format</caption>
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Position</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+<th class="tableblock halign-left valign-top">Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Weekday</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1</code>=Sun&#8230;&#8203;<code>7</code>=Sat</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2-3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Month</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>01</code>&#8230;&#8203;<code>12</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4-5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>01</code>&#8230;&#8203;<code>31</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6-7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Year</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>00</code>&#8230;&#8203;<code>99</code> (plus internal century)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8-9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hour</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>01</code>&#8230;&#8203;<code>12</code> (add <code>80</code> for PM)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10-11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Minute</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>01</code>&#8230;&#8203;<code>59</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>As the table above shows, this string stands for <code>Mon May 17, 2021&nbsp;&nbsp;9:44 PM</code>.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You can also output <span class="keyseq"><kbd>Ctrl</kbd>+<kbd>d</kbd></span> or <code>chr$(4)</code> in an <code>&amp;</code> statement to convert an 11-digit date/time string to a long date/time string.
+Both these statements output the same string as above:
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>a$="20517218944":&amp;"<span class="keyseq"><kbd>Ctrl</kbd>+<kbd>d</kbd></span>"+a$</code></p>
+</li>
+<li>
+<p><code>a$="20517218944":&amp;chr$(4)+a$</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 <hr>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><code>&amp;,15,1</code></dt>
-<dd>
+</div>
+</div>
+<div class="sect3">
+<h4 id="true151-title-case"><a class="anchor" href="#true151-title-case"></a><code>&amp;,15,1</code> Title Case</h4>
+<div class="paragraph">
 <p>Changes an all uppercase string to mixed case.</p>
-</dd>
-</dl>
 </div>
 <div class="paragraph">
 <p><code>an$="THE CHIEF":&amp;,15,1:&amp;an$</code> &#8594; <code>The Chief</code></p>
 </div>
 <hr>
+</div>
+<div class="sect3">
+<h4 id="true152-decode-function-keys"><a class="anchor" href="#true152-decode-function-keys"></a><code>&amp;,15,2</code> Decode Function Keys</h4>
+<div class="paragraph">
+<p>Decodes quoted function key characters into readable equivalents.</p>
+</div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1"><code>&amp;,15,2</code></dt>
-<dd>
-<p>Converts encoded function key characters into readable characters</p>
-</dd>
 <dt class="hdlist1"><code>i.t</code></dt>
 <dd>
 <p><code>an$="host<kbd>f3</kbd>port":&amp;,15,2:&amp;"&pound;v7<kbd>f6</kbd>"</code> &#8594; <code>host:port</code></p>
 </dd>
-<dt class="hdlist1"><code>&amp;,15,3</code> and <code>&amp;,15,4</code></dt>
-<dd>
-<p>(These point to, and are the same as, <code>&amp;,15,2</code>.)</p>
-</dd>
-<dt class="hdlist1"><code>&amp;,15,5</code></dt>
-<dd>
-<p><code>newdate</code></p>
-</dd>
 </dl>
 </div>
-<div class="admonitionblock tip">
+<hr>
+</div>
+<div class="sect3">
+<h4 id="true153-and-154"><a class="anchor" href="#true153-and-154"></a><code>&amp;,15,3</code> and <code>&amp;,15,4</code></h4>
+<div class="paragraph">
+<p>These point to, and are the same as, <code>&amp;,15,2</code>.</p>
+</div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="true155-newdate"><a class="anchor" href="#true155-newdate"></a><code>&amp;,15,5</code> newdate</h4>
+<div class="paragraph">
+<p>Some sort of hour (?) conversion.</p>
+</div>
+<div class="paragraph">
+<p><em>Syntax:</em></p>
+</div>
+<div class="paragraph">
+<p><code>an$="<em>wyymmddhhmm</em>":&amp;,15,5:&amp;"<span class="keyseq"><kbd>Ctrl</kbd>+<kbd>d</kbd></span>"+an$</code></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 This function is currently being researched.
@@ -1811,16 +2485,43 @@ This function is currently being researched.
 </tr>
 </table>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><code>&amp;,15,6,<em>x</em></code></dt>
-<dd>
-<p>Split <code>an$</code> into two strings, <code>an$</code> and <code>a$</code>, if <code>chr$(<em>x</em>)</code> or <code>asc("<em>x</em>")</code> is found in <code>an$</code>.</p>
-</dd>
-</dl>
 </div>
-<div class="olist arabic">
+</div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="true156-scan-string"><a class="anchor" href="#true156-scan-string"></a><code>&amp;,15,6</code> Scan String</h4>
+<div class="paragraph">
+<p>Scan <code>an$</code> for the first occurrence of a specified character.
+You can specify the character to scan for in one of two ways:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>x</em>, the PETSCII value of the character</p>
+</li>
+<li>
+<p>use the <code>asc("<em>x</em>")</code> function, which returns the ASCII (or PETSCII) value of character <em>x</em></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If the specified character is found in <code>an$</code>, split it into two strings:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>an$</code> now ends before the specified character was found</p>
+</li>
+<li>
+<p><code>a$</code> begins after the specified character was found to the end of the string</p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
 <div class="title">Split on space, two ways</div>
+<div class="olist arabic">
 <ol class="arabic" start="1">
 <li>
 <p><code>an$="Hello world":&amp;,15,6,<strong>32</strong></code></p>
@@ -1828,7 +2529,7 @@ This function is currently being researched.
 </ol>
 </div>
 <div class="paragraph">
-<p>This splits <code>"Hello world"</code> at the <code><strong>chr$(32)</strong></code> (space), resulting in <code>an$="Hello"</code> and <code>a$="world"</code>.</p>
+<p>This splits <code>"Hello world"</code> at <code><strong>chr$(32)</strong></code> (<kbd>Space</kbd>), resulting in <code>an$="Hello"</code> and <code>a$="world"</code>.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -1838,10 +2539,12 @@ This function is currently being researched.
 </ol>
 </div>
 <div class="paragraph">
-<p>This splits <code>"Hello world"</code> at the <strong>ASCII value of <em>space</em></strong> (32), resulting in <code>an$="Hello"</code> and <code>a$="world"</code>.</p>
+<p>This splits <code>"Hello world"</code> at the <strong>ASCII value of <kbd>Space</kbd></strong> (32), resulting in <code>an$="Hello"</code> and <code>a$="world"</code>.</p>
+</div>
+<div class="paragraph">
+<p>After the split, the two strings look like this:</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 2. After split</caption>
 <colgroup>
 <col>
 <col>
@@ -1850,18 +2553,34 @@ This function is currently being researched.
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>an$="Hello"</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>chr$(<em>x</em>)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>chr$(32)</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>a$="world"</code></p></td>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
 <div class="exampleblock">
 <div class="content">
-<div class="literalblock">
-<div class="title">im</div>
-<div class="content">
-<pre>1262 &amp;,15,6,140:uu$=an$:an$=a$</pre>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If the specified character is not found in <code>an$</code>, <code>a$=""</code>, a null string.
+</td>
+</tr>
+</table>
 </div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">im</div>
+<p><code>312 &amp;,15,6,<strong>140</strong>:uu$=an$:an$=a$</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1877,7 +2596,7 @@ This function is currently being researched.
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>1472 &amp;,15,6,133:d2%=val(an$):d1%=a:dr=.:dv%(.)=d1%:dr%(.)=d2%</pre>
+<pre>352 &amp;,15,6,133:d2%=val(an$):d1%=a:dr=.:dv%(.)=d1%:dr%(.)=d2%</pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -1896,84 +2615,205 @@ This function is currently being researched.
 </div>
 <hr>
 </div>
+</div>
 <div class="sect2">
-<h3 id="true16sys-49152"><a class="anchor" href="#true16sys-49152"></a><code>&amp;,16</code>	sys 49152</h3>
+<h3 id="true16-sys49152"><a class="anchor" href="#true16-sys49152"></a><code>&amp;,16</code> sys49152</h3>
 <div class="paragraph">
-<p>Perform <code>sys 49152</code>,</p>
-</div>
-<hr>
-</div>
-<div class="sect2">
-<h3 id="true17sys-49155"><a class="anchor" href="#true17sys-49155"></a><code>&amp;,17</code>	sys 49155</h3>
-<hr>
-</div>
-<div class="sect2">
-<h3 id="true18set-screen-mode"><a class="anchor" href="#true18set-screen-mode"></a><code>&amp;,18</code>	Set Screen Mode</h3>
-<div class="paragraph">
-<p>This command turns the screen mask on or off.</p>
+<p>Perform <code>sys 49152</code>.
+Usually this is used in a file transfer protocol for performing a file copy, upload, or download.</p>
 </div>
 <div class="paragraph">
 <p><em>Parameters:</em></p>
 </div>
 <div class="paragraph">
-<p><code>x=0</code>: off</p>
+<p><code>&amp;,16</code>[<em>,sub-function</em>]</p>
 </div>
 <div class="paragraph">
-<p><code>x=1</code>: on</p>
+<p>Following <code>&amp;,16</code> with a <em>sub-function</em> number (<em>e.g.</em>, <code>&amp;,16,2</code>) calls a sub-function of the module through a <em>jump table</em>.</p>
 </div>
-<hr>
-</div>
-<div class="sect2">
-<h3 id="true19get-version"><a class="anchor" href="#true19get-version"></a><code>&amp;,19</code>	Get Version</h3>
-<hr>
-</div>
-<div class="sect2">
-<h3 id="true20-read-from-interface-table"><a class="anchor" href="#true20-read-from-interface-table"></a><code>&amp;,20</code> Read from Interface Table</h3>
-<div class="paragraph">
-<p>Reads a byte from the interface table.</p>
-</div>
-<div class="paragraph">
-<p><em>Parameters:</em></p>
-</div>
-<div class="paragraph">
-<p><code>x</code>: index (see table)</p>
-</div>
-<div class="paragraph">
-<p><code>y</code>: command [<code>0</code>=put in <code>a%</code> | <code>1</code>=return in accumulator, <code>peek(780)</code>]</p>
-</div>
-<hr>
-</div>
-<div class="sect2">
-<h3 id="true21-write-to-interface-table"><a class="anchor" href="#true21-write-to-interface-table"></a><code>&amp;,21</code> Write to Interface Table</h3>
-<div class="paragraph">
-<p>Writes a byte to the interface table.</p>
-</div>
-<div class="paragraph">
-<p><em>Parameters:</em></p>
-</div>
-<div class="literalblock">
+<div class="exampleblock">
 <div class="content">
-<pre>x = index (see table)
-y = value</pre>
+<div class="paragraph">
+<p>Jump tables are useful for giving assembly language routines entry points that don&#8217;t change.
+In other words, if a particular routine changes in size, that would shift all the addresses to jump to around from that point forward.</p>
 </div>
+<div class="paragraph">
+<p>You probably don&#8217;t want to search for all the BASIC <code>sys</code> references to the changed addresses throughout your code.
+Instead, just change the address that the jump table entry points to, and you can keep the BASIC <code>sys</code> address that calls the routine the same (stable).</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Each of these instructions in a fictitious protocol assembly-language jump table take 3 bytes:</p>
+</div>
+<div class="paragraph">
+<p><code>jmp $c009</code> ; <code>sys 49152</code> sub-function 0 (<code>&amp;,16</code>)</p>
+</div>
+<div class="paragraph">
+<p><code>jmp $c0a5</code> ; <code>sys 49155</code> sub-function 1 (<code>&amp;,16,1</code>, also the equivalent of <code>&amp;,17</code>)</p>
+</div>
+<div class="paragraph">
+<p><code>jmp $c147</code> ; <code>sys 49158</code> sub-function 2 (<code>&amp;,16,2</code>)</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Refer to <a href="#protocols">Protocols</a> for more information.
+</td>
+</tr>
+</table>
 </div>
 <hr>
 </div>
 <div class="sect2">
-<h3 id="true22-x-tenths-of-a-second-delay"><a class="anchor" href="#true22-x-tenths-of-a-second-delay"></a><code>&amp;,22</code> <em>x</em> Tenths of a Second Delay</h3>
+<h3 id="true17-sys49155"><a class="anchor" href="#true17-sys49155"></a><code>&amp;,17</code> sys49155</h3>
 <div class="paragraph">
-<p>tenwait [x=tenths of a second]</p>
+<p>Perform <code>sys 49155</code> as shown above.</p>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="true18-set-screen-mode"><a class="anchor" href="#true18-set-screen-mode"></a><code>&amp;,18</code> Set Screen Mode</h3>
+<div class="paragraph">
+<p>This command turns the screen mask on (enabling split screen mode) or off (enabling full-screen mode).
+The bottom status line (showing the date and time, status indicators, and the time remaining for a user&#8217;s call) is always present, regardless of mode.</p>
+</div>
+<div class="paragraph">
+<p><em>Parameters:</em></p>
+</div>
+<div class="paragraph">
+<p><code>&amp;,18,0</code>: Turn the screen mask off, enabling full screen mode (24 lines for viewing caller activity).</p>
+</div>
+<div class="paragraph">
+<p><code>&amp;,18,1</code>: Turn the screen mask on, enabling split screen mode (16 lines for viewing caller activity).
+The 9 lines of the screen mask show:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the lightbar interface</p>
+</li>
+<li>
+<p>system, caller, protocol or network transfer information depending on the BBS&#8217;s mode</p>
+</li>
+<li>
+<p>the modem I/O windows, <code>M=</code> free memory, and <code>L=</code> BASIC line number currently executing</p>
+</li>
+</ul>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="true19-get-version"><a class="anchor" href="#true19-get-version"></a><code>&amp;,19</code> Get Version</h3>
+<div class="paragraph">
+<p>This function did something different in Image 1.2, but was removed.
+It points to <a href="#get-version"><code>&amp;,5</code>: Get Version</a> to maintain the numbering of the <code>&amp;</code> calls.</p>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="amp-20-read-from-interface-table"><a class="anchor" href="#amp-20-read-from-interface-table"></a><code>&amp;,20</code> Read from Interface Table</h3>
+<div class="paragraph">
+<p>Reads a byte from the interface table.
+This is meant to possibly eventually replace <code>peek()</code>ing memory locations based on frequency of use.
+While the functionality is there, it is limited, but can be expanded in the future.</p>
+</div>
+<div class="paragraph">
+<p><em>Parameters:</em></p>
+</div>
+<div class="paragraph">
+<p><code>&amp;,20,<em>index</em>,<em>command</em></code></p>
+</div>
+<div class="paragraph">
+<p><code>index</code>: position in table (see table)</p>
+</div>
+<div class="paragraph">
+<p><code>command</code>: [<code>0</code>=put in <code>a%</code> | <code>1</code>=return in accumulator, <code>peek(780)</code>]</p>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<caption class="title">Table 3. Interface Table Addresses <a id="interface-table-addresses"></a></caption>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Index</th>
+<th class="tableblock halign-left valign-top"><code>peek()</code></th>
+<th class="tableblock halign-left valign-top">Hexadecimal</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>53252</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$d004</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Input line length</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>For now, refer to <a href="#pokes">Pokes and Memory Locations</a> to see the list of <code>poke</code>s you may use.</p>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="amp-21-write-to-interface-table"><a class="anchor" href="#amp-21-write-to-interface-table"></a><code>&amp;,21</code> Write to Interface Table</h3>
+<div class="paragraph">
+<p>Writes a byte to the interface table.
+This is meant to possibly eventually replace <code>peek()</code>ing memory locations.
+While the functionality is there, it is limited, but should be expanded in the future.</p>
+</div>
+<div class="paragraph">
+<p><em>Parameters:</em></p>
+</div>
+<div class="paragraph">
+<p><code>index</code>: see <a href="#interface-table-addresses">Interface Table Addresses</a> for more information</p>
+</div>
+<div class="paragraph">
+<p><code>value</code>: the value you would normally <code>poke</code> into a memory location</p>
+</div>
+<div class="paragraph">
+<p><em>Example:</em></p>
+</div>
+<div class="paragraph">
+<p><code>&amp;,21,0,20</code> Set input line length to 20 characters.</p>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="true22-wait-x-tenths-of-a-second"><a class="anchor" href="#true22-wait-x-tenths-of-a-second"></a><code>&amp;,22</code> Wait <em>x</em> Tenths of a Second</h3>
+<div class="paragraph">
+<p>This waits for any interval from .1 second to 25.5 seconds, in 1/10-second steps.</p>
+</div>
+<div class="paragraph">
+<p><em>Parameters:</em></p>
+</div>
+<div class="paragraph">
+<p><code>x</code>= 1-255</p>
 </div>
 <div class="listingblock">
-<div class="title">Example</div>
+<div class="title">Example:</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">&amp;,22,200 <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">&amp;,22,10  <i class="conum" data-value="1"></i><b>(1)</b>
+&amp;,22,200 <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Wait 1 second (10 10<sup>ths</sup> of a second)</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
 <td>Wait 20 seconds (20 10/10<sup>ths</sup> of a second)</td>
 </tr>
 </table>
@@ -2030,6 +2870,9 @@ This following routine is used by Image BBS machine language itself; there is li
 </div>
 </div>
 </div>
+<div class="paragraph">
+<p>This is an output character routine that should be used when writing ML routines which need to output a character to the user.</p>
+</div>
 <hr>
 </div>
 <div class="sect2">
@@ -2060,25 +2903,103 @@ Number of times to repeat: [<code>0</code>: Stop repeat | <code>1-254</code>: Re
 </div>
 </div>
 <div class="sect2">
-<h3 id="true26-callmod"><a class="anchor" href="#true26-callmod"></a><code>&amp;,26</code> callmod</h3>
+<h3 id="true26-ecschk"><a class="anchor" href="#true26-ecschk"></a><code>&amp;,26</code> ecschk</h3>
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This is currently being researched.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
 <hr>
 </div>
 <div class="sect2">
-<h3 id="true27-save-variable-pointers"><a class="anchor" href="#true27-save-variable-pointers"></a><code>&amp;,27</code> Save Variable Pointers</h3>
+<h3 id="save-variable-pointers"><a class="anchor" href="#save-variable-pointers"></a><code>&amp;,27</code> Save Variable Pointers</h3>
 <div class="paragraph">
-<p>When modules use arrays not already defined in <code>im</code>, <mark>FIXME</mark></p>
+<p>This saves pointers that tell BASIC where variables and arrays start and end.
+When modules introduce arrays not already defined in <code>im</code>, the variable pointers can be restored with <code>&amp;,28</code>.
+This erases unnecessary variables after they&#8217;re done being used.</p>
 </div>
-<hr>
+<div class="paragraph">
+<p><mark>FIXME</mark></p>
 </div>
-<div class="sect2">
-<h3 id="true28-restore-variable-pointers"><a class="anchor" href="#true28-restore-variable-pointers"></a><code>&amp;,28</code> Restore Variable Pointers</h3>
+<div class="sect3">
+<h4 id="truecreating-new-arrays"><a class="anchor" href="#truecreating-new-arrays"></a>Creating New Arrays</h4>
+<div class="paragraph">
+<p>If you define any new arrays in a module, be sure not to consume unnecessary memory after you end the module.
+You can do this by using the <code>&amp;,27</code> (array pointer save) and <code>&amp;,28</code> (array pointer restore) calls.</p>
+</div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
 <p>Image 1.2 had just one level of variable pointer save and restore.
-Image 1.3 and above adds multiple levels of save and restore with this additional parameter.</p>
+Image 1.3 and above adds multiple levels of save and restore with an additional parameter.</p>
 </div>
 </div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">3000 &amp;,27,2 <i class="conum" data-value="1"></i><b>(1)</b>
+3002 dim u%(10,20) <i class="conum" data-value="2"></i><b>(2)</b>
+...
+3010 &amp;,28,2:goto 300 <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>save current variable pointers, and create variable pointer level 2</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>create new array</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td><code>&amp;,28,2</code>: restore level 2 array pointers (this frees up memory used by the array but preserves level 1 system variables still needed by the BBS). <code>goto 300</code>: go to main prompt.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><mark>TODO</mark>: I would like a diagram of array pointers, creating new arrays, restoring old pointers here.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The main prompt restores level 1 array pointers and already does a <code>&amp;,28,1</code> there.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If you substitute <code>&amp;,27,1</code> for <code>&amp;,27,2</code> and <code>&amp;,28,1</code> for <code>&amp;,28,2</code> in the above code, line 300 will redo <code>&amp;,28,1</code>.
+This causes a <code>?redim&#8217;d array&nbsp;&nbsp;error in 306</code> (<em>i.e.</em>, redimensioned array error; an array can&#8217;t be <code>dim</code>ensioned twice).</p>
+</div>
+</div>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="restore-variable-pointers"><a class="anchor" href="#restore-variable-pointers"></a><code>&amp;,28</code> Restore Variable Pointers</h3>
+<div class="paragraph">
+<p><mark>FIXME</mark></p>
 </div>
 <hr>
 <div class="exampleblock">
@@ -2100,22 +3021,72 @@ These following 8 routines are used by Image BBS machine language themselves; th
 </div>
 <div class="sect2">
 <h3 id="true29-usevar"><a class="anchor" href="#true29-usevar"></a><code>&amp;,29</code> usevar</h3>
+<div class="paragraph">
+<p>Get contents of a variable.
+This is the routine to call to read the value of a variable from ML.</p>
+</div>
+<div class="paragraph">
+<p><em>Prerequisite:</em></p>
+</div>
+<div class="paragraph">
+<p><code>ldx</code> <em>variable_number</em> ; variable to access.</p>
+</div>
+<div class="paragraph">
+<p>(Refer to variable table <mark>FIXME</mark>.)</p>
+</div>
+<div class="paragraph">
+<p><em>Returns:</em> <code>$61</code>: Start of buffer holding the variable contents.</p>
+</div>
 <hr>
 </div>
 <div class="sect2">
 <h3 id="true30-putvar"><a class="anchor" href="#true30-putvar"></a><code>&amp;,30</code> putvar</h3>
+<div class="paragraph">
+<p>Assign a value to a variable.
+This stores the contents of the buffer at <code>$61</code> into a variable.</p>
+</div>
+<div class="paragraph">
+<p><em>Prerequisite:</em></p>
+</div>
+<div class="paragraph">
+<p><code>ldx</code> <em>variable_number</em> ; variable to access.</p>
+</div>
+<div class="paragraph">
+<p>(Refer to variable table <mark>FIXME</mark>.)</p>
+</div>
+<div class="paragraph">
+<p><em>Returns:</em> <code>$61</code>: Start of buffer holding the variable contents.</p>
+</div>
 <hr>
 </div>
 <div class="sect2">
 <h3 id="true31-zero"><a class="anchor" href="#true31-zero"></a><code>&amp;,31</code> zero</h3>
+<div class="paragraph">
+<p>This stores the floating point equivalent of <code>0</code> in the buffer starting at <code>$61</code>.</p>
+</div>
 <hr>
 </div>
 <div class="sect2">
 <h3 id="true32-minusone"><a class="anchor" href="#true32-minusone"></a><code>&amp;,32</code> minusone</h3>
+<div class="paragraph">
+<p>This stores the floating point equivalent of <code>-1</code> in the buffer starting at <code>$61</code>.</p>
+</div>
 <hr>
 </div>
 <div class="sect2">
 <h3 id="true33-getarr"><a class="anchor" href="#true33-getarr"></a><code>&amp;,33</code> getarr</h3>
+<div class="paragraph">
+<p>Get descriptor (length and pointer) for an element of <code>tt$(x)</code>.</p>
+</div>
+<div class="paragraph">
+<p><em>Prerequisite:</em></p>
+</div>
+<div class="paragraph">
+<p><code>ldx</code> <em>element</em> ; element to access.</p>
+</div>
+<div class="paragraph">
+<p><em>Returns:</em> <code>$61</code>: Start of buffer holding the descriptor.</p>
+</div>
 <hr>
 </div>
 <div class="sect2">
@@ -2132,10 +3103,18 @@ These following 8 routines are used by Image BBS machine language themselves; th
 </div>
 <div class="sect2">
 <h3 id="true37-trapon"><a class="anchor" href="#true37-trapon"></a><code>&amp;,37</code> trapon</h3>
-<hr>
+<div class="paragraph">
+<p>Enable error-trap routine.
+BASIC run-time errors will be caught, and redirected to the BBS error handler at line
+---</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="true38-trapoff"><a class="anchor" href="#true38-trapoff"></a><code>&amp;,38</code> trapoff</h3>
+<div class="paragraph">
+<p>Disable error-trap routine.
+BASIC run-time errors will not be caught, and will crash like in regular BASIC, halting the program and putting you back at the <code>ready.</code> prompt.</p>
+</div>
 <hr>
 <div class="exampleblock">
 <div class="content">
@@ -2164,12 +3143,101 @@ This following routine is used by Image BBS machine language itself; there is li
 <div class="sect2">
 <h3 id="true40-forcegc"><a class="anchor" href="#true40-forcegc"></a><code>&amp;,40</code> forcegc</h3>
 <div class="paragraph">
-<p>Perform a garbage collection (freeing RAM by erasing unused strings).</p>
+<p>Perform a garbage collection (freeing RAM by erasing unused strings).
+While the garbage collection is being performed, <code>G</code> shows in the status indicator area on the bottom status line.</p>
+</div>
+<div class="paragraph">
+<p><kbd>FG</kbd> also performs garbage collection if you are in pseudo-local mode.</p>
 </div>
 <hr>
 </div>
 <div class="sect2">
 <h3 id="true41-setbaud"><a class="anchor" href="#true41-setbaud"></a><code>&amp;,41</code> setbaud</h3>
+<div class="paragraph">
+<p>This command changes the <em>bits per second</em> (BPS) rate.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Do not change the BPS rate while someone is online.
+This only changes the rate of Image BBS transmitting data; the modem cannot match speeds except while offline.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Parameters:</em></p>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">BPS rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,41,0</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">300</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,41,1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>not used</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,41,2</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1200</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,41,3</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2400</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,41,4</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4800</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,41,5</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9600</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,41,6</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">19200</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,41,7</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">38400</p></td>
+</tr>
+</tbody>
+</table>
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+To utilize speeds higher than 2400 BPS, you must have a SwiftLink, Turbo232 or compatible high-speed RS232 cartridge connected to the expansion/cartridge port of your Commodore 64.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
 <hr>
 </div>
 <div class="sect2">
@@ -2191,47 +3259,54 @@ There are sub-commands to:</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p><code>&amp;,42</code> Check for ECS command</p>
-</div>
+<div class="sect3">
+<h4 id="true42-check-for-ecs-command"><a class="anchor" href="#true42-check-for-ecs-command"></a><code>&amp;,42</code> Check for ECS Command</h4>
 <div class="paragraph">
 <p>This checks whether the command passed in <code>an$</code> is a valid ECS command.</p>
 </div>
 <div class="paragraph">
-<p><em>Example:</em>
-.im
- 270 f4=.:a%=zz:b%=2^ac%:&amp;,42:if a% then ef$=b$:ep$=a$:ec=a%:ec%=b%:goto 264</p>
+<p><em>Example:</em></p>
+</div>
+<div class="literalblock">
+<div class="title">im</div>
+<div class="content">
+<pre>226 f4=.:a%=zz:b%=2^ac%:&amp;,42:if a% then ef$=b$:ep$=a$:ec=a%:ec%=b%:goto 261</pre>
+</div>
 </div>
 <div class="paragraph">
-<p><em>Parameters:</em></p>
+<p><em>BASIC Setup:</em></p>
 </div>
 <div class="paragraph">
-<p><code>an$</code> command the user typed</p>
+<p><code>an$</code>: command the user typed</p>
 </div>
 <div class="paragraph">
 <p><code>a%</code>: Local Mode flag (<code>zz</code>)</p>
 </div>
 <div class="paragraph">
-<p><code>ac%</code>: access level</p>
+<p><code>b%</code>: access level</p>
 </div>
 <div class="paragraph">
 <p><em>Returns:</em></p>
 </div>
 <div class="paragraph">
+<p><code>a%</code>: [<code>0</code>: not found in ECS table | <code><em>n</em></code>: ECS command #<code>n</code>]</p>
+</div>
+<div class="paragraph">
 <p><code>a$</code>: password</p>
 </div>
 <div class="paragraph">
-<p><code>b$</code>:</p>
+<p><code>b$</code>: ECS flags</p>
 </div>
 <div class="paragraph">
-<p><code>a%</code>: credits to use command</p>
-</div>
-<div class="paragraph">
-<p><code>b%</code>:</p>
+<p><code>b%</code>: credits to use command</p>
 </div>
 <hr>
+</div>
+<div class="sect3">
+<h4 id="true421-goto-line-in-ecs-command"><a class="anchor" href="#true421-goto-line-in-ecs-command"></a><code>&amp;,42,1</code> Goto Line in ECS Command</h4>
 <div class="paragraph">
-<p><code>&amp;,42,1</code> Goto line in ECS command</p>
+<p>This will <code>goto</code> a particular line in <code>im</code> contained in the ECS command, if its <code>goto/gosub</code> flag is set to <code>goto</code>.
+In this respect, it is similar to <code>&amp;,66</code>: <code>calculated GOTO</code>.</p>
 </div>
 <div class="paragraph">
 <p><em>Parameter:</em></p>
@@ -2252,9 +3327,9 @@ There are sub-commands to:</p>
 <p>From an ECS flags string <code>ef$</code>, <code>a%</code> holds the line # to <code>goto</code>, using <code>&amp;,42,1</code>.</p>
 </div>
 <hr>
-<div class="paragraph">
-<p><code>&amp;,42,2</code> Get ECS definitions from RAM</p>
 </div>
+<div class="sect3">
+<h4 id="true422-get-ecs-definitions-from-ram"><a class="anchor" href="#true422-get-ecs-definitions-from-ram"></a><code>&amp;,42,2</code> Get ECS Definitions From RAM</h4>
 <div class="paragraph">
 <p><em>Example:</em></p>
 </div>
@@ -2271,11 +3346,11 @@ There are sub-commands to:</p>
 <p><code>a%</code>: number of ECS definitions in memory</p>
 </div>
 <hr>
-<div class="paragraph">
-<p><code>&amp;,42,3</code> Put ECS definition into RAM</p>
 </div>
+<div class="sect3">
+<h4 id="true423-put-ecs-definition-into-ram"><a class="anchor" href="#true423-put-ecs-definition-into-ram"></a><code>&amp;,42,3</code> Put ECS Definition Into RAM</h4>
 <div class="paragraph">
-<p>Add/replace the ECS definition in the <code>tt$(<em>x</em>)</code> array element to the list currently in memory.</p>
+<p>Add/replace the ECS definition in <code>tt$(<em>n</em>)</code> to the list currently in memory.</p>
 </div>
 <div class="paragraph">
 <p><em>Parameter:</em></p>
@@ -2284,7 +3359,7 @@ There are sub-commands to:</p>
 <p><code>tt$(<em>n</em>)</code>: command definition</p>
 </div>
 <div class="paragraph">
-<p><code>&amp;,42,3,<em>number</em></code>: the number of commands in the ECS command set</p>
+<p><code>&amp;,42,3,<em>number</em></code>: the command number in the ECS to add/replace</p>
 </div>
 <div class="paragraph">
 <p><em>Examples:</em></p>
@@ -2296,13 +3371,20 @@ There are sub-commands to:</p>
 </div>
 </div>
 <div class="paragraph">
-<p><code>n</code> is the current count of ECS commands.
-Assign an empty command (<code>chr$(0)</code> is a null byte) to the next command (<code>tt$(n+1)</code>).
-<code>&amp;,42,3,n+1</code>: Add the empty command to the ECS command set.</p>
+<p><code>n</code>: the current count of ECS commands</p>
+</div>
+<div class="paragraph">
+<p>Assign an empty command [<code>chr$(0)</code> is a null byte] to the next command [<code>tt$(n+1)</code>].</p>
+</div>
+<div class="paragraph">
+<p><code>&amp;,42,3,n+1</code>: Add the empty command in [<code>tt$(n+1)</code>] to the ECS.</p>
 </div>
 <hr>
+</div>
+<div class="sect3">
+<h4 id="true424-load-ecs-definitions-from-disk"><a class="anchor" href="#true424-load-ecs-definitions-from-disk"></a><code>&amp;,42,4</code> Load ECS Definitions from Disk</h4>
 <div class="paragraph">
-<p><code>&amp;,42,4</code> Load ECS definitions from disk</p>
+<p>Load ECS definitions from a disk file.</p>
 </div>
 <div class="paragraph">
 <p><em>Parameters:</em></p>
@@ -2326,8 +3408,11 @@ Assign an empty command (<code>chr$(0)</code> is a null byte) to the next comman
 <p>Load the ECS definitions in <code>e.ecs.main</code> from disk.</p>
 </div>
 <hr>
+</div>
+<div class="sect3">
+<h4 id="true425-save-ecs-definitions-to-disk"><a class="anchor" href="#true425-save-ecs-definitions-to-disk"></a><code>&amp;,42,5</code> Save ECS Definitions to Disk</h4>
 <div class="paragraph">
-<p><code>&amp;,42,5</code> Save ECS definitions to disk</p>
+<p>Save ECS definitions to a disk file.</p>
 </div>
 <div class="paragraph">
 <p><em>Parameters:</em></p>
@@ -2344,7 +3429,7 @@ Assign an empty command (<code>chr$(0)</code> is a null byte) to the next comman
 <div class="literalblock">
 <div class="title">i/IM.ecs</div>
 <div class="content">
-<pre>a$=dr$+a$:&amp;,42,5:return</pre>
+<pre>4016 a$=dr$+a$:&amp;,42,5:return</pre>
 </div>
 </div>
 <hr>
@@ -2364,18 +3449,103 @@ These following 9 routines are used by Image BBS machine language themselves; th
 </div>
 </div>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>&amp;,43	chatchk
-&amp;,44	trace
-&amp;,45	prtvar	[MCI on?]
-&amp;,46	prtvar0 [MCI off?]
-&amp;,47	carchk
-&amp;,48	getkbd
-&amp;,49	getmod
-&amp;,50	outscn
-&amp;,51	outmod outputs character in .a [peek(780)]</pre>
 </div>
+</div>
+<div class="sect2">
+<h3 id="true43-chatchk"><a class="anchor" href="#true43-chatchk"></a><code>&amp;,43</code> chatchk</h3>
+<div class="paragraph">
+<p>Checks for presence of the <code>Cht</code> left check mark.</p>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="true44-trace"><a class="anchor" href="#true44-trace"></a><code>&amp;,44</code> trace</h3>
+<div class="paragraph">
+<p>Checks for presence of the <code>Trc</code> left check mark.</p>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="true45-prtvar"><a class="anchor" href="#true45-prtvar"></a><code>&amp;,45</code> prtvar</h3>
+<div class="paragraph">
+<p>Prints a variable with MCI enabled.</p>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="true46-prtvar0"><a class="anchor" href="#true46-prtvar0"></a><code>&amp;,46</code> prtvar0</h3>
+<div class="paragraph">
+<p>Prints a variable with MCI disabled.</p>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="true47-carchk"><a class="anchor" href="#true47-carchk"></a><code>&amp;,47</code> carchk</h3>
+<div class="paragraph">
+<p>Checks for the presence of a Carrier Detect signal.</p>
+</div>
+<div class="paragraph">
+<p><em>Returns:</em></p>
+</div>
+<div class="paragraph">
+<p><code>0</code>: carrier present, or local mode</p>
+</div>
+<div class="paragraph">
+<p><code>1</code>: carrier dropped</p>
+</div>
+<div class="paragraph">
+<p><code>2</code>: timeout</p>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="true48-getkbd"><a class="anchor" href="#true48-getkbd"></a><code>&amp;,48</code> getkbd</h3>
+<div class="paragraph">
+<p>Check console keyboard for a keypress.
+This can also be also used from BASIC.</p>
+</div>
+<div class="paragraph">
+<p><em>Returns:</em></p>
+</div>
+<div class="paragraph">
+<p><code>peek(198)</code>: Character typed</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<code>&amp;,48</code> does not stop and wait for input, unlike the <code>&pound;g1</code> MCI command.
+If no character is typed on the keyboard, <code>peek(198)=0</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><mark>FIXME</mark>: verify this</p>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="true49-getmod"><a class="anchor" href="#true49-getmod"></a><code>&amp;,49</code> getmod</h3>
+<div class="paragraph">
+<p>Gets a character from the modem, with ASCII translation.</p>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="true50-outscn"><a class="anchor" href="#true50-outscn"></a><code>&amp;,50</code> outscn</h3>
+<div class="paragraph">
+<p>Output a character to the BBS console.</p>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="true51-outmod"><a class="anchor" href="#true51-outmod"></a><code>&amp;,51</code> outmod</h3>
+<div class="paragraph">
+<p>Outputs character in accumulator [<code>peek(780)</code>] to modem.</p>
 </div>
 <hr>
 </div>
@@ -2405,24 +3575,27 @@ These following 9 routines are used by Image BBS machine language themselves; th
 </table>
 </div>
 <div class="paragraph">
-<p><em>Example</em>: Turn off <strong>Trc</strong> left: <code>&amp;,52,$18,0</code> (<code>&amp;,52,24,0</code> decimal).</p>
+<p><em>Example</em>: Turn off <code>Trc</code> left: <code>&amp;,52,$18,0</code> (<code>&amp;,52,24,0</code> decimal).</p>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p><code>option</code>=0: clear checkmark at <em>position</em></p>
+<p><code>option=0</code>: clear checkmark at <em>position</em></p>
 </div>
 <div class="paragraph">
-<p><code>option</code>=1: set checkmark at <em>position</em></p>
+<p><code>option=1</code>: set checkmark at <em>position</em></p>
 </div>
 <div class="paragraph">
-<p><code>option</code>=2: toggle checkmark at <em>position</em></p>
+<p><code>option=2</code>: toggle checkmark at <em>position</em></p>
 </div>
 <div class="paragraph">
-<p><code>option</code>=3: read status of <em>position</em>, return in <code>a%</code> (<code>0</code>=off, <code>1</code>=on)</p>
+<p><code>option=3</code>: read status of <em>position</em>, return in <code>a%</code> (<code>0</code>=off, <code>1</code>=on)</p>
 </div>
 <div class="paragraph">
-<p><code>option</code>=4: move lightbar to <em>position</em></p>
+<p><code>option=4</code>: move lightbar to <em>position</em></p>
+</div>
+<div class="paragraph">
+<p>Option 5 does the same thing in ML as option 4 does in BASIC.</p>
 </div>
 <hr>
 </div>
@@ -2451,7 +3624,7 @@ This following routine is used by Image BBS machine language itself; there is li
 <div class="ulist">
 <ul>
 <li>
-<p>chat page</p>
+<p>chat page counter</p>
 </li>
 <li>
 <p>sound repeat counter</p>
@@ -2460,7 +3633,7 @@ This following routine is used by Image BBS machine language itself; there is li
 </div>
 </li>
 <li>
-<p>clears status area</p>
+<p>clears status indicators on status line</p>
 </li>
 </ul>
 </div>
@@ -2536,7 +3709,7 @@ These following 2 routines are used by Image BBS machine language themselves; th
 <div class="sect2">
 <h3 id="true59-farerr"><a class="anchor" href="#true59-farerr"></a><code>&amp;,59</code> farerr</h3>
 <div class="paragraph">
-<p>Cause BASIC error to happen.</p>
+<p>Cause a specified BASIC error to happen.</p>
 </div>
 <div class="paragraph">
 <p><em>Parameter:</em></p>
@@ -2556,7 +3729,7 @@ These following 2 routines are used by Image BBS machine language themselves; th
 <p>Cause error <code>14</code>, <code>?illegal quantity&nbsp;&nbsp;error</code>.</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 3. Error Numbers</caption>
+<caption class="title">Table 4. Error Numbers</caption>
 <colgroup>
 <col>
 <col>
@@ -2669,7 +3842,10 @@ These following 2 routines are used by Image BBS machine language themselves; th
 <div class="sect2">
 <h3 id="true60-structures"><a class="anchor" href="#true60-structures"></a><code>&amp;,60</code> Structures</h3>
 <div class="paragraph">
-<p>See the <a href="#structures">Static Arrays (Structures)</a> chapter in the <em>Programming Reference Guide</em> for more information.</p>
+<p>Structures (or <em>structs</em>) are</p>
+</div>
+<div class="paragraph">
+<p>See the <a href="#structures">Static Arrays (Structures)</a> chapter for more information.</p>
 </div>
 <hr>
 </div>
@@ -2682,7 +3858,7 @@ These following 2 routines are used by Image BBS machine language themselves; th
 <p><em>Parameters:</em></p>
 </div>
 <div class="paragraph">
-<p><code>&amp;,61,column,row</code></p>
+<p><code>&amp;,61,<em>column</em>,<em>row</em></code></p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -2703,11 +3879,11 @@ These following 2 routines are used by Image BBS machine language themselves; th
 <div class="literalblock">
 <div class="title">im</div>
 <div class="content">
-<pre>4006 &amp;,38:&amp;,61,.,8:print"&amp;,37:goto 1812:":end</pre>
+<pre>4004 &amp;,38:&amp;,61,.,8:print"&amp;,37:goto300:":end</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Position the cursor at column 0, row 9 (<code>&amp;,61,0,8</code>) to print recovery information for when the BBS crashes.</p>
+<p><code>&amp;,61,0,8</code>: position the cursor at column 0, row 9. <code>print</code> recovery information if the BBS crashes.</p>
 </div>
 <hr>
 </div>
@@ -2734,7 +3910,7 @@ These following 2 routines are used by Image BBS machine language themselves; th
 <div class="literalblock">
 <div class="title">im:</div>
 <div class="content">
-<pre>3184 &amp;,62,h,m</pre>
+<pre>3182 &amp;,62,h,m</pre>
 </div>
 </div>
 <hr>
@@ -2768,13 +3944,19 @@ These following 3 routines are used by Image BBS machine language themselves; th
 <hr>
 </div>
 <div class="sect2">
-<h3 id="true66-calculated-goto"><a class="anchor" href="#true66-calculated-goto"></a><code>&amp;,66</code> Calculated GOTO</h3>
+<h3 id="true66-calculated-goto"><a class="anchor" href="#true66-calculated-goto"></a><code>&amp;,66</code> Calculated <code>goto</code></h3>
 <div class="paragraph">
 <p><code>goto</code> line number held in <code>a%</code>.
-If you have 14 <code>goto</code> targets on a line, this can save a fair amount of RAM (and BASIC interpretation time).</p>
+If you have 14 4-digit <code>goto</code> targets on a line, this can save a fair amount of RAM (and BASIC interpretation time).</p>
+</div>
+<div class="paragraph">
+<p><em>Parameter:</em></p>
 </div>
 <div class="paragraph">
 <p><code>a%</code>: line number to <code>goto</code></p>
+</div>
+<div class="paragraph">
+<p><em>Example:</em></p>
 </div>
 <div class="paragraph">
 <p>Instead of writing:</p>
@@ -2786,15 +3968,29 @@ If you have 14 <code>goto</code> targets on a line, this can save a fair amount 
 <p>The same thing can be written like so:</p>
 </div>
 <div class="paragraph">
-<p><code>a%=3:a%=a%*100+3000:&amp;,66</code> (24 bytes)</p>
+<p><code>a%=3000+a%*100:&amp;,66</code> (19 bytes)</p>
 </div>
 <div class="paragraph">
-<p>to go to line 3200.</p>
+<p>Based on the value of <code>a%</code> (including <code>0</code>), <code>&amp;,66</code> will <code>goto</code> lines starting at 3300 in increments of 100 (<code>0</code>=3300, <code>1</code>=3400, <code>2</code>=3500, <code>3</code>=3600, etc.)</p>
 </div>
 <hr>
 </div>
 <div class="sect2">
-<h3 id="true661-mlgosub"><a class="anchor" href="#true661-mlgosub"></a><code>&amp;,66,1</code> mlgosub</h3>
+<h3 id="true661-calculated-gosub"><a class="anchor" href="#true661-calculated-gosub"></a><code>&amp;,66,1</code> Calculated <code>gosub</code></h3>
+<div class="paragraph">
+<p><code>gosub</code> line number held in <code>a%</code>.
+If you have 14 4-digit <code>gosub</code> targets on a line, this can save a fair amount of RAM (and BASIC interpretation time).</p>
+</div>
+<div class="paragraph">
+<div class="title">i.test structs:</div>
+<p><code>a%=abs(val(an$)):if a%&lt;15 then a%=3100+a%*50:&amp;,66,1</code></p>
+</div>
+<div class="paragraph">
+<p>Based on the value of <code>a%</code> (including <code>0</code>), <code>&amp;,66,1</code> will <code>gosub</code> lines starting at <code>3100</code>, in increments of 50 (<code>0</code>=3100, <code>1</code>=3150, <code>2</code>=3200, <code>3</code>=3250, etc).</p>
+</div>
+<div class="paragraph">
+<p><code>a%=3:a%=3100+a%*50:&amp;,66,1</code> would <code>gosub 3250</code>.</p>
+</div>
 <hr>
 </div>
 <div class="sect2">
@@ -2803,10 +3999,25 @@ If you have 14 <code>goto</code> targets on a line, this can save a fair amount 
 </div>
 <div class="sect2">
 <h3 id="true68-struct"><a class="anchor" href="#true68-struct"></a><code>&amp;,68</code> struct</h3>
+<div class="paragraph">
+<p>Certain sub-functions of <code>&amp;,60</code> are re-directed here.</p>
+</div>
 <hr>
 </div>
 <div class="sect2">
 <h3 id="true69-display-string-on-console"><a class="anchor" href="#true69-display-string-on-console"></a><code>&amp;,69</code> Display String on Console</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This function will not draw PETSCII graphics characters properly.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p><em>Parameters:</em></p>
 </div>
@@ -2826,6 +4037,8 @@ If you have 14 <code>goto</code> targets on a line, this can save a fair amount 
 <p><code>color</code>: is <code>1-15</code> for un-reversed colors.
 For reversed colors, add <code>$80</code> (or</p>
 </div>
+<div class="exampleblock">
+<div class="content">
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -2838,17 +4051,7 @@ Upper left of the screen starts at column 0, row 0.
 </tr>
 </table>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-This function will not draw PETSCII graphics characters properly.
-</td>
-</tr>
-</table>
+</div>
 </div>
 <div class="paragraph">
 <p><em>Example</em></p>
@@ -2868,17 +4071,19 @@ This function will not draw PETSCII graphics characters properly.
 <div class="olist arabic">
 <ol class="arabic" start="2">
 <li>
-<p><code>left$(" "+cm$+"{21 spaces}",22)</code> formats the string so it&#8217;s left-justified in the 22-character <code>Area</code> window</p>
+<p><code>left$(" "+cm$+"{21 spaces}",22)</code>: format the string so it&#8217;s left-justified in the 22-character <code>Area</code> window</p>
 </li>
 </ol>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="3">
 <li>
-<p><code>$8c</code> draws the string in reverse (<code>$8</code>) in color <code>$c</code> (decimal 13, light green)</p>
+<p><code>,$8c</code>: draws the string in reverse (<code>$8</code>) in color <code>$c</code> (decimal 13, light green)</p>
 </li>
 </ol>
 </div>
+<div class="exampleblock">
+<div class="content">
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -2891,9 +4096,13 @@ The module <code>sub.display</code> is a good example of using <code>&amp;,69</c
 </tr>
 </table>
 </div>
+</div>
+</div>
 <div class="paragraph">
 <p><em>Parameters:</em></p>
 </div>
+<div class="exampleblock">
+<div class="content">
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -2905,6 +4114,8 @@ Upper left corner of the screen is <code>0,0</code>.
 </td>
 </tr>
 </table>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p><code>column</code>: <code>0-39</code></p>
@@ -2926,13 +4137,15 @@ Upper left corner of the screen is <code>0,0</code>.
 </div>
 </div>
 <div class="sect2">
-<h3 id="position-cursor"><a class="anchor" href="#position-cursor"></a><code>&amp;,70</code> Position terminal cursor</h3>
+<h3 id="position-cursor"><a class="anchor" href="#position-cursor"></a><code>&amp;,70</code> Position Terminal Cursor</h3>
 <div class="paragraph">
 <p><em>Parameters</em>:</p>
 </div>
 <div class="paragraph">
 <p><code>&amp;,70,<em>column</em>,<em>row</em></code></p>
 </div>
+<div class="exampleblock">
+<div class="content">
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -2944,6 +4157,8 @@ Upper left corner of the screen is <code>0,0</code>.
 </td>
 </tr>
 </table>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p><code>column</code>: 0-39</p>
@@ -3007,7 +4222,7 @@ This is much faster than a BASIC <code>for&#8230;&#8203;next</code> loop.</p>
 Two bytes per element of the string text can be stored per element of an integer array.</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 4. Representation of Sample 2D Integer Array</caption>
+<caption class="title">Table 5. Representation of Sample 2D Integer Array</caption>
 <colgroup>
 <col>
 <col>
@@ -3084,7 +4299,7 @@ Thirty-seven bytes would require either:</p>
 Here is a byte-by-byte map of the structure we designed.</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 5. Sample Structure layout</caption>
+<caption class="title">Table 6. Sample Structure layout</caption>
 <colgroup>
 <col>
 <col>
@@ -3133,7 +4348,7 @@ Here is a byte-by-byte map of the structure we designed.</p>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 6. Structure Data Storage</caption>
+<caption class="title">Table 7. Structure Data Storage</caption>
 <colgroup>
 <col>
 <col>
@@ -3308,10 +4523,10 @@ To do so, you would need a 2-dimensional array.  This would change the <code>dim
 <div class="ulist">
 <ul>
 <li>
-<p>the first number in the array notation is the <em>element number</em> (like a field of a record in a RELative file)</p>
+<p>the first number in the array notation is the <em>record number</em> (like a field of a record in a RELative file)</p>
 </li>
 <li>
-<p>the second number is the <em>byte number</em>.</p>
+<p>the second number is the <em>field number</em> (or <em>byte number</em>).</p>
 </li>
 </ul>
 </div>
@@ -3322,7 +4537,7 @@ To do so, you would need a 2-dimensional array.  This would change the <code>dim
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Element number <code>0</code> and byte number <code>0</code> (<em>e.g.</em>, <code>u%(0,0)</code>) is often used to hold the number of elements in the structure.
+Record <code>0</code>, field <code>0</code> (<em>e.g.</em>, <code>u%(0,0)</code>) is often used to hold the number of elements in the structure.
 </td>
 </tr>
 </table>
@@ -3345,7 +4560,7 @@ To put numeric values into&#8212;&#8203;or get numeric values from&#8212;&#8203;
 <p>You may use code similar to the following examples:</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 7. Get number from and put number into structure</caption>
+<caption class="title">Table 8. Get number from and put number into structure</caption>
 <colgroup>
 <col>
 <col>
@@ -3363,6 +4578,8 @@ To put numeric values into&#8212;&#8203;or get numeric values from&#8212;&#8203;
 </tr>
 </tbody>
 </table>
+<div class="exampleblock">
+<div class="content">
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -3370,24 +4587,26 @@ To put numeric values into&#8212;&#8203;or get numeric values from&#8212;&#8203;
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Integer arrays can store values from <code>-32767</code> to <code>32768</code>.
+Integer arrays can store values from <code>-32768</code> to <code>32767</code>.
 </td>
 </tr>
 </table>
 </div>
+</div>
+</div>
 <hr>
 </div>
 <div class="sect2">
-<h3 id="trueput-string"><a class="anchor" href="#trueput-string"></a>Put String</h3>
+<h3 id="true600-put-string"><a class="anchor" href="#true600-put-string"></a><code>&amp;,60,0</code> Put String</h3>
 <div class="paragraph">
-<p>Sub-function <code>0</code> copies a string variable into a structure.</p>
+<p>Copies a specified string variable of a fixed length into a field in a structure.</p>
 </div>
 <div class="paragraph">
 <div class="title">Syntax</div>
-<p><code>&amp;,60,0,<em>bytes</em>,<em>array()</em>,<em>string$</em></code></p>
+<p><code>&amp;,60,0,<em>length</em>,<em>struct(record,field)</em>,<em>string$</em></code></p>
 </div>
 <div class="paragraph">
-<p><em>bytes</em>: how many bytes to request from the structure.</p>
+<p><em>length</em>: the maximum string length to put into the record.</p>
 </div>
 <div class="paragraph">
 <p><em>array()</em>: the array name assigned to the structure you&#8217;re reading the string from.</p>
@@ -3424,7 +4643,7 @@ Integer arrays can store values from <code>-32767</code> to <code>32768</code>.
 <div class="olist arabic">
 <ol class="arabic" start="3">
 <li>
-<p>from the <code>u%()</code> array (element 1, record 1):</p>
+<p>from the <code>u%()</code> array (record 1, field 1):</p>
 </li>
 </ol>
 </div>
@@ -3439,23 +4658,31 @@ Integer arrays can store values from <code>-32767</code> to <code>32768</code>.
 </ol>
 </div>
 <div class="paragraph">
-<p><code>&amp;,60,0,20,u%(11,2),<strong>na$</strong></code></p>
+<p><code>&amp;,60,0,20,u%(1,1),<strong>na$</strong></code></p>
 </div>
+<div class="paragraph">
+<p>TODO: show putting string longer than <em>length</em> into struct, is it truncated?</p>
+</div>
+<hr>
 </div>
 <div class="sect2">
-<h3 id="trueget-string"><a class="anchor" href="#trueget-string"></a>Get String</h3>
+<h3 id="true601-get-string"><a class="anchor" href="#true601-get-string"></a><code>&amp;,60,1</code> Get String</h3>
 <div class="paragraph">
-<p>Sub-function 1 copies a string from a structure into a string variable.</p>
+<p>This copies a string from a structure into a specified string variable.</p>
 </div>
 <div class="paragraph">
-<div class="title">Syntax</div>
-<p><code>&amp;,60,1,<em>bytes</em>,<em>array()</em>,<em>string$</em></code></p>
+<p><em>Syntax:</em></p>
 </div>
 <div class="paragraph">
-<p>The parameters <em>bytes</em>, <em>array()</em>, and <em>string$</em> are the same as <code>Put String</code> above.</p>
+<p><code>&amp;,60,1,<em>length</em>,<em>struct(field,record)</em>,<em>string$</em></code></p>
+</div>
+<div class="paragraph">
+<p>The parameters <em>length</em>, <em>struct(field,record)</em>, and <em>string$</em> are the same as <code>Put String</code> above.</p>
+</div>
+<div class="paragraph">
+<p><em>Example:</em></p>
 </div>
 <div class="literalblock">
-<div class="title">Example</div>
 <div class="content">
 <pre>&amp;,60,1,20,u%(11,2),a$</pre>
 </div>
@@ -3547,18 +4774,23 @@ Integer arrays can store values from <code>-32767</code> to <code>32768</code>.
 </div>
 </div>
 </div>
+<hr>
 </div>
 <div class="sect2">
-<h3 id="trueload-structure-from-disk"><a class="anchor" href="#trueload-structure-from-disk"></a>Load structure from disk</h3>
+<h3 id="true602-load-structure-from-disk"><a class="anchor" href="#true602-load-structure-from-disk"></a><code>&amp;,60,2</code> Load structure from disk</h3>
 <div class="paragraph">
-<p>Sub-function 2 loads the specified structure on disk into an array.</p>
+<p>Loads the specified structure on disk into an array.</p>
 </div>
 <div class="paragraph">
-<div class="title">Syntax</div>
-<p><code>&amp;,60,2,0,<em>array()</em>,<em>filename$</em>,<em>device</em></code></p>
+<p><em>Syntax:</em></p>
+</div>
+<div class="paragraph">
+<p><code>&amp;,60,2,0,<em>struct(field,record)</em>,<em>filename$</em>,<em>device</em></code></p>
+</div>
+<div class="paragraph">
+<p><em>Example:</em></p>
 </div>
 <div class="literalblock">
-<div class="title">Example</div>
 <div class="content">
 <pre>&amp;,60,2,0,u%(0,0),dr$+"u.handles",dv%</pre>
 </div>
@@ -3603,7 +4835,7 @@ The <code>0</code> is believed to be a necessary but ignored parameter.
 <div class="olist arabic">
 <ol class="arabic" start="2">
 <li>
-<p>Use the <code>u%()</code> array(element 0, byte 0):</p>
+<p>Use the <code>u%()</code> array (element 0, byte 0):</p>
 </li>
 </ol>
 </div>
@@ -3630,32 +4862,57 @@ The <code>0</code> is believed to be a necessary but ignored parameter.
 <div class="paragraph">
 <p><code>&amp;,60,2,0,u%(0,0),dr$+"u.handles",<strong>dv%</strong></code></p>
 </div>
+<hr>
 </div>
 <div class="sect2">
-<h3 id="truesave-a-structure-to-disk"><a class="anchor" href="#truesave-a-structure-to-disk"></a>Save a structure to disk</h3>
+<h3 id="true603-save-a-structure-to-disk"><a class="anchor" href="#true603-save-a-structure-to-disk"></a><code>&amp;,60,3</code> Save a structure to disk</h3>
 <div class="paragraph">
-<p>Sub-function 3 saves a structure to a specified disk file.</p>
+<p>This saves a structure to a specified disk file.</p>
 </div>
 <div class="paragraph">
-<div class="title">Syntax</div>
-<p><code>&amp;,60,3,0,<em>array()</em>,<em>bytes</em>,<em>filename$</em>,<em>device</em></code></p>
+<p><em>Parameters:</em></p>
 </div>
 <div class="paragraph">
-<p>The parameters <em>array()</em>, <em>bytes</em>, and <em>filename$</em> are the same as usual.</p>
+<p><code>&amp;,60,3,0,<em>struct%(record,field)</em>,<em>bytes</em>,<em>filename$</em>,<em>device</em></code></p>
 </div>
 <div class="paragraph">
-<p><em>device</em> should be gotten with:</p>
+<p>The parameters <em>struct%(record,field)</em>, <em>bytes</em>, and <em>filename$</em> are the same as in previous commands.</p>
+</div>
+<div class="paragraph">
+<p><em>device</em> should be gotten with (since <code>u.</code> files live on Image drive 6):</p>
 </div>
 <div class="literalblock">
 <div class="content">
 <pre>dr=6:gosub 3</pre>
 </div>
 </div>
+<div class="paragraph">
+<p>to get the drive prefix, <code>dr$</code>, and device, <code>dv%</code>.</p>
+</div>
+<div class="paragraph">
+<p><em>Example:</em></p>
+</div>
 <div class="literalblock">
-<div class="title">Example</div>
 <div class="content">
 <pre>&amp;,60,3,0,u%(0,0),3*38,dr$+"u.handles",dv%</pre>
 </div>
+</div>
+<div class="paragraph">
+<p>The starting record and field numbers to save are specified by the numbers in the array notation.
+The number of bytes should be calculated by:</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>bytes per record &times; number of records (38 bytes &times; 3 records in the example).</p>
+</div>
+<div class="paragraph">
+<p>Don&#8217;t forget: records start at <code>0</code>!</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The starting field and record is specified with (as above) <code>u%(0,0)</code>.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="1">
@@ -3697,9 +4954,10 @@ The <code>0</code> is believed to be a necessary but ignored parameter.
 <div class="paragraph">
 <p><code>&amp;,60,3,0,u%(0,0),3*38,<strong>dr$+"u.handles"</strong>,dv%</code></p>
 </div>
+<hr>
 </div>
 <div class="sect2">
-<h3 id="trueput-date"><a class="anchor" href="#trueput-date"></a>Put Date</h3>
+<h3 id="true604-put-date"><a class="anchor" href="#true604-put-date"></a><code>&amp;,60,4</code> Put Date</h3>
 <div class="paragraph">
 <p>Put an 11-digit date into a structure (stored in Binary Coded Decimal).</p>
 </div>
@@ -3774,19 +5032,22 @@ Two decimal digits are stored per byte, using the high and low <em>nybbles</em> 
 </table>
 </div>
 </div>
+<hr>
 </div>
 <div class="sect2">
-<h3 id="trueget-date"><a class="anchor" href="#trueget-date"></a>Get Date</h3>
+<h3 id="true605-get-date"><a class="anchor" href="#true605-get-date"></a><code>&amp;,60,5</code> Get Date</h3>
 <div class="paragraph">
 <p>Get an 11-digit date from structure.
 The date is stored in Binary Coded Decimal (BCD) format as shown above.</p>
 </div>
 <div class="paragraph">
-<div class="title">Syntax</div>
+<p><em>Parameters:</em></p>
+</div>
+<div class="paragraph">
 <p><code>&amp;,60,5,0,<em>array(a,b)</em>,<em>string$</em></code></p>
 </div>
 <div class="paragraph">
-<p><em>array(a,b)</em>: array name(<code>a</code>=starting structure, <code>b</code>=starting byte)</p>
+<p><code>array(<em>rec</em>,<em>field</em>)</code>: array name(<em>record</em>,<em>field</em>)</p>
 </div>
 <div class="paragraph">
 <p><em>string$</em>: string name</p>
@@ -3810,44 +5071,112 @@ The date is stored in Binary Coded Decimal (BCD) format as shown above.</p>
 </li>
 </ol>
 </div>
+<hr>
 </div>
 <div class="sect2">
-<h3 id="truescan-structures"><a class="anchor" href="#truescan-structures"></a>Scan Structures</h3>
+<h3 id="true606-scan-structures"><a class="anchor" href="#true606-scan-structures"></a><code>&amp;,60,6</code> Scan Structures</h3>
 <div class="paragraph">
-<div class="title">Syntax</div>
-<p><code>&amp;,60,6,<em>num</em>,<em>bits</em>,<em>a(a,b)</em>,<em>b(a,b)</em>,<em>size</em>,<em>command</em>,<em>test</em></code></p>
+<p>Scan through a field in a structure, testing whether various conditions are true on variables.
+If the condition is true, perform an operation on another field in the structure.</p>
 </div>
 <div class="paragraph">
-<p><em>num</em>: # of structures to scan</p>
+<p><em>Syntax:</em></p>
 </div>
 <div class="paragraph">
-<p><em>bits</em>: the bits to set if true</p>
+<p><code>&amp;,60,6,<em>num</em>,<em>command</em>,<em>a%(a,b)</em>,<em>b%(a,b)</em>,<em>size</em>,<em>bits</em>,<em>test</em></code></p>
 </div>
-<div class="paragraph">
-<p><em>a(a,b)</em>: starting flags(<em>element</em>,<em>byte</em>)</p>
+<div class="literalblock">
+<div class="title">i.GF</div>
+<div class="content">
+<pre>a%=0:if s%(0,0) then:&amp;,60,6,s%(0,0),0,s%(0,1),s%(1,1),80,1,2^ac%</pre>
 </div>
-<div class="paragraph">
-<p><em>b(a,b)</em>: starting object(<em>element</em>,<em>byte</em>)</p>
 </div>
-<div class="paragraph">
-<p><em>size</em>: size in bytes of struct</p>
+<div class="literalblock">
+<div class="title">i.MM.load</div>
+<div class="content">
+<pre>&amp;,60,6,x1%(0,0),0,x1%(0,1),x1%(1,1),36,4096,2^ac%</pre>
 </div>
-<div class="paragraph">
-<p><em>command</em>: command number:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>0: 2 byte and, &lt;&gt;0
-1: 2 byte and, ==0
-2: 2 byte cmp, &lt;
-3: 2 byte cmp, &gt;=
-4: date cmp, &lt;
-5: date cmp, &gt;=</pre>
+<pre>&amp;,60,6,x1%(0,0),5,x1%(0,1),x1%(0,1),36,8192,f</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&amp;,60,6,x1%(0,0),7,x1%(0,1),x1%(0,1),36,16384,id</pre>
 </div>
 </div>
 <div class="paragraph">
+<p><code>num</code>: # of fields in the struct to scan</p>
+</div>
+<div class="paragraph">
+<p><code>bits</code>: the bits to set if <em>test</em> is true</p>
+</div>
+<div class="paragraph">
+<p><code>flag%(<em>record</em>,<em>field</em>)</code>: the field on which to set <code>bits</code> if <code>test</code> is true.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<em>record</em> may be a dummy parameter, more tests needed.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><code>scan%(<em>rec</em>,<em>field</em>)</code>: field to scan</p>
+</div>
+<div class="paragraph">
+<p><code>size</code>: record size in bytes</p>
+</div>
+<div class="paragraph">
+<p><code>command</code>: command number:</p>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<caption class="title">Table 9. Scan Struct Commands</caption>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 byte and, &lt;&gt;0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 byte and, ==0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 byte cmp, &lt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 byte cmp, &gt;=</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">date cmp, &lt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">date cmp, &gt;=</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
 <p><em>test</em>: the object to test for
-(apparently can be either a variable or a number, maybe the array number?)</p>
+(apparently can be either a variable or a number, maybe the byte number?)</p>
 </div>
 <div class="paragraph">
 <div class="title">Example: <code>i.UD</code> from Image 2.0</div>
@@ -3859,163 +5188,277 @@ The date is stored in Binary Coded Decimal (BCD) format as shown above.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><em>&amp;,60,6</em>: scan struct</p>
+<p><code>&amp;,60,6</code>: scan struct</p>
 </div>
 <div class="paragraph">
-<p><em>rn</em>: record number, how many structures to scan in the directory</p>
+<p><code>rn</code>: record number, how many structures to scan in the directory</p>
 </div>
 <div class="paragraph">
-<p><em>$4f</em>: <code>%01001111</code> in binary, <mark>FIXME</mark> still researching the purpose of this</p>
+<p><code>$4f</code>: <code>%01001111</code> in binary, <mark>FIXME</mark> still researching the purpose of this</p>
 </div>
 <div class="paragraph">
-<p><em>ud%(0,1)</em>: <mark>FIXME</mark></p>
+<p><code>ud%(0,1)</code>: <mark>FIXME</mark></p>
 </div>
 <div class="paragraph">
-<p><em>ud%(3,1)</em>: Upload date</p>
+<p><code>ud%(3,1)</code>: Upload date</p>
 </div>
 <div class="paragraph">
-<p><em>60</em>: structure size, in bytes</p>
+<p><code>60</code>: record size, in bytes</p>
 </div>
 <div class="paragraph">
-<p><em>4</em>: date comparison, <code>&lt;</code> (less than)</p>
+<p><code>4</code>: date comparison, <code>&lt;</code> (less than)</p>
 </div>
 <div class="paragraph">
-<p><em>ld$</em>: last call date (the comparison object).
+<p><code>ld$</code>: last call date (the comparison object).
 Can apparently be a string name, or number of an array?</p>
 </div>
 <div class="paragraph">
-<div class="title">Returns</div>
-<p><code>a%</code>: count of structures that the comparison returns as matching <code>test</code>.</p>
+<p><em>Returns:</em></p>
 </div>
 <div class="paragraph">
-<p><code>b(a,b)</code>: the structure containing the comparisons matching <code>test</code>.</p>
+<p><code>a%</code>: count of fields the comparison returns as matching <code>test</code>.</p>
 </div>
+<div class="paragraph">
+<p><code>b%(a,b)</code>: the array containing the comparisons matching <code>test</code>.</p>
+</div>
+<hr>
 </div>
 <div class="sect2">
-<h3 id="truesort"><a class="anchor" href="#truesort"></a>Sort</h3>
+<h3 id="true607-sort-structure"><a class="anchor" href="#true607-sort-structure"></a><code>&amp;,60,7</code> Sort Structure</h3>
 <div class="paragraph">
-<div class="title">Syntax</div>
-<p><code>&amp;,60,7,0,<em>a(a,b)</em>,<em>start?</em></code></p>
+<p>Sort a string array (only multi-dimensional?).
+Does not work with numeric values.</p>
 </div>
-<div class="literalblock">
-<div class="title">Example</div>
+<div class="paragraph">
+<p><em>Syntax:</em></p>
+</div>
+<div class="paragraph">
+<p><code>&amp;,60,7,0,<em>a$(a,b)</em>,<em>start?</em></code></p>
+</div>
+<div class="paragraph">
+<p><em>Example:</em></p>
+</div>
+<div class="paragraph">
+<div class="title">i/lo/tt maint:</div>
+<p><code>&amp;,60,7,0,a$(p+1,i),n-p</code></p>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="true608-scan-numbers"><a class="anchor" href="#true608-scan-numbers"></a><code>&amp;,60,8</code> Scan Numbers</h3>
+<div class="paragraph">
+<p>Scan through a specified field in a structure for non-zero values.
+<code>a%</code> holds how many non-zero values there are.
+The list of non-zero values is put in a specified array.</p>
+</div>
+<div class="paragraph">
+<p><em>Parameters:</em></p>
+</div>
+<div class="paragraph">
+<p><code>&amp;,60,8,<em>number</em>,<em>size</em>,<em>access</em>,<em>struct%(record,field)</em>,<em>result%(1)</em>,<em>start</em></code></p>
+</div>
+<div class="paragraph">
+<p><code>number</code>: number of records to scan</p>
+</div>
+<div class="paragraph">
+<p><code>size</code>: size of the record, in bytes</p>
+</div>
+<div class="paragraph">
+<p><code>access</code>: access level to filter results by (in bits?)</p>
+</div>
+<div class="exampleblock">
 <div class="content">
-<pre>&amp;,60,7,0,a$(p+1,i),n-p</pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="truescan-numbers"><a class="anchor" href="#truescan-numbers"></a>Scan Numbers</h3>
-<div class="paragraph">
-<div class="title">Syntax</div>
-<p><code>&amp;,60,8,<em>num</em>,<em>size</em>,<em>acs</em>,<em>a(a,b)</em>,<em>a%(a)</em>,<em>start</em></code></p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">i/MM.load</dt>
+<dd>
+<p><code>&amp;,60,8,x1%(0,0),36,<strong>8192+16384</strong>,x1%(0,1),x2%(1),1:x2%(0)=a%</code></p>
+</dd>
+</dl>
 </div>
 <div class="paragraph">
-<p><em>num</em>: number of structures to scan</p>
+<p>More research needed.
+This value exceeds the expected access levels of 0-9 (values 1-1023).</p>
+</div>
+</div>
 </div>
 <div class="paragraph">
-<p><em>size</em>: size of the structure, in bytes</p>
+<p><code>struct%(record,field)</code>: the field to scan</p>
 </div>
 <div class="paragraph">
-<p><em>acs</em>: access level to filter results by</p>
+<p><code>result%(1)</code>: the single-dimension array to put the results in.
+<code>1</code> seems to be a dummy parameter: ignored, but necessary to be interpreted as a valid array reference.</p>
 </div>
 <div class="paragraph">
-<p><em>a(a,b)</em>: the structure to scan</p>
-</div>
-<div class="paragraph">
-<p><em>a%(a)</em>: the structure to put the results in? <mark>FIXME</mark></p>
-</div>
-<div class="paragraph">
-<p><em>start</em>: element to start scanning at</p>
+<p><code>start</code>: record to start scanning at</p>
 </div>
 <div class="literalblock">
-<div class="title">Example</div>
+<div class="title">i.UD:</div>
 <div class="content">
 <pre>&amp;,60,8,rn,60,a,ud%(0,1),f%(1),1:f%(0)=a%</pre>
 </div>
 </div>
-<div class="paragraph">
-<div class="title">Returns</div>
-<p><code>a%</code>: <mark>FIXME</mark></p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>&amp;,60,8</code>: Scan Numbers sub-command</p>
+</li>
+<li>
+<p><code>rn</code>: Scan through <code>rn</code> records</p>
+</li>
+<li>
+<p><code>60</code>: the struct is 60 bytes per record</p>
+</li>
+<li>
+<p><code>a</code>: filter by access level <code>a</code></p>
+</li>
+<li>
+<p><code>ud%(x,1)</code>: look in the <code>ud%(<em>x</em>,1)</code> (<em>x</em>="don&#8217;t care") record</p>
+</li>
+<li>
+<p><code>f%(<em>x</em>)</code>: putting non-zero results in the <code>f%()</code> array</p>
+</li>
+<li>
+<p><code>1</code>: Start at record 1.</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p><code>a%(a)</code>: <mark>FIXME</mark></p>
+<p><em>Returns:</em>
+<code>a%</code>: number of results returned. <code>0</code> if none.</p>
 </div>
+<div class="paragraph">
+<p><code>a%(a)</code>: one-dimensional array of results, from <code>a%(1)</code> to <code>a%(a%)</code></p>
+</div>
+<hr>
 </div>
 <div class="sect2">
-<h3 id="truescan-sum"><a class="anchor" href="#truescan-sum"></a>Scan Sum</h3>
+<h3 id="true609-scan-sum"><a class="anchor" href="#true609-scan-sum"></a><code>&amp;,60,9</code> Scan Sum</h3>
 <div class="paragraph">
-<div class="title">Syntax</div>
-<p><code>&amp;,60,9,<em>num</em>,<em>size</em>,<em>a(a,b)</em></code></p>
+<div class="title">Purpose</div>
+<p><em>Syntax:</em></p>
 </div>
 <div class="paragraph">
-<p><em>num</em> number of structures to scan</p>
+<p><code>&amp;,60,9,<em>number</em>,<em>size</em>,<em>struct%(record,field)</em></code></p>
 </div>
 <div class="paragraph">
-<p><em>size</em> size of structure</p>
+<p><code>number</code>: number of records to scan</p>
 </div>
 <div class="paragraph">
-<p><code>a(a,b)</code> structure(<em>element</em>,<em>byte</em>) to scan</p>
+<p><code>size</code>: size of record, in bytes</p>
 </div>
 <div class="paragraph">
-<div class="title">Returns</div>
-<p><code>a%</code> <mark>FIXME</mark></p>
+<p><code>struct%(<em>x</em>,<em>field</em>)</code>: (record <em>x</em>="don&#8217;t care"), field to scan</p>
 </div>
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This function call documentation seems incomplete.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Example:</em></p>
+</div>
+<div class="paragraph">
+<p>None yet.</p>
+</div>
+<div class="paragraph">
+<p><em>Returns:</em></p>
+</div>
+<div class="paragraph">
+<p><code>a%</code>: <mark>FIXME</mark>: total of values in record?</p>
+</div>
+<hr>
 </div>
 <div class="sect2">
-<h3 id="truecopy-structure"><a class="anchor" href="#truecopy-structure"></a>Copy Structure</h3>
+<h3 id="true6010-copy-structure"><a class="anchor" href="#true6010-copy-structure"></a><code>&amp;,60,10</code> Copy Structure</h3>
 <div class="paragraph">
-<div class="title">Syntax</div>
+<p>Copy one record to another.</p>
+</div>
+<div class="paragraph">
+<p><em>Syntax:</em></p>
+</div>
+<div class="paragraph">
 <p><code>&amp;,60,10,<em>size</em>,<em>a1(a,b)</em>,<em>a2(a,b)</em></code></p>
 </div>
 <div class="paragraph">
-<p><code>size</code> size of structure</p>
+<p><code>size</code>: size of record</p>
 </div>
 <div class="paragraph">
-<p><code>a1(a,b)</code> source structure</p>
+<p><code>a1(a,b)</code>: source record</p>
 </div>
 <div class="paragraph">
-<p><code>a2(a,b)</code> destination structure</p>
+<p><code>a2(a,b)</code>: destination record</p>
 </div>
-<div class="literalblock">
-<div class="title">Example</div>
+<div class="paragraph">
+<p><em>Example:</em></p>
+</div>
+<div class="listingblock">
+<div class="title">i/IM.logon</div>
 <div class="content">
-<pre>4326 if x&lt;&gt;fb%(.,.) then for a=x to fb%(.,.)-1:&amp;,60,10,60,fb%(.,a+1),fb%(.,a):next</pre>
+<pre>4694 if x&lt;&gt;fb%(.,.) then for a=x to fb%(.,.)-1:&amp;,60,10,60,fb%(.,a+1),fb%(.,a):next <i class="conum" data-value="1"></i><b>(1)</b></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>Copy structure <code>a+1</code> to structure <code>a</code> in a loop.</p>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>if x&lt;&gt;fb%(0,0)</code>: if <code>x</code> does not equal the number of records in the structure [<code>fb%(0,0)</code>], then copy record <code>a+1</code> to record <code>a</code> in a loop.</td>
+</tr>
+</table>
 </div>
+<hr>
 </div>
 <div class="sect2">
-<h3 id="truescan-for-string"><a class="anchor" href="#truescan-for-string"></a>Scan for String</h3>
+<h3 id="true6011-scan-for-string"><a class="anchor" href="#true6011-scan-for-string"></a><code>&amp;,60,11</code> Scan for String</h3>
 <div class="paragraph">
-<div class="title">Syntax</div>
+<p>Scan structure for a string present in a specified array.</p>
+</div>
+<div class="paragraph">
+<p><em>Parameters:</em></p>
+</div>
+<div class="paragraph">
 <p><code>&amp;,60,11,<em>num</em>,<em>size</em>,<em>op</em>,<em>str</em>,<em>a1(a,b)</em>,<em>a2(b)</em>,<em>start</em></code></p>
 </div>
 <div class="paragraph">
-<p><em>num</em></p>
+<p><code>num</code>: number of records</p>
 </div>
 <div class="paragraph">
-<p><code>size</code> size of structure</p>
+<p><code>size</code>: size of record</p>
 </div>
 <div class="paragraph">
-<p><code>op</code></p>
+<p><code>op</code>: <mark>FIXME</mark>: array number in table?</p>
 </div>
 <div class="paragraph">
-<p><code>str</code></p>
+<p><code>str</code>: <mark>FIXME</mark>: string/string literal to scan for?</p>
 </div>
 <div class="paragraph">
-<p><code>a1(a,b)</code> source structure to scan</p>
+<p><code>a1(a,b)</code>: source record to scan</p>
 </div>
 <div class="paragraph">
-<p><code>a2(b)</code> target structure to put results into</p>
+<p><code>a2(b)</code>: target 1-dimension array to put results into</p>
 </div>
 <div class="paragraph">
-<p><code>start</code></p>
+<p><code>start</code>: record to start scanning from</p>
+</div>
+<div class="paragraph">
+<p><em>Example:</em></p>
+</div>
+<div class="paragraph">
+<p>None yet.</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 8. Arrays used by <code>Scan String</code></caption>
+<caption class="title">Table 10. Arrays used by <code>Scan String</code></caption>
 <colgroup>
 <col>
 <col>
@@ -4091,19 +5534,74 @@ Can apparently be a string name, or number of an array?</p>
 </tr>
 </tbody>
 </table>
+<hr>
 </div>
 <div class="sect2">
-<h3 id="truegame-scan"><a class="anchor" href="#truegame-scan"></a>Game Scan</h3>
+<h3 id="true6012-game-scan"><a class="anchor" href="#true6012-game-scan"></a><code>&amp;,60,12</code> Game Scan</h3>
 <div class="paragraph">
-<div class="title">Syntax</div>
-<p><code>&amp;,60,12,count,size,a$,a%(a,b),b$</code></p>
+<div class="title">Purpose</div>
+<p><em>Parameters:</em></p>
 </div>
+<div class="paragraph">
+<p><code>&amp;,60,12,<em>count</em>,<em>size</em>,<em>a$</em>,<em>a%(a,b)</em>,<em>b$</em></code></p>
+</div>
+<div class="paragraph">
+<p><code>count</code>:</p>
+</div>
+<div class="paragraph">
+<p><code>size</code>: size of the record to scan</p>
+</div>
+<div class="paragraph">
+<p><code>a$</code>:</p>
+</div>
+<div class="paragraph">
+<p><code>a%(a,b)</code>:</p>
+</div>
+<div class="paragraph">
+<p><code>b$</code>:</p>
+</div>
+<div class="paragraph">
+<p><em>Example:</em></p>
+</div>
+<div class="paragraph">
+<p>None yet.</p>
+</div>
+<hr>
 </div>
 <div class="sect2">
-<h3 id="truetext-read"><a class="anchor" href="#truetext-read"></a>Text Read</h3>
+<h3 id="true6013-text-read"><a class="anchor" href="#true6013-text-read"></a><code>&amp;,60,13</code> Text Read</h3>
 <div class="paragraph">
-<div class="title">Syntax</div>
-<p><code>&amp;,60,13,number,reclen,scan(),bits,text(),strlen</code></p>
+<p><em>Purpose:</em></p>
+</div>
+<div class="paragraph">
+<p><em>Syntax:</em>
+<code>&amp;,60,13,number,reclen,scan(),bits,text(),strlen</code></p>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="true6014-unknown"><a class="anchor" href="#true6014-unknown"></a><code>&amp;,60,14</code> Unknown</h3>
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This has been seen in one module, not sure it&#8217;s a valid call or what it does.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="literalblock">
+<div class="title">i.convert ud:</div>
+<div class="content">
+<pre>&amp;,2,2:fs=val(a$)*254:&amp;,60,14,0,ud%(4,j),fs</pre>
+</div>
 </div>
 </div>
 </div>
@@ -4116,7 +5614,7 @@ Can apparently be a string name, or number of an array?</p>
 
 </div>
 <div class="sect2">
-<h3 id="truefloating-point"><a class="anchor" href="#truefloating-point"></a>Floating Point</h3>
+<h3 id="truefloating-point-2"><a class="anchor" href="#truefloating-point-2"></a>Floating Point</h3>
 
 </div>
 <div class="sect2">
@@ -4130,8 +5628,32 @@ Can apparently be a string name, or number of an array?</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="truepokes"><a class="anchor" href="#truepokes"></a>POKEs</h2>
+<h2 id="pokes"><a class="anchor" href="#pokes"></a>POKEs and Memory Locations</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p><code>poke</code>s control various flags maintained by the Image BBS ML.</p>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Decimal</th>
+<th class="tableblock halign-left valign-top">Hex</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>53252</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$d004</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Control input line length</p></td>
+</tr>
+</tbody>
+</table>
 <div class="exampleblock">
 <div class="content">
 <div class="admonitionblock tip">
@@ -4141,20 +5663,28 @@ Can apparently be a string name, or number of an array?</p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-<code>POKE</code>s could go away in favor of <code>&amp;,20</code> (interface read) and <code>&amp;,21</code> (interface write) commands.
+<code>poke</code>s could go away in the future, in favor of an interface table.
+This replaces using a memory location with a number in the interface table.
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>Instead of using <code>poke 53252,22</code>, the call would be similar to <code>&amp;,21,0,1</code>.</p>
+</div>
+<div class="paragraph">
+<p>Refer to the <a href="#read-from-interface-table"><code>&amp;,20</code>: Read from Interface Table</a> or <a href="#write-to-interface-table"><code>&amp;,21</code>: Write to Interface Table</a> commands for more information.</p>
 </div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="truemachine-language-routines"><a class="anchor" href="#truemachine-language-routines"></a>Machine Language Routines</h2>
+<h2 id="truemachine-language-entry-points"><a class="anchor" href="#truemachine-language-entry-points"></a>Machine Language Entry Points</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="trueprotocols"><a class="anchor" href="#trueprotocols"></a>Protocols</h3>
+<div class="paragraph">
+<p>Here is a listing of ML modules and their entry points.</p>
+</div>
 <div class="exampleblock">
 <div class="content">
 <div class="admonitionblock note">
@@ -4171,24 +5701,206 @@ This section is currently undergoing research.
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="protocols"><a class="anchor" href="#protocols"></a>Protocols</h3>
+<div class="paragraph">
+<p><code>&amp;,16,4,<em>x</em></code>: <code>getflag</code></p>
+</div>
+<div class="paragraph">
+<p><code>sub.protos</code>: This returns the value of <code>defflag</code> from the protocol.
+Its purpose is currently unknown.</p>
+</div>
+<div class="paragraph">
+<p><code>&amp;,16,5,<em>x</em></code>: <code>getflag</code></p>
+</div>
+<div class="paragraph">
+<p>This sets the value of <code>defflag</code> from the protocol.
+Its purpose is currently unknown.</p>
+</div>
+<div class="sect3">
+<h4 id="true-index"><a class="anchor" href="#true-index"></a><code>++ index</code></h4>
+<div class="paragraph">
+<p>This module handles the <code>u.config</code> (user log) and <code>u.weedinfo</code> (user weed info) files.</p>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Function</th>
+<th class="tableblock halign-left valign-top">Label</th>
+<th class="tableblock halign-left valign-top">Parameter(s)</th>
+<th class="tableblock halign-left valign-top">Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,16,0</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>an$</code>=user name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">?</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,16,1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>loadindex</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a$</code>=filename</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">?</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,16,2</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>saveindex</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a$</code>=filename</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">?</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,16,3</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>makeindex</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a$</code>=filename, <code>b%</code>=?</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">?</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,16,4</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>instindex</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a%</code>=id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">?</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,16,5</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deltindex</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a%</code>=id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">?</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,16,6</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>nextindex</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">?</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">?</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,16,7</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>setcrskip</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">?</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">?</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,16,8</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>findindex</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a%</code>=id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a%</code>=0: not found</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="true-punter"><a class="anchor" href="#true-punter"></a><code>++ punter</code></h4>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Function</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+<th class="tableblock halign-left valign-top">Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,16,0</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">multi-download</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,16,1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">multi-upload</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,16,2</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">multi-download + header</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,16,3</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">multi-upload   + header</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,16,4</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">setflag</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a%</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,16,5</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">getflag</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a%</code></p>
+<p class="tableblock">(are these flags whether the protocol supports multi-file transfers?)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="true-reader"><a class="anchor" href="#true-reader"></a><code>++ reader</code></h4>
+<div class="paragraph">
+<p>This module can display PRG files.</p>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Function</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+<th class="tableblock halign-left valign-top">Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,16,0,<em>ll%</em></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Detokenize BASIC file, use column width <code>ll%</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="sect3">
 <h4 id="truegraphic-menu"><a class="anchor" href="#truegraphic-menu"></a>Graphic Menu</h4>
 <div class="paragraph">
-<p>The ML module <code>++ menu2</code> handles adding menu items, hot keys, displaying the menu and passing the menu item selected back to BASIC.</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><code>&amp;,16,0</code>: </dt>
-<dd>
-<p>Add string</p>
-</dd>
-</dl>
+<p>The ML module <code>++ menu2</code> handles adding menu items, hotkeys, displaying the menu and passing the menu item selected back to BASIC.</p>
 </div>
 <div class="paragraph">
-<p><em>Syntax:</em></p>
+<p><code>&amp;,16,0</code>:
+Add menu string</p>
 </div>
 <div class="paragraph">
-<p><code>&amp;,16,0,<em>?</em>,<em>item_count?</em>,<em>"hotkey(s)"</em>,<em>"prefix_text?"</em>,<em>"item_text"</em></code></p>
+<p><em>Parameters:</em></p>
+</div>
+<div class="paragraph">
+<p><code>&amp;,16,0,<em>?</em>,<em>menu%(element,byte)</em>,<em>"hotkey(s)"</em>,<em>"prefix_text?"</em>,<em>"menu_item_text"</em></code></p>
+</div>
+<div class="paragraph">
+<p><code>?</code>: <code>42</code>: draw two-column menu</p>
+</div>
+<div class="paragraph">
+<p><code>menu%(<em>element,byte</em>)</code>: struct to put menu text in</p>
+</div>
+<div class="paragraph">
+<p><code>hotkey(s)</code>: One (<kbd>B</kbd>) or two (<kbd>/B</kbd>) keys to type to select this menu item</p>
+</div>
+<div class="paragraph">
+<p><code>prefix_text</code>:</p>
+</div>
+<div class="paragraph">
+<p><code>menu_item_text</code>: Text the user sees for this menu item.</p>
 </div>
 <div class="paragraph">
 <p><em>Example:</em></p>
@@ -4199,38 +5911,49 @@ This section is currently undergoing research.
 <pre>3518 if pf&gt;1 then:&amp;,16,0,42,q%(0,n),"/B","Op ","Return to Previous Menu":n=n+1</pre>
 </div>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><code>&amp;,16,1</code>: </dt>
-<dd>
-<p>Add string</p>
-</dd>
-</dl>
+<div class="literalblock">
+<div class="title">i.IM</div>
+<div class="content">
+<pre>&amp;,16,.,34,m%(.,1),"A","","Macros Editor"</pre>
+</div>
 </div>
 <div class="paragraph">
-<p><em>Syntax:</em>
-None yet.</p>
+<p><em>Returns:</em></p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><code>&amp;,16,2</code>: </dt>
-<dd>
-<p>Use menu</p>
-</dd>
-</dl>
+<div class="paragraph">
+<p><code>a%</code>: which item was selected</p>
+</div>
+<hr>
+<div class="paragraph">
+<p><code>&amp;,16,1</code>: Add string</p>
 </div>
 <div class="paragraph">
 <p><em>Parameters:</em></p>
 </div>
 <div class="paragraph">
-<p><code>&amp;,16,2,<em>?</em>,<em>?</em>,<em>item_count</em>,<em>?</em>,<em>?</em>,<em>item_count</em>,<em>?</em>,<em>?</em>,<em>?</em></code></p>
+<p>Unknown.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p><code>&amp;,16,2</code>: Use menu</p>
 </div>
 <div class="paragraph">
-<p><em>Example:</em></p>
+<p><em>Parameters:</em></p>
+</div>
+<div class="paragraph">
+<p><code>&amp;,16,2,<em>?</em>,<em>menu%(element,byte)</em>,<em>item_count?</em>,<em>?</em>,<em>?</em>,<em>menu_height?</em>,<em>?</em>,<em>?</em>,<em>?</em></code></p>
+</div>
+<div class="paragraph">
+<p><em>Examples:</em></p>
 </div>
 <div class="literalblock">
 <div class="content">
 <pre>xxxx &amp;,16,2,42,q%(0,0),n,36,1,n,6,6,0:a$=chr$(q%(3,a%) and 255)</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>xxxx &amp;,16,2,34,m%(.,1),n,17,2,n/2+.5,2,6,.</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4239,13 +5962,9 @@ None yet.</p>
 <div class="paragraph">
 <p><code>a%</code>: item number selected</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><code>&amp;,16,3</code>: </dt>
-<dd>
-<p>Use Menu</p>
-</dd>
-</dl>
+<hr>
+<div class="paragraph">
+<p><code>&amp;,16,3</code>: Use Menu</p>
 </div>
 </div>
 </div>
@@ -4257,7 +5976,7 @@ None yet.</p>
 <div class="sect2">
 <h3 id="truelightbar-numbering"><a class="anchor" href="#truelightbar-numbering"></a>Lightbar Numbering</h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 9. Lightbar, page 1</caption>
+<caption class="title">Table 11. Lightbar, page 1</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -4306,7 +6025,7 @@ None yet.</p>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 10. Lightbar, page 2</caption>
+<caption class="title">Table 12. Lightbar, page 2</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -4355,7 +6074,7 @@ None yet.</p>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 11. Lightbar, page 3</caption>
+<caption class="title">Table 13. Lightbar, page 3</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -4404,7 +6123,7 @@ None yet.</p>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 12. Lightbar, page 4</caption>
+<caption class="title">Table 14. Lightbar, page 4</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -4453,7 +6172,7 @@ None yet.</p>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 13. Lightbar, page 5</caption>
+<caption class="title">Table 15. Lightbar, page 5</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -4502,7 +6221,7 @@ None yet.</p>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 14. Lightbar, page 6</caption>
+<caption class="title">Table 16. Lightbar, page 6</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -4551,7 +6270,7 @@ None yet.</p>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 15. Lightbar, page 7</caption>
+<caption class="title">Table 17. Lightbar, page 7</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -4600,7 +6319,7 @@ None yet.</p>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 16. Lightbar, page 8</caption>
+<caption class="title">Table 18. Lightbar, page 8</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -4989,7 +6708,7 @@ beq flag_off</code></pre>
 <p>The record size is 31 bytes.</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 17. e.data File Format</caption>
+<caption class="title">Table 19. e.data File Format</caption>
 <colgroup>
 <col>
 <col>
@@ -5247,7 +6966,7 @@ beq flag_off</code></pre>
 <div id="footer">
 <div id="footer-text">
 Version 0.1<br>
-Last updated 2021-05-08 16:11:45 -0700
+Last updated 2021-05-20 22:11:14 -0700
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">
