@@ -8,4 +8,10 @@
 
 [Image BBS 3.0 Message Command Interpreter Guide](https://pinacolada64.github.io/ImageBBS3-docs.github.io/mci.html)
 
+---
+
+[Image BBS 1.2 Programmer's Reference Guide](https://pinacolada64.github.io/ImageBBS3-docs.github.io/imageprg-index.html)
+
+---
+
 These are a work in progress. You can make a [pull request](https://github.com/Pinacolada64/ImageBBS3/tree/docs).
