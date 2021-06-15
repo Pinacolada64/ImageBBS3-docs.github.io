@@ -449,7 +449,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <span id="author4" class="author">Al DeRosa</span><br>
 <span id="email4" class="email"><a href="mailto:bucko219@gmail.com">bucko219@gmail.com</a></span><br>
 <span id="revnumber">version 0.1,</span>
-<span id="revdate">2021-05-20</span>
+<span id="revdate">2021-05-21</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -488,13 +488,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel3">
 <li><a href="#true-image-bbs-output"><code>&amp;</code>: Image BBS Output</a></li>
 <li><a href="#trueencoded-function-keys">Encoded Function Keys</a></li>
+<li><a href="#true-by-itself"><code>&amp;</code> By Itself</a></li>
 </ul>
 </li>
 <li><a href="#truebasic-editing-modes">BASIC Editing Modes</a>
 <ul class="sectlevel3">
 <li><a href="#truequote-mode">Quote Mode</a></li>
 <li><a href="#trueinsert-mode">Insert Mode</a></li>
-<li><a href="#true-by-itself"><code>&amp;</code> By Itself</a></li>
 </ul>
 </li>
 <li><a href="#trueoutputting-strings">Outputting Strings</a>
@@ -633,49 +633,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#true6011-scan-for-string"><code>&amp;,60,11</code> Scan for String</a></li>
 <li><a href="#true6012-game-scan"><code>&amp;,60,12</code> Game Scan</a></li>
 <li><a href="#true6013-text-read"><code>&amp;,60,13</code> Text Read</a></li>
-<li><a href="#true6014-unknown"><code>&amp;,60,14</code> Unknown</a></li>
-</ul>
-</li>
-<li><a href="#truevariables">Variables</a>
-<ul class="sectlevel2">
-<li><a href="#trueinteger">Integer</a></li>
-<li><a href="#truefloating-point-2">Floating Point</a></li>
-<li><a href="#truestring">String</a></li>
-<li><a href="#truearrays">Arrays</a></li>
-</ul>
-</li>
-<li><a href="#pokes">POKEs and Memory Locations</a></li>
-<li><a href="#truemachine-language-entry-points">Machine Language Entry Points</a>
-<ul class="sectlevel2">
-<li><a href="#protocols">Protocols</a>
-<ul class="sectlevel3">
-<li><a href="#true-index"><code>++ index</code></a></li>
-<li><a href="#true-punter"><code>++ punter</code></a></li>
-<li><a href="#true-reader"><code>++ reader</code></a></li>
-<li><a href="#truegraphic-menu">Graphic Menu</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#truelightbar-reference">Lightbar Reference</a>
-<ul class="sectlevel2">
-<li><a href="#truelightbar-numbering">Lightbar Numbering</a></li>
-<li><a href="#truelightbar-interface-52">Lightbar Interface: <code>&amp;,52</code></a>
-<ul class="sectlevel3">
-<li><a href="#ampersand-lightbar">BASIC <code>&amp;,52</code> Commands</a></li>
-<li><a href="#trueassembly-example">Assembly Example</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#truememory-map">Memory Map</a></li>
-<li><a href="#truefile-formats">File Formats</a>
-<ul class="sectlevel2">
-<li><a href="#trueintroduction-2">Introduction</a>
-<ul class="sectlevel3">
-<li><a href="#truee-data"><code>e.data</code></a></li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -685,6 +642,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect1">
 <h2 id="truepreface"><a class="anchor" href="#truepreface"></a>Preface</h2>
 <div class="sectionbody">
+<div class="exampleblock">
+<div class="content">
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -696,6 +655,8 @@ Preliminary start on documentation. Feedback welcome!
 </td>
 </tr>
 </table>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>Welcome to the <em>Image BBS 3.0 Programmer&#8217;s Reference Guide</em>.</p>
@@ -717,10 +678,10 @@ We hope you find this useful in creating the next generation of Image BBS applic
 <p>Happy programming!</p>
 </div>
 <div class="paragraph text-right">
-<p>&#8212;Jack Followay, Jr., Larry Hedman, Al DeRosa, and Ryan Sherwood</p>
+<p>&#8212;Jack Followay, Jr.; Larry Hedman, Al DeRosa, and Ryan Sherwood</p>
 </div>
 <div class="paragraph text-right">
-<p>&#8212;thanks to jam for editing help</p>
+<p>&#8212;thanks to jam and X-Tec for editing help</p>
 </div>
 </div>
 </div>
@@ -1216,7 +1177,7 @@ Therefore, they have been encoded using the reverse video letters seen while typ
 <p>The <code>image seq reader</code> utility used in BASIC also does this.</p>
 </div>
 <div class="paragraph">
-<p>A new <code>&amp;</code> command, <code>&amp;,15,2</code>, does the same thing when passed the string to translate in <code>an$</code>.</p>
+<p>A new <code>&amp;</code> command, <code>&amp;,15,2</code>, does the same thing when passed <code>an$</code>, the string to translate.</p>
 </div>
 <div class="paragraph">
 <p>As it relates to carriage returns, though, we can see in the following table:</p>
@@ -1277,63 +1238,6 @@ Therefore, they have been encoded using the reverse video letters seen while typ
 </tbody>
 </table>
 </div>
-</div>
-<div class="sect2">
-<h3 id="truebasic-editing-modes"><a class="anchor" href="#truebasic-editing-modes"></a>BASIC Editing Modes</h3>
-<div class="sect3">
-<h4 id="truequote-mode"><a class="anchor" href="#truequote-mode"></a>Quote Mode</h4>
-<div class="paragraph">
-<p>In the BASIC editor, once the quote mark (<span class="keyseq"><kbd>Shift</kbd>+<kbd>2</kbd></span>, <kbd>"</kbd>) is typed, color or cursor controls stop changing the cursor color or moving the cursor.
-Instead, they start displaying reversed characters which stand for the color control, cursor control or symbol you are typing.
-Once the text inside the quotes is <code>print</code>ed, they perform their functions as if typed manually.
-The <kbd>Inst/Del</kbd> key is the only cursor control not affected by &#8220;quote mode.&#8221;</p>
-</div>
-<div class="paragraph">
-<p>Typing a second <kbd>"</kbd> exits quote mode, and allows you to use the cursor keys to edit the program line again.</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-See <a href="#position-cursor"><code>&amp;,70</code> Position Terminal Cursor</a> for how to easily do that within Image BBS.
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="trueinsert-mode"><a class="anchor" href="#trueinsert-mode"></a>Insert Mode</h4>
-<div class="paragraph">
-<p>Insert mode is similar to quote mode, only for the number of spaces you insert with the <span class="keyseq"><kbd>Shift</kbd>+<kbd>Inst/Del</kbd></span> key, the BASIC editor is in quote mode.
-Once that number of characters is typed, insert mode is exited.</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<kbd>Return</kbd> gets out of quote and insert mode, and adds the current line into the BASIC program.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><span class="keyseq"><kbd>Shift</kbd>+<kbd>Return</kbd></span> gets out of quote and insert mode, but does <em>not</em> add the current line into the BASIC program.</p>
-</div>
-</div>
-</div>
-</div>
 <div class="sect3">
 <h4 id="true-by-itself"><a class="anchor" href="#true-by-itself"></a><code>&amp;</code> By Itself</h4>
 <div class="paragraph">
@@ -1357,7 +1261,87 @@ Once that number of characters is typed, insert mode is exited.</p>
 <p>and simplify it further with:</p>
 </div>
 <div class="paragraph">
-<p><code>print"Hello there!<kbd>f6</kbd>"</code></p>
+<p><code>&amp;"Hello there!<kbd>f6</kbd>"</code></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Because of a quirk in the BASIC interpreter, you must follow a <code>then</code> clause with a colon before using the ampersand.
+In other words:
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><code>if b then &amp;"hello"</code> (will not work)</p>
+</div>
+<div class="paragraph">
+<p><code>if b then:&amp;"hello"</code> (must be used instead)</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="truebasic-editing-modes"><a class="anchor" href="#truebasic-editing-modes"></a>BASIC Editing Modes</h3>
+<div class="sect3">
+<h4 id="truequote-mode"><a class="anchor" href="#truequote-mode"></a>Quote Mode</h4>
+<div class="paragraph">
+<p>In the BASIC editor, once the quote mark (<span class="keyseq"><kbd>Shift</kbd>+<kbd>2</kbd></span>, <kbd>"</kbd>) is typed, color or cursor controls stop changing the cursor color or moving the cursor.
+Instead, they start displaying reversed characters which stand for the color control, cursor control or symbol you are typing.
+Once the text inside the quotes is <code>print</code>ed, they perform their functions as if typed manually.
+The <kbd>Inst/Del</kbd> key is the only cursor control not affected by &#8220;quote mode.&#8221;</p>
+</div>
+<div class="paragraph">
+<p>Typing a second <kbd>"</kbd> exits quote mode, and allows you to use the cursor keys to edit the program line again.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+See <a href="#position-cursor"><code>&amp;,70</code> Position Terminal Cursor</a> for how to easily move the terminal cursor within Image BBS, instead of using lots of cursor controls in quote mode.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="trueinsert-mode"><a class="anchor" href="#trueinsert-mode"></a>Insert Mode</h4>
+<div class="paragraph">
+<p>Insert mode is similar to quote mode, only for the number of spaces you insert with the <span class="keyseq"><kbd>Shift</kbd>+<kbd>Inst/Del</kbd></span> key, the BASIC editor is in quote mode.
+Once the space inserted has been typed in, insert mode is exited.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<kbd>Return</kbd> gets out of quote and insert mode, and adds the current line into the BASIC program.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><span class="keyseq"><kbd>Shift</kbd>+<kbd>Return</kbd></span> gets out of quote and insert mode, but does <em>not</em> add the current line into the BASIC program.</p>
+</div>
+</div>
 </div>
 <hr>
 </div>
@@ -1400,18 +1384,18 @@ This is where a word which would extend past the right hand margin is moved to t
 <div class="ulist">
 <ul>
 <li>
-<p><code>&pound;m&lt;<em>x</em></code> (left margin) This MCI command causes every carriage return issued by Image BBS to be followed by <em>x</em> spaces, which indents text <em>x</em> spaces.
+<p><code>£m&lt;<em>x</em></code> (left margin) This MCI command causes every carriage return issued by Image BBS to be followed by <em>x</em> spaces, which indents text <em>x</em> spaces.
 The values for <em>x</em> are <code>0</code> (to disable word-wrap), or <code>1-9</code>, and <code>j-o</code> (10-15).</p>
 </li>
 <li>
-<p><code>&pound;m&gt;<em>x</em></code> (right margin).
+<p><code>£m&gt;<em>x</em></code> (right margin).
 This command causes the system to word wrap as if the user&#8217;s screen width was <em>x</em> characters less than it really is.
 It indents the text from the right side.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The use of <code>&pound;m&lt;<em>x</em></code> and <code>&pound;m&gt;<em>x</em></code> together allows you to make &#8220;block indents&#8221; of text that appear correct regardless of the user&#8217;s screen width.</p>
+<p>The use of <code>£m&lt;<em>x</em></code> and <code>£m&gt;<em>x</em></code> together allows you to make &#8220;block indents&#8221; of text that appear correct regardless of the user&#8217;s screen width.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1434,11 +1418,11 @@ Outputting a string which itself contains MCI commands or MCI string variables w
 </table>
 </div>
 <div class="paragraph">
-<p><code>c$="Hi":c%=3:z$="&pound;$c &pound;#3&pound;#0&pound;%c":&amp;"&pound;$z"</code></p>
+<p><code>c$="Hi":c%=3:z$="£$c £#3£#0£%c":&amp;"£$z"</code></p>
 </div>
 <div class="paragraph">
-<p>does not output <code>z$</code> (which outputs <code>c$</code>, and sets 3 leading zeroes and displays <code>c%</code>).
-It will output a literal</p>
+<p>does not output <code>z$</code> (which outputs <code>c$</code>, <code>£#3</code> sets 3 leading characters, <code>£#0</code> sets the fill character to <code>0</code>, and displays the value of <code>c%</code>).
+It outputs a literal</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1452,7 +1436,7 @@ It will output a literal</p>
 <p><code>c$="Hi":c%=3:z$="£$c £#3£# £%c":&amp;z$</code></p>
 </div>
 <div class="paragraph">
-<p>This will output the expected</p>
+<p>This outputs the expected</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1481,7 +1465,7 @@ It will output a literal</p>
 <p>Since <code>&amp;h</code> isn&#8217;t supported to output the value of <code>h</code>, it must be converted to a string with the <code>str$()</code> function.
 This worked under Image 1.2; it works here too, but there is a new MCI command in Image 3.0 to output single-letter floating point variables:</p>
 </dd>
-<dt class="hdlist1"><code>&amp;"&pound;!h"</code></dt>
+<dt class="hdlist1"><code>&amp;"£!h"</code></dt>
 <dd>
 <p>Output the value of <code>h</code> using an MCI command.</p>
 </dd>
@@ -1498,7 +1482,7 @@ This worked under Image 1.2; it works here too, but there is a new MCI command i
 </ul>
 </div>
 <div class="paragraph">
-<p><code>x=xx:&amp;"Blocks free: &pound;!x"</code>, <code>z=</code></p>
+<p><code>x=xx:&amp;"Blocks free: £!x"</code></p>
 </div>
 <div class="ulist">
 <ul>
@@ -1535,9 +1519,10 @@ Substitute the appropriate number in its place.</p>
 </dd>
 <dt class="hdlist1"><code>&amp;,<em>call[,optional]</em></code></dt>
 <dd>
-<p>This means that again, <code>&amp;,<em>call</em></code> is required.
+<p>This means that, again, <code>&amp;,<em>call</em></code> is required.
 The value of <em>call</em> varies.
-However, the parameter <em>[,optional]</em> is optional, and if supplied, needs <code>,</code> and to substitute the appropriate parameter in its place.</p>
+However, the parameter <em>[,optional]</em> is not required.
+If it is supplied, needs <code>,</code> and the appropriate parameter substituted in its place.</p>
 </dd>
 </dl>
 </div>
@@ -2075,7 +2060,7 @@ The mask character is displayed, rather than the real character typed.</p>
 <p><code>flag=0</code>: Displays entire directory</p>
 </div>
 <div class="paragraph">
-<p><code>flag=1</code>, <code>a$</code>: single line of disk directory information</p>
+<p><code>flag=1</code>: <code>a$</code>: single line of disk directory information</p>
 </div>
 <div class="literalblock">
 <div class="title">Display Entire s. Disk Directory</div>
@@ -2093,7 +2078,7 @@ The mask character is displayed, rather than the real character typed.</p>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td><code>&amp;,8,<strong>2</strong>,0</code>: Use lfn#2 (<code>2</code>) to get entire disk directory. <code>close 2</code>: close lfn#2. <code>goto 300</code>: go to main prompt.</td>
+<td><code>&amp;,8,<strong>2</strong>,0</code>: Use lfn#<strong>2</strong> to get the entire disk directory (<code>0</code>). <code>close 2</code>: close lfn#2. <code>goto 300</code>: go to main prompt.</td>
 </tr>
 </table>
 </div>
@@ -2340,12 +2325,22 @@ Output <code>an$</code></p>
 <h5 id="date-format"><a class="anchor" href="#date-format"></a>Image BBS Date Format</h5>
 <div class="paragraph">
 <p>Image BBS uses an 11-digit string to represent a time and date.
-The current time and date is stored in the string <code>d1$</code>, which is continually updated by the ML.
-Here is a sample definition of <code>d1$</code>:</p>
+The format is <code>w&nbsp;yr&nbsp;mo&nbsp;dt&nbsp;hr&nbsp;mi</code>.</p>
 </div>
-<div class="literalblock">
+<div class="exampleblock">
 <div class="content">
-<pre>d1$="20517218944"</pre>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Extra spaces between the numbers have been added for ease of reading, but are not used in the actual string.
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
@@ -2354,10 +2349,12 @@ Here is a sample definition of <code>d1$</code>:</p>
 <col>
 <col>
 <col>
+<col>
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Position</th>
+<th class="tableblock halign-left valign-top">Shortcut</th>
 <th class="tableblock halign-left valign-top">Purpose</th>
 <th class="tableblock halign-left valign-top">Range</th>
 </tr>
@@ -2365,33 +2362,107 @@ Here is a sample definition of <code>d1$</code>:</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Weekday</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>&nbsp;w</strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">weekday</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>1</code>=Sun&#8230;&#8203;<code>7</code>=Sat</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2-3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Month</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>01</code>&#8230;&#8203;<code>12</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>yr</strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">year</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>00</code>&#8230;&#8203;<code>99</code> (the year within the century, <code>20xx</code>, is displayed using <code>&amp;,15</code>)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">4-5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Date</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>01</code>&#8230;&#8203;<code>31</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>mo</strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">month</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>01</code>&#8230;&#8203;<code>12</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">6-7</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Year</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>00</code>&#8230;&#8203;<code>99</code> (plus internal century)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>dt</strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>01</code>&#8230;&#8203;<code>31</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">8-9</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Hour</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>01</code>&#8230;&#8203;<code>12</code> (add <code>80</code> for PM)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>hr</strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hour</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>00</code>&#8230;&#8203;<code>11</code> (12:00 AM, midnight&#8212;&#8203;11:00 AM, 1 hour until noon)</p>
+<p class="tableblock"><code>80</code>&#8230;&#8203;<code>92</code> (12:00 PM, noon&#8212;&#8203;11:00 PM, 1 hour until midnight)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">10-11</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Minute</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>01</code>&#8230;&#8203;<code>59</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>mi</strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">minute</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>00</code>&#8230;&#8203;<code>59</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The current time and date is stored in the string <code>d1$</code>, which is continually updated by the ML.
+Here is a sample definition of <code>d1$</code>:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>"22105178944"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s break down how the string is encoded.</p>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<caption class="title">Table 3. Image BBS Date Decoding</caption>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Position</th>
+<th class="tableblock halign-left valign-top">Value</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&nbsp;2</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">weekday</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Mon</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2-3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>21</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">year</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2021</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4-5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>05</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">month</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>May</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6-7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>17</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>17</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8-9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>89</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hour</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&nbsp;9:00 PM</code> (<code>9</code>=hour, plus <code>80</code>=PM)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10-11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>44</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">minute</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>44</code></p></td>
 </tr>
 </tbody>
 </table>
@@ -2416,10 +2487,10 @@ Both these statements output the same string as above:
 <div class="ulist">
 <ul>
 <li>
-<p><code>a$="20517218944":&amp;"<span class="keyseq"><kbd>Ctrl</kbd>+<kbd>d</kbd></span>"+a$</code></p>
+<p><code>a$="22105178944":&amp;"<span class="keyseq"><kbd>Ctrl</kbd>+<kbd>d</kbd></span>"+a$</code></p>
 </li>
 <li>
-<p><code>a$="20517218944":&amp;chr$(4)+a$</code></p>
+<p><code>a$="22105178944":&amp;chr$(4)+a$</code></p>
 </li>
 </ul>
 </div>
@@ -2447,7 +2518,7 @@ Both these statements output the same string as above:
 <dl>
 <dt class="hdlist1"><code>i.t</code></dt>
 <dd>
-<p><code>an$="host<kbd>f3</kbd>port":&amp;,15,2:&amp;"&pound;v7<kbd>f6</kbd>"</code> &#8594; <code>host:port</code></p>
+<p><code>an$="host<kbd>f3</kbd>port":&amp;,15,2:&amp;"£v7<kbd>f6</kbd>"</code> &#8594; <code>host:port</code></p>
 </dd>
 </dl>
 </div>
@@ -2719,7 +2790,7 @@ It points to <a href="#get-version"><code>&amp;,5</code>: Get Version</a> to mai
 <h3 id="amp-20-read-from-interface-table"><a class="anchor" href="#amp-20-read-from-interface-table"></a><code>&amp;,20</code> Read from Interface Table</h3>
 <div class="paragraph">
 <p>Reads a byte from the interface table.
-This is meant to possibly eventually replace <code>peek()</code>ing memory locations based on frequency of use.
+This is meant to possibly eventually replace <code>peek()</code>ing memory locations.
 While the functionality is there, it is limited, but can be expanded in the future.</p>
 </div>
 <div class="paragraph">
@@ -2735,7 +2806,7 @@ While the functionality is there, it is limited, but can be expanded in the futu
 <p><code>command</code>: [<code>0</code>=put in <code>a%</code> | <code>1</code>=return in accumulator, <code>peek(780)</code>]</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 3. Interface Table Addresses <a id="interface-table-addresses"></a></caption>
+<caption class="title">Table 4. Interface Table Addresses <a id="interface-table-addresses"></a></caption>
 <colgroup>
 <col>
 <col>
@@ -2768,7 +2839,7 @@ While the functionality is there, it is limited, but can be expanded in the futu
 <h3 id="amp-21-write-to-interface-table"><a class="anchor" href="#amp-21-write-to-interface-table"></a><code>&amp;,21</code> Write to Interface Table</h3>
 <div class="paragraph">
 <p>Writes a byte to the interface table.
-This is meant to possibly eventually replace <code>peek()</code>ing memory locations.
+This is meant to possibly eventually replace <code>poke</code>ing memory locations.
 While the functionality is there, it is limited, but should be expanded in the future.</p>
 </div>
 <div class="paragraph">
@@ -2844,7 +2915,7 @@ Loop until the caller hits <kbd>Space</kbd> [<code>chr$(32)</code>].</td>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-<code>&amp;,23</code> doesn&#8217;t stop and wait for input, unlike the <code>&pound;g1</code> MCI command.
+<code>&amp;,23</code> doesn&#8217;t stop and wait for input, unlike the <code>£g1</code> MCI command.
 If no character is received from the connected user, <code>peek(780)=0</code>.
 </td>
 </tr>
@@ -3105,9 +3176,9 @@ This stores the contents of the buffer at <code>$61</code> into a variable.</p>
 <h3 id="true37-trapon"><a class="anchor" href="#true37-trapon"></a><code>&amp;,37</code> trapon</h3>
 <div class="paragraph">
 <p>Enable error-trap routine.
-BASIC run-time errors will be caught, and redirected to the BBS error handler at line
----</p>
+BASIC run-time errors will be caught, and redirected to the BBS error handler at line 2000.</p>
 </div>
+<hr>
 </div>
 <div class="sect2">
 <h3 id="true38-trapoff"><a class="anchor" href="#true38-trapoff"></a><code>&amp;,38</code> trapoff</h3>
@@ -3424,12 +3495,30 @@ In this respect, it is similar to <code>&amp;,66</code>: <code>calculated GOTO</
 <p><code>dv%</code>: device #</p>
 </div>
 <div class="paragraph">
+<p><em>Preparation:</em></p>
+</div>
+<hr>
+<div class="literalblock">
+<div class="content">
+<pre> xxxx a$="e.ecs.main":dr=5:gosub 19 <i class="conum" data-value="1"></i><b>(1)</b>
+---</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>set system drive to the Etcetera disk. <code>gosub 19</code>: scratch existing <code>e.ecs.main</code> file</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p><em>Example:</em></p>
 </div>
 <div class="literalblock">
 <div class="title">i/IM.ecs</div>
 <div class="content">
-<pre>4016 a$=dr$+a$:&amp;,42,5:return</pre>
+<pre>4016 ... a$=dr$+a$:&amp;,42,5:return</pre>
 </div>
 </div>
 <hr>
@@ -3517,7 +3606,7 @@ This can also be also used from BASIC.</p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-<code>&amp;,48</code> does not stop and wait for input, unlike the <code>&pound;g1</code> MCI command.
+<code>&amp;,48</code> does not stop and wait for input, unlike the <code>£g1</code> MCI command.
 If no character is typed on the keyboard, <code>peek(198)=0</code>.
 </td>
 </tr>
@@ -3633,7 +3722,7 @@ This following routine is used by Image BBS machine language itself; there is li
 </div>
 </li>
 <li>
-<p>clears status indicators on status line</p>
+<p>clears status line indicators</p>
 </li>
 </ul>
 </div>
@@ -3729,7 +3818,7 @@ These following 2 routines are used by Image BBS machine language themselves; th
 <p>Cause error <code>14</code>, <code>?illegal quantity&nbsp;&nbsp;error</code>.</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 4. Error Numbers</caption>
+<caption class="title">Table 5. Error Numbers</caption>
 <colgroup>
 <col>
 <col>
@@ -4222,7 +4311,7 @@ This is much faster than a BASIC <code>for&#8230;&#8203;next</code> loop.</p>
 Two bytes per element of the string text can be stored per element of an integer array.</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 5. Representation of Sample 2D Integer Array</caption>
+<caption class="title">Table 6. Representation of Sample 2D Integer Array</caption>
 <colgroup>
 <col>
 <col>
@@ -4299,7 +4388,7 @@ Thirty-seven bytes would require either:</p>
 Here is a byte-by-byte map of the structure we designed.</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 6. Sample Structure layout</caption>
+<caption class="title">Table 7. Sample Structure layout</caption>
 <colgroup>
 <col>
 <col>
@@ -4348,7 +4437,7 @@ Here is a byte-by-byte map of the structure we designed.</p>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 7. Structure Data Storage</caption>
+<caption class="title">Table 8. Structure Data Storage</caption>
 <colgroup>
 <col>
 <col>
@@ -4560,7 +4649,7 @@ To put numeric values into&#8212;&#8203;or get numeric values from&#8212;&#8203;
 <p>You may use code similar to the following examples:</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 8. Get number from and put number into structure</caption>
+<caption class="title">Table 9. Get number from and put number into structure</caption>
 <colgroup>
 <col>
 <col>
@@ -5142,7 +5231,7 @@ If the condition is true, perform an operation on another field in the structure
 <p><code>command</code>: command number:</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 9. Scan Struct Commands</caption>
+<caption class="title">Table 10. Scan Struct Commands</caption>
 <colgroup>
 <col>
 <col>
@@ -5458,7 +5547,7 @@ This function call documentation seems incomplete.
 <p>None yet.</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 10. Arrays used by <code>Scan String</code></caption>
+<caption class="title">Table 11. Arrays used by <code>Scan String</code></caption>
 <colgroup>
 <col>
 <col>
@@ -5577,1387 +5666,15 @@ This function call documentation seems incomplete.
 <p><em>Syntax:</em>
 <code>&amp;,60,13,number,reclen,scan(),bits,text(),strlen</code></p>
 </div>
-<hr>
-</div>
-<div class="sect2">
-<h3 id="true6014-unknown"><a class="anchor" href="#true6014-unknown"></a><code>&amp;,60,14</code> Unknown</h3>
-<div class="exampleblock">
-<div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-This has been seen in one module, not sure it&#8217;s a valid call or what it does.
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="literalblock">
-<div class="title">i.convert ud:</div>
-<div class="content">
-<pre>&amp;,2,2:fs=val(a$)*254:&amp;,60,14,0,ud%(4,j),fs</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="truevariables"><a class="anchor" href="#truevariables"></a>Variables</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="trueinteger"><a class="anchor" href="#trueinteger"></a>Integer</h3>
-
-</div>
-<div class="sect2">
-<h3 id="truefloating-point-2"><a class="anchor" href="#truefloating-point-2"></a>Floating Point</h3>
-
-</div>
-<div class="sect2">
-<h3 id="truestring"><a class="anchor" href="#truestring"></a>String</h3>
-
-</div>
-<div class="sect2">
-<h3 id="truearrays"><a class="anchor" href="#truearrays"></a>Arrays</h3>
-
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="pokes"><a class="anchor" href="#pokes"></a>POKEs and Memory Locations</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p><code>poke</code>s control various flags maintained by the Image BBS ML.</p>
-</div>
-<table class="tableblock frame-all grid-all fit-content">
-<colgroup>
-<col>
-<col>
-<col>
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Decimal</th>
-<th class="tableblock halign-left valign-top">Hex</th>
-<th class="tableblock halign-left valign-top">Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>53252</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$d004</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Control input line length</p></td>
-</tr>
-</tbody>
-</table>
-<div class="exampleblock">
-<div class="content">
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<code>poke</code>s could go away in the future, in favor of an interface table.
-This replaces using a memory location with a number in the interface table.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Instead of using <code>poke 53252,22</code>, the call would be similar to <code>&amp;,21,0,1</code>.</p>
-</div>
-<div class="paragraph">
-<p>Refer to the <a href="#read-from-interface-table"><code>&amp;,20</code>: Read from Interface Table</a> or <a href="#write-to-interface-table"><code>&amp;,21</code>: Write to Interface Table</a> commands for more information.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="truemachine-language-entry-points"><a class="anchor" href="#truemachine-language-entry-points"></a>Machine Language Entry Points</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Here is a listing of ML modules and their entry points.</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-This section is currently undergoing research.
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="protocols"><a class="anchor" href="#protocols"></a>Protocols</h3>
-<div class="paragraph">
-<p><code>&amp;,16,4,<em>x</em></code>: <code>getflag</code></p>
-</div>
-<div class="paragraph">
-<p><code>sub.protos</code>: This returns the value of <code>defflag</code> from the protocol.
-Its purpose is currently unknown.</p>
-</div>
-<div class="paragraph">
-<p><code>&amp;,16,5,<em>x</em></code>: <code>getflag</code></p>
-</div>
-<div class="paragraph">
-<p>This sets the value of <code>defflag</code> from the protocol.
-Its purpose is currently unknown.</p>
-</div>
-<div class="sect3">
-<h4 id="true-index"><a class="anchor" href="#true-index"></a><code>++ index</code></h4>
-<div class="paragraph">
-<p>This module handles the <code>u.config</code> (user log) and <code>u.weedinfo</code> (user weed info) files.</p>
-</div>
-<table class="tableblock frame-all grid-all fit-content">
-<colgroup>
-<col>
-<col>
-<col>
-<col>
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Function</th>
-<th class="tableblock halign-left valign-top">Label</th>
-<th class="tableblock halign-left valign-top">Parameter(s)</th>
-<th class="tableblock halign-left valign-top">Returns</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,16,0</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>an$</code>=user name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">?</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,16,1</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>loadindex</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a$</code>=filename</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">?</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,16,2</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>saveindex</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a$</code>=filename</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">?</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,16,3</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>makeindex</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a$</code>=filename, <code>b%</code>=?</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">?</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,16,4</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>instindex</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a%</code>=id</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">?</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,16,5</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deltindex</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a%</code>=id</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">?</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,16,6</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>nextindex</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">?</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">?</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,16,7</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>setcrskip</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">?</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">?</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,16,8</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>findindex</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a%</code>=id</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a%</code>=0: not found</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="true-punter"><a class="anchor" href="#true-punter"></a><code>++ punter</code></h4>
-<table class="tableblock frame-all grid-all fit-content">
-<colgroup>
-<col>
-<col>
-<col>
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Function</th>
-<th class="tableblock halign-left valign-top">Purpose</th>
-<th class="tableblock halign-left valign-top">Returns</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,16,0</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">multi-download</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,16,1</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">multi-upload</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,16,2</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">multi-download + header</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,16,3</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">multi-upload   + header</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,16,4</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">setflag</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a%</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,16,5</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">getflag</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a%</code></p>
-<p class="tableblock">(are these flags whether the protocol supports multi-file transfers?)</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="true-reader"><a class="anchor" href="#true-reader"></a><code>++ reader</code></h4>
-<div class="paragraph">
-<p>This module can display PRG files.</p>
-</div>
-<table class="tableblock frame-all grid-all fit-content">
-<colgroup>
-<col>
-<col>
-<col>
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Function</th>
-<th class="tableblock halign-left valign-top">Purpose</th>
-<th class="tableblock halign-left valign-top">Returns</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;,16,0,<em>ll%</em></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Detokenize BASIC file, use column width <code>ll%</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="truegraphic-menu"><a class="anchor" href="#truegraphic-menu"></a>Graphic Menu</h4>
-<div class="paragraph">
-<p>The ML module <code>++ menu2</code> handles adding menu items, hotkeys, displaying the menu and passing the menu item selected back to BASIC.</p>
-</div>
-<div class="paragraph">
-<p><code>&amp;,16,0</code>:
-Add menu string</p>
-</div>
-<div class="paragraph">
-<p><em>Parameters:</em></p>
-</div>
-<div class="paragraph">
-<p><code>&amp;,16,0,<em>?</em>,<em>menu%(element,byte)</em>,<em>"hotkey(s)"</em>,<em>"prefix_text?"</em>,<em>"menu_item_text"</em></code></p>
-</div>
-<div class="paragraph">
-<p><code>?</code>: <code>42</code>: draw two-column menu</p>
-</div>
-<div class="paragraph">
-<p><code>menu%(<em>element,byte</em>)</code>: struct to put menu text in</p>
-</div>
-<div class="paragraph">
-<p><code>hotkey(s)</code>: One (<kbd>B</kbd>) or two (<kbd>/B</kbd>) keys to type to select this menu item</p>
-</div>
-<div class="paragraph">
-<p><code>prefix_text</code>:</p>
-</div>
-<div class="paragraph">
-<p><code>menu_item_text</code>: Text the user sees for this menu item.</p>
-</div>
-<div class="paragraph">
-<p><em>Example:</em></p>
-</div>
-<div class="literalblock">
-<div class="title">i.GF:</div>
-<div class="content">
-<pre>3518 if pf&gt;1 then:&amp;,16,0,42,q%(0,n),"/B","Op ","Return to Previous Menu":n=n+1</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="title">i.IM</div>
-<div class="content">
-<pre>&amp;,16,.,34,m%(.,1),"A","","Macros Editor"</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><em>Returns:</em></p>
-</div>
-<div class="paragraph">
-<p><code>a%</code>: which item was selected</p>
-</div>
-<hr>
-<div class="paragraph">
-<p><code>&amp;,16,1</code>: Add string</p>
-</div>
-<div class="paragraph">
-<p><em>Parameters:</em></p>
-</div>
-<div class="paragraph">
-<p>Unknown.</p>
-</div>
-<hr>
-<div class="paragraph">
-<p><code>&amp;,16,2</code>: Use menu</p>
-</div>
-<div class="paragraph">
-<p><em>Parameters:</em></p>
-</div>
-<div class="paragraph">
-<p><code>&amp;,16,2,<em>?</em>,<em>menu%(element,byte)</em>,<em>item_count?</em>,<em>?</em>,<em>?</em>,<em>menu_height?</em>,<em>?</em>,<em>?</em>,<em>?</em></code></p>
-</div>
-<div class="paragraph">
-<p><em>Examples:</em></p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>xxxx &amp;,16,2,42,q%(0,0),n,36,1,n,6,6,0:a$=chr$(q%(3,a%) and 255)</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>xxxx &amp;,16,2,34,m%(.,1),n,17,2,n/2+.5,2,6,.</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><em>Returns:</em></p>
-</div>
-<div class="paragraph">
-<p><code>a%</code>: item number selected</p>
-</div>
-<hr>
-<div class="paragraph">
-<p><code>&amp;,16,3</code>: Use Menu</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="truelightbar-reference"><a class="anchor" href="#truelightbar-reference"></a>Lightbar Reference</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="truelightbar-numbering"><a class="anchor" href="#truelightbar-numbering"></a>Lightbar Numbering</h3>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 11. Lightbar, page 1</caption>
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1112%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Title</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Sys</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Acs</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Loc</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Tsr</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Cht</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>New</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Prt</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>U/D</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Decimal</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">00&nbsp;01</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">02&nbsp;03</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">04&nbsp;05</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">06&nbsp;07</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">08&nbsp;09</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">10&nbsp;11</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">12&nbsp;13</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">14&nbsp;15</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Hex</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">$00&nbsp;01</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">02&nbsp;03</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">04&nbsp;05</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">06&nbsp;07</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">08&nbsp;09</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">0a&nbsp;0b</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">0c&nbsp;0d</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">0e&nbsp;0f</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 12. Lightbar, page 2</caption>
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1112%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Title</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Asc</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Ans</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Exp</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Unv</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Trc</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Bel</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Net</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Mac</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Decimal</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">16&nbsp;17</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">18&nbsp;19</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">20&nbsp;21</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">22&nbsp;23</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">24&nbsp;25</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">26&nbsp;27</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">28&nbsp;29</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">30&nbsp;31</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Hex</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">$10&nbsp;11</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">12&nbsp;13</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">14&nbsp;15</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">16&nbsp;17</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">18&nbsp;19</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">1a&nbsp;1b</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">1c&nbsp;1d</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">1e&nbsp;1f</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 13. Lightbar, page 3</caption>
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1112%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Title</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Chk</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Mor</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Frd</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Sub</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Res</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Mnt</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Mnu</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Xpr</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Decimal</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">32&nbsp;33</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">34&nbsp;35</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">36&nbsp;37</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">38&nbsp;39</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">40&nbsp;41</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">42&nbsp;43</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">44&nbsp;45</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">46&nbsp;47</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Hex</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">$20&nbsp;21</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">22&nbsp;23</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">24&nbsp;25</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">26&nbsp;27</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">28&nbsp;29</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">2a&nbsp;2b</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">2c&nbsp;2d</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">2e&nbsp;2f</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 14. Lightbar, page 4</caption>
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1112%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Title</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Em3</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Sc2</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Scp</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Alt</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Trb</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>DCD</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>DSR</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>$3e</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Decimal</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">48&nbsp;49</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">50&nbsp;51</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">52&nbsp;53</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">54&nbsp;55</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">56&nbsp;57</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">58&nbsp;59</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">60&nbsp;61</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">62&nbsp;63</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Hex</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">$30&nbsp;31</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">32&nbsp;33</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">34&nbsp;35</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">36&nbsp;37</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">38&nbsp;39</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">3a&nbsp;3b</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">3c&nbsp;3d</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">3e&nbsp;3f</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 15. Lightbar, page 5</caption>
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1112%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Title</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>$40</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>$42</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>$44</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>$46</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>$48</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>$4a</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>$4c</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>$4e</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Decimal</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">64&nbsp;65</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">66&nbsp;67</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">68&nbsp;69</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">70&nbsp;71</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">72&nbsp;73</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">74&nbsp;75</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">76&nbsp;77</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">78&nbsp;79</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Hex</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">$40&nbsp;41</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">42&nbsp;43</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">44&nbsp;45</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">46&nbsp;47</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">48&nbsp;49</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">4a&nbsp;4b</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">4c&nbsp;4d</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">4e&nbsp;4f</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 16. Lightbar, page 6</caption>
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1112%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Title</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>$50</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>$52</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>$54</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>$56</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>$58</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>$5a</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>$5c</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>$5e</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Decimal</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">80&nbsp;81</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">82&nbsp;83</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">84&nbsp;85</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">86&nbsp;87</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">88&nbsp;89</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">90&nbsp;91</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">92&nbsp;93</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">94&nbsp;95</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Hex</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">$50&nbsp;51</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">52&nbsp;53</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">54&nbsp;55</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">56&nbsp;57</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">58&nbsp;59</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">5a&nbsp;5b</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">5c&nbsp;5d</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">5e&nbsp;5f</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 17. Lightbar, page 7</caption>
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1112%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Title</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>$60</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>$62</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>$64</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>$66</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>$68</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>$6a</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>$6c</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>$6e</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Decimal</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">96&nbsp;97</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">98&nbsp;99</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">100&nbsp;101</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">102&nbsp;103</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">104&nbsp;105</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">106&nbsp;107</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">108&nbsp;109</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">110&nbsp;111</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Hex</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">$60&nbsp;61</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">62&nbsp;63</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">64&nbsp;65</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">66&nbsp;67</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">68&nbsp;69</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">6a&nbsp;6b</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">6c&nbsp;6d</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">6e&nbsp;6f</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 18. Lightbar, page 8</caption>
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1112%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Title</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>At1</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>At2</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>At3</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>At4</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>At5</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>At6</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>At7</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>At8</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Decimal</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">112&nbsp;113</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">114&nbsp;115</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">116&nbsp;117</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">118&nbsp;119</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">120&nbsp;121</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">122&nbsp;123</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">124&nbsp;125</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">126&nbsp;127</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Hex</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">$70&nbsp;71</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">72&nbsp;73</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">74&nbsp;75</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">76&nbsp;77</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">78&nbsp;79</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">7a&nbsp;7b</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">7c&nbsp;7d</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">7e&nbsp;7f</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="truelightbar-interface-52"><a class="anchor" href="#truelightbar-interface-52"></a>Lightbar Interface: <code>&amp;,52</code></h3>
-<div class="sect3">
-<h4 id="ampersand-lightbar"><a class="anchor" href="#ampersand-lightbar"></a>BASIC <code>&amp;,52</code> Commands</h4>
-<div class="paragraph">
-<p><code>&amp;,52,<em>position</em>,<em>mode</em></code></p>
-</div>
-<div class="paragraph">
-<p><code>position</code> ranges from 0-127 decimal ($00-$7f hexadecimal--<code>&amp;,52,$30,0</code>, for example, is allowed).</p>
-</div>
-<div class="paragraph">
-<p><code>mode</code> is 0-4 as used by BASIC.</p>
-</div>
-<table class="tableblock frame-all grid-all fit-content">
-<colgroup>
-<col>
-<col>
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">clear checkmark at <em>position</em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">set checkmark at <em>position</em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">toggle checkmark at <em>position</em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>3</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">read checkmark at <em>position</em>, return status in <code>a%</code>: 0=off, 1=on</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>4</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">move &#8220;lit&#8221; portion of lightbar to position 0-55 [<mark>FIXME</mark>: or 1-56?]</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="trueassembly-example"><a class="anchor" href="#trueassembly-example"></a>Assembly Example</h4>
-<div class="paragraph">
-<p><mark>FIXME</mark></p>
-</div>
-<div class="paragraph">
-<p>Mode 5 is reserved for use by ML routines, and is the equivalent of <code>&amp;,52,<em>x</em>,3</code> in BASIC. <code>ldx</code> with the flag to check, <code>jsr chkflags</code>, and the result (0 or 1) is returned in <code>.a</code>.</p>
-</div>
-<div class="listingblock">
-<div class="title">checkflag.asm</div>
-<div class="content">
-<pre class="highlightjs highlight"><code data-lang="6502" class="language-6502 hljs">ldx #$04	; lightbar flag number
-jsr chkflag	; returns flag status (0=off, 1=on) in .a
-bne flag_on
-beq flag_off</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="truememory-map"><a class="anchor" href="#truememory-map"></a>Memory Map</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Author: Ray Kelm</p>
-</div>
-<div class="paragraph">
-<p>During boot (contents of the ML file):</p>
-</div>
-<table class="tableblock frame-all grid-all fit-content">
-<colgroup>
-<col>
-<col>
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Memory range</th>
-<th class="tableblock halign-left valign-top">Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$6C00</code> - <code>$6FFF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">wedge code</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$7000</code> - <code>$7FFF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">editor code</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$8000</code> - <code>$83FF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">garbage collector</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$8400</code> - <code>$8DFF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ECS code</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$8E00</code> - <code>$93FF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">struct code</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$9400</code> - <code>$97FF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>swap1</code> code</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$9800</code> - <code>$9BFF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>swap2</code> code</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$9C00</code> - <code>$9FFF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>swap3</code> code</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>Everything after this point is the same as the next section.</p>
-</div>
-<div class="paragraph">
-<p>While running:</p>
-</div>
-<table class="tableblock frame-all grid-all fit-content">
-<colgroup>
-<col>
-<col>
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Memory range</th>
-<th class="tableblock halign-left valign-top">Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$0800</code>-<code>$0AFF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RS232 driver</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$0B00</code>-<code>$0B7F</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RS232 input buffer</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$0B80</code>-<code>$0BFF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RS232 output buffer</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$0C00</code>-<code>$0FFF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BASIC wedge</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1000</code>-<code>$12FF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">temporary screen data</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1300</code>-<code>$130F</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>chktbl</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1310</code>-<code>$13CF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>bartbl</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$13D0</code>-<code>$13DF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">array pointers</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$13E0</code>-<code>$13EC</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">days per month</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$13ED</code>-<code>$13EF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">unused</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$13F0</code>-<code>$144F</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sounds</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1450</code>-<code>$147F</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">net alarms</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1480</code>-<code>$14FF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ASCII to CBM translation table</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1500</code>-<code>$15FF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CBM to ASCII translation table</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1600</code>-<code>$161F</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tblcta1</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1620</code>-<code>$163F</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tblcta2</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1640</code>-<code>$165F</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tblcta3</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1660</code>-<code>$16E0</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">alarm table</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$16E0</code>-<code>$16FF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">date buffer</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1700</code>-<code>$1718</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lobytes</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1719</code>-<code>$1731</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hibytes</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1732</code>-<code>$174A</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lobytec</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$174B</code>-<code>$1763</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hibytec</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1764</code>-<code>$177F</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">unused</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1780</code>-<code>$17FF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pmodetbl</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$1800</code>-<code>$27FF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">editor execution location (swapped in when needed)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$2800</code>-<code>$9FFF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BASIC program area</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$A000</code>-<code>$BFFF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BASIC ROM / Image ML routines in RAM</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$C000</code>-<code>$CAFF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&#8220;Protocol&#8221; block for loadable ML code</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$CB00</code>-<code>$CCFF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">swapper area</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$CD00</code>-<code>$CDFF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">interface page</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$CE00</code>-<code>$CDFF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">buffer page</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$CF00</code>-<code>$CFFF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">???</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$D000</code>-<code>$DFFF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">I/O memory</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$D000</code>-<code>$DFFF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Character ROM</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$D000</code>-<code>$DFFF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">editor swap location (code is here when waiting to run)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$E000</code>-<code>$FFFF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">KERNAL ROM / Image ML &#8220;swap&#8221; code in ROM</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$E000</code>-<code>$E3FF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">garbage collector swap module</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$E400</code>-<code>$EDFF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ECS swap module</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$EE00</code>-<code>$F3FF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Struct swap module</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$F400</code>-<code>$F7FF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Swap1 swap module</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$F800</code>-<code>$FBFF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Swap2 swap module</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$FC00</code>-<code>$FFFF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Swap3 swap module</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect1">
-<h2 id="truefile-formats"><a class="anchor" href="#truefile-formats"></a>File Formats</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="trueintroduction-2"><a class="anchor" href="#trueintroduction-2"></a>Introduction</h3>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<div class="title">Option Lists</div>
-<p>To show when options are mutually exclusive (there can be only one option chosen from a group), the following notation is used:</p>
-</div>
-<div class="paragraph">
-<p>[ <em>option 1</em> | <em>option 2</em> | <em>option 3</em> ]</p>
-</div>
-<div class="paragraph">
-<p>means that of the three options presented, option 1 <em>or</em> option 2 <em>or</em> option 3 is saved in that position in the file.</p>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="truee-data"><a class="anchor" href="#truee-data"></a><code>e.data</code></h4>
-<div class="paragraph">
-<p><code>e.data</code> is a RELative file containing BBS configuration information, as well as BBS statistics.</p>
-</div>
-<div class="paragraph">
-<p>The record size is 31 bytes.</p>
-</div>
-<table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 19. e.data File Format</caption>
-<colgroup>
-<col>
-<col>
-<col>
-<col>
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Record</th>
-<th class="tableblock halign-left valign-top">Variable</th>
-<th class="tableblock halign-left valign-top">Purpose</th>
-<th class="tableblock halign-left valign-top">Possible Values</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ca</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Total calls to the system</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2-3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>unused</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">one-time caller weed cutoff, in months</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">5-11</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>unused</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ur</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Highest user account # +1</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">13-16</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>unused</em></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">17</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>d3$</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Last caller handle</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">18</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pp$</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Default null password</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">19</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Date/time of last user logoff</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">20</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>p1%,p2%,p3%</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Prime Time info</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Time allowed per call, Prime Time start, Prime Time end</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">21</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>l2,l2$</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">System Reservation Password</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">[<code>0</code>=None | <code>1</code>=One Call | <code>2</code>=All Calls] , [<code>^</code>=No Password | 1-14 Character Password]</p>
-<p class="tableblock"><code>0,^</code>: No reservation, no password</p>
-<p class="tableblock"><code>1,ONCE</code>: Reserved for one call with password <code>ONCE</code></p>
-<p class="tableblock"><code>2,ALL</code>: Reserved for all calls with password <code>ALL</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">22-30</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>unused</em></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">31</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Next available user account #</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">32</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RS232 Interface Type</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">[<code>0</code>=User Port | <code>1</code>=SwiftLink]</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">33-34</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>unused</em></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">35</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>am$</code>, <code>d6$</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Date/time of last log reset</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">36</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>unused</em></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">37</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>y%</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Clock set device</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">[<code>1</code>=Manual | <code>3</code>=Lt.Kernal Port 1 | <code>4</code>=Lt.Kernal Port 2 | <code>8-29</code>=CMD Device #]</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">38</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lk%</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Lt.Kernal device number</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">39</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Autoweed cutoff, in months</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">40</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>df%</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Default text color</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">41</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Printer secondary address</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">42</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Printer line feeds</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">[<code>0</code>=no | <code>10</code>=yes]</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">43</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Password mask character(s)</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">44</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Log start date</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">45</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tz$</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BBS time zone abbreviation/hour offset</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>e.g.</em>, <code>EST0700</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">46</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>unused</em></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">47</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>bn$</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BBS name</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">48</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>c1$</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Entering chat message</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">49</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>c2$</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Exiting chat message</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">50</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Netsub ID</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">increments by 1 when net post/response made</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">51</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cc$</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BBS identifier</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>e.g.</em>, <code>WN</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">52</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">System device, drive</p></td>
-<td class="tableblock halign-left valign-top" rowspan="6"><p class="tableblock">For records 52-57, devices and drives are in separate fields of each record (stored as two lines separated by a carriage return).</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">53</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E-Mail device, drive</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">54</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Etcetera device, drive</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">55</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Directory device, drive</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">56</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Module device, drive</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">57</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">User device, drive</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">58</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>nc</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Credits for new user</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-</tbody>
-</table>
+<p>"menu.s" is source for "++ 2" (cursor menu)
+	(from source, bytes in struct)
+; 0 - # entries
+; 1 - item type character
+;2,3- item value
+;4,5- credits to charge
+;6,7- access
+;8-39 - text</p>
 </div>
 </div>
 </div>
@@ -6966,7 +5683,7 @@ beq flag_off</code></pre>
 <div id="footer">
 <div id="footer-text">
 Version 0.1<br>
-Last updated 2021-05-20 22:11:14 -0700
+Last updated 2021-06-14 23:19:32 -0700
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">

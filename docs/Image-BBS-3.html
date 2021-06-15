@@ -458,6 +458,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#truein-memoriam">In Memoriam</a></li>
 </ul>
 </li>
+<li><a href="#truetypography-notes">Typography Notes</a>
+<ul class="sectlevel2">
+<li><a href="#truecallouts">Callouts</a></li>
+<li><a href="#trueicons">Icons</a></li>
+<li><a href="#truecommand-path">Command Path</a></li>
+<li><a href="#truelatin-junk">Latin Junk</a></li>
+</ul>
+</li>
 <li><a href="#truewhy-a-new-version">Why a New Version?</a></li>
 <li><a href="#truewhats-new">What&#8217;s New</a>
 <ul class="sectlevel2">
@@ -563,7 +571,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#truelightbar-defaults">Lightbar Defaults</a></li>
 <li><a href="#truelightbar-function-keys">Lightbar Function Keys</a></li>
-<li><a href="#truelightbar-functions">Lightbar Functions</a></li>
+<li><a href="#truelightbar-functions">Lightbar Functions</a>
+<ul class="sectlevel3">
+<li><a href="#truepage-1">Page 1</a></li>
+<li><a href="#truepage-2">Page 2</a></li>
+<li><a href="#truepage-3">Page 3</a></li>
+<li><a href="#truepage-4">Page 4</a></li>
+<li><a href="#truepages-5-7">Pages 5-7</a></li>
+<li><a href="#truepage-8">Page 8</a></li>
+</ul>
+</li>
 <li><a href="#truealarm-triggers">Alarm Triggers</a></li>
 <li><a href="#truenetmail-alarms">NetMail Alarms</a></li>
 <li><a href="#lightbar-interface">Lightbar Interface: <code>&amp;,52</code></a></li>
@@ -679,6 +696,282 @@ Preliminary start on documentation. Feedback welcome!
 </div>
 </div>
 <div class="sect1">
+<h2 id="truetypography-notes"><a class="anchor" href="#truetypography-notes"></a>Typography Notes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There are several conventions used in this manual.</p>
+</div>
+<div class="paragraph">
+<p><em>Italic text</em> represents a variable.</p>
+</div>
+<div class="paragraph">
+<div class="title">Example</div>
+<p><em>name</em></p>
+</div>
+<div class="paragraph">
+<p>Variable names made of two words are tied together with an underscore (<code>_</code>).</p>
+</div>
+<div class="paragraph">
+<div class="title">Example</div>
+<p><em>first_name</em></p>
+</div>
+<div class="paragraph">
+<p>This method differentiates <em>first_name</em> as being separate from two variables named <em>first</em> and <em>name</em>.</p>
+</div>
+<div class="paragraph">
+<p>Letters enclosed in rounded, shaded squares represent keys on the Commodore 64 keyboard.
+They generally are either options, or should be pressed, during a series of instructions in the manual.</p>
+</div>
+<div class="paragraph">
+<div class="title">Examples</div>
+<p><span class="keyseq"><kbd>Shift</kbd>+<kbd>T</kbd></span>, <kbd>Ctrl</kbd>, or <kbd>f1</kbd></p>
+</div>
+<div class="paragraph">
+<p>The same notation can also represent BBS commands typed at a prompt.</p>
+</div>
+<div class="ulist">
+<div class="title">Examples</div>
+<ul>
+<li>
+<p><kbd>ST</kbd>, <kbd>AT</kbd>, or <kbd>O!</kbd></p>
+</li>
+<li>
+<p>Type <kbd>Y</kbd>es</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Monospace text on a gray background usually represents text shown on the screen.</p>
+</div>
+<div class="paragraph">
+<div class="title">Example</div>
+<p><code>Enter your user name or ID#:</code></p>
+</div>
+<div class="paragraph">
+<p>Bold monospace text represents text typed by the user in response to a prompt.</p>
+</div>
+<div class="paragraph">
+<div class="title">Example</div>
+<p><code>Enter your user name or ID#: <strong>45</strong></code></p>
+</div>
+<div class="sect2">
+<h3 id="truecallouts"><a class="anchor" href="#truecallouts"></a>Callouts</h3>
+<div class="paragraph">
+<p><em>Callouts</em> are numbers enclosed in circles at the end of a line of instructions or text.
+They provide a way to add annotations to lines below the block of text.
+The numbers are not meant to be typed, but match the number below the block of text.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Example code <i class="conum" data-value="1"></i><b>(1)</b>
+More examples <i class="conum" data-value="2"></i><b>(2)</b></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>A longer explanation of what the first line of code, data  or instruction does goes here.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Another explanation of the next line of example code, data or instruction.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trueicons"><a class="anchor" href="#trueicons"></a>Icons</h3>
+<div class="paragraph">
+<p>Icons are used to draw your attention to situations or information.
+They are presented here, in order of increasing severity, with some examples from throughout the manual:</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note</strong>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This is extra information which <mark>FIXME</mark></p>
+</div>
+<div class="paragraph">
+<div class="title">Example</div>
+<p>x</p>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<strong>Tip</strong>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This can be advanced information, or letting you know something helpful which isn&#8217;t immediately obvious from what is presented on screen.</p>
+</div>
+<div class="paragraph">
+<div class="title">Example</div>
+<p>When in the Image Term phonebook, some options such as <kbd>D</kbd>ial or <kbd>E</kbd>dit allow typing either:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><kbd>D</kbd>ial <kbd>Return</kbd>, then answer the <code>Dial Which</code> prompt with <kbd>4</kbd> <kbd>Return</kbd></p>
+</li>
+<li>
+<p><kbd>D4</kbd> <kbd>Return</kbd> to dial entry #4 directly</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<strong>Important</strong>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>x</p>
+</div>
+<div class="paragraph">
+<div class="title">Example</div>
+<p>Also copy <code>im</code> to your modules disk.
+If a BASIC error is caught by the error-trapping routine, the <code>im</code> module reloads from the modules disk instead of the copy on the boot drive or partition that you booted the BBS from.</p>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<strong>Caution</strong>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Be careful here; read on-screen prompts if applicable.
+Something unwanted may happen if you hurry through this section.</p>
+</div>
+<div class="paragraph">
+<div class="title">Example</div>
+<p>The Image BBS text editor currently does not confirm whether you want to clear the text buffer when you type either <kbd>.A</kbd><code>bort</code> or <kbd>.N</kbd><code>ew Text</code> followed by <kbd>Return</kbd>.
+Once you type either of these dot commands, your text will be erased.</p>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<strong>Warning</strong>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Your BBS or data could be impacted by doing something (or not) here.
+The warning should contain an explanation of why doing something is harmful.</p>
+</div>
+<div class="paragraph">
+<div class="title">Example</div>
+<p>Deleting the configuration file <code>bd.data</code> requires you to reconfigure many aspects of your BBS.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="truecommand-path"><a class="anchor" href="#truecommand-path"></a>Command Path</h3>
+<div class="paragraph">
+<p>Like a search path in an operating system, this gives you the steps to reach a command.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 1. Command Path Example</div>
+<div class="content">
+<div class="paragraph">
+<p>The command path is <kbd>IM</kbd>, <kbd>D</kbd> <code>Logon Editor</code>, <kbd>D</kbd> <code>Quicklist</code>.</p>
+</div>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><kbd>IM</kbd>: type these characters at a prompt.</p>
+</li>
+<li>
+<p><kbd>D</kbd> <code>Logon Editor</code>: A graphic menu option is selected by either:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>typing <kbd>D</kbd> to select <code>Logon Editor</code> (it&#8217;s a <em>hotkey</em>, so hitting <kbd>Return</kbd> to select it is not necessary)</p>
+</li>
+<li>
+<p>using the cursor keys to move to <code>Logon Editor</code>, and <kbd>Return</kbd> to select it</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>You would follow the same procedure for the second menu option, <kbd>D</kbd> <code>Quicklist</code>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="truelatin-junk"><a class="anchor" href="#truelatin-junk"></a>Latin Junk</h3>
+<div class="paragraph">
+<p>Because I&#8217;m such a nerd:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>i.e.</em> is short for <em>id est</em>, meaning &#8220;that is to say,&#8221; or &#8220;in other words.&#8221;</p>
+</li>
+<li>
+<p><em>e.g.</em> is short for <em>exemplī grātiā</em>, meaning &#8220;for example.&#8221;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="truewhy-a-new-version"><a class="anchor" href="#truewhy-a-new-version"></a>Why a New Version?</h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -698,10 +991,10 @@ The developers felt they had done almost all they wanted to do with that version
 <p>grouping related subroutines together was improved</p>
 </li>
 <li>
-<p>more external <code>im.</code> modules were written to reduce including the same code in multiple files whenever possible</p>
+<p>more external <code>sub.</code> modules (called <code>im.</code> modules in 2.0) were written to reduce including the same code in multiple files whenever possible</p>
 </li>
 <li>
-<p>a module &#8220;call stack&#8221; was implemented, so loading a second (or third, or fourth&#8230;&#8203;) <code>im.</code> module from the first would reload and return to the previous <code>im.</code> module</p>
+<p>a module &#8220;call stack&#8221; was implemented, so loading a second (or third, or fourth&#8230;&#8203;) <code>sub.</code> module from the first would reload and return to the previous <code>sub.</code> module</p>
 </li>
 </ul>
 </div>
@@ -873,7 +1166,7 @@ The developers felt they had done almost all they wanted to do with that version
 <p>New &#8220;gong&#8221; sound (<code>&amp;,25,3</code>)</p>
 </li>
 <li>
-<p><em>repeat</em> parameter: 1-254=repeat count, 255=infinite repeat</p>
+<p><em>repeat</em> parameter: <code>0</code>=stop repeating, <code>1-254</code>=repeat count, <code>255</code>=infinite repeat</p>
 </li>
 </ul>
 </div>
@@ -882,23 +1175,29 @@ The developers felt they had done almost all they wanted to do with that version
 </div>
 </li>
 <li>
-<p>Image 1.<em>x</em> emulation layer so their <code>+.</code> files can be run</p>
+<p>Image 1.<em>x</em> emulation layer so their <code>+.</code> files can be run (if renumbered to 3000-)</p>
 </li>
 <li>
 <p>BASIC keyword extensions</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Hexadecimal values can be used in <code>POKE</code>, <code>PEEK</code>, <code>SYS</code> and <code>&amp;</code> commands. <code>POKE $D004,$0c</code> is the equivalent of <code>POKE 53252,12</code></p>
+<p>Hexadecimal values can be used in <code>poke</code>, <code>peek</code>, <code>sys</code> and <code>&amp;</code> commands. <code>poke $d004,$0c</code> is the equivalent of <code>poke 53252,12</code></p>
 </li>
 <li>
-<p><code>LOAD"<em>filename</em>",<em>device</em>,<em>relocate_flag</em></code>: <em>relocate_flag</em> has an expanded purpose&#8212;&#8203;specifying the segment of memory to load a particular file to</p>
+<p>Binary values can also be used, and can be combined with hexadecimal: <code>poke $d004,%00001100</code> is the equivalent of <code>poke 53252,12</code></p>
 </li>
 <li>
-<p><code>NEW <em>line_number</em></code> erases that portion of the BASIC program to prepare for <code>LOAD</code>ing a new module</p>
+<p><code>load"<em>filename</em>",<em>device</em>,<em>relocate_flag</em></code>: <em>relocate_flag</em> has an expanded purpose&#8212;&#8203;specifying the segment of memory to load a particular file to</p>
+</li>
+<li>
+<p><code>new <em>line_number</em></code> prepares to <code>load</code> a new module by erasing lines from <code>line_number</code> to the end of the BASIC program</p>
 </li>
 </ul>
 </div>
+</li>
+<li>
+<p><code><em>variable</em>=usr(0)</code> function reads the stack pointer to display how much free space is on the processor stack</p>
 </li>
 </ul>
 </div>
@@ -1006,7 +1305,7 @@ We suggest you read this chapter carefully and then set up your system step by s
 <p>Creative Micro Designs&#8217; (or ThunderDrive) Hard Drive with SwiftLink, and normal User Port configurations using BBS Server as the &#8220;modem&#8221;.</p>
 </li>
 <li>
-<p>&micro;IEC/SD by Jim Brain as a mass storage device.</p>
+<p>µIEC/SD by Jim Brain as a mass storage device.</p>
 </li>
 </ul>
 </div>
@@ -1385,6 +1684,8 @@ There are <a href="#trueshared-image-bbs-3-0-setup">Shared Image BBS 3.0 Setup</
 </li>
 </ol>
 </div>
+<div class="exampleblock">
+<div class="content">
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -1396,6 +1697,8 @@ If you wish to run the &#8220;Today in History&#8221; logon module, copy all the
 </td>
 </tr>
 </table>
+</div>
+</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="5">
@@ -1826,13 +2129,15 @@ They just type the number of the account to log on, type their password, and the
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Select your time zone (7=EST, 6=CST, 5=MST, 4=PST)</p>
+<p>Select your time zone (<kbd>7</kbd>=EST, <kbd>6</kbd>=CST, <kbd>5</kbd>=MST, <kbd>4</kbd>=PST)</p>
 </li>
 <li>
 <p>The BBS will display the current time and <code>Stack Free: 239</code>.</p>
 </li>
 </ol>
 </div>
+<div class="exampleblock">
+<div class="content">
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1854,10 +2159,12 @@ You can fix this later, during further BBS configuration.
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Any <code>Stack Free</code> number less than 239 at the Main Prompt means there is garbage (<code>GOSUB</code> without <code>RETURN</code>, or <code>FOR</code> without <code>NEXT</code> statements) on the stack.
+Any <code>Stack Free</code> number less than 239 at the Main Prompt means there is garbage (<code>gosub</code> without <code>return</code>, or <code>for</code> without <code>next</code> statements) on the stack.
 </td>
 </tr>
 </table>
+</div>
+</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="3">
@@ -1885,6 +2192,8 @@ You can then log back on in any mode you choose.</p>
 </li>
 </ol>
 </div>
+<div class="exampleblock">
+<div class="content">
 <div class="admonitionblock important">
 <table>
 <tr>
@@ -1897,6 +2206,8 @@ Logging off by hitting <kbd>f7</kbd> (unchecking left <code>Loc</code>) bypasses
 </td>
 </tr>
 </table>
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="trueshared-image-bbs-3-0-setup-2"><a class="anchor" href="#trueshared-image-bbs-3-0-setup-2"></a>Shared Image BBS 3.0 Setup</h4>
@@ -2234,7 +2545,7 @@ You <em>must</em> define at least one SIG and add your SB, UD and UX assignments
 <p>Refer to <a href="#final-notes">Final Notes</a> for further instructions.</p>
 </div>
 <div class="olist arabic">
-<ol class="arabic">
+<ol class="arabic" start="12">
 <li>
 <p>Select <kbd>D</kbd> <code>Logon Editor</code>.</p>
 </li>
@@ -2296,7 +2607,7 @@ When finished, you go back to the <code>Base Editor</code> Menu.</p>
 </div>
 </div>
 <div class="olist arabic">
-<ol class="arabic">
+<ol class="arabic" start="7">
 <li>
 <p>Type <kbd>K</kbd> to quit back to the Configuration Editor.</p>
 </li>
@@ -2317,7 +2628,8 @@ When finished, you go back to the <code>Base Editor</code> Menu.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Type <kbd>RD</kbd> at the Main Prompt, and read the SEQuential file <code>e.i.macros</code>.
+<p>Type <kbd>RD</kbd> at the Main Prompt.
+Read the SEQuential file <code>e.i.macros</code>.
 This contains the number of macros you have.</p>
 </li>
 <li>
@@ -2331,6 +2643,8 @@ This contains the number of macros you have.</p>
 </li>
 </ol>
 </div>
+<div class="exampleblock">
+<div class="content">
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -2342,6 +2656,8 @@ You might want to move this record to the end of the file, since the first recor
 </td>
 </tr>
 </table>
+</div>
+</div>
 </div>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a" start="5">
@@ -2363,9 +2679,6 @@ You might want to move this record to the end of the file, since the first recor
 </div>
 <div class="paragraph">
 <p>You&#8217;ll probably be confused and make mistakes along the way, but the learning experience is necessary for any new system.</p>
-</div>
-<div class="paragraph">
-<p><mark>FIXME</mark>: that&#8217;s not helpful wording. We don&#8217;t want documentation to be user-hostile. -rs</p>
 </div>
 <div class="paragraph">
 <p>More information is provided in the <mark>TODO</mark> Sysop Guide section, but one of the main objectives of Image 3.0 is to make it as sysop- and user-friendly as possible.</p>
@@ -2405,7 +2718,7 @@ In fact, much of the development and testing of this software was done in VICE.<
 </div>
 <div class="paragraph">
 <p>Enjoy the files.
-Many thousand man-hours have gone into their creation and what they are today.</p>
+Thousands of man-hours have gone into their creation and made them what they are today.</p>
 </div>
 <div class="paragraph">
 <p>I will answer questions and provide tech support for this software as needed.
@@ -2653,8 +2966,19 @@ Since you are already running Image 2.0, keep the same Image drive assignments f
 <div class="content">
 <div class="paragraph">
 <p>The file <code>im</code> line <code>3074</code> is preconfigured to run from drive 0.
-This is the default partition on most drives.
-If running on a Lt. Kernal and your boot LU is not LU0, change the <code>0</code> in line <code>3074</code> to the number of your boot LU.</p>
+This is the default partition on most drives.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If running on a Lt. Kernal and your boot LU is not LU0, change the <code>0</code> in line <code>3074</code> to the number of your boot LU.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -2853,7 +3177,7 @@ You can fix this in a later step.
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>I</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Interrupts disabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interrupt occurring</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>L</code></p></td>
@@ -2869,6 +3193,9 @@ You can fix this in a later step.
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p><mark>TODO</mark>: More of an explanation.</p>
+</div>
 <table class="tableblock frame-all grid-all fit-content">
 <caption class="title">Table 4. File transfer indicators</caption>
 <colgroup>
@@ -2892,6 +3219,9 @@ You can fix this in a later step.
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p><mark>TODO</mark>: Move to file transfer section?</p>
+</div>
 </div>
 </div>
 </div>
@@ -2905,7 +3235,14 @@ You can fix this in a later step.
 <div class="sect2">
 <h3 id="truelightbar-defaults"><a class="anchor" href="#truelightbar-defaults"></a>Lightbar Defaults</h3>
 <div class="paragraph">
-<p>During boot-up, lightbar check mark defaults are read. This allows you to configure your BBS more easily than in previous versions of Image BBS. Maybe you want to disable the <em>More</em> prompt, or debug some code with the on-screen trace function, at startup. You can do that within <code>IM</code>, option <code>H</code>: <em>Lightbar/Alarms</em>.</p>
+<p>During boot-up, lightbar check mark defaults are read. This allows you to configure your BBS more easily than in previous versions of Image BBS. Maybe you want to disable the <code>&#8230;&#8203;More? (Y/n)</code> prompt, or debug some code with the on-screen trace function, at startup.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>The command path is <kbd>IM</kbd>, <kbd>H</kbd> <code>Lightbar/Alarms</code>, <kbd>A</kbd> <code>LightBar Defs</code>.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -2999,6 +3336,8 @@ The decimal/hexadecimal values of each lightbar position (used for <a href="#lig
 </tr>
 </table>
 </div>
+<div class="sect3">
+<h4 id="truepage-1"><a class="anchor" href="#truepage-1"></a>Page 1</h4>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 6. Lightbar, page 1</caption>
 <colgroup>
@@ -3335,6 +3674,9 @@ They are told the area is closed temporarily.</p>
 <p>300 baud users cannot access the UD/UX area.
 They are told that they do not have access to that area at this time.</p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="truepage-2"><a class="anchor" href="#truepage-2"></a>Page 2</h4>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 7. Lightbar, page 2</caption>
 <colgroup>
@@ -3509,6 +3851,9 @@ This can be useful when the BBS runs in VICE and emulation speed slows down due 
 <div class="paragraph">
 <p>Disables the use of the Message Command Interpreter in the BBS text editor.</p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="truepage-3"><a class="anchor" href="#truepage-3"></a>Page 3</h4>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 8. Lightbar, page 3</caption>
 <colgroup>
@@ -3589,19 +3934,23 @@ Most keys (<kbd>Home</kbd> or <span class="keyseq"><kbd>Ctrl</kbd>+<kbd>Q</kbd><
 <p><code>Frd</code> left: <em>Full-Color Read Disable</em></p>
 </div>
 <div class="paragraph">
-<p>When enabled, this disables outputting color for color-blind users.</p>
+<p>When enabled, this disables outputting color for color-blind users, or terminals not capable of color.</p>
 </div>
-<div class="admonitionblock tip">
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 This lightbar position is a homage to Fred Dart, Image BBS support guru and programmer.
 </td>
 </tr>
 </table>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p><code>Frd</code> right: <em>Undefined</em></p>
@@ -3680,6 +4029,9 @@ If the sysop is around and sees it happen, they can zero <code>tr%</code> to res
 <div class="paragraph">
 <p>If enabled, the user will see a file called <code>s.detect</code> at login instead of a specific message about their graphics mode.</p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="truepage-4"><a class="anchor" href="#truepage-4"></a>Page 4</h4>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 9. Lightbar, page 4</caption>
 <colgroup>
@@ -3775,6 +4127,9 @@ For more information, see  <a href="#emulation-mode">Image 1.x Emulation Mode</a
 <p><code>DCD</code> left: <em>Invert DCD Signal</em></p>
 </div>
 <div class="paragraph">
+<p><em>(BBS controlled)</em></p>
+</div>
+<div class="paragraph">
 <p><strong>Enabled:</strong> The modem hangs up when an inverted (asserted when high) Data Carrier Detect signal is received from the modem.</p>
 </div>
 <div class="paragraph">
@@ -3782,6 +4137,9 @@ For more information, see  <a href="#emulation-mode">Image 1.x Emulation Mode</a
 </div>
 <div class="paragraph">
 <p><code>DCD</code> right: <em>Carrier Present</em></p>
+</div>
+<div class="paragraph">
+<p><em>(BBS controlled)</em></p>
 </div>
 <div class="paragraph">
 <p>When enabled, there is either a DCD or DSR carrier signal present.</p>
@@ -3831,6 +4189,9 @@ At higher bits per second rates, the data is not shown to achieve maximum throug
 <div class="paragraph">
 <p><code>$3e</code> right: <em>Undefined</em></p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="truepages-5-7"><a class="anchor" href="#truepages-5-7"></a>Pages 5-7</h4>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 10. Lightbar, page 5</caption>
 <colgroup>
@@ -3909,6 +4270,9 @@ At higher bits per second rates, the data is not shown to achieve maximum throug
 <div class="paragraph">
 <p>Pages 5-7 are undefined and are available for your own use.</p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="truepage-8"><a class="anchor" href="#truepage-8"></a>Page 8</h4>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 13. Lightbar, page 8</caption>
 <colgroup>
@@ -3990,6 +4354,7 @@ At higher bits per second rates, the data is not shown to achieve maximum throug
 <p><code>At8</code> right: <em>Default Alarm 8 Trigger</em></p>
 </div>
 </div>
+</div>
 <div class="sect2">
 <h3 id="truealarm-triggers"><a class="anchor" href="#truealarm-triggers"></a>Alarm Triggers</h3>
 <div class="paragraph">
@@ -4015,6 +4380,8 @@ Using them, you can enable or disable BBS features at specific times of the day 
 </li>
 </ul>
 </div>
+<div class="exampleblock">
+<div class="content">
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -4022,10 +4389,21 @@ Using them, you can enable or disable BBS features at specific times of the day 
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-The command path is <kbd>IM</kbd>, <kbd>H</kbd> <code>Lightbar/Alarm</code>, <kbd>B</kbd> <code>Alarms</code>.
+There is one alarm trigger enabled by default: <code>At1</code>.
+Every few hours, the <code>Trc</code> right lightbar function (<code>Time: Reset Clock</code>) will poll a CMD RTC to update the BBS clock.
+If you do not need this feature, disable this alarm.
 </td>
 </tr>
 </table>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>The command path is <kbd>IM</kbd>, <kbd>H</kbd> <code>Lightbar/Alarm</code>, <kbd>B</kbd> <code>Alarms</code>.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -4146,7 +4524,7 @@ If this is enabled, an &#8220;emulation layer&#8221; loads, which uses Image 1.<
 Depending on the Image 1.<em>x</em> emulation status, system disk 5 is either your <code>i</code> module (Image 3.0) or <code>+</code> file (using Image 1.<em>x</em> emulation) disk.</p>
 </li>
 <li>
-<p>You can also type the device number, a comma, and the drive number to run a module from a specific device and drive. Devices 8-29 and drives 0-254 [<mark>TODO</mark>: check this] are supported.</p>
+<p>You can also type the device number, a comma, and the drive number to run a module from a specific device and drive. Devices 8-29 and drives 0-254 are supported.</p>
 </li>
 </ul>
 </div>
@@ -4785,7 +5163,7 @@ If chosen, this option skips most login modules, going to main prompt as quickly
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Sc2</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Disable 2nd Security Check</strong></p>
-<p class="tableblock">During login, a second login security question is not asked (first/last names, e-mail address, xxx)</p></td>
+<p class="tableblock">During login, a second login security question is not asked (first/last names, e-mail address)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Undefined</em></p></td>
 </tr>
 <tr>
@@ -4996,7 +5374,7 @@ If chosen, this option skips most login modules, going to main prompt as quickly
 <div id="footer">
 <div id="footer-text">
 Version 0.1<br>
-Last updated 2021-04-23 18:23:05 -0700
+Last updated 2021-06-14 23:19:05 -0700
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">
