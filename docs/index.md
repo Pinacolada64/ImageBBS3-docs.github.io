@@ -10,6 +10,10 @@
 
 # Image BBS 1.2b documentation
 
+Added 7/2/2021 (_very_ rough draft):
+
+[Image BBS 1.2b documentation](https://pinacolada64.github.io/ImageBBS3-docs.github.io/12b-updated.html)
+
 [Image BBS 1.2b Text Editor guide](https://pinacolada64.github.io/ImageBBS3-docs.github.io/12b-text-editor.html)
 
 # Image BBS 1.2 documentation
