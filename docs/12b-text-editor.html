@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.8.dev">
-<title>The IMAGE Text Editor</title>
+<title>The Text Editor</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -436,29 +436,56 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body class="article">
+<body class="article toc2 toc-left">
 <div id="header">
-<div id="toc" class="toc">
+<div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#truethe-image-text-editor">The IMAGE Text Editor</a>
+<li><a href="#truethe-text-editor">The Text Editor</a>
 <ul class="sectlevel2">
 <li><a href="#trueenter-text">Enter Text</a></li>
 <li><a href="#truecommand-mode">Command Mode</a></li>
 <li><a href="#trueeditor-commands">Editor Commands</a></li>
 <li><a href="#trueline-ranges">Line Ranges</a></li>
 <li><a href="#dot-commands">Dot Commands</a></li>
-<li><a href="#trueexit-the-editor">Exit The Editor</a></li>
+<li><a href="#trueexit-the-editor">Exit the Editor</a></li>
 <li><a href="#trueread-what-you-typed">Read What You Typed</a></li>
-<li><a href="#truemanipulate-text">Manipulate Text</a></li>
-<li><a href="#trueeditor-modes">Editor Modes</a></li>
-<li><a href="#trueshape-your-text">Shape Your Text</a></li>
+<li><a href="#truemanipulate-text">Manipulate Text</a>
+<ul class="sectlevel3">
+<li><a href="#truedelete-lines">Delete Lines</a></li>
+<li><a href="#trueedit-lines">Edit Lines</a></li>
+<li><a href="#truemove-lines">Move Lines</a></li>
+<li><a href="#truecopy-lines">Copy Lines</a></li>
+</ul>
+</li>
+<li><a href="#trueeditor-modes">Editor Modes</a>
+<ul class="sectlevel3">
+<li><a href="#trueinsert-mode">Insert Mode</a></li>
+<li><a href="#trueline-numbering-mode">Line Numbering Mode</a></li>
+</ul>
+</li>
+<li><a href="#trueshape-your-text">Shape Your Text</a>
+<ul class="sectlevel3">
+<li><a href="#truejustify-text">Justify Text</a></li>
+<li><a href="#trueborder-text">Border Text</a></li>
+<li><a href="#truescale">Scale</a></li>
+</ul>
+</li>
 <li><a href="#truestarting-over">Starting Over</a></li>
-<li><a href="#truesearching-for-text">Searching For Text</a></li>
-<li><a href="#truereplacing-text">Replacing Text</a></li>
-<li><a href="#truedisk-access">Disk Access</a></li>
+<li><a href="#truesearch-for-text">Search for Text</a></li>
+<li><a href="#truereplace-text">Replace Text</a></li>
+<li><a href="#truedisk-access">Disk Access</a>
+<ul class="sectlevel3">
+<li><a href="#trueget-and-put">Get and Put</a></li>
+</ul>
+</li>
 <li><a href="#truegetting-help">Getting Help</a></li>
-<li><a href="#editor-control-keys">Editor Control Keys</a></li>
+<li><a href="#editor-control-keys">Editor/Input Control Keys</a></li>
+<li><a href="#truedot-command-quick-reference">Dot Command Quick Reference</a>
+<ul class="sectlevel3">
+<li><a href="#truewf-dot-commands">WF Dot Commands</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -466,7 +493,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="truethe-image-text-editor"><a class="anchor" href="#truethe-image-text-editor"></a>The IMAGE Text Editor</h2>
+<h2 id="truethe-text-editor"><a class="anchor" href="#truethe-text-editor"></a>The Text Editor</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The text editor is where any messages on the BBS will be entered.
@@ -497,7 +524,8 @@ This is a line-based editor; you cannot use cursor keys to move up and down a li
 <p><kbd>DELete</kbd> works as usual, but <kbd><code>INSerT</code></kbd> does not.</p>
 </div>
 <div class="paragraph">
-<p>There is no need to press <kbd>Return</kbd> at the end of each line; the editor &#8220;wraps&#8221; words, so they aren&#8217;t chopped in half.</p>
+<p>There is no need to press <kbd>Return</kbd> at the end of each line.
+The editor uses <em>word-wrap</em>, so words which extend past the edge of the screen will be erased and put at the beginning of the next line.</p>
 </div>
 <div class="paragraph">
 <p>As the sysop, you can define how many lines of text (in multiples of ten) a user can type into the editor.
@@ -508,8 +536,10 @@ If a user is in local or pseudo-local mode, they are allowed 253 lines in the ed
 <p>The amount of free memory is kept track of.
 If this amount becomes too small (less than 256 bytes), the message</p>
 </div>
-<div class="paragraph">
-<p><code><strong>* End Of Memory </strong>*</code></p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs"> *** End Of Memory ***</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>appears, and you must use <kbd>.S</kbd> to save, or <kbd>.A</kbd> to abort.</p>
@@ -526,10 +556,10 @@ If this amount becomes too small (less than 256 bytes), the message</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>type <kbd>Return</kbd> if necessary to start a new line</p>
+<p>Type <kbd>Return</kbd> if necessary to start a new line.</p>
 </li>
 <li>
-<p>then <kbd>.</kbd> (period) as the first character on the line.</p>
+<p>Type <kbd>.</kbd> (period) as the first character on the line.</p>
 </li>
 </ol>
 </div>
@@ -546,7 +576,7 @@ This is <em>Command Mode</em>.</p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-When you reach the end of the text buffer, you are automatically put into Command Mode.
+When you reach the end of the text buffer, you are automatically put into Command Mode in order to edit your existing text or save it.
 </td>
 </tr>
 </table>
@@ -620,7 +650,9 @@ You can tell a command accepts a line range or parameter when there is an extra 
 </div>
 <div class="sect2">
 <h3 id="trueeditor-commands"><a class="anchor" href="#trueeditor-commands"></a>Editor Commands</h3>
-
+<div class="paragraph">
+<p><mark>FIXME</mark></p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="trueline-ranges"><a class="anchor" href="#trueline-ranges"></a>Line Ranges</h3>
@@ -666,11 +698,11 @@ A line range can be specified in one of the following ways:</p>
 <div class="sect2">
 <h3 id="dot-commands"><a class="anchor" href="#dot-commands"></a>Dot Commands</h3>
 <div class="paragraph">
-<p>The commands available in the editor are grouped into related commands, and discussed here.</p>
+<p>The commands available in the editor are grouped into related commands, discussed here.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueexit-the-editor"><a class="anchor" href="#trueexit-the-editor"></a>Exit The Editor</h3>
+<h3 id="trueexit-the-editor"><a class="anchor" href="#trueexit-the-editor"></a>Exit the Editor</h3>
 <div class="paragraph">
 <p>There are two ways to get out of the editor:</p>
 </div>
@@ -739,6 +771,8 @@ Messages may be aborted while paused with the spacebar or <kbd>/</kbd> keys.</p>
 </div>
 <div class="sect2">
 <h3 id="truemanipulate-text"><a class="anchor" href="#truemanipulate-text"></a>Manipulate Text</h3>
+<div class="sect3">
+<h4 id="truedelete-lines"><a class="anchor" href="#truedelete-lines"></a>Delete Lines</h4>
 <div class="paragraph">
 <p><kbd>.D</kbd>elete removes lines of text from your message permanently; there is no &#8220;undo&#8221; capability.</p>
 </div>
@@ -750,12 +784,19 @@ Messages may be aborted while paused with the spacebar or <kbd>/</kbd> keys.</p>
 <li>
 <p>If no line range is specified, the last line of text is deleted.</p>
 </li>
-<li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="trueedit-lines"><a class="anchor" href="#trueedit-lines"></a>Edit Lines</h4>
+<div class="paragraph">
 <p><kbd>.E</kbd>dit changes lines of text.
 When a line is edited this way, the line number is displayed, then the text itself, just like the <kbd>.L</kbd>ist command does.
 You may then type the new line below it.
-(Refer to <a href="#editor-control-keys">Editor Control Keys</a> for useful editor keystrokes.)</p>
-</li>
+(Refer to <a href="#editor-control-keys">Editor/Input Control Keys</a> for useful editor keystrokes.)</p>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p><kbd>DELete</kbd> or <kbd>Return</kbd> as the first character on the line causes the editor responds with <code>(No Change.)</code> and returns to the main editor.</p>
 </li>
@@ -768,11 +809,26 @@ You may then type the new line below it.
 </ul>
 </div>
 </div>
+<div class="sect3">
+<h4 id="truemove-lines"><a class="anchor" href="#truemove-lines"></a>Move Lines</h4>
+<div class="paragraph">
+<p><kbd>.Y</kbd></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="truecopy-lines"><a class="anchor" href="#truecopy-lines"></a>Copy Lines</h4>
+<div class="paragraph">
+<p><kbd>.Z</kbd></p>
+</div>
+</div>
+</div>
 <div class="sect2">
 <h3 id="trueeditor-modes"><a class="anchor" href="#trueeditor-modes"></a>Editor Modes</h3>
+<div class="sect3">
+<h4 id="trueinsert-mode"><a class="anchor" href="#trueinsert-mode"></a>Insert Mode</h4>
 <div class="paragraph">
 <p>The <kbd>.I</kbd>nsert command enters Insert Mode.
-This is shown by displaying <code>I<em>x</em>:</code> (where x is the line number you are inserting at).</p>
+This is shown by displaying <code>I<em>x</em>:</code> (where <em>x</em> is the line number you are inserting at).</p>
 </div>
 <div class="paragraph">
 <p>The line you specify is where you start inserting.
@@ -785,9 +841,13 @@ If no line number is specified, the first line is assumed.</p>
 <p>You can exit Insert Mode by typing a <kbd>.</kbd> as the first character on the line.
 This responds with <code>Command: Exit</code> and goes back to the normal editor.</p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="trueline-numbering-mode"><a class="anchor" href="#trueline-numbering-mode"></a>Line Numbering Mode</h4>
 <div class="paragraph">
 <p>The <kbd>.O</kbd> command toggles Line Numbering Mode on or off.
 This mode, when on, displays line numbers as you type text.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -802,12 +862,13 @@ This mode, when on, displays line numbers as you type text.</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>Justify (C,E,I,P,L,R,U):</pre>
+<pre>Justify (C,E,I,L,P,R,U):</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>These are the seven Justify commands.
-Press the key corresponding to which justification mode you want, or to escape, type (<mark>fixme</mark>: period?) <kbd>DELete</kbd> or <kbd>Return</kbd>.</p>
+Press the key corresponding to which justification mode you want.
+To escape Justify mode, type <kbd>.</kbd>, <kbd>DELete</kbd>, or <kbd>Return</kbd>.</p>
 </div>
 <div class="paragraph">
 <p>If a valid command is selected, the editor displays the command name, and then allows you to enter a line range.</p>
@@ -837,19 +898,19 @@ Press the key corresponding to which justification mode you want, or to escape, 
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>E</kbd>xpand</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Insert spaces between words to fill out lines</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Insert spaces between words to the limit of your <kbd>.C</kbd>olumns setting</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>I</kbd>ndent</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Move text right by one column, if possible</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>P</kbd>acked</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Remove all extra spaces put in by Justify</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>L</kbd>eft</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Remove leading spaces</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>P</kbd>acked</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Remove all extra spaces added by Expand</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>R</kbd>ight</p></td>
@@ -875,9 +936,13 @@ Set the right margin with <kbd>.C</kbd>olumns first, if you wish.
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect3">
+<h4 id="trueborder-text"><a class="anchor" href="#trueborder-text"></a>Border Text</h4>
 <div class="paragraph">
 <p>The <kbd>.B</kbd>order command puts a border around your text.
 If you do not specify a line range, it will default to all text entered.
+Specify the border character. <mark>FIXME</mark>
 If there is not enough room on a particular line to add both border characters, that line is ignored.</p>
 </div>
 <div class="exampleblock">
@@ -889,7 +954,7 @@ If there is not enough room on a particular line to add both border characters, 
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Set the <kbd>.C</kbd>olumns width to 2-4 characters less than your current line width before typing the text to be bordered.
+Set the <kbd>.C</kbd>olumns width to 2-4 characters less than your current line length before typing the text to be bordered.
 </td>
 </tr>
 </table>
@@ -902,8 +967,12 @@ Set the <kbd>.C</kbd>olumns width to 2-4 characters less than your current line 
 <div class="paragraph">
 <p>If you do not specify a column width after the command, the current column width is displayed.</p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="truescale"><a class="anchor" href="#truescale"></a>Scale</h4>
 <div class="paragraph">
-<p>A related command is <kbd>.#</kbd>: This displays a 40-column scale for manually centering text, among other purposes.
+<p>A related command is <kbd>.#</kbd> <code>Scale</code>.
+This displays a 40-column scale for manually centering text, among other purposes.
 There is no prompt for a line range; the scale gets displayed as soon as you hit <kbd>#</kbd>.</p>
 </div>
 </div>
@@ -932,19 +1001,19 @@ This is something I have mostly working and plan on adding to Image BBS 1.2 and 
 </div>
 </div>
 <div class="sect2">
-<h3 id="truesearching-for-text"><a class="anchor" href="#truesearching-for-text"></a>Searching For Text</h3>
+<h3 id="truesearch-for-text"><a class="anchor" href="#truesearch-for-text"></a>Search for Text</h3>
 <div class="paragraph">
 <p>The <kbd>.F</kbd>ind command allows you to search for any occurrence of a character, word or phrase.
 If no line range is entered, all text will be searched.
-Find will prompt you for the text to search for, and will list all occurrences of it.</p>
+Find will prompt you for the text to search for, and will list all occurrences (including line numbers they occur on) of it.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="truereplacing-text"><a class="anchor" href="#truereplacing-text"></a>Replacing Text</h3>
+<h3 id="truereplace-text"><a class="anchor" href="#truereplace-text"></a>Replace Text</h3>
 <div class="paragraph">
-<p>The <kbd>.K</kbd> (<code>Replace</code>) command will prompt you for an optional line range, then a <code>Search Phrase:</code> as Find does, but also ask what phrase you want to replace it with.
+<p>The <kbd>.K</kbd> (<code>Replace</code>, think <em>Kill</em>) command will prompt you for an optional line range, then a <code>Search Phrase:</code> as Find does, but also ask what to <code>Replace With:</code>
 Then it will go through the text.
-If the replacement phrase is too large to fit within the current line length, the editor will display <code>Too big, can&#8217;t fit.</code> and skip that line.</p>
+If the replacement phrase is too large to fit within the current line length, the editor will display <code>Too Big, Can&#8217;t Fit.</code> and skip that line.</p>
 </div>
 </div>
 <div class="sect2">
@@ -952,19 +1021,21 @@ If the replacement phrase is too large to fit within the current line length, th
 <div class="paragraph">
 <p>(These commands are available from local/pseudo-local mode only.)</p>
 </div>
+<div class="sect3">
+<h4 id="trueget-and-put"><a class="anchor" href="#trueget-and-put"></a>Get and Put</h4>
 <div class="paragraph">
 <p>The <kbd>.G</kbd>et and <kbd>.P</kbd>ut commands allow you to:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Load (Get) a file from a device</p>
+<p>Load (<kbd>.G</kbd>et) a file from a device</p>
 </li>
 <li>
 <p>Edit using all the normal editor facilities</p>
 </li>
 <li>
-<p>Save that file (Put) to any device and drive</p>
+<p>Save that file (<kbd>.P</kbd>ut) to any device and drive</p>
 </li>
 </ol>
 </div>
@@ -973,7 +1044,12 @@ If the replacement phrase is too large to fit within the current line length, th
 Or, you can save to a different device/drive if desired.</p>
 </div>
 <div class="paragraph">
-<p>If the file already exists, you can:</p>
+<p>If the file already exists, you are prompted:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>[A]ppend [R]eplace [Q]uit:</pre>
+</div>
 </div>
 <div class="ulist">
 <ul>
@@ -994,7 +1070,10 @@ Or, you can save to a different device/drive if desired.</p>
 <p>(These commands are only available from local or pseudo-local mode.)</p>
 </div>
 <div class="paragraph">
-<div class="title">Get allows you to load a text file from any device and drive. It appends the file to any text already in the editor&#8217;s buffer.</div>
+<p><kbd>.G</kbd>et allows you to load a text file from any device and drive.
+It appends the file to any text already in the editor&#8217;s buffer.</p>
+</div>
+<div class="paragraph">
 <p>You can then use all the normal editor facilities.</p>
 </div>
 <div class="admonitionblock tip">
@@ -1004,7 +1083,7 @@ Or, you can save to a different device/drive if desired.</p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-if you are trying to work with SEQ files with C/G codes in them, use .C<em>olumns </em>80 first, so lines don&#8217;t word-wrap._
+if you are trying to work with SEQ files with C/G codes in them, use <kbd>.C</kbd>olumns <kbd>80</kbd> first, so lines don&#8217;t word-wrap._
 </td>
 </tr>
 </table>
@@ -1022,7 +1101,9 @@ If the specified filename already exists, you can either replace the file or app
 <p><kbd>.&amp;</kbd> reads an existing file. A filename, device and drive are prompted for.</p>
 </div>
 <div class="paragraph">
-<p><kbd>.!</kbd> issues a DOS command. If a &#8220;new&#8221; or &#8220;scratch&#8221; command is issued, you are prompted to confirm your actions.</p>
+<p><kbd>.!</kbd> issues a DOS command.
+If a &#8220;new&#8221; (starts with <code>n</code>) or &#8220;scratch&#8221; (starts with <code>s</code>) DOS command is issued, you are prompted to confirm your actions.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1032,7 +1113,7 @@ If the specified filename already exists, you can either replace the file or app
 </div>
 </div>
 <div class="sect2">
-<h3 id="editor-control-keys"><a class="anchor" href="#editor-control-keys"></a>Editor Control Keys</h3>
+<h3 id="editor-control-keys"><a class="anchor" href="#editor-control-keys"></a>Editor/Input Control Keys</h3>
 <div class="paragraph">
 <p>Certain key combinations are used to edit your text while you are typing it, whether in the BBS editor or at a BBS prompt.
 For example, any character that you delete with the <kbd>DELete</kbd> key can be &#8220;re-typed&#8221; with <span class="keyseq"><kbd>Ctrl</kbd>+<kbd>U</kbd></span>.
@@ -1095,12 +1176,153 @@ character)</p></td>
 </tbody>
 </table>
 </div>
+<div class="sect2">
+<h3 id="truedot-command-quick-reference"><a class="anchor" href="#truedot-command-quick-reference"></a>Dot Command Quick Reference</h3>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>.A</kbd>bort</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Exit editor (no confirmation)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>.B</kbd>order</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Put specified character around text</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>.C</kbd>olumns</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set width of text entry allowed</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>.D</kbd>elete</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete line(s)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>.E</kbd>dit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edit line(s)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>.F</kbd>ind</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find text in specified line(s)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>.H</kbd>elp, <kbd>.?</kbd> Help</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Show help menu file <code>s.menu 3</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>.I</kbd>nsert</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Insert line(s) at specified line</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>.J</kbd>ustify</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Justify text in various ways</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>.K</kbd> Replace</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Search for and replace text</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>.L</kbd>ist</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List line numbers and lines of text</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>.M</kbd>CI Read</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Read with MCI interpreted</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>.N</kbd>ew Text</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Erase buffer (no confirmation)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>.O</kbd> Line Numbering</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Show line numbers as text is typed</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>.Q</kbd>uery</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Show lines used and remaining</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>.R</kbd>ead</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Read without MCI interpreted</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>.S</kbd>ave Text</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Save text to disk</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>.V</kbd>ersion</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Show editor version</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>.Y</kbd> Move Lines</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Move line range to specified line</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>.Z</kbd> Copy Lines</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Copy line range to specified line</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>.#</kbd> Scale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Show 40-column scale</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="truewf-dot-commands"><a class="anchor" href="#truewf-dot-commands"></a>WF Dot Commands</h4>
+<div class="paragraph">
+<p>These commands can be used if in local mode.</p>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>.G</kbd>et File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Append to buffer a disk file&#8217;s contents (filename is prompted for)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>.P</kbd>ut File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Save a file (filename is prompted for); can Append or Replace existing file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>.U</kbd>nborder</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Remove characters put by <kbd>.B</kbd>order</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>.!</kbd> DOS Command</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Send DOS command (device and drive are prompted for)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>.&amp;</kbd> Read File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Read SEQ file (filename is prompted for)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-06-17 21:27:48 -0700
+Last updated 2021-07-05 22:53:03 -0700
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">

@@ -444,7 +444,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <span id="author" class="author">Ryan Sherwood</span><br>
 <span id="email" class="email"><a href="mailto:sym.rsherwood@gmail.com">sym.rsherwood@gmail.com</a></span><br>
 <span id="revnumber">version 0.1,</span>
-<span id="revdate">6/16/2021</span>
+<span id="revdate">7/4/2021</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -478,15 +478,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#truethe-configuration-editor">The Configuration Editor</a>
-<ul class="sectlevel3">
+<ul class="sectlevel2">
 <li><a href="#trueconfiguring-a-new-system">Configuring a New System</a></li>
 <li><a href="#truedevicedrive-assignments">Device/Drive Assignments</a></li>
 <li><a href="#ud-setup">Message Base, Upload/Download / Exchange Setup</a></li>
-<li><a href="#trueaccess-levels">Access Levels</a></li>
+<li><a href="#trueaccess-groups">Access Groups</a></li>
 <li><a href="#trueediting-access-groups">Editing Access Groups</a></li>
-<li><a href="#trueuser-flags">User Flags</a></li>
+<li><a href="#user-flags">User Flags</a></li>
 <li><a href="#truebbs-information">BBS Information</a></li>
-<li><a href="#trueprime-time">Prime Time</a></li>
+<li><a href="#prime-time">Prime Time</a></li>
 <li><a href="#truemain-prompt">Main Prompt</a></li>
 <li><a href="#truecredit-points">Credit Points</a></li>
 <li><a href="#trueloading-configuration-files">Loading Configuration Files</a></li>
@@ -499,7 +499,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#truejim-brains-tcpser">Jim Brain&#8217;s <code>tcpser</code></a></li>
 <li><a href="#truetcpser4j">tcpser4j</a></li>
 <li><a href="#trueleif-bloomquists-bbs-server">Leif Bloomquist&#8217;s <em>BBS Server</em></a></li>
-<li><a href="#truetelnet-bridge-hardware"><em>Telnet bridge hardware</em></a></li>
+<li><a href="#truetelnet-bridge-hardware">Telnet bridge hardware</a></li>
 <li><a href="#truelink232">Link232</a></li>
 <li><a href="#truelantronix-uds-10">Lantronix UDS-10</a></li>
 <li><a href="#trueglink232-interface">GLink232 interface</a></li>
@@ -514,7 +514,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#truefirst-boot">First Boot</a>
 <ul class="sectlevel2">
 <li><a href="#truethe-idle-screen">The Idle Screen</a></li>
-<li><a href="#trueboard-activity-register">Board Activity Register</a></li>
 <li><a href="#truebottom-screen-mask">Bottom Screen Mask</a></li>
 <li><a href="#truelogging-on">Logging On</a></li>
 <li><a href="#trueinstant-logon">Instant Logon</a></li>
@@ -523,10 +522,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#trueexisting-users">Existing Users</a></li>
 <li><a href="#truethe-top-screen-after-logon">The Top Screen After Logon</a></li>
 <li><a href="#trueediting-bbs-info-files">Editing BBS Info Files</a></li>
+<li><a href="#truesub-boards-and-libraries">Sub-Boards and Libraries</a></li>
 </ul>
 </li>
-<li><a href="#truebulletin-boards-and-libraries">Bulletin Boards and Libraries:</a></li>
-<li><a href="#trueaccess-groups">Access Groups</a>
+<li><a href="#trueaccess-groups-2">Access Groups</a>
 <ul class="sectlevel2">
 <li><a href="#truedone">Done!</a></li>
 </ul>
@@ -571,21 +570,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Manual OCRed by JOE COMMODORE.
 Updated by PINACOLADA from documentation by DR. BOB, LITTLE JOHN, and others.</p>
 </div>
-<div class="paragraph">
-<p>Handle: <em><em></em><em></em></em><em><em></em><em></em></em><em><em></em><em>   Network Identifier: </em><em></em></em><em>_</em></p>
-</div>
-<div class="paragraph">
-<p><em>Last Updated: 6/14/2021</em></p>
-</div>
-<div class="exampleblock">
+<div class="literalblock">
 <div class="content">
-<div class="paragraph">
-<p>This is just a plain text version of the OCRed sysop guide, to remind me which sections belong where.
-I added commands before each section, but I think that makes it too cluttered.
-Better to have a command summary appendix.</p>
+<pre>Handle: ___________________________   Network Node: __________</pre>
 </div>
 </div>
-</div>
+<hr>
 </div>
 </div>
 <div class="sect1">
@@ -1114,11 +1104,11 @@ IMAGE does use more than one file at once in some areas, so we suggest not using
 </div>
 <div class="sect3">
 <h4 id="truemodems"><a class="anchor" href="#truemodems"></a>Modems</h4>
-<table class="tableblock frame-all grid-all stretch">
+<table class="tableblock frame-all grid-all fit-content">
 <caption class="title">Table 1. Supported Modems</caption>
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col>
+<col>
 </colgroup>
 <tbody>
 <tr>
@@ -1154,15 +1144,22 @@ IMAGE does use more than one file at once in some areas, so we suggest not using
 Version 071487 of Commodore&#8217;s RAMDOS is provided.
 It is set to define your RAMdisk as device 7, which is how it is supported by Image BBS.</p>
 </div>
-<table class="tableblock frame-all grid-all stretch">
+<table class="tableblock frame-all grid-all fit-content">
+<caption class="title">Table 2. RAMDOS files</caption>
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col>
+<col>
 </colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">File</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>f</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">file copier, copies any file with a two or more character long
+<td class="tableblock halign-left valign-top"><p class="tableblock">File copier, copies any file with a two or more character long
 filename to a disk</p></td>
 </tr>
 <tr>
@@ -1175,9 +1172,6 @@ filename to a disk</p></td>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>Table 2: RAMDOS files</p>
-</div>
 </div>
 <div class="sect3">
 <h4 id="trueprinters"><a class="anchor" href="#trueprinters"></a>Printers</h4>
@@ -1209,7 +1203,7 @@ Two IEEE interfaces commonly used and tested with Image BBS are the <em>IEEE Fla
 <h4 id="truecreative-micro-designs-supercpu"><a class="anchor" href="#truecreative-micro-designs-supercpu"></a>Creative Micro Designs SuperCPU</h4>
 <div class="paragraph">
 <p>There are patches to make the BBS run at 20 mHz.
-During file transfers, the BBS must be slowed down to 1 mHz with a <code>poke</code> to the SuperCPU speed register.</p>
+During file transfers or disk access, the BBS must be slowed down to 1 mHz with a <code>poke</code> to the SuperCPU speed register.</p>
 </div>
 </div>
 </div>
@@ -1367,15 +1361,33 @@ None of these files will change, unless modified offline.</p>
 <div class="paragraph">
 <p>Plus file filenames start with several different prefixes based on these categories:</p>
 </div>
-<div class="paragraph">
-<p><code>+.</code> BASIC modules</p>
-</div>
-<div class="paragraph">
-<p><code>++</code> ML modules</p>
-</div>
-<div class="paragraph">
-<p><code>scn.</code> top and bottom sysop screen displays (idle screen, online user screens, Image Terminal screens)</p>
-</div>
+<table class="tableblock frame-all grid-all fit-content">
+<caption class="title">Table 3. Plus File Prefixes</caption>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Prefix</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>+.</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BASIC modules</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>++</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ML modules</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>scn.</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">top and bottom sysop screen displays (idle screen, online user screens, Image Terminal screens)</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>In this revision of Image BBS, the Extended Command Set extension is enabled by default.
 This gives the sysop more flexibility in several areas.
@@ -1434,9 +1446,11 @@ following:</p>
 <div class="content">
 <div class="paragraph">
 <p>Unfortunately, Image is somewhat hobbled by a &#8220;flat file structure&#8221;—-<em>i.e.</em>, there is no provision for using subdirectories (or even partitions with 1581 drives) on mass-storage devices which support them (the CMD devices are a good example).
-All files must reside in the root directory to be accessible.
-This is a shortcoming I plan on addressing in Image BBS 2.0 with the additions of CMD hardware detection.
-and the ability to issue DOS commands where appropriate in what is called the &#8220;General Files&#8221; section (which can have message bases, text and plus-file subdirectories in a single GF directory!).</p>
+All files must reside in the root directory to be accessible.</p>
+</div>
+<div class="paragraph">
+<p>This is a shortcoming, and it would be nice if it were addressed in later versions of Image BBS with the additions of CMD hardware detection.
+The ability to issue DOS commands where appropriate in the &#8220;General Files&#8221; section (which can have message bases, text files and modules, and subdirectories all in a single <kbd>GF</kbd> directory!).</p>
 </div>
 </div>
 </div>
@@ -1488,7 +1502,7 @@ Whether you&#8217;re using a floppy disk or hard drive partition, copy the follo
 </div>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 2. Boot Files</caption>
+<caption class="title">Table 4. Boot Files</caption>
 <colgroup>
 <col>
 <col>
@@ -1605,7 +1619,7 @@ If you are using a high-speed modem or telnet bridge program, copy <code>ml.rs23
 <p>It is fine to put these boot files on your System disk, assuming you have sufficient drive space.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 3. Required Plus File Disk Files</caption>
+<caption class="title">Table 5. Required Plus File Disk Files</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1811,7 +1825,7 @@ It is usually left at 4.</p>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 4. Typical Hayes modem result codes</caption>
+<caption class="title">Table 6. Typical Hayes modem result codes</caption>
 <colgroup>
 <col>
 <col>
@@ -1896,8 +1910,8 @@ You will not be reconfiguring an existing system nor be converting a system over
 For those that want or need to start fresh, the Configuration Editor will do the job.
 If you are converting an existing system from CNet 12.0/12.1, there are also convert routines in this program.</p>
 </div>
-<div class="sect3">
-<h4 id="trueconfiguring-a-new-system"><a class="anchor" href="#trueconfiguring-a-new-system"></a>Configuring a New System</h4>
+<div class="sect2">
+<h3 id="trueconfiguring-a-new-system"><a class="anchor" href="#trueconfiguring-a-new-system"></a>Configuring a New System</h3>
 <div class="paragraph">
 <p>You begin by loading the configuration program from your back-up disk.
 Use the standard Commodore <code>load</code> command (assuming 8 is the device number you&#8217;re booting from):</p>
@@ -1934,21 +1948,23 @@ Use this procedure with any menu item in the configuration editor.</p>
 <div class="paragraph">
 <p>Since this configuration editor was written, New Image Software developed improved handling regarding message bases and file transfer libraries.
 Called the TurboRELs, they can be configured while on the BBS via the “RELedit” system.
-(If you&#8217;d like to join the BBS network, you must use the TurboRELs, since the messages are passed around in the upgraded format.)
-Refer to xref:the-reledit-system.adoc for more information.</p>
+(If you&#8217;d like to join the BBS network, you must use the TurboRELs, since the messages are passed around in the upgraded format.)</p>
+</div>
+<div class="paragraph">
+<p>Refer to <a href="12b-reledit-system.html#reledit-system">The RELedit System</a> for more information.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueaccess-levels"><a class="anchor" href="#trueaccess-levels"></a>Access Levels</h3>
+<h3 id="trueaccess-groups"><a class="anchor" href="#trueaccess-groups"></a>Access Groups</h3>
 <div class="paragraph">
-<p>You must then assign access to each of your boards or libraries.
+<p>You must then assign which access groups may use each of your boards or libraries.
 Access is calculated using the following method, which is used throughout the BBS.
 To determine which groups can access a given sub-board or library, add the group’s access value:</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 5. Access Groups and Values</caption>
+<caption class="title">Table 7. Access Groups and Values</caption>
 <colgroup>
 <col>
 <col>
@@ -2052,7 +2068,7 @@ To determine which groups can access a given sub-board or library, add the group
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-You may type <kbd>?</kbd> at most prompts that ask for access levels and the BBS will go through groups 0-9, asking you if that group gets access (type Y for yes, other keys mean no).
+You may type <kbd>?</kbd> at most prompts that ask for access levels and the BBS will go through groups 0-9, asking you if that group gets access (type <kbd>Y</kbd> for yes, other keys mean no).
 It then calculates (but doesn’t immediately display) the value for you.
 You may do this in the configuration editor, or any part of the BBS that defines an access level.
 </td>
@@ -2065,7 +2081,7 @@ You may do this in the configuration editor, or any part of the BBS that defines
 <p>You also enter a <em>subop</em> (sub-board operator; a user given an area of the BBS to maintain) for each sub-board/library.
 This is done by typing the ID number of the user desired.
 If you are configuring a new BBS, you have no users yet.
-Therefore, assign the subop duties to either yourself (user 1) or to no-one (user -1).
+Therefore, assign the subop duties to either yourself (user <code>1</code>) or to no-one (user <code>-1</code>).
 Of course, you may change this later.</p>
 </div>
 <div class="paragraph">
@@ -2073,8 +2089,10 @@ Of course, you may change this later.</p>
 The device and drive menu options allow you to set these.</p>
 </div>
 <div class="paragraph">
-<p>When you&#8217;re done with your selections, select the last option, &#8220;Keep Parameters&#8221; and you are returned to the prompt to assign another sub-board/library.
-When you&#8217;re done, simply select the &#8220;Main Menu&#8221; option.</p>
+<p>When you&#8217;re done with your selections, select the last option, <code>Keep Parameters</code> and you are returned to the prompt to assign another sub-board/library.</p>
+</div>
+<div class="paragraph">
+<p>When you&#8217;re done, simply select the <code>Main Menu</code> option.</p>
 </div>
 </div>
 <div class="sect2">
@@ -2097,50 +2115,57 @@ The parameters for each group consist of:</p>
 <p>Number of calls permitted per day (1-254 or infinite [0])</p>
 </li>
 <li>
-<p>Time in minutes permitted per call (1-99  or infinite [0])</p>
+<p>Time in minutes permitted per call (1-99 or infinite [0])</p>
 </li>
 <li>
-<p>Amount of time permitted idling (no activity at a command prompt) (1-9
-minutes)</p>
+<p>Amount of time permitted idling (no activity at a command prompt) (1-9 minutes)</p>
 </li>
 <li>
-<p>Number of downloads per call  (1-255 or infinite [0])</p>
+<p>Number of downloads per call (1-255 or infinite [0])</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueuser-flags"><a class="anchor" href="#trueuser-flags"></a>User Flags</h3>
+<h3 id="user-flags"><a class="anchor" href="#user-flags"></a>User Flags</h3>
 <div class="paragraph">
-<p>Each group has a set of “flags” assigned to users placed in that group.
+<p>Each group has a set of &#8220;flags&#8221; assigned to users placed in that group.
 These flags may be customized for individual users at a later time if desired.
 With this editor, you set the flags as you wish them assigned when first entering the particular group.
 The flags usually toggle between “Yes” or “No,” but a few require numeric input.</p>
 </div>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 6. User flags</caption>
+<table class="tableblock frame-all grid-all fit-content">
+<caption class="title">Table 8. User flags</caption>
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col>
+<col>
+<col>
 </colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Flag</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Non-Weed Status</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yes/No</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yes: Group is not deleted from the user log after not having called within a specified number of months.
-(Refer to <a href="#autoweed">[autoweed]</a>.)
-)</p></td>
+(Refer to <a href="#autoweed">[autoweed]</a>.)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Credit Ratio</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Numeric</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The number of credits awarded per lines made in a post or file block uploaded.  The ratio is usually 1:1.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The number of credits awarded per lines made in a post or file block uploaded.
+The ratio is usually 1:1.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Local Maintenance</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yes/No</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes: Group has access to BBS maintenance commands.  Only give <em>very</em> trusted users access to this.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes: Group has access to BBS maintenance commands.
+Only give <em>very</em> trusted users access to this.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Post/Respond Capability</p></td>
@@ -2155,8 +2180,7 @@ The flags usually toggle between “Yes” or “No,” but a few require numeri
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Maximum Editor Lines</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Numeric</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Lines of text (10-100, in multiples of 10: 0=10, 1=20&#8230;&#8203;
-) group has available to post messages, e-mail, or feedback.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lines of text (10-100, in multiples of 10: <code>0</code>=10, <code>1</code>=20&#8230;&#8203;) an access group has available to post messages, e-mail, or feedback.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Unlimited DL Credit</p></td>
@@ -2166,7 +2190,8 @@ The flags usually toggle between “Yes” or “No,” but a few require numeri
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Remote Maintenance</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yes/No</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Similar to Local Maintenance.  Can write/remove forced e-mail, feedback, view system logs.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Similar to Local Maintenance.
+Can write/remove forced e-mail, feedback, view system logs.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">E-mail Access</p></td>
@@ -2181,7 +2206,7 @@ The flags usually toggle between “Yes” or “No,” but a few require numeri
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">B.A.R./Log Access</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yes/No</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes: group can view various logs.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes: group can view the Board Activity Register, or daily activity logs.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sub-board Maintenance</p></td>
@@ -2191,17 +2216,19 @@ The flags usually toggle between “Yes” or “No,” but a few require numeri
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Files Maintenance</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yes/No</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes: group can edit, validate, award credit to users in the U/D section.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes: group can edit, delete, (un-)validate, or award credits to a user for uploading a file, in the U/D section.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">MCI Access</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yes/No</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes: group has access to the Message Command Interpreter (Refer to <a href="#mci">[mci]</a>).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes: group has access to the Message Command Interpreter.
+(Refer to xref:12b-mci-commands.adoc#message-command-interpreter.)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">UD/UX at Prime Time</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yes/No</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes: group can upload or download from U/Ds or U/Xs during prime time.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes: group can upload or download from U/Ds or U/Xs during prime time.
+(Refer to <a href="#prime-time">Prime Time</a>.)</p></td>
 </tr>
 </tbody>
 </table>
@@ -2211,9 +2238,11 @@ When you first log on to your BBS as sysop, you are assigned group 9 access.
 You may change your access group after logging on for the first time.</p>
 </div>
 <div class="paragraph">
-<p>When you have completed all assignments for a group, select the <em>Keep Parameters</em> option and move on to another group.
-When all groups are assigned satisfactorily, choose <em>Return to Main Menu</em>.</p>
+<p>When you have completed all assignments for a group, select the <code>Keep Parameters</code> option and move on to another group.
+When all groups are assigned satisfactorily, choose <code>Return to Main Menu</code>.</p>
 </div>
+<div class="exampleblock">
+<div class="content">
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -2227,11 +2256,13 @@ Any changes in access group information, either with the offline <code>config</c
 </table>
 </div>
 </div>
+</div>
+</div>
 <div class="sect2">
 <h3 id="truebbs-information"><a class="anchor" href="#truebbs-information"></a>BBS Information</h3>
 <div class="paragraph">
 <p>Now you get to identify your BBS.
-Select the <em>BBS Info</em> option from the main menu.
+Select the <code>BBS Info</code> option from the main menu.
 It has several specific questions about you and your BBS to help personalize it.</p>
 </div>
 <div class="paragraph">
@@ -2249,28 +2280,32 @@ Choose it carefully since this is usually the most powerful account on the BBS, 
 <p>Then you are asked a few other questions that are added to the data in your account to start the user file.</p>
 </div>
 <div class="paragraph">
-<p><mark>FIXME</mark></p>
+<p><mark>FIXME</mark>: tell exactly which prompts are asked.</p>
 </div>
 <div class="paragraph">
-<p>This information can be changed inside the BBS later, if you desire (using the <code>ED</code> or <code>EP</code> commands).</p>
+<p>This information can be changed inside the BBS later, if you desire (using the <kbd>ED</kbd> or <kbd>EP</kbd> commands).</p>
 </div>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 7. BBS setup information</caption>
+<table class="tableblock frame-all grid-all fit-content">
+<caption class="title">Table 9. BBS setup information</caption>
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col>
+<col>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Board Name</th>
-<th class="tableblock halign-left valign-top">Should be self-explanatory.</th>
+<th class="tableblock halign-left valign-top">Option</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Board Name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the BBS</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Board Identifier</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A two-character abbreviation used to identify your BBS.
-  For example, a board named “Lyon&#8217;s Den” might use an identifier of <code>LD</code>.</p></td>
+For example, a board named “Lyon&#8217;s Den” might use an identifier of <code>LD</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><mark>FIXME</mark></p></td>
@@ -2280,9 +2315,9 @@ Choose it carefully since this is usually the most powerful account on the BBS, 
 </table>
 </div>
 <div class="sect2">
-<h3 id="trueprime-time"><a class="anchor" href="#trueprime-time"></a>Prime Time</h3>
+<h3 id="prime-time"><a class="anchor" href="#prime-time"></a>Prime Time</h3>
 <div class="paragraph">
-<p>A period where everyone is limited to being online a certain number of minutes, and U/D access is limited to users with the “U/D at Prime Time” flag set.
+<p><em>Prime Time</em> is a period of time where everyone is limited to being online a certain number of minutes, and U/D access is limited to users with the “U/D at Prime Time” flag set.
 If you are just starting out, you may wish to wait to see how busy your BBS is before setting up Prime Time.</p>
 </div>
 <div class="paragraph">
@@ -2305,7 +2340,7 @@ If you are just starting out, you may wish to wait to see how busy your BBS is b
 <p>This information may be changed later if you wish.</p>
 </div>
 <div class="paragraph">
-<p>When you are finished with the Prime Time option, choose <em>Keep Parameters</em> to return to the <em>BBS Info</em> menu.</p>
+<p>When you are finished with the Prime Time option, choose <code>Keep Parameters</code> to return to the <code>BBS Info</code> menu.</p>
 </div>
 </div>
 <div class="sect2">
@@ -2313,25 +2348,32 @@ If you are just starting out, you may wish to wait to see how busy your BBS is b
 <div class="paragraph">
 <p>This is a message users see when they are not in any particular subsystem.
 It can be anything you want, but should be short.
-The default prompt is <em>IMAGE:</em></p>
+The default prompt is <code>IMAGE:</code></p>
 </div>
 <div class="paragraph">
-<p>After establishing your prompt, return to the <em>BBS Info</em> menu.</p>
+<p>After establishing your prompt, return to the <code>BBS Info</code> menu.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="truecredit-points"><a class="anchor" href="#truecredit-points"></a>Credit Points</h3>
 <div class="paragraph">
-<p>Credits are points that users accrue or lose depending on their actions on the BBS.
-They earn more by uploading files, posting bulletins in the message bases, playing games, the Credit Exchange and possibly by other methods.
+<p>The final selection here is to set the number of credit points new users receive when first signing up to your BBS.</p>
+</div>
+<div class="paragraph">
+<p>Credits are like currency that users accrue or lose depending on their actions on the BBS.</p>
+</div>
+<div class="paragraph">
+<p>Users earn more credits by uploading files, posting bulletins in the message bases, playing games, using the Credit Exchange (where they can exchange the minutes on unused calls for more credits, and other options), and possibly by other methods.
 They can also be awarded by the sysop for no good reason!</p>
 </div>
 <div class="paragraph">
-<p>The final selection here is to set the number of credit points new users receive when first signing up to your BBS.
-This can be from 0 to 65,000, but we assume most sysops will not want to assign that many to new users.</p>
+<p>Users can spend credits by downloading files, or some games may be configured to deduct credits as an entrance fee (such as the Credit Pool).</p>
 </div>
 <div class="paragraph">
-<p>This completes the <em>BBS Info</em> section of your configuration!</p>
+<p>A new user can be given from 0 to 65,000 credits, but we assume most sysops will not want to assign that many to new users.</p>
+</div>
+<div class="paragraph">
+<p>This completes the <code>BBS Info</code> section of your configuration!</p>
 </div>
 </div>
 <div class="sect2">
@@ -2340,12 +2382,42 @@ This can be from 0 to 65,000, but we assume most sysops will not want to assign 
 <p>You may load configuration files at any time to make changes to them as you desire.
 This can also be done online with the <code>+.reconfig</code> program, but the option is included here for any that may wish to reconfigure their BBS off-line.</p>
 </div>
+<div class="paragraph">
+<p>You may load individual configuration files, or load all files at once.</p>
+</div>
+<div class="paragraph">
+<p><mark>FIXME</mark>: more info</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="truesaving-configuration-files"><a class="anchor" href="#truesaving-configuration-files"></a>Saving Configuration Files</h3>
 <div class="paragraph">
 <p>The last option is to save the configuration files to disk.
 You are first prompted to insert all system disks into their proper drives, and then the files are saved to the disks.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+If you have not loaded them first, do not re-write the <code>u.config</code> (user log) file, or <code>e.data</code> (system configuration information) files.
+This could fool the system into thinking you only have one user!
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>There is confirmation that you want to start the user file over.</p>
+</div>
+<div class="paragraph">
+<p>A utility, <code>edata edit</code>, has been included to recover from this possibility occuring.
+Refer to &#8220;BASIC Utilities&#8221; for instructions on how to use it. <mark>FIXME</mark></p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -2365,10 +2437,19 @@ Boot Image BBS</code></pre>
 <p>(If you change your mind, you can still escape with <kbd>←</kbd>.)</p>
 </div>
 <div class="paragraph">
+<p><code>Return to BASIC</code> <code>end</code>s the program, where you can re-<code>run</code> the program, or do something else, but the program will still be in memory.</p>
+</div>
+<div class="paragraph">
+<p><code>Cold start the machine</code> resets the C64 back to BASIC&#8217;s sign-on screen, losing any unsaved configuration changes and removing the <code>config</code> program from memory.</p>
+</div>
+<div class="paragraph">
+<p><code>Boot Image BBS</code> will boot your BBS, if the file <code>image 1.2b</code> is on your boot disk or current partition/LU.</p>
+</div>
+<div class="paragraph">
 <p>You are notified if any file(s) have not been written to disk, or if re-writing a particular file will re-start the user log, before exiting the configuration editor.</p>
 </div>
 <div class="paragraph">
-<p>For now, let&#8217;s select <code>Return to BASIC</code> and continue with setting up the modem.</p>
+<p>For now, let&#8217;s select <code>Return to BASIC</code> and continue with setting up the modem, discussed in the next chapter.</p>
 </div>
 </div>
 </div>
@@ -2386,13 +2467,13 @@ It can be downloaded from:</p>
 <p><a href="https://github.com/go4retro/tcpser/" class="bare">https://github.com/go4retro/tcpser/</a></p>
 </div>
 <div class="paragraph">
-<p>The latest version as of November 2020 is :tcpser_version:. // 1.1.4</p>
+<p>The latest version as of November 2020 is 1.1.4.</p>
 </div>
 <div class="sect3">
 <h4 id="trueusing-a-physical-serial-port"><a class="anchor" href="#trueusing-a-physical-serial-port"></a>Using a Physical Serial Port</h4>
 <div class="paragraph">
-<p>Even if you&#8217;re using Windows, its COM`x`: nomenclature is replaced by Linux&#8217;s <code>/dev/tty`<em>x</em>.
-`COM1</code> is equivalent to <code>/dev/ttys0</code>.</p>
+<p>Even if you&#8217;re using Windows, its <code>COM<em>x</em>:</code> nomenclature is replaced by Linux&#8217;s <code>/dev/tty<em>x</em></code>.
+<code>COM1:</code> is equivalent to <code>/dev/ttys0</code>.</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -2402,40 +2483,42 @@ It can be downloaded from:</p>
 <div class="paragraph">
 <p>This suggested command line for tcpser means:</p>
 </div>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 8. tcpser command line switches</caption>
+<table class="tableblock frame-all grid-all fit-content">
+<caption class="title">Table 10. tcpser command line switches</caption>
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col>
+<col>
 </colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Purpose</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-d /dev/ttys0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-d /dev/ttys0</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">use serial port 0</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-p 6400</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-p 6400</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">use incoming port 6400</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-s 19200</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">report the modem connect rate at 19200kBPS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-s 19200</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">report the modem connect rate at 19200 kBPS</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-i "&#8230;&#8203;"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-i "&#8230;&#8203;"</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">initialize the modem with the following string</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-l7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-l7</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">log events at level 7</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-tSsIi</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">show incoming and outgoing RS232 and TCP/IP traffic.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-tSsIi</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">show incoming and outgoing RS232 and TCP/IP traffic</p></td>
 </tr>
 </tbody>
 </table>
@@ -2463,7 +2546,13 @@ Here is a command line to try:</p>
 <p><code>tcpser -i "e0v0" -s 2400 -v 25232 -p 6400</code></p>
 </div>
 <div class="paragraph">
-<p>If you&#8217;re using a high-speed expansion port interface, you can increase the <code>-s</code> value to something more appropriate.</p>
+<p>If you&#8217;re using a high-speed RS232 interface, you can increase the <code>-s</code> value to something more appropriate.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="truemultiple-emulated-modems"><a class="anchor" href="#truemultiple-emulated-modems"></a>Multiple Emulated Modems</h4>
+<div class="paragraph">
+<p>Multiple modems can be emulated within one instance of <code>tcpser</code>. <mark>FIXME</mark></p>
 </div>
 </div>
 </div>
@@ -2497,10 +2586,14 @@ file reference that XML configuration file.</p>
 <div class="paragraph">
 <p>This is a Windows program designed to allow a real Commodore 64 to run Image BBS.</p>
 </div>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
 <p>If you use this program and you have trouble getting the BBS to answer,
 here&#8217;s some information from Larry “X-TEC” Hedman:</p>
 </div>
+<div class="quoteblock">
+<blockquote>
 <div class="paragraph">
 <p>Jeff, I experienced the same problems you described when I started using BBS Server with an Omnitronix RS232 interface plugged into the modem port.</p>
 </div>
@@ -2551,9 +2644,13 @@ Try connecting to the BBS using whatever method you are using, and watch the RX 
 <p>If it doesn&#8217;t work use a different 1200 baud <code>+.modem</code> file until you find one that works.
 Hope this helps.</p>
 </div>
+</blockquote>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="truetelnet-bridge-hardware"><a class="anchor" href="#truetelnet-bridge-hardware"></a><em>Telnet bridge hardware</em></h3>
+<h3 id="truetelnet-bridge-hardware"><a class="anchor" href="#truetelnet-bridge-hardware"></a>Telnet bridge hardware</h3>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
@@ -2578,7 +2675,7 @@ This is locked at 14.4 kBPS instead of how the original <code>+.modem</code> fil
 <div class="ulist">
 <ul>
 <li>
-<p>sends ATA immediately upon answer</p>
+<p>sends <code>ATA</code> immediately upon answer</p>
 </li>
 </ul>
 </div>
@@ -2595,8 +2692,12 @@ This is locked at 14.4 kBPS instead of how the original <code>+.modem</code> fil
 <div class="paragraph">
 <p>X-TEC mentions:</p>
 </div>
+<div class="quoteblock">
+<blockquote>
 <div class="paragraph">
 <p>Tell the seller it&#8217;s for hooking up to an Image BBS. This makes sure all the control lines are wired correctly.</p>
+</div>
+</blockquote>
 </div>
 </div>
 <div class="sect2">
@@ -2614,16 +2715,18 @@ This is locked at 14.4 kBPS instead of how the original <code>+.modem</code> fil
 <p>You are now ready to boot up your new Image BBS and make your first &#8220;call!&#8221;
 Most likely you will want to explore and/or continue its configuration, using included tools to:</p>
 </div>
-<table class="tableblock frame-all grid-all stretch">
+<table class="tableblock frame-all grid-all fit-content">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col>
+<col>
 </colgroup>
-<tbody>
+<thead>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Activity</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Section</p></td>
+<th class="tableblock halign-left valign-top">Activity</th>
+<th class="tableblock halign-left valign-top">Section</th>
 </tr>
+</thead>
+<tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Log in locally</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
@@ -2650,13 +2753,16 @@ Most likely you will want to explore and/or continue its configuration, using in
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">View Feedback messages</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#anchor-292">63</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#anchor-292">VF</a></p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
 <p>If necessary, insert your boot disk into the proper device.
 (We assume device #8 here.)</p>
+</div>
+<div class="paragraph">
+<p>[:filename:]</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
 <colgroup>
@@ -2706,7 +2812,7 @@ Most likely you will want to explore and/or continue its configuration, using in
 After you see the title screen, the program does a bit of work, loading various files:</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 9. Startup files</caption>
+<caption class="title">Table 11. Startup files</caption>
 <colgroup>
 <col>
 <col>
@@ -2801,7 +2907,7 @@ If no keys are pressed for about ten seconds after the idle screen shows, the sc
 </td>
 <td class="content">
 You may disable the screen blanking.
-Refer to "<a href="#anchor-304">The Lightbar</a>," for more information.
+Refer to <a href="#the-lightbar">The Lightbar</a> for more information.
 </td>
 </tr>
 </table>
@@ -2991,7 +3097,7 @@ The window to the right shows the number of accounts currently used in the user 
 <p>The functions are as follows:</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 10. Idle screen keys</caption>
+<caption class="title">Table 12. Idle screen keys</caption>
 <colgroup>
 <col>
 <col>
@@ -3008,120 +3114,130 @@ The window to the right shows the number of accounts currently used in the user 
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>1</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Set the time and date</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#set-time-and-date">Set Time and Date</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#idle-set-time-and-date">1 Set Time and Date</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>2</kbd></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Board Activity Register</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Board Activity Register</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">B.A.R. screen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#idle-bar">2 Board Activity Register</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>3</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">System disk blocks free</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#idle-blocks-free">3 Blocks free</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>4</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Large clock</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#idle-large-clock">4 Large Clock</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>5</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Update memory</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#idle-update-memory">5 Update Memory</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>6</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Reset modem</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#idle-reset-modem">6 Reset Modem</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>7</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Reserve BBS</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#idle-reserve-bbs">7 Reserve BBS</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>8</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">View today&#8217;s BBS log</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#idle-view-log">8 Daily Log</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>←</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Load IMAGE terminal</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#image-terminal">[image-terminal]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#idle-image-terminal">Image Terminal</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>+</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Turn modem speaker on</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#idle-modem-speaker-on">Turn Modem Speaker On</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>-</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Turn modem speaker off</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#idle-modem-speaker-off">Turn Modem Speaker Off</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="keyseq"><kbd>Shift</kbd>+<kbd>A</kbd></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Start nightly AutoMaintenance</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&#8220;<a href="#anchor-317">Nightly
-AutoMaint</a>,&#8221; page <a href="#anchor-317">73</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#idle-nightly-automaint">Start Nightly AutoMaintenance</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="keyseq"><kbd>Shift</kbd>+<kbd>N</kbd></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Start nightly NetMail processing</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#idle-nightly-netmail">Start Nightly NetMail processing</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="keyseq"><kbd>Shift</kbd>+<kbd>T</kbd></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Invert carrier detect</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#idle-invert-cd">Invert Carrier Detect</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>Space</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Redisplay current screen</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#idle-redisplay-screen">Redisplay Current Screen</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>£</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Manual answer</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#idle-manual-answer">Manual Answer</a></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="set-time-and-date"><a class="anchor" href="#set-time-and-date"></a>Set Time and Date</h4>
+<h4 id="idle-set-time-and-date"><a class="anchor" href="#idle-set-time-and-date"></a>1 Set Time and Date</h4>
 <div class="paragraph">
 <p>Allows you to set or reset the date and time as outlined above.</p>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="trueboard-activity-register"><a class="anchor" href="#trueboard-activity-register"></a>Board Activity Register</h3>
-<div class="paragraph">
-<p>The Board Activity Register (or BAR) screen displays
-current data for the BBS in four columns, which cover</p>
-</div>
-<div class="paragraph">
-<p><mark>FIXME</mark> missing table</p>
-</div>
-<div class="paragraph">
-<p>The rows on the screen report for each column category:</p>
-</div>
-<div class="paragraph">
-<p>(The first column shows the idle time between the two previous calls.)</p>
-</div>
 <div class="sect3">
-<h4 id="truegarbage-collect"><a class="anchor" href="#truegarbage-collect"></a>Garbage Collect</h4>
+<h4 id="idle-bar"><a class="anchor" href="#idle-bar"></a>2 Board Activity Register</h4>
 <div class="paragraph">
-<p>A garbage collect is forced, displaying the true amount of memory free in the <code>M=</code> display, at the bottom left corner of the screen.</p>
+<p>The Board Activity Register (or BAR) screen displays current data for the BBS in four columns, which cover the last call, total since the log was restarted, current total, and system grand total.</p>
+</div>
+<div class="paragraph">
+<p>The rows on the screen report how many feedback messages, sysop mail, user mail, posts, responses to posts, uploads, downloads, new users, calls, time used and time idle in minutes for each category.
+(The first column will show the idle time between the two previous calls.)</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="bbs-reservation"><a class="anchor" href="#bbs-reservation"></a>System Reservation</h4>
+<h4 id="idle-blocks-free"><a class="anchor" href="#idle-blocks-free"></a>3 Blocks free</h4>
 <div class="paragraph">
-<p>The BBS can be reserved (the user signing on must know the reservation
-password to access the BBS) for:</p>
+<p>The blocks free screen shows the blocks free on all six Image system disks.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="idle-large-clock"><a class="anchor" href="#idle-large-clock"></a>4 Large Clock</h4>
+<div class="paragraph">
+<p>The clock screen shows the current time in a large display.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="idle-update-memory"><a class="anchor" href="#idle-update-memory"></a>5 Update Memory</h4>
+<div class="paragraph">
+<p>A garbage collect is forced, which frees unused strings and displays the true amount of free memory in the <code>M=</code> display at the bottom left corner of the screen.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="idle-reset-modem"><a class="anchor" href="#idle-reset-modem"></a>6 Reset Modem</h4>
+<div class="paragraph">
+<p>Send a sequence of commands to the modem to reset it to Image BBS&#8217;s requirements.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="idle-reserve-bbs"><a class="anchor" href="#idle-reserve-bbs"></a>7 Reserve BBS</h4>
+<div class="paragraph">
+<p>The BBS can be reserved (the user signing on must know the reservation password as well as their own account password to access the BBS) for:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -3129,10 +3245,10 @@ password to access the BBS) for:</p>
 <p><kbd>O</kbd>ne call: Reserves the BBS for the next call only</p>
 </li>
 <li>
-<p><kbd>N</kbd>o calls: Clears the reservation</p>
+<p><kbd>A</kbd>ll calls: All users are prompted for a password to sign on to the BBS</p>
 </li>
 <li>
-<p><kbd>A</kbd>ll calls: All users are prompted for a password to sign on to the BBS</p>
+<p><kbd>N</kbd>o calls: Clears the reservation</p>
 </li>
 </ul>
 </div>
@@ -3154,27 +3270,83 @@ This is different than <code>RES</code>erved accounts (refer to <mark>REServed A
 </div>
 </div>
 <div class="sect3">
-<h4 id="truedaily-log"><a class="anchor" href="#truedaily-log"></a>Daily Log</h4>
+<h4 id="idle-view-log"><a class="anchor" href="#idle-view-log"></a>8 Daily Log</h4>
 <div class="paragraph">
-<p>View the daily caller activity log.  This lists:</p>
+<p>View the daily caller activity log.
+This lists:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The date and time the log was restarted</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p><mark>FIXME</mark></p>
+<p><mark>FIXME</mark> add information that is in log</p>
+</div>
+<div class="paragraph">
+<p>Refer to <kbd>LG</kbd> section for more information.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="trueimage-terminal"><a class="anchor" href="#trueimage-terminal"></a>Image Terminal</h4>
+<h4 id="idle-image-terminal"><a class="anchor" href="#idle-image-terminal"></a>Image Terminal</h4>
 <div class="paragraph">
-<p>IMAGE Term allows you to call other systems without taking your BBS down.
+<p>Image Terminal allows you to call other systems without taking your BBS down.
 (Refer to <a href="12b-image-terminal.html">The Image Terminal</a>.)</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="truethe-lightbar"><a class="anchor" href="#truethe-lightbar"></a>The Lightbar</h4>
+<h4 id="idle-modem-speaker-on"><a class="anchor" href="#idle-modem-speaker-on"></a>Turn Modem Speaker On</h4>
+<div class="paragraph">
+<p><kbd>+</kbd> turns the modem speaker on (for compatible modems).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="idle-modem-speaker-off"><a class="anchor" href="#idle-modem-speaker-off"></a>Turn Modem Speaker Off</h4>
+<div class="paragraph">
+<p><kbd>-</kbd> turns the modem speaker off (for compatible modems).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="idle-nightly-automaint"><a class="anchor" href="#idle-nightly-automaint"></a>Start Nightly AutoMaintenance</h4>
+
+</div>
+<div class="sect3">
+<h4 id="idle-nightly-netmail"><a class="anchor" href="#idle-nightly-netmail"></a>Start Nightly NetMail processing</h4>
+
+</div>
+<div class="sect3">
+<h4 id="idle-invert-cd"><a class="anchor" href="#idle-invert-cd"></a>Invert Carrier Detect</h4>
+<div class="paragraph">
+<p>Some modems use a &#8220;regular&#8221; Carrier Detect signal (when a call is connected, CD is high).
+Other modems reverse this logic: when a call is connected, CD is low.
+Depending on your modem, you may need to use this option to toggle between normal and inverted CD signals.</p>
+</div>
+<div class="paragraph">
+<p>The carrier checkmark in the lower <mark>FIXME</mark> corner reflects the current carrier detect state: a checkmark indicates active CD, whether that&#8217;s considered high or low.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="idle-redisplay-screen"><a class="anchor" href="#idle-redisplay-screen"></a>Redisplay Current Screen</h4>
+<div class="paragraph">
+<p>Pressing the spacebar will redisplay the current screen
+display (if the screen blanked due to inactivity, for example).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="idle-manual-answer"><a class="anchor" href="#idle-manual-answer"></a>Manual Answer</h4>
+<div class="paragraph">
+<p><kbd>£</kbd> manually answers an incoming call by sending <code>ATA</code> to the modem.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="the-lightbar"><a class="anchor" href="#the-lightbar"></a>The Lightbar</h4>
 <div class="paragraph">
 <p>The fifth screen line is referred to as the &#8220;lightbar.&#8221;
 This line monitors and changes many features of the BBS.
-All are toggled by the sysop at the console.</p>
+A lot of these options can be toggled by the sysop at the console.
+Others reflect options which have been chosen by the user.</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -3185,7 +3357,7 @@ All are toggled by the sysop at the console.</p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Also, a utility program (<code>+.lb move</code>, discussed in <a href="#miscellaneous-plus-files">[miscellaneous-plus-files]</a>; this is handy for remote maintenance when you can&#8217;t be at the console.
+A utility program (<code>+.lb move</code>, discussed in <a href="#miscellaneous-plus-files">[miscellaneous-plus-files]</a>) is handy for remotely moving the lightbar highlight position when you can&#8217;t be at the console.
 </td>
 </tr>
 </table>
@@ -3205,26 +3377,28 @@ Also, a utility program (<code>+.lb move</code>, discussed in <a href="#miscella
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>f1</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">toggle the screen mask on and off</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>f2</kbd> and <kbd>f4</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">switch to the opposite lightbar page</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>f3</kbd></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">moves the white highlighted portion to the left (switching to the
-opposite page if you move it &#8220;off the edge&#8221;)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">move the white highlighted portion to the left (switching to the opposite page if you move it &#8220;off the edge&#8221;)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>f5</kbd></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">moves the white highlighted portion to the right</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">move the white highlighted portion to the right (switching to the opposite page if you move it &#8220;off the edge&#8221;)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>f7</kbd></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">places a check mark to the left of the option highlighted
-in white</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">place a check mark to the left of the option highlighted in white</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>f8</kbd></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">places a check mark to the right of the option highlighted in white</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">place a check mark to the right of the option highlighted in white</p></td>
 </tr>
 </tbody>
 </table>
@@ -3244,7 +3418,7 @@ in white</p></td>
 The following descriptions assume each check mark described is selected.</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 11. Lightbar, page 1</caption>
+<caption class="title">Table 13. Lightbar, page 1</caption>
 <colgroup>
 <col>
 <col>
@@ -3262,7 +3436,8 @@ The following descriptions assume each check mark described is selected.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Sys</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The sysop is available for chat, and will hear three sirens when <kbd>C</kbd> is typed at any major prompt by the user.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Turns on a tracing feature that shows, in the left half of the &#8220;Receive&#8221; window, the BASIC line number currently executing.
-Execution can be slowed down with the <kbd>Shift</kbd> or <kbd>Shift-Lock</kbd> keys to read line numbers more easily.</p>
+(There is also a reverse video character representation of the <em>token</em>, or statement that BASIC is interpreting.)</p>
+<p class="tableblock">Execution can be slowed down with the <kbd>Shift</kbd> or <kbd>Shift-Lock</kbd> keys to read line numbers more easily.</p>
 <p class="tableblock">This is only a debugging tool, normally left off.</p></td>
 </tr>
 <tr>
@@ -3338,7 +3513,7 @@ They are told that they do not have access to that area at this time.</p></td>
 </div>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 12. Lightbar, page 2</caption>
+<caption class="title">Table 14. Lightbar, page 2</caption>
 <colgroup>
 <col>
 <col>
@@ -3412,7 +3587,7 @@ Refer to <a href="#message-command-interpreter">[message-command-interpreter]</a
 operating information in this order:</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 13. Bottom two screen line display</caption>
+<caption class="title">Table 15. Bottom two screen line display</caption>
 <colgroup>
 <col>
 <col>
@@ -3775,7 +3950,7 @@ infinite number)</p>
 <p>Then it will check for:</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 14. Table 1: Login activities</caption>
+<caption class="title">Table 16. Table 1: Login activities</caption>
 <colgroup>
 <col>
 <col>
@@ -3867,7 +4042,7 @@ an offline C/G screen editor such as <em>Kaleidoscope</em>, <em>Digital Paint</e
 <p>Here is a summary of the files discussed in this section. Remember, the suffix <code>x</code> stands for the digits 0 or 1, for ASCII or Commodore Color/Graphics files, respectively.</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 15. Miscellaneous editable files</caption>
+<caption class="title">Table 17. Miscellaneous editable files</caption>
 <colgroup>
 <col>
 <col>
@@ -3930,8 +4105,8 @@ an offline C/G screen editor such as <em>Kaleidoscope</em>, <em>Digital Paint</e
 </tbody>
 </table>
 <div class="paragraph">
-<p>To create or edit these files, use the WF option (Refer to <a href="#the-wf-editor">[the-wf-editor]</a>) at the main command level.
-You can also use the .Put and .Get options (refer to <a href="#sysop-dot-commands">[sysop-dot-commands]</a>) in the editor.
+<p>To create or edit these files, use the <kbd>WF</kbd> command at the main command level (refer to <a href="#the-wf-editor">[the-wf-editor]</a>) .
+You can also use the <kbd>.P</kbd>ut and <kbd>.G</kbd>et options (refer to <a href="#sysop-dot-commands">[sysop-dot-commands]</a>) in the editor.
 (Refer to <a href="#the-image-text-editor">[the-image-text-editor]</a> for more information.)</p>
 </div>
 <div class="exampleblock">
@@ -3951,11 +4126,8 @@ The next two sections don&#8217;t need to be done if you have already configured
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="truebulletin-boards-and-libraries"><a class="anchor" href="#truebulletin-boards-and-libraries"></a>Bulletin Boards and Libraries:</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="truesub-boards-and-libraries"><a class="anchor" href="#truesub-boards-and-libraries"></a>Sub-Boards and Libraries</h3>
 <div class="paragraph">
 <p>After editing these files, you will want to set up your sub-boards and U/D libraries if they have not yet been configured.
 You can create up to 30 sub-boards, 30 U/D libraries, and 30 U/X libraries.
@@ -3967,10 +4139,14 @@ To do this and to change them at any time after, you can run the <code>+.reledit
 <div class="paragraph">
 <p><code>+.<strong>reledit</strong></code> <kbd>Return</kbd>.</p>
 </div>
+<div class="paragraph">
+<p>(Refer to The RELedit System for more information.)</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="trueaccess-groups"><a class="anchor" href="#trueaccess-groups"></a>Access Groups</h2>
+<h2 id="trueaccess-groups-2"><a class="anchor" href="#trueaccess-groups-2"></a>Access Groups</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>You can define or change your access groups on-line if they have not been previously defined.</p>
@@ -4041,7 +4217,7 @@ These commands are discussed in the &#8220;Maintenance&#8221; chapter.</p>
 </div>
 <div class="paragraph">
 <p>For example, you have just finished viewing a directory listing of files in the U/D subsystem, and wish to go to the Voting Booth.
-You type <em>VB</em> at the U/D subsystem prompt listing directory information, and when you type <kbd>Q</kbd> to quit the Voting Booth, you will be returned to the U/D subsystem.</p>
+You type <kbd>VB</kbd> at the U/D subsystem prompt listing directory information, and when you type <kbd>Q</kbd> to quit the Voting Booth, you will be returned to the U/D subsystem.</p>
 </div>
 <div class="paragraph">
 <p>Most general commands consist of two letters, sometimes followed by an argument (parameter) of one or more numbers.</p>
@@ -4050,15 +4226,15 @@ You type <em>VB</em> at the U/D subsystem prompt listing directory information, 
 <p>Examples:</p>
 </div>
 <div class="paragraph">
-<p>SB Enter the message bases.
+<p><code>SB</code> Enter the message bases.
 The BBS prompts the user which Special Interest Group or message area they would like to enter, depending on what places they have access to.</p>
 </div>
 <div class="paragraph">
-<p>SB1 Enter the message bases, but immediately go to the first Special Interest Group they have access to.
+<p><code>SB1</code> Enter the message bases, but immediately go to the first Special Interest Group they have access to.
 They are prompted for the message base to enter after that.</p>
 </div>
 <div class="paragraph">
-<p>SB1,2 Enter the message bases, go to the first Special Interest Group, and the second message base in that SIG with no further prompting.</p>
+<p><code>SB1,2</code> Enter the message bases, go to the first Special Interest Group, and the second message base in that SIG with no further prompting.</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -4075,7 +4251,7 @@ Here are the descriptions of the general commands and how to use them.</p>
 <div class="sect2">
 <h3 id="truechat-requestchat-mode"><a class="anchor" href="#truechat-requestchat-mode"></a>Chat Request/Chat Mode</h3>
 <div class="paragraph">
-<p><code>C</code> requests a chat with the sysop.
+<p><kbd>C</kbd> requests a chat with the sysop.
 A short (38 character) reason for chat is requested; the first 16 characters of that is displayed at the programmable window at the bottom of the screen.
 This reason is also recorded in the call log on disk and printer (if used).</p>
 </div>
@@ -4095,7 +4271,7 @@ If the user requests chat more than once without you answering the first chat re
 <h3 id="truefeedback"><a class="anchor" href="#truefeedback"></a>Feedback</h3>
 <div class="paragraph">
 <p>Feedback is &#8220;mail&#8221; left on the BBS to the sysop(s), that any user with local or remote maintenance access may read.
-It is left to the sysop(s) by entering <code>F</code> at most prompts, or when logging off.
+It is left to the sysop(s) by entering <kbd>F</kbd> at most prompts, or when logging off.
 The user is placed into the editor to write their message.</p>
 </div>
 <div class="paragraph">
@@ -4103,16 +4279,16 @@ The user is placed into the editor to write their message.</p>
 If they try to leave more, they are informed they have left their limit of feedback for that call.</p>
 </div>
 <div class="paragraph">
-<p>Feedback, along with new user information and error messages, are read by the sysop by typing <code>VF</code> at the main command prompt.
-(Refer to <a href="#the-vf-system">[the-vf-system]</a> for more details.)</p>
+<p>Feedback, along with new user information and error messages, are read by the sysop by typing <kbd>VF</kbd> at the main command prompt.
+(Refer to <a href="#the-vf-system">[the-vf-system]</a>.)</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="truehelp"><a class="anchor" href="#truehelp"></a>Help</h3>
 <div class="paragraph">
-<p><code>?</code> reads a menu of commands available at whichever command level the user happens to be.
-Depending on how much information is in the menu, a &#8220;More?&#8221; prompt for additional command information may appear (although this is put in the menu file itself, and is not always necessary, depending on the file&#8217;s length).
-At this prompt, Y (meaning yes) continues, most others mean no and stop reading the file.</p>
+<p><kbd>?</kbd> reads a menu of commands available at whichever command level the user happens to be.
+Depending on how much information is in the menu, a <code>More?</code> prompt for additional command information may appear (although this is put in the menu file itself, and is not always necessary, depending on the file&#8217;s length).
+At this prompt, <kbd>Y</kbd> (meaning <code>Yes</code>) continues; most other keys mean <code>No</code> and stop reading the file.</p>
 </div>
 <div class="paragraph">
 <p>If the user is not at the main prompt, the main menu is then read.</p>
@@ -4121,51 +4297,60 @@ At this prompt, Y (meaning yes) continues, most others mean no and stop reading 
 <div class="sect2">
 <h3 id="truebbs-information-2"><a class="anchor" href="#truebbs-information-2"></a>BBS Information</h3>
 <div class="paragraph">
-<p><code>CF</code> shows the file <code>s.config</code>.
+<p><kbd>CF</kbd> shows the file <code>s.config</code>.
 This file should contain general information about your BBS, perhaps the hardware and software it runs on, its hours (if not 24 hours a day) and anything else interesting about it.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="truechangeview-last-call-datetime"><a class="anchor" href="#truechangeview-last-call-datetime"></a>Change/View Last Call Date/Time</h3>
 <div class="paragraph">
-<p><code>LD</code> The <em>last call date</em> is used to determine which messages on the BBS are new and which are old.
+<p><kbd>LD</kbd> The <em>last call date</em> determines which messages on the BBS are new, and which are old.
 If a user is logged off before they have a chance to see all new messages, they can use this command to move their last call date back the next time they call.</p>
+</div>
+<div class="paragraph">
+<p><kbd>LD</kbd> prompts how many days to add or subtract (<code>1-999</code> in either direction), displays the effective last date, then prompts if they&#8217;d like to change the time.
+Once everything is satisfactory, messages newer than that date are considered new, using <kbd>RN</kbd> (<code>Read New</code>) or <kbd>RA</kbd> (<code>Read All</code>).</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="truelog-off"><a class="anchor" href="#truelog-off"></a>Log Off</h3>
 <div class="paragraph">
-<p><code>O</code> will ask if the user really wants to log off (type <code>Y</code> to do so), asking if they want to leave feedback first.</p>
+<p>There are three separate ways to log off the system:</p>
 </div>
 <div class="paragraph">
-<p><code>O%</code> saves the last call date, in case they did not read all the new messages in the message bases.</p>
+<p><kbd>O</kbd> or <kbd>Q</kbd> will ask if the user really wants to log off (type <kbd>Y</kbd>es to confirm).
+They are asked if they want to leave feedback first.
+(type <kbd>Y</kbd>es to confirm).</p>
 </div>
 <div class="paragraph">
-<p><code>O!</code> logs off more quickly, without prompting for feedback.</p>
+<p><kbd>O%</kbd> saves the last call date, in case they did not read all the new messages in the message bases.</p>
 </div>
 <div class="paragraph">
-<p><code>O%</code> and <code>O!</code> may be combined: <code>O%!</code> logs off more quickly <em>and</em> saves the last call date.</p>
+<p><kbd>O!</kbd> logs off more quickly, without prompting for feedback.</p>
+</div>
+<div class="paragraph">
+<p><kbd>O%</kbd> and <kbd>O!</kbd> may be combined: <kbd>O%!</kbd> logs off more quickly <em>and</em> saves the last call date.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="truequit"><a class="anchor" href="#truequit"></a>Quit</h3>
 <div class="paragraph">
-<p>From most prompts (and in some subsystems, just pressing <code>Return</code>) gets the user to the main prompt.</p>
+<p>From most prompts (and in some subsystems, just pressing <kbd>Return</kbd>) gets the user to the main prompt.</p>
 </div>
 <div class="paragraph">
-<p>If <code>Q</code> is entered at the main prompt, the user is asked whether they wish to log off, as above.</p>
+<p>If <kbd>Q</kbd> is entered at the main prompt, the user is asked whether they wish to log off, as above.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="truetimedate"><a class="anchor" href="#truetimedate"></a>Time/Date</h3>
 <div class="paragraph">
-<p><code>T</code> displays the current time, the time the user logged on, and the amount of time remaining on the BBS this call.</p>
+<p><kbd>T</kbd> displays the current time, the time the user logged on, and the amount of time remaining on the BBS this call.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="trueedit-terminal-parameters"><a class="anchor" href="#trueedit-terminal-parameters"></a>Edit Terminal Parameters</h3>
 <div class="paragraph">
-<p><code>EP</code> enters a menu which allows a user to change their:</p>
+<p><kbd>EP</kbd> enters a menu which allows a user to change their:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -4193,20 +4378,20 @@ If a user is logged off before they have a chance to see all new messages, they 
 <div class="sect2">
 <h3 id="trueprompt-mode"><a class="anchor" href="#trueprompt-mode"></a>Prompt Mode</h3>
 <div class="paragraph">
-<p><code>PM</code> toggles Prompt Mode on or off.</p>
+<p><kbd>PM</kbd> toggles Prompt Mode on or off.</p>
 </div>
 <div class="paragraph">
-<p>When on, when a user reads new messages in the message base (using <kbd>RN</kbd> or <kbd>RA</kbd> commands), they do not receive the &#8220;end-of-bulletin&#8221; prompt between message threads, or the <code>[P]ost [N]ext [Q]uit</code>	 prompt between sub-boards.
+<p>When on, when a user reads new messages in the message base (using <kbd>RN</kbd> or <kbd>RA</kbd> commands), they do not receive the &#8220;end-of-bulletin&#8221; prompt between message threads, or the <code>[P]ost [N]ext [Q]uit</code> prompt between sub-boards.
 Useful for callers who want to speed-read or buffer messages.</p>
 </div>
 <div class="paragraph">
-<p>It also eliminates the prompt after the <code>A</code> (About this file) command in the U/D subsystem.</p>
+<p>It also eliminates the prompt after the <kbd>A</kbd> (About this file) command in the U/D subsystem.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="truestatus"><a class="anchor" href="#truestatus"></a>Status</h3>
 <div class="paragraph">
-<p><code>ST</code> allows users to see their status on the BBS, including:</p>
+<p><kbd>ST</kbd> allows users to see their status on the BBS, including:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -4244,7 +4429,7 @@ Useful for callers who want to speed-read or buffer messages.</p>
 <p>Total posts and responses</p>
 </li>
 <li>
-<p>User flags (refer to <a href="#user-flags">[user-flags]</a>)</p>
+<p>User flags (refer to xref:12b-03-the-configuration-editor.adoc#user-flags)</p>
 </li>
 </ul>
 </div>
@@ -4384,7 +4569,7 @@ If the following command were entered at the main prompt:</p>
 <div id="footer">
 <div id="footer-text">
 Version 0.1<br>
-Last updated 2021-07-02 12:39:33 -0700
+Last updated 2021-07-05 23:43:28 -0700
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">
