@@ -2,11 +2,21 @@
 
 [Table of Contents mockup](https://pinacolada64.github.io/ImageBBS3-docs.github.io/toc-mockup.html)
 
-[Image BBS Sysop's Guide](https://pinacolada64.github.io/ImageBBS3-docs.github.io/Image-BBS-3.html)
+[Image BBS Sysop's Guide](https://pinacolada64.github.io/ImageBBS3-docs.github.io/Image-BBS-3.html) (last updated 9/3/2021)
 
-* Last updated 9/3/2021: updated supported hardware and text editor sections
+* updated supported hardware and text editor sections
 
-[Image BBS 3.0 Programmer's Reference Guide](https://pinacolada64.github.io/ImageBBS3-docs.github.io/Image-BBS-3-PRG.html)
+[Image BBS 3.0 Programmer's Reference Guide](https://pinacolada64.github.io/ImageBBS3-docs.github.io/Image-BBS-3-PRG.html) (Last updated 5/6/2022)
+
+- syntax highlighting of BASIC source code
+- improve &,1 documentation
+- clarify &,2,2,25
+- clarify &,6
+- add &,7 segment information
+- fix &,9,1 documentation
+- add &,11 array names
+- add &,54 (text editor) call information
+- starting variable listing
 
 [Image BBS 3.0 Message Command Interpreter Guide](https://pinacolada64.github.io/ImageBBS3-docs.github.io/mci.html)
 
