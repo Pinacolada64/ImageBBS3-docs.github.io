@@ -448,8 +448,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <span id="email3" class="email"><a href="mailto:larryhedman@gmail.com">larryhedman@gmail.com</a></span><br>
 <span id="author4" class="author">Al DeRosa</span><br>
 <span id="email4" class="email"><a href="mailto:bucko219@gmail.com">bucko219@gmail.com</a></span><br>
-<span id="revnumber">version 0.1,</span>
-<span id="revdate">2021-06-22</span>
+<span id="revnumber">version 0.2,</span>
+<span id="revdate">2022-05-06</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -596,7 +596,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#true51-outmod"><code>&amp;,51</code> outmod</a></li>
 <li><a href="#true52-lightbar-interface"><code>&amp;,52</code> Lightbar Interface</a></li>
 <li><a href="#true53-logoff"><code>&amp;,53</code> Logoff</a></li>
-<li><a href="#true54-text-editor-interface"><code>&amp;,54</code> Text editor interface</a></li>
+<li><a href="#true54-text-editor-interface"><code>&amp;,54</code> Text Editor Interface</a></li>
 <li><a href="#true55-output"><code>&amp;,55</code> output</a></li>
 <li><a href="#true56-chatmode"><code>&amp;,56</code> chatmode</a></li>
 <li><a href="#true57-relread"><code>&amp;,57</code> relread</a></li>
@@ -637,6 +637,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#truevariables">Variables</a>
 <ul class="sectlevel2">
+<li><a href="#truereadwrite">Read/Write</a></li>
+<li><a href="#truepurpose">Purpose</a></li>
 <li><a href="#trueinteger">Integer</a></li>
 <li><a href="#truefloating-point-2">Floating Point</a></li>
 <li><a href="#truestring">String</a></li>
@@ -1082,17 +1084,17 @@ This section is undergoing discovery of what some routines are for and how they 
 <div class="paragraph">
 <p>In BASIC, the <code>print</code> keyword (or its abbreviation, <code>?</code>) displays text on the screen, as in:</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>print"Hello there!"</pre>
+<pre class="highlightjs highlight"><code data-lang="basic" class="language-basic hljs">print"Hello there!"</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>You can substitute <code>&amp;</code> in Image BBS to do the same thing:</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>&amp;"Hello there!"</pre>
+<pre class="highlightjs highlight"><code data-lang="basic" class="language-basic hljs">&amp;"Hello there!"</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1101,18 +1103,18 @@ This section is undergoing discovery of what some routines are for and how they 
 <div class="paragraph">
 <p>It&#8217;s as if a semicolon (<code>;</code>) was used after the <code>print</code> statement above&#8212;&#8203;this keeps the text all on one line:</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>print"Hello ";"there!";</pre>
+<pre class="highlightjs highlight"><code data-lang="basic" class="language-basic hljs">print"Hello ";"there!";</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>vs. printing on two lines:</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>print"Hello"
-print"there!"</pre>
+<pre class="highlightjs highlight"><code data-lang="basic" class="language-basic hljs">print"Hello"
+print"there!"</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1143,9 +1145,9 @@ A carriage return is the equivalent of a carriage return plus linefeed.</p>
 </div>
 </div>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>&amp;"Hello there!"+chr$(13)</pre>
+<pre class="highlightjs highlight"><code data-lang="basic" class="language-basic hljs">&amp;"Hello there!"+chr$(13)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1158,9 +1160,9 @@ So this snippet of code will output <code>Hello there!</code>, then move the cur
 This is a handy shortcut.
 You can now code:</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>&amp;"Hello there!"+r$</pre>
+<pre class="highlightjs highlight"><code data-lang="basic" class="language-basic hljs">&amp;"Hello there!"+r$</code></pre>
 </div>
 </div>
 <div class="admonitionblock tip">
@@ -1218,8 +1220,17 @@ Therefore, they have been encoded using the reverse video letters seen while typ
 <div class="paragraph">
 <p>The <code>image seq reader</code> utility used in BASIC also does this.</p>
 </div>
-<div class="paragraph">
-<p>A new <code>&amp;</code> command, <code>&amp;,15,2</code>, does the same thing when passed <code>an$</code>, the string to translate.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+A new <code>&amp;</code> command, <code>&amp;,15,2</code>, does the same thing when passed <code>an$</code>, the string to translate.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>As it relates to carriage returns, though, we can see in the following table:</p>
@@ -1303,9 +1314,9 @@ Therefore, they have been encoded using the reverse video letters seen while typ
 <div class="paragraph">
 <p>We can take the previous example of:</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>&amp;"Hello there!"+r$</pre>
+<pre class="highlightjs highlight"><code data-lang="basic" class="language-basic hljs">&amp;"Hello there!"+r$</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1324,16 +1335,25 @@ Therefore, they have been encoded using the reverse video letters seen while typ
 </td>
 <td class="content">
 Because of a quirk in the BASIC interpreter, you must follow a <code>then</code> clause with a colon before using the ampersand.
-In other words:
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p><code>if b then &amp;"hello"</code> (will not work)</p>
+<p>In other words, the following results in a <code>?syntax&nbsp;&nbsp;error</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="basic" class="language-basic hljs">if b then &amp;"hello"</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><code>if b then:&amp;"hello"</code> (must be used instead)</p>
+<p>This must be used instead:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="basic" class="language-basic hljs">if b then:&amp;"hello"</code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -1453,7 +1473,7 @@ It indents the text from the right side.</p>
 <div class="sect3">
 <h4 id="truemci-commands"><a class="anchor" href="#truemci-commands"></a>MCI Commands</h4>
 <div class="paragraph">
-<p>bla</p>
+<p><mark>TODO</mark></p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -1469,11 +1489,13 @@ Outputting a string which itself contains MCI commands or MCI string variables w
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p><code>c$="Hi":c%=3:z$="£$c £#3£#0£%c":&amp;"£$z"</code></p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="basic" class="language-basic hljs">c$="Hi":c%=3:z$="£$c £#3£#0£%c":&amp;"£$z"</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>does not output <code>z$</code> (which outputs <code>c$</code>, <code>£#3</code> sets 3 leading characters, <code>£#0</code> sets the fill character to <code>0</code>, and displays the value of <code>c%</code>).
+<p>does not output <code>z$</code> (<code>£$c</code> outputs <code>c$</code>, <code>£#3</code> sets 3 leading characters, <code>£#0</code> sets the fill character to <code>0</code>, and <code>£%c</code> displays the value of <code>c%</code>).
 It outputs a literal</p>
 </div>
 <div class="literalblock">
@@ -1484,8 +1506,10 @@ It outputs a literal</p>
 <div class="paragraph">
 <p>Instead, do this:</p>
 </div>
-<div class="paragraph">
-<p><code>c$="Hi":c%=3:z$="£$c £#3£# £%c":&amp;z$</code></p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="basic" class="language-basic hljs">c$="Hi":c%=3:z$="£$c £\#3£# £%c":&amp;z$</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>This outputs the expected</p>
@@ -1514,9 +1538,27 @@ It outputs a literal</p>
 <dl>
 <dt class="hdlist1"><code>&amp;str$(h)</code></dt>
 <dd>
-<p>Since <code>&amp;h</code> isn&#8217;t supported to output the value of <code>h</code>, it must be converted to a string with the <code>str$()</code> function.
-<code>&amp;str$(h)</code> worked under Image 1.2; it works here too, but there is a new MCI command in Image 3.0 to output single-letter floating point variables:</p>
+<p>Since <code>&amp;h</code> isn&#8217;t supported to output the value of <code>h</code>, it must be converted to a string with the <code>str$()</code> function.</p>
 </dd>
+</dl>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<code>&amp;str$(h)</code> is still useful if the number of digits output is greater than 5, the limit of the MCI numeric output routine.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><code>&amp;str$(h)</code> worked under Image 1.2; it works here too, but there is a new MCI command in Image 3.0 to output single-letter floating point variables:</p>
+</div>
+<div class="dlist">
+<dl>
 <dt class="hdlist1"><code>&amp;"£!h"</code></dt>
 <dd>
 <p>Output the value of <code>h</code>.</p>
@@ -1533,8 +1575,10 @@ It outputs a literal</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p><code>x=xx:&amp;"Blocks free: £!x"</code></p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="basic" class="language-basic hljs">x=xx:&amp;"Blocks free: £!x"</code></pre>
+</div>
 </div>
 <div class="ulist">
 <ul>
@@ -1588,7 +1632,7 @@ If it is supplied, there needs to be a <code>,</code> and the appropriate parame
 </div>
 <div class="paragraph">
 <div class="title">Example</div>
-<p><code>&amp;,9,<mark>FIXME</mark></code>: display <code>var</code> in the 16-character programmable window</p>
+<p><code>&amp;,9,1</code>: display <code>a$</code> in the 16-character programmable window</p>
 </div>
 <div class="paragraph">
 <p>There are various sections which most commands use.
@@ -1682,7 +1726,7 @@ Bits may be combined together to perform multiple functions.</p>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Bits</th>
+<th class="tableblock halign-left valign-top">Binary</th>
 <th class="tableblock halign-left valign-top">Decimal</th>
 <th class="tableblock halign-left valign-top">Purpose (if set)</th>
 </tr>
@@ -1711,7 +1755,7 @@ Bits may be combined together to perform multiple functions.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>%00010000</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">16</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">enable word wrap</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enable word-wrap</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>%00100000</code></p></td>
@@ -1761,18 +1805,6 @@ Then, the prompt (<code>p$</code>) is displayed again, and one of three choices 
 <div class="paragraph">
 <p><code>password</code>: password flags:</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-These haven&#8217;t been tested, just going by what Ray said
-</td>
-</tr>
-</table>
-</div>
 <table class="tableblock frame-all grid-all fit-content">
 <colgroup>
 <col>
@@ -1791,7 +1823,7 @@ These haven&#8217;t been tested, just going by what Ray said
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>%00000001</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">password mask enabled for output</p>
-<p class="tableblock">[uses character in <code>peek(17138)</code>]</p></td>
+<p class="tableblock">[uses mask character in <code>peek(17138)</code>]</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>%00000010</code></p></td>
@@ -1813,46 +1845,68 @@ These haven&#8217;t been tested, just going by what Ray said
 <p><mark>TODO</mark>: write examples for each option.</p>
 </div>
 <div class="listingblock">
+<div class="title">Example 1:</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">poke 53252,10:p$="Name":&amp;,1 <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+<pre class="highlightjs highlight"><code data-lang="basic" class="language-basic hljs">poke 53252,10:p$="Name":&amp;,1</code></pre>
 </div>
 </div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td><code>poke 53252,10</code>: Set the input length to 10 characters. <code>p$="Name"</code>: Set the prompt to <code>Name:</code>. <code>&amp;,1</code>: Allow user input, and return string in <code>an$</code>.</td>
-</tr>
-</table>
+<div class="paragraph">
+<p><code>poke 53252,10</code>: Set the input length to 10 characters.</p>
+</div>
+<div class="paragraph">
+<p><code>p$="Name"</code>: Set the prompt to <code>Name:</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>&amp;,1</code>: Allow user input, and return string in <code>an$</code>.</p>
 </div>
 <div class="listingblock">
+<div class="title">Example 2:</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">poke 53252,20:w$=na$:p$="Handle":&amp;,1,32:if an$&lt;&gt;"" then na$=an$ <i class="conum" data-value="1"></i><b>(1)</b>
-
-Handle: PINACOLADA
-Handle: _</code></pre>
+<pre class="highlightjs highlight"><code data-lang="basic" class="language-basic hljs">poke 53252,20:w$=na$:p$="Handle":&amp;,1,32:if an$&lt;&gt;"" then na$=an$</code></pre>
 </div>
 </div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td><code>poke 53252,20</code>: Set the input length to 20 characters. <code>w$=na$</code>: Assign the user&#8217;s handle (<code>na$</code>) to <code>w$</code> (the prompt&#8217;s default). <code>p$="Handle"</code>: Set the prompt to <code>Handle:</code>. <code>&amp;,1,32</code>: Setting bit 5 (a value of 32) enables edit mode. The string typed in response to a prompt is returned in <code>an$</code>. <code>if an$&lt;&gt;"" then na$=an$</code>: Just typing <kbd>Return</kbd> (to accept the default, <code>w$</code>) sets <code>an$</code> to a null string. If something else was typed (<code>an$&lt;&gt;""</code>), assign <code>na$</code> to what was typed (<code>an$</code>).</td>
-</tr>
-</table>
+<div class="paragraph">
+<p><code>poke 53252,20</code>: Set the input length to 20 characters.</p>
+</div>
+<div class="paragraph">
+<p><code>w$=na$</code>: Assign the user&#8217;s handle (<code>na$</code>) to <code>w$</code> (the prompt&#8217;s default).</p>
+</div>
+<div class="paragraph">
+<p><code>p$="Handle"</code>: Set the prompt to <code>Handle:</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>&amp;,1,32</code>: Setting bit 5 (a value of 32) enables edit mode.
+This displays the prompt, the original text (<code>w$</code>), and re-displays the prompt.
+Editing control keys can be used to change the input.
+Editing mode looks like this:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Handle: PINACOLADA
+Handle: _</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The string typed in response to a prompt is returned in <code>an$</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>if an$&lt;&gt;"" then na$=an$</code>: Just typing <kbd>Return</kbd> (to accept the default, <code>w$</code>) sets <code>an$</code> to a null string.
+If something else was typed (<code>an$&lt;&gt;""</code>), assign <code>na$</code> to what was typed (<code>an$</code>).</p>
 </div>
 <div class="listingblock">
+<div class="title">Example 3:</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">poke 53252,30:p$="New Prompt":&amp;,1,9:if an$&lt;&gt;"" then po$=an$ <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+<pre class="highlightjs highlight"><code data-lang="basic" class="language-basic hljs">poke 53252,30:p$="New Prompt":&amp;,1,9:if an$&lt;&gt;"" then po$=an$</code></pre>
 </div>
 </div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td><code>poke 53252,30</code>: Set the input length to 30 characters. <code>p$="New Prompt"</code>: Set the prompt to <code>New Prompt:</code>. <code>&amp;,1,9</code>: Setting bits 3 and 0 (a value of 8 + 1) allow MCI and graphics characters to be entered.</td>
-</tr>
-</table>
+<div class="paragraph">
+<p><code>poke 53252,30</code>: Set the input length to 30 characters.</p>
+</div>
+<div class="paragraph">
+<p><code>p$="New Prompt"</code>: Set the prompt to <code>New Prompt:</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>&amp;,1,9</code>: Setting bits 3 and 0 (a value of 8 + 1) allow MCI and graphics characters to be entered.</p>
 </div>
 <hr>
 </div>
@@ -1960,7 +2014,7 @@ The data is returned in <code>a$</code>.
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td><code>&amp;,2,2,<strong>25</strong></code>: using logical file #2, get a line of data from the disk&#8212;&#8203;but stop at <strong>25</strong> characters, ignoring a carriage return.
+<td><code>&amp;,2,2,<strong>25</strong></code>: using logical file #2, get a line of data from the disk&#8212;&#8203;but stop at <strong>25</strong> characters, instead of getting the entire line.
 The data is returned in <code>a$</code>.
 <code>&amp;</code>: output <code>a$</code>.</td>
 </tr>
@@ -2003,7 +2057,7 @@ An optional <em>speed</em> parameter can be specified for reading movie files, w
 <p><code>lfn</code>: logical file number</p>
 </div>
 <div class="paragraph">
-<p><code>speed</code>: speed (<code>1</code>-<code>20</code> for movie file read. <code>1</code>=faster, <code>20</code>=slower)</p>
+<p><code>,speed</code>: speed (<code>1</code>-<code>20</code> for movie file read. <code>1</code>=faster, <code>20</code>=slower)</p>
 </div>
 <hr>
 </div>
@@ -2044,26 +2098,41 @@ If no character is received from the modem, <code>peek(780)=0</code>.</p>
 <div class="sect2">
 <h3 id="true6-password-input"><a class="anchor" href="#true6-password-input"></a><code>&amp;,6</code> Password Input</h3>
 <div class="paragraph">
-<p>Sets input length to 14, and uses an input mask.
-The mask character is displayed, rather than the real character typed.</p>
+<p>Sets the input length to 14, and displays a definable mask character rather than the actual characters typed.
+The text typed is returned in plain (non-masked) text.</p>
 </div>
 <div class="paragraph">
 <p><em>Parameters:</em></p>
 </div>
 <div class="paragraph">
-<p><code>poke 17138,<em>mask</em></code>: display this character instead of the user&#8217;s input</p>
+<p><code>poke 17138,<em>mask</em></code>: display <em>mask</em> character instead of the user&#8217;s input</p>
 </div>
 <div class="paragraph">
-<p><em>Example:</em></p>
-</div>
-<div class="paragraph">
-<p><code>&amp;,6</code>: Allow password entry, displaying the mask character set by the <code>poke</code> above.</p>
+<p>You could do <code>poke 17138,asc("X")</code> to set the mask character to <code>X</code>.</p>
 </div>
 <div class="paragraph">
 <p><em>Returns:</em></p>
 </div>
 <div class="paragraph">
 <p><code>an$</code>: password in plain text</p>
+</div>
+<div class="paragraph">
+<p><em>Example:</em></p>
+</div>
+<div class="listingblock">
+<div class="title">im</div>
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="basic" class="language-basic hljs">263 &amp;"Password: ":&amp;,6:if an$&lt;&gt;ep$ then:&amp;"Incorrect Password."</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>&amp;"Password: "</code>: Display the prompt <code>Password: </code>.</p>
+</div>
+<div class="paragraph">
+<p><code>&amp;,6</code>: Allow password entry, displaying the mask character instead of the text actually typed.</p>
+</div>
+<div class="paragraph">
+<p><code>if an$&lt;&gt;ep$ then:&amp;"Incorrect Password."</code>: if <code>an$</code> (the entered text) is not equal to (<code>&lt;&gt;</code>) <code>ep$</code> (a password set on an Extended Command Set command), display the message.</p>
 </div>
 <hr>
 </div>
@@ -2084,7 +2153,100 @@ The mask character is displayed, rather than the real character typed.</p>
 <div class="paragraph">
 <p><code>&amp;,7,<em>device</em>[,<em>segment</em>]</code></p>
 </div>
-<hr>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">Segments</div>
+<p>Segments are pre-defined addresses that a module will load to, regardless of the file&#8217;s first two bytes which define its load address.</p>
+</div>
+<div class="paragraph">
+<p>Not all segments are currently defined.</p>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top">Segment</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Protocols or blocks of ML</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Print mode table</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lightbar text</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alarm table</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ASCII-to-Commodore translation table</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Commodore-to-ASCII translation table</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Print mode table</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">im:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="basic" class="language-basic hljs">29 ml$="++ "+a$:a$=dr$+ml$:&amp;,7,dv%,2:goto 5</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This line loads an ML protocol (<code>++</code> file).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="basic" class="language-basic hljs">ml$="++ "+a$</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Assign <code>ml$</code> the <code>++ </code> prefix for error reporting purposes.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="basic" class="language-basic hljs">a$=dr$+ml$</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Concatenate <code>dr$</code> (the current drive prefix) and <code>ml$</code> (discussed above) into <code>a$</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="basic" class="language-basic hljs">&amp;,7,dv%,2</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Do a module load using device <code>dv%</code> into segment 2 (the protocol address, <code>49152</code> or <code>$c000</code>).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="basic" class="language-basic hljs">goto 5</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Check for a DOS error.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="true8-disk-directory"><a class="anchor" href="#true8-disk-directory"></a><code>&amp;,8</code> Disk Directory</h3>
@@ -2277,6 +2439,69 @@ The mask character is displayed, rather than the real character typed.</p>
 <div class="paragraph">
 <p>Clear array #<em>x</em>.</p>
 </div>
+<table class="tableblock frame-all grid-all fit-content">
+<caption class="title">Table 2. Array Numbers</caption>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top">Number</th>
+<th class="tableblock halign-left valign-top">Array</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tt$()</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>bb$()</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dt$()</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ed$()</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>nn$()</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a$()</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>c$()</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>d$()</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>e$()</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>f$()</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ac%()</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>so%()</code></p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p><em>Example:</em></p>
 </div>
@@ -2337,22 +2562,6 @@ This is currently being researched.
 </dd>
 </dl>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-See <a href="#array-table">[array-table]</a> for the arrays which correspond to <em>array</em>.
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
 <hr>
 </div>
 <div class="sect2">
@@ -2404,7 +2613,7 @@ Extra spaces between the numbers have been added for ease of reading, but are no
 </div>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 2. Image BBS Date Format</caption>
+<caption class="title">Table 3. Image BBS Date Format</caption>
 <colgroup>
 <col>
 <col>
@@ -2414,7 +2623,7 @@ Extra spaces between the numbers have been added for ease of reading, but are no
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Position</th>
-<th class="tableblock halign-left valign-top">Shortcut</th>
+<th class="tableblock halign-center valign-top">Abbreviation</th>
 <th class="tableblock halign-left valign-top">Purpose</th>
 <th class="tableblock halign-left valign-top">Range</th>
 </tr>
@@ -2422,38 +2631,38 @@ Extra spaces between the numbers have been added for ease of reading, but are no
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>&nbsp;w</strong></code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code><strong>&nbsp;w</strong></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">weekday</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>1</code>=Sun&#8230;&#8203;<code>7</code>=Sat</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2-3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>yr</strong></code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code><strong>yr</strong></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">year</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>00</code>&#8230;&#8203;<code>99</code> (the year within the century, <code>20xx</code>, is displayed using <code>&amp;,15</code>)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">4-5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>mo</strong></code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code><strong>mo</strong></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">month</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>01</code>&#8230;&#8203;<code>12</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">6-7</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>dt</strong></code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code><strong>dt</strong></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">date</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>01</code>&#8230;&#8203;<code>31</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">8-9</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>hr</strong></code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code><strong>hr</strong></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">hour</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>00</code>&#8230;&#8203;<code>11</code> (12:00 AM, midnight&#8212;&#8203;11:00 AM, 1 hour until noon)</p>
 <p class="tableblock"><code>80</code>&#8230;&#8203;<code>92</code> (12:00 PM, noon&#8212;&#8203;11:00 PM, 1 hour until midnight)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">10-11</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>mi</strong></code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code><strong>mi</strong></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">minute</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>00</code>&#8230;&#8203;<code>59</code></p></td>
 </tr>
@@ -2472,7 +2681,7 @@ Here is a sample definition of <code>d1$</code>:</p>
 <p>Let&#8217;s break down how the string is encoded.</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 3. Image BBS Date Decoding</caption>
+<caption class="title">Table 4. Image BBS Date Decoding</caption>
 <colgroup>
 <col>
 <col>
@@ -2482,7 +2691,7 @@ Here is a sample definition of <code>d1$</code>:</p>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Position</th>
-<th class="tableblock halign-left valign-top">Value</th>
+<th class="tableblock halign-center valign-top">Value</th>
 <th class="tableblock halign-left valign-top">Purpose</th>
 <th class="tableblock halign-left valign-top">Meaning</th>
 </tr>
@@ -2490,37 +2699,37 @@ Here is a sample definition of <code>d1$</code>:</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&nbsp;2</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>&nbsp;2</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">weekday</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Mon</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2-3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>21</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>21</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">year</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>2021</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">4-5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>05</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>05</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">month</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>May</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">6-7</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>17</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>17</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">date</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>17</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">8-9</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>89</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>89</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">hour</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&nbsp;9:00 PM</code> (<code>9</code>=hour, plus <code>80</code>=PM)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">10-11</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>44</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>44</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">minute</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>44</code></p></td>
 </tr>
@@ -2866,7 +3075,7 @@ While the functionality is there, it is limited, but can be expanded in the futu
 <p><code>command</code>: [<code>0</code>=put in <code>a%</code> | <code>1</code>=return in accumulator, <code>peek(780)</code>]</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 4. Interface Table Addresses <a id="interface-table-addresses"></a></caption>
+<caption class="title">Table 5. Interface Table Addresses <a id="interface-table-addresses"></a></caption>
 <colgroup>
 <col>
 <col>
@@ -3798,13 +4007,58 @@ This following routine is used by Image BBS machine language itself; there is li
 <hr>
 </div>
 <div class="sect2">
-<h3 id="true54-text-editor-interface"><a class="anchor" href="#true54-text-editor-interface"></a><code>&amp;,54</code> Text editor interface</h3>
-<div class="literalblock">
-<div class="content">
-<pre>&amp;,54,0	don't preserve text in tt$() array
-&amp;,54,1	re-enter main
-&amp;,54,2	re-enter, not command</pre>
+<h3 id="true54-text-editor-interface"><a class="anchor" href="#true54-text-editor-interface"></a><code>&amp;,54</code> Text Editor Interface</h3>
+<div class="paragraph">
+<p>The text editor is called with the <code>&amp;,54,<em>mode</em></code> command.
+The editor can be entered in different ways, depending on the value of <em>mode</em>.</p>
 </div>
+<div class="paragraph">
+<p>Line 60100 of <code>sub.editor</code> uses <code>&amp;,54,a</code>.
+The values of <em>a</em> and the purpose for entering the editor are as follows:</p>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<caption class="title">Table 6. Text editor calls</caption>
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Line</th>
+<th class="tableblock halign-center valign-top">Variable</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>60086</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>a=0</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Normal entry, empty buffer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>60110</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>a=1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buffer not cleared</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>60108</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>a=2</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Extended editor command</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>When <code>a</code> is equal to 0, this is the "normal" entry point into the editor with an empty buffer.</p>
+</div>
+<div class="paragraph">
+<p>When <code>a</code> is equal to 1, entry into the editor does not clear the buffer.</p>
+</div>
+<div class="paragraph">
+<p>When <code>a</code> is equal to 2, entry into the editor is the point that would be used in an extended command if the command that was typed was not a recognized command.</p>
+</div>
+<div class="paragraph">
+<p>How to use the editor in your BASIC programs is described later in &#8220;The Editor.&#8221;</p>
 </div>
 <hr>
 <div class="exampleblock">
@@ -3835,7 +4089,16 @@ These following 2 routines are used by Image BBS machine language themselves; th
 <div class="sect2">
 <h3 id="true57-relread"><a class="anchor" href="#true57-relread"></a><code>&amp;,57</code> relread</h3>
 <div class="paragraph">
-<p>Reads a record from a RELative file.</p>
+<p>Reads records from an open RELative file until the character <code>^</code> is encountered.</p>
+</div>
+<div class="paragraph">
+<p><em>Parameters:</em></p>
+</div>
+<div class="paragraph">
+<p><code>&amp;,57,<em>lfn</em></code></p>
+</div>
+<div class="paragraph">
+<p><code>lfn</code>: logical file number</p>
 </div>
 <hr>
 </div>
@@ -3878,7 +4141,7 @@ These following 2 routines are used by Image BBS machine language themselves; th
 <p>Cause error <code>14</code>, <code>?illegal quantity&nbsp;&nbsp;error</code>.</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 5. Error Numbers</caption>
+<caption class="title">Table 7. Error Numbers</caption>
 <colgroup>
 <col>
 <col>
@@ -4025,10 +4288,10 @@ These following 2 routines are used by Image BBS machine language themselves; th
 </div>
 </div>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="title">im</div>
 <div class="content">
-<pre>4004 &amp;,38:&amp;,61,.,8:print"&amp;,37:goto300:":end</pre>
+<pre class="highlightjs highlight"><code data-lang="basic" class="language-basic hljs">4004 &amp;,38:&amp;,61,.,8:print"&amp;,37:goto300:":end</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4056,10 +4319,10 @@ These following 2 routines are used by Image BBS machine language themselves; th
 <div class="paragraph">
 <p><em>Example:</em></p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="title">im:</div>
 <div class="content">
-<pre>3182 &amp;,62,h,m</pre>
+<pre class="highlightjs highlight"><code data-lang="basic" class="language-basic hljs">3182 &amp;,62,h,m</code></pre>
 </div>
 </div>
 <hr>
@@ -4108,16 +4371,20 @@ If you have 14 4-digit <code>goto</code> targets on a line, this can save a fair
 <p><em>Example:</em></p>
 </div>
 <div class="paragraph">
-<p>Instead of writing:</p>
+<p>Instead of writing this (which uses 79 bytes):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="basic" class="language-basic hljs">on a% goto 3000,3100,3200,3300,3400,3500,3600,3700,3800,3900,4000,4100,4200,4300</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><code>on a% goto 3000,3100,3200,3300,3400,3500,3600,3700,3800,3900,4000,4100,4200,4300</code> (79 bytes)</p>
+<p>The same thing can be written like so (which uses 19 bytes):</p>
 </div>
-<div class="paragraph">
-<p>The same thing can be written like so:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="basic" class="language-basic hljs">a%=3000+a%*100:&amp;,66</code></pre>
 </div>
-<div class="paragraph">
-<p><code>a%=3000+a%*100:&amp;,66</code> (19 bytes)</p>
 </div>
 <div class="paragraph">
 <p>Based on the value of <code>a%</code> (including <code>0</code>), <code>&amp;,66</code> will <code>goto</code> lines starting at 3300 in increments of 100 (<code>0</code>=3300, <code>1</code>=3400, <code>2</code>=3500, <code>3</code>=3600, etc.)</p>
@@ -4130,15 +4397,22 @@ If you have 14 4-digit <code>goto</code> targets on a line, this can save a fair
 <p><code>gosub</code> line number held in <code>a%</code>.
 If you have 14 4-digit <code>gosub</code> targets on a line, this can save a fair amount of RAM (and BASIC interpretation time).</p>
 </div>
-<div class="paragraph">
+<div class="listingblock">
 <div class="title">i.test structs:</div>
-<p><code>a%=abs(val(an$)):if a%&lt;15 then a%=3100+a%*50:&amp;,66,1</code></p>
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="basic" class="language-basic hljs">a%=abs(val(an$)):if a%&lt;15 then a%=3100+a%*50:&amp;,66,1</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>Based on the value of <code>a%</code> (including <code>0</code>), <code>&amp;,66,1</code> will <code>gosub</code> lines starting at <code>3100</code>, in increments of 50 (<code>0</code>=3100, <code>1</code>=3150, <code>2</code>=3200, <code>3</code>=3250, etc).</p>
 </div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="basic" class="language-basic hljs">a%=3:a%=3100+a%*50:&amp;,66,1</code></pre>
+</div>
+</div>
 <div class="paragraph">
-<p><code>a%=3:a%=3100+a%*50:&amp;,66,1</code> would <code>gosub 3250</code>.</p>
+<p>would <code>gosub 3250</code>.</p>
 </div>
 <hr>
 </div>
@@ -4203,17 +4477,17 @@ Upper left of the screen starts at column 0, row 0.
 </div>
 </div>
 <div class="paragraph">
-<p><em>Example</em></p>
+<p><em>Example:</em></p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>&amp;,69,4,21,left$(" "+cm$+"{21 spaces}",22),$8c</pre>
+<pre class="highlightjs highlight"><code data-lang="basic" class="language-basic hljs">&amp;,69,4,21,left$(" "+cm$+"{21 spaces}",22),$8c</code></pre>
 </div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="1">
 <li>
-<p><code>&amp;,69,4,21</code> position string at column 5, row 22</p>
+<p><code>&amp;,69,4,21</code>: position string at column 5, row 22</p>
 </li>
 </ol>
 </div>
@@ -4276,14 +4550,6 @@ Upper left corner of the screen is <code>0,0</code>.
 <p><code>color</code>: <code>1-15</code>, same as the MCI colors (black, <code>0</code>, is excluded).
 <code>$8x</code> is reverse color <em>x</em> (<code>$81</code> is reverse white, <code>$8f</code> is reverse light gray).</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Question</dt>
-<dd>
-<p>Will this plot stuff to the screen mask area when in full screen mode? I&#8217;m pretty sure it does.</p>
-</dd>
-</dl>
-</div>
 </div>
 <div class="sect2">
 <h3 id="position-cursor"><a class="anchor" href="#position-cursor"></a><code>&amp;,70</code> Position Terminal Cursor</h3>
@@ -4315,19 +4581,10 @@ Upper left corner of the screen is <code>0,0</code>.
 <div class="paragraph">
 <p><code>row</code>: 0-24</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="title">i.IM</div>
 <div class="content">
-<pre>&amp;,70,.,n/2+8.5:&amp;"{white}"</pre>
-</div>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Fancy Title</div>
-<div class="paragraph">
-<div class="title">Question for the Ages:</div>
-<p>What is the difference between <code>&amp;,61 (poscrsr)</code> and <code>&amp;,70 (cursposn)</code>?</p>
-</div>
+<pre class="highlightjs highlight"><code data-lang="basic" class="language-basic hljs">&amp;,70,.,n/2+8.5:&amp;"{white}"</code></pre>
 </div>
 </div>
 </div>
@@ -4371,7 +4628,7 @@ This is much faster than a BASIC <code>for&#8230;&#8203;next</code> loop.</p>
 Two bytes per element of the string text can be stored per element of an integer array.</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 6. Representation of Sample 2D Integer Array</caption>
+<caption class="title">Table 8. Representation of Sample 2D Integer Array</caption>
 <colgroup>
 <col>
 <col>
@@ -4448,7 +4705,7 @@ Thirty-seven bytes would require either:</p>
 Here is a byte-by-byte map of the structure we designed.</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 7. Sample Structure layout</caption>
+<caption class="title">Table 9. Sample Structure layout</caption>
 <colgroup>
 <col>
 <col>
@@ -4497,7 +4754,7 @@ Here is a byte-by-byte map of the structure we designed.</p>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 8. Structure Data Storage</caption>
+<caption class="title">Table 10. Structure Data Storage</caption>
 <colgroup>
 <col>
 <col>
@@ -4709,7 +4966,7 @@ To put numeric values into&#8212;&#8203;or get numeric values from&#8212;&#8203;
 <p>You may use code similar to the following examples:</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 9. Get number from and put number into structure</caption>
+<caption class="title">Table 11. Get number from and put number into structure</caption>
 <colgroup>
 <col>
 <col>
@@ -5291,7 +5548,7 @@ If the condition is true, perform an operation on another field in the structure
 <p><code>command</code>: command number:</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 10. Scan Struct Commands</caption>
+<caption class="title">Table 12. Scan Struct Commands</caption>
 <colgroup>
 <col>
 <col>
@@ -5607,7 +5864,7 @@ This function call documentation seems incomplete.
 <p>None yet.</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 11. Arrays used by <code>Scan String</code></caption>
+<caption class="title">Table 13. Arrays used by <code>Scan String</code></caption>
 <colgroup>
 <col>
 <col>
@@ -5735,21 +5992,351 @@ This function call documentation seems incomplete.
 <div class="sect1">
 <h2 id="truevariables"><a class="anchor" href="#truevariables"></a>Variables</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>BASIC variables can be overwhelming to keep track of.
+These charts should help.</p>
+</div>
+<div class="sect2">
+<h3 id="truereadwrite"><a class="anchor" href="#truereadwrite"></a>Read/Write</h3>
+<div class="paragraph">
+<p>&check; in the <em>Read</em> column indicates you can get its value.</p>
+</div>
+<div class="paragraph">
+<p>&check; in the <em>Write</em> column indicates you can assign a value.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+If there isn&#8217;t a check mark in the <em>Write</em> column, the variable is maintained by the BBS ML or BASIC modules.
+User data corruption or other unwanted side effects may occur if this variable is reassigned.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="truepurpose"><a class="anchor" href="#truepurpose"></a>Purpose</h3>
+<div class="paragraph">
+<p><code>BBS</code>: this is a BBS statistic or BBS-maintained variable, it could be saved to <code>e.data</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>User</code>: this is a user statistic, saved to <code>u.config</code>.</p>
+</div>
+</div>
 <div class="sect2">
 <h3 id="trueinteger"><a class="anchor" href="#trueinteger"></a>Integer</h3>
-
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-right valign-top">Variable</th>
+<th class="tableblock halign-center valign-top">Read</th>
+<th class="tableblock halign-center valign-top">Write</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>a%</code></p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ac%</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BBS</code> User access level, <code>0-9</code>.</p>
+<p class="tableblock"><strong>Read:</strong> Get user&#8217;s access level.</p>
+<p class="tableblock"><strong>Write:</strong> Set user&#8217;s access level.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ao%</code></p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BBS</code> Old access level (&#8220;Access Old&#8221;).
+If <code>ac%&lt;&gt;ao%</code>, the user&#8217;s access level has changed during the call.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>cd%</code></p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>User</code> Carrier drop flag</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>co%</code></p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>User</code> Computer type: <code>co$(co%)</code> is the computer name</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ct%</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>User</code> Calls today</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>da%</code></p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>User</code> Downloads allowed per day</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>db%</code></p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>User</code> Downloaded blocks</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ll%</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>User</code> Line length</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>mn%</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BBS</code> Minute of the day, <code>1-1440</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>p1%</code></p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BBS</code> Prime Time: <code>0</code>=disabled, <code>1</code>=enabled</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>p2%</code></p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BBS</code> Prime Time: Starting hour</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>p3%</code></p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BBS</code> Prime Time: Ending hour</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>tc%</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BBS</code> total calls</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="truefloating-point-2"><a class="anchor" href="#truefloating-point-2"></a>Floating Point</h3>
-
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-right valign-top">Variable</th>
+<th class="tableblock halign-center valign-top">Read</th>
+<th class="tableblock halign-center valign-top">Write</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>am</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BBS</code> AutoMaint flag</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ca</code></p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BBS</code> Total calls to BBS</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>em</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>User</code> Expert mode flag: <code>0</code>=disabled, <code>1</code>=enabled</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>l1</code></p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BBS</code> System reservation:</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>l2</code></p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>l3</code></p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>lp</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Read:</strong> <code>&amp;,5</code> (get ML version data)
+<code>lp</code> returns the ML major/minor version number, <em>e.g.</em>, <code>1.3</code>.</p>
+<p class="tableblock"><strong>Write:</strong> Disable or enable word-wrap for <code>&amp;</code> text output.</p>
+<p class="tableblock"><code>lp=0</code>: disable word-wrap</p>
+<p class="tableblock"><code>lp=1</code>: enable word-wrap.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>pm</code></p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>User</code> Prompt Mode flag: <code>0</code>=disabled, <code>1</code>=enabled</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>zz</code></p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BBS</code> Pseudo-local mode flag: <code>0</code>=disabled, <code>1</code>=enabled</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="truestring"><a class="anchor" href="#truestring"></a>String</h3>
-
+<div class="paragraph">
+<p><code>b$</code>-<code>z$</code> are work variables used throughout the BBS by different subsections.
+They are available for use and may be read and written freely.</p>
+</div>
+<div class="paragraph">
+<p>Some specific information about certain variables is outlined below.</p>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-right valign-top">Variable</th>
+<th class="tableblock halign-center valign-top">Read</th>
+<th class="tableblock halign-center valign-top">Write</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>a$</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Read:</strong> Output using <code>&amp;</code>.</p>
+<p class="tableblock"><strong>Write:</strong> Work variable.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ag$</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Access group information, including 4 control characters and access group name.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ak$</code></p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Read:</strong> A horizontal line 2 characters less than the user&#8217;s screen width.
+Also MCI variable <code>&#163;vj</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>an$</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Read:</strong> <code>&amp;,1</code> (input string): <code>an$</code> returns the user&#8217;s input</p>
+<p class="tableblock"><strong>Write:</strong> <code>&amp;,15,<em>x</em></code> (convert <code>an$</code> commands): perform various conversions on <code>an$</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>cm$</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Current Message, sometimes used for debugging information in <code>e.errlog</code>
+Displays in the <code>Area</code> window.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ep$</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BBS</code> ECS command password</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>hx$</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BBS</code> 16 hexadecimal digits: <code>0123456789abcdef</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>mp$</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BBS</code> More prompt text: <code>  &#8230;&#8203;More (Y/n)?</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>na$</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BBS</code> Handle of current caller</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="truearrays"><a class="anchor" href="#truearrays"></a>Arrays</h3>
-
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-right valign-top">Variable</th>
+<th class="tableblock halign-center valign-top">Read</th>
+<th class="tableblock halign-center valign-top">Write</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>tt$()</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Read:</strong> Read text entered into text editor.</p>
+<p class="tableblock"><strong>Write:</strong> Can use this array outside of modules using the text editor.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -5773,6 +6360,11 @@ This function call documentation seems incomplete.
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>17138</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$42f2</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Password mask character</p></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>53252</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>$d004</code></p></td>
@@ -6105,7 +6697,7 @@ Add menu string</p>
 <div class="sect2">
 <h3 id="truelightbar-numbering"><a class="anchor" href="#truelightbar-numbering"></a>Lightbar Numbering</h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 12. Lightbar, page 1</caption>
+<caption class="title">Table 14. Lightbar, page 1</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -6154,7 +6746,7 @@ Add menu string</p>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 13. Lightbar, page 2</caption>
+<caption class="title">Table 15. Lightbar, page 2</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -6203,7 +6795,7 @@ Add menu string</p>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 14. Lightbar, page 3</caption>
+<caption class="title">Table 16. Lightbar, page 3</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -6252,7 +6844,7 @@ Add menu string</p>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 15. Lightbar, page 4</caption>
+<caption class="title">Table 17. Lightbar, page 4</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -6301,7 +6893,7 @@ Add menu string</p>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 16. Lightbar, page 5</caption>
+<caption class="title">Table 18. Lightbar, page 5</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -6350,7 +6942,7 @@ Add menu string</p>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 17. Lightbar, page 6</caption>
+<caption class="title">Table 19. Lightbar, page 6</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -6399,7 +6991,7 @@ Add menu string</p>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 18. Lightbar, page 7</caption>
+<caption class="title">Table 20. Lightbar, page 7</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -6448,7 +7040,7 @@ Add menu string</p>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 19. Lightbar, page 8</caption>
+<caption class="title">Table 21. Lightbar, page 8</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -6758,7 +7350,7 @@ beq flag_off</code></pre>
 <td class="tableblock halign-left valign-top"><p class="tableblock">interface page</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$CE00</code>-<code>$CDFF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$CE00</code>-<code>$CEFF</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">buffer page</p></td>
 </tr>
 <tr>
@@ -6837,7 +7429,7 @@ beq flag_off</code></pre>
 <p>The record size is 31 bytes.</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 20. e.data File Format</caption>
+<caption class="title">Table 22. e.data File Format</caption>
 <colgroup>
 <col>
 <col>
@@ -7094,8 +7686,8 @@ beq flag_off</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 0.1<br>
-Last updated 2021-06-22 15:59:53 -0700
+Version 0.2<br>
+Last updated 2022-05-06 22:33:11 -0700
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">
