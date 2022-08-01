@@ -18,6 +18,8 @@
 - add &,54 (text editor) call information
 - starting variable listing
 
+[Image BBS 3.0 "structs" documentation (development version)](https://pinacolada64.github.io/ImageBBS3-docs.github.io/prg-structures-dev.html) (Added August 1st, 2022)
+
 [Image BBS 3.0 Message Command Interpreter Guide](https://pinacolada64.github.io/ImageBBS3-docs.github.io/mci.html)
 
 # Image BBS 1.2b documentation
