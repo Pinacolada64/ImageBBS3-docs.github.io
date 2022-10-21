@@ -642,6 +642,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#truemodule-types">Module Types</a></li>
 </ul>
 </li>
+<li><a href="#truecommand-stacking">Command Stacking</a>
+<ul class="sectlevel2">
+<li><a href="#truecommand-history">Command History</a></li>
+<li><a href="#trueviewing-command-history">Viewing Command History</a></li>
+<li><a href="#trueexecuting-commands-in-history">Executing Commands in History</a></li>
+</ul>
+</li>
 <li><a href="#truethe-text-editor">The Text Editor</a>
 <ul class="sectlevel2">
 <li><a href="#trueenter-text">Enter Text</a></li>
@@ -694,7 +701,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 </ul>
 </li>
-<li><a href="#truelightbar-quick-reference">Appendix A: Lightbar Quick Reference</a></li>
+<li><a href="#truelightbar-quick-reference">Appendix A: Lightbar Quick Reference</a>
+<ul class="sectlevel2">
+<li><a href="#truelightbar-function-keys-2">Lightbar Function Keys</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -821,9 +832,6 @@ The developers felt they had done almost all they wanted to do with that version
 <div class="paragraph">
 <p>While 3.0&#8217;s modules now start with an <code>i</code> prefix instead of 1.<em>x</em>&#8217;s <code>+</code> prefix, you can still run modules meant for those older versions of the BBS through an included emulation (or to be more precise, a <em>redirection</em>) layer.</p>
 </div>
-<div class="paragraph">
-<p><mark>TODO</mark>: I forgot what I was going to put here.</p>
-</div>
 </div>
 <div class="sect2">
 <h3 id="truewhats-new"><a class="anchor" href="#truewhats-new"></a>What&#8217;s New</h3>
@@ -909,13 +917,39 @@ The developers felt they had done almost all they wanted to do with that version
 <div class="ulist">
 <ul>
 <li>
-<p>Text word-wraps to 40 columns for C64 console and caller&#8217;s terminal line length</p>
+<p>Word-wrap for text:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>40 columns for C64 console</p>
 </li>
 <li>
-<p>Optional &#8220;More&#8221; prompt can automatically pause text output</p>
+<p>80 columns for C64 console printer</p>
+</li>
+<li>
+<p>the caller&#8217;s terminal line length</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Optional &#8220;More&#8221; prompt can automatically pause text output when a screen of text has been received</p>
 </li>
 <li>
 <p>Terminal bell sent when nearing idle time limit</p>
+</li>
+<li>
+<p>Stacked commands now maintain a command history:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>View command history with <code>^?</code></p>
+</li>
+<li>
+<p>Execute command history with <code>^</code> and a digit <code>0-9</code>, <em>e.g.</em> <code>^3</code> to execute the third most recent command</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -1039,26 +1073,45 @@ The developers felt they had done almost all they wanted to do with that version
 <div class="paragraph">
 <p>Variable names made of two words are tied together with an underscore (<code>_</code>).</p>
 </div>
+<div class="exampleblock">
+<div class="title">Example 1. Variable Name</div>
+<div class="content">
 <div class="paragraph">
-<div class="title">Example</div>
-<p><em>first_name</em></p>
+<p><code><em>first_name</em></code></p>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>This method differentiates <em>first_name</em> as being separate from two variables named <em>first</em> and <em>name</em>.</p>
 </div>
 <div class="paragraph">
+<p>The highlighted words <mark>FIXME</mark> and <mark>TODO</mark> represent things in the documentation which aren&#8217;t complete yet, but are intended to be finished as soon as possible.</p>
+</div>
+<div class="paragraph">
 <p>Letters enclosed in rounded, shaded squares represent keys on the Commodore 64 keyboard.
 They generally are either options, or should be pressed, during a series of instructions in the manual.</p>
 </div>
+<div class="exampleblock">
+<div class="title">Example 2. Keyboard Keys</div>
+<div class="content">
 <div class="paragraph">
-<div class="title">Examples</div>
-<p><span class="keyseq"><kbd>Shift</kbd>+<kbd>T</kbd></span>, <kbd>Ctrl</kbd>, or <kbd>f1</kbd></p>
+<p><kbd>Ctrl</kbd> or <kbd>f1</kbd>: A single keypress.</p>
+</div>
+<div class="paragraph">
+<p><span class="keyseq"><kbd>Shift</kbd>+<kbd>T</kbd></span>: Two keys with a <strong>+</strong> between them represent holding down the first key while typing the second key.</p>
+</div>
+<div class="paragraph">
+<p><kbd>.C</kbd>: Two keystrokes in sequence</p>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>The same notation can also represent BBS commands typed at a prompt.</p>
 </div>
+<div class="exampleblock">
+<div class="title">Example 3. User Commands</div>
+<div class="content">
 <div class="ulist">
-<div class="title">Examples</div>
 <ul>
 <li>
 <p><kbd>ST</kbd>, <kbd>AT</kbd>, or <kbd>O!</kbd></p>
@@ -1068,12 +1121,20 @@ They generally are either options, or should be pressed, during a series of inst
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>Monospace text on a gray background usually represents text shown on the screen.</p>
+</div>
 </div>
 <div class="paragraph">
-<div class="title">Example</div>
-<p><code>Enter your user name or ID#:</code></p>
+<p>Monospace text on a gray background usually represents output shown on the screen.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 4. Output or Prompt</div>
+<div class="content">
+<div class="literalblock">
+<div class="content">
+<pre>Enter your user name or ID#:</pre>
+</div>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>Bold monospace text represents text typed by the user in response to a prompt.</p>
@@ -1250,7 +1311,7 @@ The warning should contain an explanation of why doing something is harmful.</p>
 <p>Like a search path in an operating system, this gives you the steps to reach a command.</p>
 </div>
 <div class="exampleblock">
-<div class="title">Example 1. Command Path Example</div>
+<div class="title">Example 5. Command Path Example</div>
 <div class="content">
 <div class="paragraph">
 <p>The command path is <kbd>IM</kbd>, <kbd>D</kbd> <code>Logon Editor</code>, <kbd>D</kbd> <code>Quicklist</code>.</p>
@@ -1289,10 +1350,13 @@ The warning should contain an explanation of why doing something is harmful.</p>
 <div class="ulist">
 <ul>
 <li>
+<p><em>e.g.</em> is short for <em>exemplī grātiā</em>, meaning &#8220;for example.&#8221;</p>
+</li>
+<li>
 <p><em>i.e.</em> is short for <em>id est</em>, meaning &#8220;that is to say,&#8221; or &#8220;in other words.&#8221;</p>
 </li>
 <li>
-<p><em>e.g.</em> is short for <em>exemplī grātiā</em>, meaning &#8220;for example.&#8221;</p>
+<p><em>per se</em> (commonly misspelled as &#8220;per say&#8221;) means &#8220;By itself; without consideration of extraneous factors.&#8221;</p>
 </li>
 </ul>
 </div>
@@ -1305,8 +1369,17 @@ The warning should contain an explanation of why doing something is harmful.</p>
 <div class="sectionbody">
 <div class="exampleblock">
 <div class="content">
-<div class="paragraph">
-<p>A lot of this is from 1.2, although some newer hardware will be talked about.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+A lot of this is from 1.2, although some newer hardware will be talked about.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -4262,8 +4335,17 @@ This is only meant as a debugging tool, and is normally left disabled.</p>
 </div>
 <div class="exampleblock">
 <div class="content">
-<div class="paragraph">
-<p>When enabled, execution can be slowed down with the <kbd>Ctrl</kbd> key to read line numbers more easily.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+When enabled, execution can be slowed down with the <kbd>Ctrl</kbd> key to read line numbers more easily.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -5073,14 +5155,14 @@ A <code>file not found</code> DOS error is written to the system error log (<cod
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Prefix</th>
-<th class="tableblock halign-left valign-top">Starting line</th>
+<th class="tableblock halign-left valign-top">Starting Line</th>
 <th class="tableblock halign-left valign-top">Purpose</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>+.</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Image 1.<em>x</em> plus file</p></td>
 </tr>
 <tr>
@@ -5090,12 +5172,12 @@ A <code>file not found</code> DOS error is written to the system error log (<cod
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>i.</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>3000</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Image 3.0 module (system command)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>i/</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>4000</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Image 3.0 sub-module</p></td>
 </tr>
 <tr>
@@ -5105,31 +5187,55 @@ A <code>file not found</code> DOS error is written to the system error log (<cod
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>i/lo.</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>3000</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Idle screen command</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>i/lo/</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>4000</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Nightly AutoMaint module</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>i/lo-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4500</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>4500</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Login module</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>i/XX.YY</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>4000</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sub-module <code>YY</code> of module <code>XX</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub.*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">60000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>60000</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>im</code> sub-module; common BBS code called by various modules</p></td>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>You can find a more complete breakdown of what most individual modules do in the <em>Image BBS 3.0 Programmer&#8217;s Reference Guide</em>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="truecommand-stacking"><a class="anchor" href="#truecommand-stacking"></a>Command Stacking</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Many commands entered at major subsystem prompts can be &#8220;stacked&#8221; by using the up arrow key (<kbd>^</kbd>) between the commands.
+This has the effect of executing each command between <code>^</code>s, one at a time, and each prompt encountered displays the next command in the stack as if typed by hand.</p>
+</div>
+<div class="paragraph">
+<p>As an example, if the following command were entered at the main prompt:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>SB9^RN^&lt;^R3^UD^SA</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then the BBS would execute (and display, if possible) each respective subsystem prompt encountered while executing the following commands:</p>
+</div>
 <table class="tableblock frame-all grid-all fit-content">
 <colgroup>
 <col>
@@ -5138,54 +5244,72 @@ A <code>file not found</code> DOS error is written to the system error log (<cod
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Module prefix</th>
+<th class="tableblock halign-left valign-top">Command</th>
 <th class="tableblock halign-left valign-top">Purpose</th>
-<th class="tableblock halign-left valign-top">Starting line</th>
+<th class="tableblock halign-left valign-top">Display</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>i.</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">System command</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SB9</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Take you to sub-board 9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Sub Board #9: RN</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>i.XX.YY</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-module YY of command XX</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>RN</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Read the new posts there</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(read posts)</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>i.XX/YY</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-module YY of command XX</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Move backwards, to sub-board 8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Sub Board #8: R3</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>i/lo.</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Idle command</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>R3</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Read post #3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(text of post)</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>i/lo-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Login module</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4500</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>UD</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enter the U/D subsystem</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>U/D Board #1: SA</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>i/lo/</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Automaint module</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4000</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>i/XX.YY</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-module YY of command XX</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4000</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub.</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>im</code> sub-module</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">60000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SA</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Scan for all new uploads</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(list new files)</p></td>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>Certain places, such as choosing &#8220;quit&#8221; in the &#8220;end of bulletin&#8221; prompt, usually clear stacked commands&#8212;&#8203;if a user realizes they need to do something in the middle of executing the stacked commands, their only recourse is to hold down the spacebar to stop them.</p>
+</div>
+<div class="sect2">
+<h3 id="truecommand-history"><a class="anchor" href="#truecommand-history"></a>Command History</h3>
+<div class="paragraph">
+<p>New to Image BBS v3.0, you can view the history of commands issued at most major prompts, and execute commands within that history.</p>
+</div>
+<div class="paragraph">
+<p>This command history is also included in each BBS error log entry (<code>e.errlog</code>, viewable with the <kbd>VF</kbd> command).
+This sometimes helps trace what the user was doing that led to the error.</p>
+</div>
+<div class="paragraph">
+<p><mark>FIXME</mark> do commands in the stack get entered into command history?</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trueviewing-command-history"><a class="anchor" href="#trueviewing-command-history"></a>Viewing Command History</h3>
+<div class="paragraph">
+<p><code>^?</code> will view up to the last ten commands entered during the user&#8217;s session.
+Each command in the history is numbered <code>0-9</code> and the command text is displayed.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trueexecuting-commands-in-history"><a class="anchor" href="#trueexecuting-commands-in-history"></a>Executing Commands in History</h3>
+<div class="paragraph">
+<p><code>^</code> and a number <code>0-9</code> (<em>e.g.</em>, <code>^3</code>) will execute that particular command in the history.</p>
+</div>
 </div>
 </div>
 </div>
@@ -5605,7 +5729,7 @@ line 3</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p><code>Editor Command:Move <kbd>1</kbd></code></p>
+<p><code><kbd>.</kbd>Editor Command:<kbd>Y</kbd>Move <kbd>1</kbd></code></p>
 </div>
 <div class="paragraph">
 <p><code>Move To: <kbd>3</kbd></code></p>
@@ -5643,7 +5767,7 @@ line 3</code></pre>
 <p>Enter a line number or line range here:</p>
 </div>
 <div class="paragraph">
-<p><code>Editor Command:<kbd>C</kbd>opy <kbd>1-3</kbd></code></p>
+<p><code><kbd>.</kbd>Editor Command:<kbd>Z</kbd>Copy <kbd>1-3</kbd></code></p>
 </div>
 <div class="paragraph">
 <p>Respond to the <code>Copy To</code> prompt with a line number, and the selected line range is copied to that line number:</p>
@@ -5767,7 +5891,7 @@ There is no need to type <kbd>.T</kbd> again to toggle Text Transfer Mode off.</
 Type the text you wish directly after the <code>Editor Command: Banner&#160;</code> prompt, hit <kbd>Return</kbd>, then use <kbd>.M</kbd>CI Read to view it.</p>
 </div>
 <div class="paragraph">
-<p>In a 40-column display, you are limited to 10 characters before the text will wrap around.</p>
+<p>In a 40-column display, you are limited to 9 characters before the text will wrap around.</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -6346,10 +6470,101 @@ character)</p>
 <h2 id="truelightbar-quick-reference"><a class="anchor" href="#truelightbar-quick-reference"></a>Appendix A: Lightbar Quick Reference</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><mark>TODO</mark>: Quick summaries of lightbar flags in 3-column tables. Find out how to balance <code>Left</code> and <code>Right</code> column widths.</p>
+<p>This appendix lists a short description of what each lightbar function is used for.</p>
+</div>
+<div class="paragraph">
+<p>Each page of the lightbar has all the labels listed in a horizontal row for quick reference.
+Beneath that are three columns with more information:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The middle column, <em>Label</em>, lists the text of the lightbar option, as well as the numbers (in decimal) used to interface with the lightbar using <code>&amp;,52</code>.</p>
+</li>
+<li>
+<p>The <em>Left</em> and <em>Right</em> columns of the table explain the lightbar function or options for that label&#8217;s position.
+If additional  function keys are used with that lightbar option, they are listed, along with what each function key does.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="truelightbar-function-keys-2"><a class="anchor" href="#truelightbar-function-keys-2"></a>Lightbar Function Keys</h3>
+<div class="paragraph">
+<p>The function keys <kbd>f1</kbd>-<kbd>f8</kbd> are used to switch pages, move the &#8220;lit&#8221; portion of the lightbar, and enable/disable individual lightbar positions, shown in the table below:</p>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<caption class="title">Table 20. Lightbar Function Keys</caption>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Key</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>f1</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">toggle between full and split screen mode</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>f2</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">toggle between 1 and 2 mHz (<code>FAST</code> in BASIC 7.0) mode when using a Commodore 128 in C64 mode</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>f3</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">move highlighted position left</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>f4</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">page backward through lightbar pages</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>f5</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">move highlighted position right</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>f6</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">page forward through lightbar pages</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>f7</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">toggle the left check mark of the selected lightbar position</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>f8</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">toggle the right check mark of the selected lightbar position</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><kbd>f1</kbd>: Split screen mode is useful when you want to access the lightbar and view BBS status/caller information. Full screen mode allows you to read more text on the screen (it doesn&#8217;t show the information displayed while in split screen mode).</p>
+</div>
+<div class="paragraph">
+<p>You must be in split screen mode to enable or disable lightbar positions via the function keys.</p>
+</div>
+<div class="paragraph">
+<p><kbd>f2</kbd>: Toggles between <code>FAST</code> (2 mHz) and <code>SLOW</code> (1 mHz) modes on a Commodore 128 in 64 mode.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+When you are in <code>FAST</code> mode, the BBS should operate faster at 2 mHz.
+However, the screen goes blank since the VIC chip cannot display the 40 column screen clearly at 2 mHz.
+Depending on which disk drives or other storage devices you have connected, disk access might not see any speed increase, since the C64&#8217;s serial bus operates at 1 mHz.
+This is also a restriction while using CMD&#8217;s SuperCPU in 20 mHz mode.
+</td>
+</tr>
+</table>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 20. Lightbar, page 1</caption>
+<caption class="title">Table 21. Lightbar, page 1</caption>
 <colgroup>
 <col style="width: 12.5%;">
 <col style="width: 12.5%;">
@@ -6373,7 +6588,7 @@ character)</p>
 </tr>
 </tbody>
 </table>
-<table class="tableblock frame-all grid-all stretch">
+<table class="tableblock frame-all grid-rows fit-content">
 <colgroup>
 <col>
 <col>
@@ -6381,32 +6596,35 @@ character)</p>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Option</th>
 <th class="tableblock halign-left valign-top">Left</th>
+<th class="tableblock halign-center valign-top">Label</th>
 <th class="tableblock halign-left valign-top">Right</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Sys</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>Sysop Available to Chat</strong></p>
 </div>
 <div class="paragraph">
 <p>Enable sysop chat availability.
-If <kbd>C</kbd> typed at any major prompt, alerts will sound.
+If <kbd>C</kbd> is typed at any major prompt, bells will sound.
 Chat reason logged to <code>e.log <em>weekday</em></code>.</p>
 </div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Background Page Enable</strong></p>
-<p class="tableblock">Chat page bell plays continually (even while the user is doing other things) until chat page is answered or user logs off.</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>0&#160;Sys&#160;1</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Background Page Enable</strong></p>
+</div>
+<div class="paragraph">
+<p>Chat page bell plays continually (even while the user is doing other things) until the chat page is answered or the user logs off.</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Acs</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>Edit User&#8217;s Access</strong></p>
 </div>
 <div class="paragraph">
-<p>Change user access level, using the following function keys:</p>
+<p>Change user access level (<code>A=<em>x</em></code> on the seventh line of the screen mask), using the following function keys:</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
 <colgroup>
@@ -6415,36 +6633,55 @@ Chat reason logged to <code>e.log <em>weekday</em></code>.</p>
 </colgroup>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>f1</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sets level to <code>A=0</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>f2</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sets level to <code>A=9</code>.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>f3</kbd></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">increases level, wraps from 9 to 0.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">increases level, wraps from <code>A=9</code> to <code>A=0</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>f5</kbd></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">decreases level, wraps from 0 to 9.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">decreases level, wraps from <code>A=0</code> to <code>A=9</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>f7</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">exits.</p></td>
 </tr>
 </tbody>
-</table></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Block 300 Baud Callers</strong></p>
-<p class="tableblock">Disable 300 baud users from logging in.</p></td>
+</table>
+<div class="paragraph">
+<p>&#13;</p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>2&#160;Acs&#160;3</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Block 300 Baud Callers</strong></p>
+</div>
+<div class="paragraph">
+<p>Disable 300 baud users from logging in.</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Loc</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>Local Mode (No Modem I/O)</strong></p>
 </div>
 <div class="paragraph">
 <p>Local (&#8220;console&#8221;) mode login. Log in to the BBS from the C64.</p>
 </div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ZZ (Pseudo-Local) Mode</strong></p>
-<p class="tableblock">Enable pseudo-local mode, which allows using maintenance commands.
-Can be toggled remotely with <kbd>ZZ</kbd>.</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>4&#160;Loc&#160;5</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>ZZ (Pseudo-Local) Mode</strong></p>
+</div>
+<div class="paragraph">
+<p>Enable pseudo-local mode, which allows using maintenance commands.
+Can be toggled remotely with <kbd>ZZ</kbd>.</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Tsr</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>Edit User&#8217;s Time Left</strong></p>
 </div>
@@ -6486,12 +6723,19 @@ Can be toggled remotely with <kbd>ZZ</kbd>.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sets selected time limit</p></td>
 </tr>
 </tbody>
-</table></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Prime Time Enabled</strong></p>
-<p class="tableblock">Toggle Prime Time if it is set up.</p></td>
+</table>
+<div class="paragraph">
+<p>&#13;</p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>6&#160;Tsr&#160;7</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Prime Time Enabled</strong></p>
+</div>
+<div class="paragraph">
+<p>Enable Prime Time if it is set up, and limit the caller&#8217;s time remaining to the number of minutes set in Prime Time settings.</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Cht</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>Enter/Exit Chat Mode</strong></p>
 </div>
@@ -6499,46 +6743,63 @@ Can be toggled remotely with <kbd>ZZ</kbd>.</p></td>
 <p>Enter or exit chat mode.
 Configurable messages are shown when entering and exiting chat mode.</p>
 </div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Disable Modem Input</strong></p>
-<p class="tableblock"><mark>TODO</mark> Description.</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>8&#160;Cht&#160;9</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Disable Modem Input</strong></p>
+</div>
+<div class="paragraph">
+<p>Ignore any data coming from the caller.</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>New</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>Disallow New Users</strong></p>
 </div>
 <div class="paragraph">
-<p>Disallow new users at login.</p>
+<p>Prevent <kbd>NEW</kbd> users from signing up at login.</p>
 </div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Enable Screen Blanking</strong></p>
-<p class="tableblock">Enable screen blanking at system idle.</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>10&#160;New&#160;11</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Enable Screen Blanking</strong></p>
+</div>
+<div class="paragraph">
+<p>Enable screen blanking at system idle.</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Prt</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>Print Spooling</strong></p>
 </div>
 <div class="paragraph">
 <p>Print the text output to the console to a connected printer.</p>
 </div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Print Log Entries</strong></p>
-<p class="tableblock">Print log entries to a connected printer.</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>12&#160;Prt&#160;13</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Print Log Entries</strong></p>
+</div>
+<div class="paragraph">
+<p>Print log entries to a connected printer.</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>U/D</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>Disable U/D Section</strong></p>
 </div>
 <div class="paragraph">
 <p>Disable access to the Upload/Download section.</p>
 </div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>300 Baud U/D Lockout</strong></p>
-<p class="tableblock">Prevent 300 baud users from using the Upload/Download section, since they could take a long time to download a large file from the BBS, blocking other users from calling.</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>14&#160;U/D&#160;15</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>300 Baud U/D Lockout</strong></p>
+</div>
+<div class="paragraph">
+<p>Prevent 300 baud users from using the Upload/Download section, since they could take a long time to download a large file from the BBS, blocking other users from calling.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 21. Lightbar, page 2</caption>
+<caption class="title">Table 22. Lightbar, page 2</caption>
 <colgroup>
 <col style="width: 12.5%;">
 <col style="width: 12.5%;">
@@ -6562,7 +6823,7 @@ Configurable messages are shown when entering and exiting chat mode.</p>
 </tr>
 </tbody>
 </table>
-<table class="tableblock frame-all grid-all stretch">
+<table class="tableblock frame-all grid-rows fit-content">
 <colgroup>
 <col>
 <col>
@@ -6570,78 +6831,156 @@ Configurable messages are shown when entering and exiting chat mode.</p>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Option</th>
 <th class="tableblock halign-left valign-top">Left</th>
+<th class="tableblock halign-center valign-top">Label</th>
 <th class="tableblock halign-left valign-top">Right</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Asc</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Enable ASCII translation</strong></p>
-<p class="tableblock">Description.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Line Feed After Return</strong></p>
-<p class="tableblock"><strong>Enabled:</strong> Send CR/LF (carriage return/linefeed) pairs at line breaks for ASCII/ANSI terminals.</p>
-<p class="tableblock"><strong>Disabled:</strong> Send CR (carriage return) at line breaks, for Commodore and pre-OSX Macintosh terminals.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Enable ASCII translation</strong></p>
+</div>
+<div class="paragraph">
+<p>This translates the Commodore character set into the ASCII character set.
+Most notably, the character codes of upper- and lowercase characters are reversed between the two character sets, but there are other differences too.</p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>16&#160;Asc&#160;17</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Line Feed After Return</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Enabled:</strong> Send CR/LF (carriage return/linefeed) pairs at line breaks for ASCII/ANSI terminals.</p>
+</div>
+<div class="paragraph">
+<p><strong>Disabled:</strong> Send CR (carriage return) at line breaks, for Commodore and pre-OSX Macintosh terminals.</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Ans</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ANSI Color Enable</strong></p>
-<p class="tableblock">Description.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ANSI Graphics Enable</strong></p>
-<p class="tableblock">Description.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>ANSI Color Enable</strong></p>
+</div>
+<div class="paragraph">
+<p>This translates Commodore color codes into ANSI sequences for ANSI terminals.</p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>18&#160;Ans&#160;19</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>ANSI Graphics Enable</strong></p>
+</div>
+<div class="paragraph">
+<p>This sends ANSI characters instead of Commodore graphics characters for ANSI terminals.</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Exp</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Expert Mode Enable</strong></p>
-<p class="tableblock">If enabled, <em>Expert Mode</em> may present more advanced options in a menu, skip displaying subsystem entry screens, or other things.
-Users can toggle Expert Mode through <kbd>XP</kbd> directly, or <kbd>EP</kbd>, <kbd>P</kbd>, <kbd>6</kbd>.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Disallow Double Calls</strong></p>
-<p class="tableblock">Prevent users from making two calls back-to-back.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Expert Mode Enable</strong></p>
+</div>
+<div class="paragraph">
+<p>If enabled, <em>Expert Mode</em> may present more advanced options in a menu, skip displaying subsystem entry screens, or other things.
+Users can toggle Expert Mode through <kbd>XP</kbd> directly, or <kbd>EP</kbd>, <kbd>P</kbd>, <kbd>6</kbd>.</p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>20&#160;Exp&#160;21</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Disallow Double Calls</strong></p>
+</div>
+<div class="paragraph">
+<p>Prevent users from making two calls back-to-back.</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Unv</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>No Immediate U/D Credits</strong></p>
-<p class="tableblock">When a file is uploaded, credits are awarded:</p>
-<p class="tableblock"><strong>Enabled:</strong> After the SysOp or a SubOp validates the file.</p>
-<p class="tableblock"><strong>Disabled:</strong> After the file is successfully uploaded.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Allow Auto-Logoff</strong></p>
-<p class="tableblock">If enabled, the user is prompted before a file transfer begins whether they want to log off automatically after an upload or download is complete.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>No Immediate U/D Credits</strong></p>
+</div>
+<div class="paragraph">
+<p>When a file is uploaded, credits are awarded:</p>
+</div>
+<div class="paragraph">
+<p><strong>Enabled:</strong> After the SysOp or a SubOp validates the file.</p>
+</div>
+<div class="paragraph">
+<p><strong>Disabled:</strong> After the file is successfully uploaded.</p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>22&#160;Unv&#160;23</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Allow Auto-Logoff</strong></p>
+</div>
+<div class="paragraph">
+<p>If enabled, the user is prompted before a file transfer begins whether they want to log off automatically after an upload or download is complete.</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Trc</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>On-Screen Trace Enable</strong></p>
-<p class="tableblock">Enable BASIC line execution trace, which appears as <code>L=xxxxx</code> between the receive and transmit windows on the screen mask.
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>On-Screen Trace Enable</strong></p>
+</div>
+<div class="paragraph">
+<p>Enable BASIC line execution trace, which appears as <code>L=xxxxx</code> between the receive and transmit windows on the screen mask.
 Slow down execution by holding <kbd>Ctrl</kbd>.
-Normally this is only used for debugging.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Time: Reset Clock</strong></p>
-<p class="tableblock">Poll CMD RTC every few hours to correct BBS clock drift, if running in emulation.</p></td>
+Normally this is only used for debugging.</p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>24&#160;Trc&#160;25</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Time: Reset Clock</strong></p>
+</div>
+<div class="paragraph">
+<p>Poll CMD RTC every few hours to correct BBS clock drift, if running in emulation.</p>
+</div>
+<div class="paragraph">
+<p>This is handled by an alarm. If you don&#8217;t want this behavior, disable <code>At1</code> (Alarm Trigger 1).</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Bel</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Local Bells Enable</strong></p>
-<p class="tableblock">Description.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Local Beeps Disable</strong></p>
-<p class="tableblock">Description.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Local Bells Enable</strong></p>
+</div>
+<div class="paragraph">
+<p>Bells [<code>chr$(7</code>), <span class="keyseq"><kbd>Ctrl</kbd>+<kbd>G</kbd></span>, or the MCI command <code>&#163;b<em>x</em></code>] sent to the user are heard on the console also.</p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>26&#160;Bel&#160;27</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Local Beeps Disable</strong></p>
+</div>
+<div class="paragraph">
+<p>This prevents beep sound effects from being played when a <code>&amp;,25[,0]</code> command is encountered.</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Net</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>NetMail Enable</strong></p>
-<p class="tableblock">Description.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>NetMail Trigger</strong></p>
-<p class="tableblock">Description.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>NetMail Enable</strong></p>
+</div>
+<div class="paragraph">
+<p>This allows NetMail options in the E-Mail subsystem, NetSub options in the sub-boards, and NetMaint to process NetMail and NetSubs.</p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>28&#160;Net&#160;29</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>NetMail Trigger</strong></p>
+</div>
+<div class="paragraph">
+<p>This indicates that NetMail processing will take place at the next available opportunity.
+This could be the usual 3-4 AM window, or occur because of a NetMail alarm trigger running at a specific time.</p>
+</div>
+<div class="paragraph">
+<p><em>(BBS-controlled)</em></p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Mac</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Macros On/Off</strong></p>
-<p class="tableblock">Description.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>MCI Disable in Editor</strong></p>
-<p class="tableblock">Description.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Macros On/Off</strong></p>
+</div>
+<div class="paragraph">
+<p>At the main prompt, random sayings from <code>e.say</code> are displayed.</p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>30&#160;Mac&#160;31</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>MCI Disable in Editor</strong></p>
+</div>
+<div class="paragraph">
+<p>The user won&#8217;t be able to type the British pound sign (<kbd>&#163;</kbd>) to enter MCI commands.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 22. Lightbar, page 3</caption>
+<caption class="title">Table 23. Lightbar, page 3</caption>
 <colgroup>
 <col style="width: 12.5%;">
 <col style="width: 12.5%;">
@@ -6665,7 +7004,7 @@ Normally this is only used for debugging.</p></td>
 </tr>
 </tbody>
 </table>
-<table class="tableblock frame-all grid-all stretch">
+<table class="tableblock frame-all grid-rows fit-content">
 <colgroup>
 <col>
 <col>
@@ -6673,72 +7012,165 @@ Normally this is only used for debugging.</p></td>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Option</th>
 <th class="tableblock halign-left valign-top">Left</th>
+<th class="tableblock halign-center valign-top">Label</th>
 <th class="tableblock halign-left valign-top">Right</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Chk</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Enable MailCheck at Logon</strong></p>
-<p class="tableblock">Enables <kbd>M</kbd><code>ail Check</code> option when user logs in.
-If chosen, this option allows the user to see whether they have e-mail waiting for them; they can then decide if they wish to log on to the BBS or not.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Excessive Chat Logoff</strong></p>
-<p class="tableblock">If the user requests more unanswered chat pages than <code>s.chat <em>x</em></code> (<em>x</em> being the chat attempt number) screens exist, the user is logged off as soon as possible.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Enable MailCheck at Logon</strong></p>
+</div>
+<div class="paragraph">
+<p>Enables <kbd>M</kbd><code>ail Check</code> option when user logs in.
+If chosen, this option allows the user to see whether they have e-mail waiting for them; they can then decide if they wish to log on to the BBS or not.</p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>32&#160;Chk&#160;33</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Excessive Chat Logoff</strong></p>
+</div>
+<div class="paragraph">
+<p>If the user requests more unanswered chat pages than <code>s.chat <em>x</em></code> (<em>x</em> being the chat attempt number) screens exist, the user is logged off as soon as possible.</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Mor</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>&#8230;&#8203;More (Y/n)?</code> Prompt On</strong></p>
-<p class="tableblock">Description.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>&#8230;&#8203;More (Y/n)?</code> Prompt Not Available</strong></p>
-<p class="tableblock">Description.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>&#8230;&#8203;More (Y/n)?</code> Prompt On</strong></p>
+</div>
+<div class="paragraph">
+<p>Enables page pause functionality.
+If there are more lines of text output than the user&#8217;s screen height, output pauses with this prompt until a key is hit.</p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>34&#160;Mor&#160;35</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>&#8230;&#8203;More (Y/n)?</code> Prompt Not Available</strong></p>
+</div>
+<div class="paragraph">
+<p>This disables the <code>More</code> prompt (<em>e.g.</em>, handy in the Movie File section to avoid viewing interruptions).</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Frd</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Full-Color Read Disable</strong></p>
-<p class="tableblock">Disable outputting color to caller.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Undefined</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Full-Color Read Disable</strong></p>
+</div>
+<div class="paragraph">
+<p>Disable outputting color to caller.</p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>36&#160;Frd&#160;37</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Sub</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Message Bases Closed (SB)</strong></p>
-<p class="tableblock">Description.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Files Section Closed (GF)</strong></p>
-<p class="tableblock">Description.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Message Bases Closed (SB)</strong></p>
+</div>
+<div class="paragraph">
+<p>Prevents users from entering the Sub Boards section.</p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>38&#160;Sub&#160;39</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Files Section Closed (GF)</strong></p>
+</div>
+<div class="paragraph">
+<p>Prevents users from entering the General Files section.</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Res</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>System Reserved (Default PW)</strong></p>
-<p class="tableblock">Description.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Network Reserve</strong></p>
-<p class="tableblock">Description.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>System Reserved</strong></p>
+</div>
+<div class="paragraph">
+<p>When a user logs in, they will be notified the BBS is reserved, and a password is required to access it.
+Upon entry of the correct password, the user is granted access to your  BBS.
+If the BBS is only reserved for one call, the reservation settings are cleared.</p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>40&#160;Res&#160;41</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Network Reserved</strong></p>
+</div>
+<div class="paragraph">
+<p>Nightly NetMaint is running, and a caller during this time will be notified of this and told to call back later.</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Mnt</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Undefined</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Modem Answer Disabled</strong></p>
-<p class="tableblock">Description.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>42&#160;Mnt&#160;43</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Modem Answer Disabled</strong></p>
+</div>
+<div class="paragraph">
+<p>Don&#8217;t answer incoming calls.</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Mnu</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Is User in Menu Mode?</strong></p>
-<p class="tableblock">Description.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Are Menus Available on BBS?</strong></p>
-<p class="tableblock">Description.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Is User in Menu Mode?</strong></p>
+</div>
+<div class="paragraph">
+<p>If Graphic Menus are available, this indicates the user&#8217;s Graphic Menu mode is enabled.
+Toggle with <kbd>GM</kbd>.</p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>44&#160;Mnu&#160;45</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Are Menus Available on BBS?</strong></p>
+</div>
+<div class="paragraph">
+<p>This indicates Graphic Menus are available to users in Commodore Color/Graphics or ANSI graphics modes.</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Xpr</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Enable Express Logon</strong></p>
-<p class="tableblock">Enables <kbd>X</kbd><code>press Logon</code> option when user logs in.
-If chosen, this option skips most login modules, going to main prompt as quickly as possible.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Use <code>s.detect</code> Files</strong></p>
-<p class="tableblock">Description.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Enable Express Logon</strong></p>
+</div>
+<div class="paragraph">
+<p>Enables <kbd>X</kbd><code>press Logon</code> option when user logs in.
+If chosen, this option skips most login modules, going to main prompt as quickly as possible.</p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>46&#160;Xpr&#160;47</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Use <code>s.detect</code> Files</strong></p>
+</div>
+<div class="paragraph">
+<p>After the user first connects and hits <kbd>Delete</kbd> or <kbd>Backspace</kbd> to determine their graphics mode, this option displays a file, <code>s.detect&#160;<em>x</em></code>.</p>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><em>x</em></th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ASCII</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Commodore C/G</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ANSI</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>&#13;</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 23. Lightbar, page 4</caption>
+<caption class="title">Table 24. Lightbar, page 4</caption>
 <colgroup>
 <col style="width: 12.5%;">
 <col style="width: 12.5%;">
@@ -6762,7 +7194,7 @@ If chosen, this option skips most login modules, going to main prompt as quickly
 </tr>
 </tbody>
 </table>
-<table class="tableblock frame-all grid-all stretch">
+<table class="tableblock frame-all grid-rows fit-content">
 <colgroup>
 <col>
 <col>
@@ -6771,68 +7203,132 @@ If chosen, this option skips most login modules, going to main prompt as quickly
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Option</th>
-<th class="tableblock halign-left valign-top">Left</th>
+<th class="tableblock halign-center valign-top">Left</th>
 <th class="tableblock halign-left valign-top">Right</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Em3</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Emulate Image 1.x mode</strong></p>
-<p class="tableblock">Run Image 1.<em>x</em> <code>+</code> files.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Undefined</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Emulate Image 1.x mode</strong></p>
+</div>
+<div class="paragraph">
+<p>Run Image 1.<em>x</em> <code>+</code> files, if they&#8217;ve been renumbered to lines <code>3000-</code>.</p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>48&#160;Em3&#160;49</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Sc2</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Disable 2nd Security Check</strong></p>
-<p class="tableblock">During login, a second login security question is not asked (first/last names, e-mail address)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Undefined</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Disable 2nd Security Check</strong></p>
+</div>
+<div class="paragraph">
+<p>During login, a second login security question is not asked (first or last names, e-mail address).</p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>50&#160;Sc2&#160;51</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Scp</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>SuperCPU Present</strong></p>
-<p class="tableblock">A CMD SuperCPU is connected to the C64.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Turbo Mode On</strong></p>
-<p class="tableblock">A CMD SuperCPU is operating in 20 mHz mode.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>SuperCPU Present</strong></p>
+</div>
+<div class="paragraph">
+<p>A CMD SuperCPU is connected to the C64.</p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>52&#160;Scp&#160;53</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Turbo Mode On</strong></p>
+</div>
+<div class="paragraph">
+<p>A CMD SuperCPU is operating in 20 mHz mode.</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Alt</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alt last 10 callers display</strong></p>
-<p class="tableblock">Display idle screen last ten callers in different colors.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Undefined</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Alt last 10 callers display</strong></p>
+</div>
+<div class="paragraph">
+<p>Display the last ten callers on the idle screen in different colors.</p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>54&#160;Alt&#160;55</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Trb</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Disable Troubleshooting Mode</strong></p>
-<p class="tableblock"><strong>Enabled:</strong> Don&#8217;t display values of variables in programmable window for troubleshooting purposes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Undefined</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Disable Troubleshooting Mode</strong></p>
+</div>
+<div class="paragraph">
+<p>Don&#8217;t display values of variables in the 16-character programmable window for troubleshooting purposes.</p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>56&#160;Trb&#160;57</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DCD</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Invert DCD</strong></p>
-<p class="tableblock"><strong>Enabled:</strong> Hang up when inverted (asserted when high) <em>Data Carrier Detect</em> signal received.</p>
-<p class="tableblock"><strong>Disabled:</strong> Hang up when normal (asserted when low) DCD signal received.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Carrier Present</strong></p>
-<p class="tableblock"><em>(BBS controlled)</em> A modem carrier signal is present (user is online).</p>
-<p class="tableblock">Check in BASIC using <code>&amp;,52,$3b,3:if a% then &#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Invert DCD</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Enabled:</strong> Hang up when inverted (asserted when high) Data Carrier Detect (DCD) signal received.</p>
+</div>
+<div class="paragraph">
+<p><strong>Disabled:</strong> Hang up when normal (asserted when low) DCD signal received.</p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>58&#160;DCD&#160;59</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Carrier Present</strong></p>
+</div>
+<div class="paragraph">
+<p><em>(BBS controlled)</em></p>
+</div>
+<div class="paragraph">
+<p>A modem carrier signal is present (a user is online).</p>
+</div>
+<div class="paragraph">
+<p>Check in BASIC using:</p>
+</div>
+<div class="paragraph">
+<p><code>&amp;,52,$3b,3:if a% then &#8230;&#8203;</code></p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DSR</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>DCD or DSR Hangup</strong></p>
-<p class="tableblock"><strong>Enabled</strong>: Hang up on no <em>Data Set Ready</em> signal.</p>
-<p class="tableblock"><strong>Disabled</strong>: Hang up on no DCD signal</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Enable Rx/Tx Windows</strong></p>
-<p class="tableblock"><strong>Enabled</strong>: Show data being received/transmitted in 10-character windows on the bottom screen mask.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>DCD or DSR Hangup</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Enabled</strong>: Hang up on no Data Set Ready (DSR) signal.</p>
+</div>
+<div class="paragraph">
+<p><strong>Disabled</strong>: Hang up on no DCD signal.</p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>60&#160;DSR&#160;61</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Enable Rx/Tx Windows</strong></p>
+</div>
+<div class="paragraph">
+<p>Show data being received and transmitted in 10-character windows on the bottom screen mask.</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$3e</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Undefined</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Undefined</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>62&#160;$3e&#160;63</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 24. Lightbar, page 5</caption>
+<caption class="title">Table 25. Lightbar, page 5</caption>
 <colgroup>
 <col style="width: 12.5%;">
 <col style="width: 12.5%;">
@@ -6856,8 +7352,99 @@ If chosen, this option skips most login modules, going to main prompt as quickly
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>Page 5 is undefined and is available for your own use.</p>
+</div>
+<table class="tableblock frame-all grid-rows stretch">
+<colgroup>
+<col style="width: 45%;">
+<col style="width: 10%;">
+<col style="width: 45%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Left</th>
+<th class="tableblock halign-center valign-top">Label</th>
+<th class="tableblock halign-left valign-top">Right</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>64&#160;$40&#160;65</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>66&#160;$42&#160;67</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>68&#160;$44&#160;69</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>70&#160;$46&#160;71</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>72&#160;$48&#160;73</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>74&#160;$4a&#160;75</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>76&#160;$4c&#160;77</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>78&#160;$4e&#160;79</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 25. Lightbar, page 6</caption>
+<caption class="title">Table 26. Lightbar, page 6</caption>
 <colgroup>
 <col style="width: 12.5%;">
 <col style="width: 12.5%;">
@@ -6881,8 +7468,99 @@ If chosen, this option skips most login modules, going to main prompt as quickly
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>Page 6 is undefined and is available for your own use.</p>
+</div>
+<table class="tableblock frame-all grid-rows stretch">
+<colgroup>
+<col style="width: 45%;">
+<col style="width: 10%;">
+<col style="width: 45%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Left</th>
+<th class="tableblock halign-center valign-top">Label</th>
+<th class="tableblock halign-left valign-top">Right</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>80&#160;$50&#160;81</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>82&#160;$52&#160;83</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>84&#160;$54&#160;85</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>86&#160;$56&#160;87</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>88&#160;$58&#160;89</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>90&#160;$5a&#160;91</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>92&#160;$5c&#160;93</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>94&#160;$5e&#160;95</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 26. Lightbar, page 7</caption>
+<caption class="title">Table 27. Lightbar, page 7</caption>
 <colgroup>
 <col style="width: 12.5%;">
 <col style="width: 12.5%;">
@@ -6907,10 +7585,98 @@ If chosen, this option skips most login modules, going to main prompt as quickly
 </tbody>
 </table>
 <div class="paragraph">
-<p>Pages 5-7 are undefined and are available for your own use.</p>
+<p>Page 7 is undefined and is available for your own use.</p>
 </div>
+<table class="tableblock frame-all grid-rows stretch">
+<colgroup>
+<col style="width: 45%;">
+<col style="width: 10%;">
+<col style="width: 45%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Left</th>
+<th class="tableblock halign-center valign-top">Label</th>
+<th class="tableblock halign-left valign-top">Right</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>96&#160;$60&#160;97</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>98&#160;$62&#160;99</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>100&#160;$64&#160;101</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>102&#160;$66&#160;103</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>104&#160;$68&#160;105</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>106&#160;$6a&#160;107</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>108&#160;$6c&#160;109</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>110&#160;$6e&#160;111</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Undefined</em></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 27. Lightbar, page 8</caption>
+<caption class="title">Table 28. Lightbar, page 8</caption>
 <colgroup>
 <col style="width: 12.5%;">
 <col style="width: 12.5%;">
@@ -6934,69 +7700,109 @@ If chosen, this option skips most login modules, going to main prompt as quickly
 </tr>
 </tbody>
 </table>
-<table class="tableblock frame-all grid-all stretch">
+<div class="paragraph">
+<p>Page 8 consists of 16 Alarm Triggers.
+Alarms can modify lightbar checkmarks, and more.</p>
+</div>
+<div class="paragraph">
+<p><mark>TODO:</mark> For more information, see the section <em>IM: Lightbar Alarms</em>.</p>
+</div>
+<table class="tableblock frame-all grid-rows stretch">
 <colgroup>
-<col>
-<col>
-<col>
+<col style="width: 45%;">
+<col style="width: 10%;">
+<col style="width: 45%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Option</th>
 <th class="tableblock halign-left valign-top">Left</th>
+<th class="tableblock halign-center valign-top">Label</th>
 <th class="tableblock halign-left valign-top">Right</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>At1</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>x</p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>112&#160;At1&#160;113</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>x</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>At2</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>x</p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>114&#160;At2&#160;115</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>x</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>At3</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>x</p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>116&#160;At3&#160;117</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>x</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>At4</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>x</p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>118&#160;At4&#160;119</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>x</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>At5</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>x</p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>120&#160;At5&#160;121</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>x</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>At6</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>x</p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>122&#160;At6&#160;123</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>x</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>At7</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>x</p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>124&#160;At7&#160;125</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>x</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>At8</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>x</p>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>126&#160;At8&#160;117</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>x</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
+</div>
 <div id="footer">
 <div id="footer-text">
 Version 0.1<br>
-Last updated 2021-09-03 12:34:16 -0700
+Last updated 2022-10-21 14:31:20 -0700
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">
