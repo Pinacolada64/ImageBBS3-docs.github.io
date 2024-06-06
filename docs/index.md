@@ -4,7 +4,7 @@
 
 [Table of Contents mockup](https://pinacolada64.github.io/ImageBBS3-docs.github.io/toc-mockup.html)
 
-[Image BBS 3.0 Sysop's Guide](https://pinacolada64.github.io/ImageBBS3-docs.github.io/Image-BBS-3-Sysop-Guide.html) (last updated 2024-06-06)
+[Image BBS 3.0 Sysop's Guide](https://pinacolada64.github.io/ImageBBS3-docs.github.io/Image-BBS-3-sysop-guide.html) (last updated 2024-06-06)
 
 [Image BBS 3.0 Programmer's Reference Guide](https://pinacolada64.github.io/ImageBBS3-docs.github.io/Image-BBS-3-PRG.html) (Last updated 2024-06-06)
 
