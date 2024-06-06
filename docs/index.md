@@ -1,29 +1,26 @@
-# Image BBS 3.0 documentation
+# Image BBS (for the Commodore 64) documentation
+
+## Image BBS 3.0 documentation
 
 [Table of Contents mockup](https://pinacolada64.github.io/ImageBBS3-docs.github.io/toc-mockup.html)
 
-[Image BBS 3.0 Sysop's Guide](https://pinacolada64.github.io/ImageBBS3-docs.github.io/Image-BBS-3.html) (last updated 10/21/2022)
+[Image BBS 3.0 Sysop's Guide](https://pinacolada64.github.io/ImageBBS3-docs.github.io/Image-BBS-3.html) (last updated 2024-06-06)
 
-* Lightbar appendix almost finished
-
-[Image BBS 3.0 Programmer's Reference Guide](https://pinacolada64.github.io/ImageBBS3-docs.github.io/Image-BBS-3-PRG.html) (Last updated 10/21/2022)
-
-* adding alpha structs programming documentation
-* more variables listed
+[Image BBS 3.0 Programmer's Reference Guide](https://pinacolada64.github.io/ImageBBS3-docs.github.io/Image-BBS-3-PRG.html) (Last updated 2024-06-06)
 
 [Changelog](https://pinacolada64.github.io/ImageBBS3-docs.github.io/CHANGELOG.md)
 
 [Image BBS 3.0 Message Command Interpreter Guide](https://pinacolada64.github.io/ImageBBS3-docs.github.io/mci.html)
 
-# Image BBS 1.2b documentation
+## Image BBS 1.2b documentation
 
-Added 7/2/2021 (_very_ rough draft):
+Added 2021-07-02 (_very_ rough draft):
 
 [Image BBS 1.2b documentation](https://pinacolada64.github.io/ImageBBS3-docs.github.io/12b-updated.html)
 
 [Image BBS 1.2b Text Editor guide](https://pinacolada64.github.io/ImageBBS3-docs.github.io/12b-text-editor.html)
 
-# Image BBS 1.2 documentation
+## Image BBS 1.2 documentation
 
 Web page version; AsciiDoctor version coming soon
 
