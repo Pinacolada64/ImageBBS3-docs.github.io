@@ -8,7 +8,7 @@
 
 [Image BBS 3.0 Programmer's Reference Guide](https://pinacolada64.github.io/ImageBBS3-docs.github.io/Image-BBS-3-PRG.html) (Last updated 2024-06-06)
 
-[Changelog](https://pinacolada64.github.io/ImageBBS3-docs.github.io/CHANGELOG.md)
+[Changelog](https://pinacolada64.github.io/ImageBBS3-docs.github.io/CHANGELOG.adoc)
 
 [Image BBS 3.0 Message Command Interpreter Guide](https://pinacolada64.github.io/ImageBBS3-docs.github.io/mci.html)
 
